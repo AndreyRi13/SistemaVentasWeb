@@ -6,9 +6,7 @@
 package DTO;
 
 import java.io.Serializable;
-import java.util.Collection;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,10 +14,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -52,8 +48,6 @@ public class Producto implements Serializable {
     private Integer stock;
     @Column(name = "Estado")
     private String estado;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "producto")
-    private Collection<DetalleVentas> detalleVentasCollection;
 
     public Producto() {
     }
@@ -100,15 +94,6 @@ public class Producto implements Serializable {
 
     public void setEstado(String estado) {
         this.estado = estado;
-    }
-
-    @XmlTransient
-    public Collection<DetalleVentas> getDetalleVentasCollection() {
-        return detalleVentasCollection;
-    }
-
-    public void setDetalleVentasCollection(Collection<DetalleVentas> detalleVentasCollection) {
-        this.detalleVentasCollection = detalleVentasCollection;
     }
 
     @Override

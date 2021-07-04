@@ -22,6 +22,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Andrey R
  */
+
 public class Validar extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -47,35 +48,27 @@ public class Validar extends HttpServlet {
 
     public void ingresar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
         String user = request.getParameter("txtuser");
         String pass = request.getParameter("txtpass");
-
         Login lg = new Login();
-
         Empleado empleado;
-
         empleado = lg.login(user, pass);
-
         if (empleado != null) {
             request.setAttribute("empleado", empleado);
-            RequestDispatcher dispatcher = request.getRequestDispatcher("./vistas/main.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("main.jsp");
             dispatcher.forward(request, response);
-
         } else {
-
             String mensaje = "Error - Usuario o contraseña Incorrecta";
             request.setAttribute("mensaje", mensaje);
-            RequestDispatcher dispatcher = request.getRequestDispatcher("./vistas/login.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");
             dispatcher.forward(request, response);
         }
-
     }
 
 
     public void login(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       RequestDispatcher dispatcher = request.getRequestDispatcher("./vistas/login.jsp");
+       RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");
             dispatcher.forward(request, response);
     }
 

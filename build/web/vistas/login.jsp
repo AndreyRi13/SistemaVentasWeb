@@ -13,16 +13,17 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-        <link rel="stylesheet" href="../fonts/icomoon/style.css">
-
-        <link rel="stylesheet" href="../css/owl.carousel.min.css">
+        <link href="../fonts/icomoon/style.css" rel="stylesheet" />
+        <link href="../css/owl.carousel.min.css" rel="stylesheet"/>
+  
 
         <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="../css/bootstrap.min.css">
+        <link href="../css/bootstrap.min.css" rel="stylesheet"/>
 
         <!-- Style -->
-        <link rel="stylesheet" href="../css/style.css">
+        <link href="../css/style.css" rel="stylesheet" />
 
         <title>Login</title>
     </head>
@@ -34,7 +35,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">
-                        <img src="./images/undraw_remotely_2j6y.svg" alt="Image" class="img-fluid">
+                        <img src="../images/undraw_remotely_2j6y.svg" alt="Image" class="img-fluid">
                     </div>
                     <div class="col-md-6 contents">
                         <div class="row justify-content-center">
@@ -91,17 +92,17 @@
                 </div>
             </div>
         </div>
-  <% //si ls respuesta de mi servlet es diferente a vacio
-                  if (request.getAttribute("mensaje") != null) {  //tendrìa que mandar a imprimir por medio del alert de abajo el mensaje de acceso correcto o incorrecto, pero no me lo muestra
-%>          
-                            <script>window.onload = function () {
+        <% //si ls respuesta de mi servlet es diferente a vacio
+            if (request.getAttribute("mensaje") != null) {  //tendrìa que mandar a imprimir por medio del alert de abajo el mensaje de acceso correcto o incorrecto, pero no me lo muestra
+        %>          
+        <script>window.onload = function () {
                                     alert("<%=request.getAttribute("mensaje")%>");
                                 };</script>
-                            <br>
-                           
-                            <%
-                                }
-                            %>
+        <br>
+
+        <%
+            }
+        %>
 
         <script src="../js/jquery-3.3.1.min.js"></script>
         <script src="../js/popper.min.js"></script>

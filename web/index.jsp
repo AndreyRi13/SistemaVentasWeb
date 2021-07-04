@@ -18,14 +18,14 @@
         <!-- Bootstrap icons-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
-
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link href="./css/styles.css" rel="stylesheet"/>
     </head>
     <body>
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container px-4 px-lg-5">
-                <a class="navbar-brand" href="#!">CAYSAM</a>
+                <a class="navbar-brand" href="#!">TIENDA</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
@@ -52,10 +52,10 @@
                         
                     </form>
                     
-                       
-                        <a href="<c:redirect url='vistas/login.jsp'/>" class="btn btn-outline-dark">Login</a>  
+                        <form class="d-flex col-lg-4" action="vistas/validar">
+                        <input type="submit" name="a" value="Login" class="btn btn-outline-dark"></input>  
                         
-                   
+                    </form>
                       </div>  
                         
                 </div>

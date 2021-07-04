@@ -62,8 +62,8 @@ public class Index implements Filter {
    }
         switch (action) {
             case "Login":
-               request.getRequestDispatcher("validar")
-    .forward(request, response);
+             RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");
+        dispatcher.forward(request, response);
                 break;
         
  

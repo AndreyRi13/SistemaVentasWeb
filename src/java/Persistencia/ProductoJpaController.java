@@ -5,20 +5,16 @@
  */
 package Persistencia;
 
+import DTO.Producto;
+import Persistencia.exceptions.NonexistentEntityException;
 import java.io.Serializable;
+import java.util.List;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
-import DTO.DetalleVentas;
-import DTO.Producto;
-import Persistencia.exceptions.IllegalOrphanException;
-import Persistencia.exceptions.NonexistentEntityException;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
 
 /**
  *
@@ -36,29 +32,11 @@ public class ProductoJpaController implements Serializable {
     }
 
     public void create(Producto producto) {
-        if (producto.getDetalleVentasCollection() == null) {
-            producto.setDetalleVentasCollection(new ArrayList<DetalleVentas>());
-        }
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            Collection<DetalleVentas> attachedDetalleVentasCollection = new ArrayList<DetalleVentas>();
-            for (DetalleVentas detalleVentasCollectionDetalleVentasToAttach : producto.getDetalleVentasCollection()) {
-                detalleVentasCollectionDetalleVentasToAttach = em.getReference(detalleVentasCollectionDetalleVentasToAttach.getClass(), detalleVentasCollectionDetalleVentasToAttach.getDetalleVentasPK());
-                attachedDetalleVentasCollection.add(detalleVentasCollectionDetalleVentasToAttach);
-            }
-            producto.setDetalleVentasCollection(attachedDetalleVentasCollection);
             em.persist(producto);
-            for (DetalleVentas detalleVentasCollectionDetalleVentas : producto.getDetalleVentasCollection()) {
-                Producto oldProductoOfDetalleVentasCollectionDetalleVentas = detalleVentasCollectionDetalleVentas.getProducto();
-                detalleVentasCollectionDetalleVentas.setProducto(producto);
-                detalleVentasCollectionDetalleVentas = em.merge(detalleVentasCollectionDetalleVentas);
-                if (oldProductoOfDetalleVentasCollectionDetalleVentas != null) {
-                    oldProductoOfDetalleVentasCollectionDetalleVentas.getDetalleVentasCollection().remove(detalleVentasCollectionDetalleVentas);
-                    oldProductoOfDetalleVentasCollectionDetalleVentas = em.merge(oldProductoOfDetalleVentasCollectionDetalleVentas);
-                }
-            }
             em.getTransaction().commit();
         } finally {
             if (em != null) {
@@ -67,45 +45,12 @@ public class ProductoJpaController implements Serializable {
         }
     }
 
-    public void edit(Producto producto) throws IllegalOrphanException, NonexistentEntityException, Exception {
+    public void edit(Producto producto) throws NonexistentEntityException, Exception {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            Producto persistentProducto = em.find(Producto.class, producto.getIdProducto());
-            Collection<DetalleVentas> detalleVentasCollectionOld = persistentProducto.getDetalleVentasCollection();
-            Collection<DetalleVentas> detalleVentasCollectionNew = producto.getDetalleVentasCollection();
-            List<String> illegalOrphanMessages = null;
-            for (DetalleVentas detalleVentasCollectionOldDetalleVentas : detalleVentasCollectionOld) {
-                if (!detalleVentasCollectionNew.contains(detalleVentasCollectionOldDetalleVentas)) {
-                    if (illegalOrphanMessages == null) {
-                        illegalOrphanMessages = new ArrayList<String>();
-                    }
-                    illegalOrphanMessages.add("You must retain DetalleVentas " + detalleVentasCollectionOldDetalleVentas + " since its producto field is not nullable.");
-                }
-            }
-            if (illegalOrphanMessages != null) {
-                throw new IllegalOrphanException(illegalOrphanMessages);
-            }
-            Collection<DetalleVentas> attachedDetalleVentasCollectionNew = new ArrayList<DetalleVentas>();
-            for (DetalleVentas detalleVentasCollectionNewDetalleVentasToAttach : detalleVentasCollectionNew) {
-                detalleVentasCollectionNewDetalleVentasToAttach = em.getReference(detalleVentasCollectionNewDetalleVentasToAttach.getClass(), detalleVentasCollectionNewDetalleVentasToAttach.getDetalleVentasPK());
-                attachedDetalleVentasCollectionNew.add(detalleVentasCollectionNewDetalleVentasToAttach);
-            }
-            detalleVentasCollectionNew = attachedDetalleVentasCollectionNew;
-            producto.setDetalleVentasCollection(detalleVentasCollectionNew);
             producto = em.merge(producto);
-            for (DetalleVentas detalleVentasCollectionNewDetalleVentas : detalleVentasCollectionNew) {
-                if (!detalleVentasCollectionOld.contains(detalleVentasCollectionNewDetalleVentas)) {
-                    Producto oldProductoOfDetalleVentasCollectionNewDetalleVentas = detalleVentasCollectionNewDetalleVentas.getProducto();
-                    detalleVentasCollectionNewDetalleVentas.setProducto(producto);
-                    detalleVentasCollectionNewDetalleVentas = em.merge(detalleVentasCollectionNewDetalleVentas);
-                    if (oldProductoOfDetalleVentasCollectionNewDetalleVentas != null && !oldProductoOfDetalleVentasCollectionNewDetalleVentas.equals(producto)) {
-                        oldProductoOfDetalleVentasCollectionNewDetalleVentas.getDetalleVentasCollection().remove(detalleVentasCollectionNewDetalleVentas);
-                        oldProductoOfDetalleVentasCollectionNewDetalleVentas = em.merge(oldProductoOfDetalleVentasCollectionNewDetalleVentas);
-                    }
-                }
-            }
             em.getTransaction().commit();
         } catch (Exception ex) {
             String msg = ex.getLocalizedMessage();
@@ -123,7 +68,7 @@ public class ProductoJpaController implements Serializable {
         }
     }
 
-    public void destroy(Integer id) throws IllegalOrphanException, NonexistentEntityException {
+    public void destroy(Integer id) throws NonexistentEntityException {
         EntityManager em = null;
         try {
             em = getEntityManager();
@@ -134,17 +79,6 @@ public class ProductoJpaController implements Serializable {
                 producto.getIdProducto();
             } catch (EntityNotFoundException enfe) {
                 throw new NonexistentEntityException("The producto with id " + id + " no longer exists.", enfe);
-            }
-            List<String> illegalOrphanMessages = null;
-            Collection<DetalleVentas> detalleVentasCollectionOrphanCheck = producto.getDetalleVentasCollection();
-            for (DetalleVentas detalleVentasCollectionOrphanCheckDetalleVentas : detalleVentasCollectionOrphanCheck) {
-                if (illegalOrphanMessages == null) {
-                    illegalOrphanMessages = new ArrayList<String>();
-                }
-                illegalOrphanMessages.add("This Producto (" + producto + ") cannot be destroyed since the DetalleVentas " + detalleVentasCollectionOrphanCheckDetalleVentas + " in its detalleVentasCollection field has a non-nullable producto field.");
-            }
-            if (illegalOrphanMessages != null) {
-                throw new IllegalOrphanException(illegalOrphanMessages);
             }
             em.remove(producto);
             em.getTransaction().commit();

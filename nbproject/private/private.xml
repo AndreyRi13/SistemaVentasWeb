@@ -1,33 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1">
+        <file>
+            <url>web/index.jsp</url>
+            <bookmark id="1">
+                <name/>
+                <line>55</line>
+                <key/>
+            </bookmark>
+        </file>
+    </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/D:/DATOS%20USER/Documents/NetBeansProjects/SistemasVentasWeb/nbproject/build-impl.xml</file>
+            <file>file:/D:/DATOS%20USER/Documents/NetBeansProjects/SistemasVentasWeb/web/WEB-INF/web.xml</file>
             <file>file:/D:/DATOS%20USER/Documents/NetBeansProjects/SistemasVentasWeb/src/java/Control/Validar.java</file>
             <file>file:/D:/DATOS%20USER/Documents/NetBeansProjects/SistemasVentasWeb/src/java/DAO/DatalleVentasDAO.java</file>
+            <file>file:/D:/DATOS%20USER/Documents/NetBeansProjects/SistemasVentasWeb/src/java/Persistencia/EmpleadoJpaController.java</file>
+            <file>file:/D:/DATOS%20USER/Documents/NetBeansProjects/SistemasVentasWeb/web/vistas/agregarProducto.jsp</file>
+            <file>file:/D:/DATOS%20USER/Documents/NetBeansProjects/SistemasVentasWeb/web/css/style.css</file>
+            <file>file:/D:/DATOS%20USER/Documents/NetBeansProjects/SistemasVentasWeb/web/vistas/agregarEmpleado.jsp</file>
+            <file>file:/D:/DATOS%20USER/Documents/NetBeansProjects/SistemasVentasWeb/web/vistas/editarEmpleado.jsp</file>
             <file>file:/D:/DATOS%20USER/Documents/NetBeansProjects/SistemasVentasWeb/src/java/Negocio/N_Inicio.java</file>
             <file>file:/D:/DATOS%20USER/Documents/NetBeansProjects/SistemasVentasWeb/web/META-INF/context.xml</file>
-            <file>file:/D:/DATOS%20USER/Documents/NetBeansProjects/SistemasVentasWeb/src/java/DTO/Ventas.java</file>
+            <file>file:/D:/DATOS%20USER/Documents/NetBeansProjects/SistemasVentasWeb/web/vistas/agregarVentas.jsp</file>
             <file>file:/D:/DATOS%20USER/Documents/NetBeansProjects/SistemasVentasWeb/src/java/Control/Index.java</file>
+            <file>file:/D:/DATOS%20USER/Documents/NetBeansProjects/SistemasVentasWeb/web/vistas/listaClientes.jsp</file>
             <file>file:/D:/DATOS%20USER/Documents/NetBeansProjects/SistemasVentasWeb/web/css/styles.css</file>
             <file>file:/D:/DATOS%20USER/Documents/NetBeansProjects/SistemasVentasWeb/web/css/styles_main.css</file>
+            <file>file:/D:/DATOS%20USER/Documents/NetBeansProjects/SistemasVentasWeb/web/vistas/login.jsp</file>
             <file>file:/D:/DATOS%20USER/Documents/NetBeansProjects/SistemasVentasWeb/src/java/DTO/Empleado.java</file>
             <file>file:/D:/DATOS%20USER/Documents/NetBeansProjects/SistemasVentasWeb/src/java/Control/Controlador.java</file>
             <file>file:/D:/DATOS%20USER/Documents/NetBeansProjects/SistemasVentasWeb/src/java/Negocio/Login.java</file>
             <file>file:/D:/DATOS%20USER/Documents/NetBeansProjects/SistemasVentasWeb/src/java/DAO/VentasDAO.java</file>
             <file>file:/D:/DATOS%20USER/Documents/NetBeansProjects/SistemasVentasWeb/web/index.jsp</file>
+            <file>file:/D:/DATOS%20USER/Documents/NetBeansProjects/SistemasVentasWeb/web/js/administrar.js</file>
+            <file>file:/D:/DATOS%20USER/Documents/NetBeansProjects/SistemasVentasWeb/src/java/Negocio/Administrar.java</file>
             <file>file:/D:/DATOS%20USER/Documents/NetBeansProjects/SistemasVentasWeb/src/java/DAO/ProductoDAO.java</file>
             <file>file:/D:/DATOS%20USER/Documents/NetBeansProjects/SistemasVentasWeb/src/java/DAO/EmpleadoDAO.java</file>
-            <file>file:/D:/DATOS%20USER/Documents/NetBeansProjects/SistemasVentasWeb/src/java/Persistencia/ProductoJpaController.java</file>
-            <file>file:/D:/DATOS%20USER/Documents/NetBeansProjects/SistemasVentasWeb/src/java/Persistencia/VentasJpaController.java</file>
+            <file>file:/D:/DATOS%20USER/Documents/NetBeansProjects/SistemasVentasWeb/web/vistas/main.jsp</file>
             <file>file:/D:/DATOS%20USER/Documents/NetBeansProjects/SistemasVentasWeb/web/js/main.js</file>
             <file>file:/D:/DATOS%20USER/Documents/NetBeansProjects/SistemasVentasWeb/src/java/DAO/Conexion.java</file>
+            <file>file:/D:/DATOS%20USER/Documents/NetBeansProjects/SistemasVentasWeb/web/vistas/listaEmpleado.jsp</file>
             <file>file:/D:/DATOS%20USER/Documents/NetBeansProjects/SistemasVentasWeb/web/js/owl.carousel.min.js</file>
+            <file>file:/D:/DATOS%20USER/Documents/NetBeansProjects/SistemasVentasWeb/src/conf/persistence.xml</file>
             <file>file:/D:/DATOS%20USER/Documents/NetBeansProjects/SistemasVentasWeb/web/css/owl.carousel.min.css</file>
             <file>file:/D:/DATOS%20USER/Documents/NetBeansProjects/SistemasVentasWeb/src/java/DAO/ClienteDAO.java</file>
             <file>file:/D:/DATOS%20USER/Documents/NetBeansProjects/SistemasVentasWeb/web/js/scripts.js</file>
-            <file>file:/D:/DATOS%20USER/Documents/NetBeansProjects/SistemasVentasWeb/src/java/DTO/Producto.java</file>
         </group>
     </open-files>
 </project-private>

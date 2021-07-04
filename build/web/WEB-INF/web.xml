@@ -6,11 +6,11 @@
     </filter>
     <filter-mapping>
         <filter-name>Index</filter-name>
-        <url-pattern>/*</url-pattern>
+        <servlet-name>Inicio</servlet-name>
     </filter-mapping>
     <filter-mapping>
         <filter-name>Index</filter-name>
-        <servlet-name>Inicio</servlet-name>
+        <url-pattern>/inicio</url-pattern>
     </filter-mapping>
     <servlet>
         <servlet-name>Controlador</servlet-name>
@@ -22,11 +22,11 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>Controlador</servlet-name>
-        <url-pattern>/controlador</url-pattern>
+        <url-pattern>/vistas/controlador</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>Validar</servlet-name>
-        <url-pattern>/validar</url-pattern>
+        <url-pattern>/vistas/validar</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

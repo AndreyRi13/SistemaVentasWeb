@@ -6,9 +6,7 @@
 package DTO;
 
 import java.io.Serializable;
-import java.util.Collection;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,10 +14,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -55,8 +51,6 @@ public class Empleado implements Serializable {
     private String estado;
     @Column(name = "User")
     private String user;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idEmpleado")
-    private Collection<Ventas> ventasCollection;
 
     public Empleado() {
     }
@@ -69,6 +63,18 @@ public class Empleado implements Serializable {
         this.idEmpleado = idEmpleado;
         this.dni = dni;
     }
+
+    public Empleado(Integer idEmpleado, String dni, String nombres, String telefono, String estado, String user) {
+        super();
+        this.idEmpleado = idEmpleado;
+        this.dni = dni;
+        this.nombres = nombres;
+        this.telefono = telefono;
+        this.estado = estado;
+        this.user = user;
+    }
+    
+    
 
     public Integer getIdEmpleado() {
         return idEmpleado;
@@ -116,15 +122,6 @@ public class Empleado implements Serializable {
 
     public void setUser(String user) {
         this.user = user;
-    }
-
-    @XmlTransient
-    public Collection<Ventas> getVentasCollection() {
-        return ventasCollection;
-    }
-
-    public void setVentasCollection(Collection<Ventas> ventasCollection) {
-        this.ventasCollection = ventasCollection;
     }
 
     @Override
