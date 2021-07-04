@@ -26,46 +26,40 @@ import javax.servlet.ServletResponse;
  * @author Andrey R
  */
 public class Index implements Filter {
-    
+
     private static final boolean debug = true;
 
     private FilterConfig filterConfig = null;
-    
+
     public Index() {
-    }    
-    
-    private void doBeforeProcessing(ServletRequest request, ServletResponse response)
-            throws IOException, ServletException {
-        
-    }    
-    
-    private void doAfterProcessing(ServletRequest request, ServletResponse response)
-            throws IOException, ServletException {
-        
     }
 
-   
+    private void doBeforeProcessing(ServletRequest request, ServletResponse response)
+            throws IOException, ServletException {
+
+    }
+
+    private void doAfterProcessing(ServletRequest request, ServletResponse response)
+            throws IOException, ServletException {
+
+    }
+
     public void doFilter(ServletRequest request, ServletResponse response,
             FilterChain chain)
             throws IOException, ServletException {
-        
-        
-   String action = request.getParameter("a");
-     
-   if(action==null){
-       ProductoDAO pr = new ProductoDAO();
-        List<Producto> product = pr.readProductos();
-        request.setAttribute("productos", product);     
-        RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
-        dispatcher.forward(request, response);
-   
-   }
-        switch (action) {
-            case "Login":
-             RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");
-        dispatcher.forward(request, response);
-                break;
-        
+
+        String action = request.getParameter("a");
+
+        if (action == null) {
+            ProductoDAO pr = new ProductoDAO();
+            List<Producto> product = pr.readProductos();
+            request.setAttribute("productos", product);
+            RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
+            dispatcher.forward(request, response);
+
+        } else if ("Login".equals(action)){
+            RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");
+            dispatcher.forward(request, response);
  
         }
     }
@@ -74,7 +68,6 @@ public class Index implements Filter {
         return (this.filterConfig);
     }
 
-
     public void setFilterConfig(FilterConfig filterConfig) {
         this.filterConfig = filterConfig;
     }
@@ -82,16 +75,16 @@ public class Index implements Filter {
     /**
      * Destroy method for this filter
      */
-    public void destroy() {        
+    public void destroy() {
     }
 
     /**
      * Init method for this filter
      */
-    public void init(FilterConfig filterConfig) {        
+    public void init(FilterConfig filterConfig) {
         this.filterConfig = filterConfig;
         if (filterConfig != null) {
-            if (debug) {                
+            if (debug) {
                 log("Index:Initializing filter");
             }
         }
@@ -110,20 +103,20 @@ public class Index implements Filter {
         sb.append(")");
         return (sb.toString());
     }
-    
+
     private void sendProcessingError(Throwable t, ServletResponse response) {
-        String stackTrace = getStackTrace(t);        
-        
+        String stackTrace = getStackTrace(t);
+
         if (stackTrace != null && !stackTrace.equals("")) {
             try {
                 response.setContentType("text/html");
                 PrintStream ps = new PrintStream(response.getOutputStream());
-                PrintWriter pw = new PrintWriter(ps);                
+                PrintWriter pw = new PrintWriter(ps);
                 pw.print("<html>\n<head>\n<title>Error</title>\n</head>\n<body>\n"); //NOI18N
 
                 // PENDING! Localize this for next official release
-                pw.print("<h1>The resource did not process correctly</h1>\n<pre>\n");                
-                pw.print(stackTrace);                
+                pw.print("<h1>The resource did not process correctly</h1>\n<pre>\n");
+                pw.print(stackTrace);
                 pw.print("</pre></body>\n</html>"); //NOI18N
                 pw.close();
                 ps.close();
@@ -140,7 +133,7 @@ public class Index implements Filter {
             }
         }
     }
-    
+
     public static String getStackTrace(Throwable t) {
         String stackTrace = null;
         try {
@@ -154,9 +147,9 @@ public class Index implements Filter {
         }
         return stackTrace;
     }
-    
+
     public void log(String msg) {
-        filterConfig.getServletContext().log(msg);        
+        filterConfig.getServletContext().log(msg);
     }
-    
+
 }

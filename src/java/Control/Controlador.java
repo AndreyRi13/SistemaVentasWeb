@@ -73,7 +73,8 @@ public class Controlador extends HttpServlet {
                 throw new AssertionError();
         }
     }
-
+    
+   /*Metodo para agregar empleado  */
     public void addEmpleado(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String dni = request.getParameter("txtDni");
@@ -81,7 +82,7 @@ public class Controlador extends HttpServlet {
         String telefono = request.getParameter("txtTelefono");
         String estado = request.getParameter("txtEstado");
         String usuario = request.getParameter("txtUser");
-
+ /*Instancia El negocio de administrar  */
         Administrar adm = new Administrar();
         if (adm.agregarEmpleado(dni, nombres, telefono, estado, usuario) == true) {
 

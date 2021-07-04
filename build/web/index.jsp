@@ -6,106 +6,535 @@
 
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html>
 <html lang="es">
+
     <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-     
-        <title>Tienda Virtual</title>
-        <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-        <!-- Bootstrap icons-->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-        <link href="./css/styles.css" rel="stylesheet"/>
+        <title>Store CAYSAM</title>
+        <!-- custom-theme -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="keywords" content="Downy Shoes Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+              Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+        <script type="application/x-javascript">
+            addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+            }, false);
+
+            function hideURLbar() {
+            window.scrollTo(0, 1);
+            }
+        </script>
+        <!-- //custom-theme -->
+        <link href="./css/inicio/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+        <link rel="stylesheet" href="./css/inicio/shop.css" type="text/css" media="screen" property="" />
+        <link href="./css/inicio/style7.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="./css/inicio/style.css" rel="stylesheet" type="text/css" media="all" />
+        <!-- font-awesome-icons -->
+        <link href="./css/inicio/font-awesome.css" rel="stylesheet">
+        <!-- //font-awesome-icons -->
+        <link href="//fonts.googleapis.com/css?family=Montserrat:100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800"
+              rel="stylesheet">
+        <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     </head>
+
     <body>
-        <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container px-4 px-lg-5">
-                <a class="navbar-brand" href="#!">TIENDA</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <!-- banner -->
+        <div class="container">
+
+
+            <header class="header">
+
+                <div class="logo">
+                    <h1><a class="navbar-brand" href="index.html"><span>CAYSAM</span> <i>Shoes</i></a></h1>
+                </div>
+
+            </header>
+
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="#">Navbar</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Inicio</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#!">Sobre Nosotros</a></li>
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Link</a>
+                        </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Compras</a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#!">Todos los Productos</a></li>
-                                <li><hr class="dropdown-divider" /></li>
-                                <li><a class="dropdown-item" href="#!">Producto Favorito</a></li>
-                                <li><a class="dropdown-item" href="#!">New Arrivals</a></li>
-                            </ul>
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Dropdown
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#">Action</a>
+                                <a class="dropdown-item" href="#">Another action</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
                         </li>
                     </ul>
+
+                    <form class="form-inline my-2 my-lg-0">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    </form>
+
+
+                </div>
+
+            </nav>
+
+
+        </div>
+
+
+
+        <div class="clearfix"></div>
+
+        <!-- /slider -->
+        <div class="slider">
+            <div class="callbacks_container">
+                <ul class="rslides callbacks callbacks1" id="slider4">
+
+                    <li>
+                        <div class="banner-top2">
+                            <div class="banner-info-wthree">
+                                <h3>Nike</h3>
+                                <p>See how good they feel.</p>
+
+                            </div>
+
+                        </div>
+                    </li>
+                    <li>
+                        <div class="banner-top3">
+                            <div class="banner-info-wthree">
+                                <h3>Heels</h3>
+                                <p>For All Walks of Life.</p>
+
+                            </div>
+
+                        </div>
+                    </li>
+                    <li>
+                        <div class="banner-top">
+                            <div class="banner-info-wthree">
+                                <h3>Sneakers</h3>
+                                <p>See how good they feel.</p>
+
+                            </div>
+
+                        </div>
+                    </li>
+                    <li>
+                        <div class="banner-top1">
+                            <div class="banner-info-wthree">
+                                <h3>Adidas</h3>
+                                <p>For All Walks of Life.</p>
+
+                            </div>
+
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+        <!-- //slider -->
+        <ul class="top_icons">
+            <li><a href="#"><span class="fa fa-facebook" aria-hidden="true"></span></a></li>
+            <li><a href="#"><span class="fa fa-twitter" aria-hidden="true"></span></a></li>
+            <li><a href="#"><span class="fa fa-linkedin" aria-hidden="true"></span></a></li>
+            <li><a href="#"><span class="fa fa-google-plus" aria-hidden="true"></span></a></li>
+
+        </ul>
+    </div>
+</div>
+<!-- //banner -->
+<!-- /girds_bottom-->
+<div class="grids_bottom">
+    <div class="style-grids">
+        <div class="col-md-6 style-grid style-grid-1">
+            <img src="./images/b1.jpg" alt="shoe">
+        </div>
+    </div>
+    <div class="col-md-6 style-grid style-grid-2">
+        <div class="style-image-1_info">
+            <div class="style-grid-2-text_info">
+                <h3>Nike DOWNSHIFTER</h3>
+                <p>Itaque earum rerum hic tenetur a sapiente delectus reiciendis maiores alias consequatur.sed quia non numquam eius modi
+                    tempora incidunt ut labore et dolore .</p>
+                <div class="shop-button">
+                    <a href="shop.html">Shop Now</a>
+                </div>
+            </div>
+        </div>
+        <div class="style-image-2">
+            <img src="./images/b2.jpg" alt="shoe">
+            <div class="style-grid-2-text">
+                <h3>Air force</h3>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+</div>
+</div>
+<!-- //grids_bottom-->
+<!-- /girds_bottom2-->
+<div class="grids_sec_2">
+    <div class="style-grids_main">
+        <div class="col-md-6 grids_sec_2_left">
+            <div class="grid_sec_info">
+                <div class="style-grid-2-text_info">
+                    <h3>Sneakers</h3>
+                    <p>Itaque earum rerum hic tenetur a sapiente delectus reiciendis maiores alias consequatur.sed quia non numquam eius modi
+                        tempora incidunt ut labore .</p>
+                    <div class="shop-button">
+                        <a href="shop.html">Shop Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="style-image-2">
+                <img src="./images/b4.jpg" alt="shoe">
+                <div class="style-grid-2-text">
+                    <h3>Air force</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 grids_sec_2_left">
+
+            <div class="style-image-2">
+                <img src="./images/b3.jpg" alt="shoe">
+                <div class="style-grid-2-text">
+                    <h3>Air force</h3>
+                </div>
+            </div>
+            <div class="grid_sec_info last">
+                <div class="style-grid-2-text_info">
+                    <h3>Sneakers</h3>
+                    <p>Itaque earum rerum hic tenetur a sapiente delectus reiciendis maiores alias consequatur.sed quia non numquam eius modi
+                        tempora incidunt ut labore .</p>
+                    <div class="shop-button two">
+                        <a href="shop.html">Shop Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>
+<!-- //grids_bottom2-->
+<!-- /Properties -->
+<div class="mid_slider_w3lsagile">
+    <div class="col-md-3 mid_slider_text">
+        <h5>Some More Shoes</h5>
+    </div>
+    <div class="col-md-9 mid_slider_info">
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1" class=""></li>
+                <li data-target="#myCarousel" data-slide-to="2" class=""></li>
+                <li data-target="#myCarousel" data-slide-to="3" class=""></li>
+            </ol>
+            <div class="carousel-inner" role="listbox">
+                <div class="item active">
                     <div class="row">
-                    <form class="d-flex col-lg-8">
-                        <button class="btn btn-outline-dark" type="submit">
-                            <i class="bi-cart-fill me-1"></i>
-                            Carrito
-                            <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
-                        </button>
-                        
-                        
-                    </form>
-                    
-                        <form class="d-flex col-lg-4" action="vistas/validar">
-                        <input type="submit" name="a" value="Login" class="btn btn-outline-dark"></input>  
-                        
-                    </form>
-                      </div>  
-                        
-                </div>
-            </div>
-        </nav>
-        <!-- Header-->
-        <header class="bg-dark py-5">
-            <div class="container px-4 px-lg-5 my-5">
-                <div class="text-center text-white">
-                    <h1 class="display-4 fw-bolder">Tienda Virtual de Calzados</h1>
-                    <p class="lead fw-normal text-white-50 mb-0">El mejor calzado para las mejores personas</p>
-                </div>
-            </div>
-        </header>
-        <!-- Section-->
-        <section class="py-5">
-            <div class="container px-4 px-lg-5 mt-5">
-                <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-   
-                     <c:forEach var="producto" items="${productos}">
-                    <div class="col mb-5">
-                        <div class="card h-100">
-                            <!-- Product image-->
-                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                            <!-- Product details-->
-                            <div class="card-body p-4">
-                                <div class="text-center">
-                                    <!-- Product name-->
-                                    <h5 class="fw-bolder">${producto.nombres}</h5>
-                                
-                                    ${producto.precio}
-                                </div>
-                            </div>
-                            <!-- Product actions-->
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">View options</a></div>
-                            </div>
+                        <div class="col-md-3 col-sm-3 col-xs-3 slidering">
+                            <div class="thumbnail"><img src="images/g1.jpg" alt="Image" style="max-width:100%;"></div>
+                        </div>
+                        <div class="col-md-3 col-sm-3 col-xs-3 slidering">
+                            <div class="thumbnail"><img src="images/g2.jpg" alt="Image" style="max-width:100%;"></div>
+                        </div>
+                        <div class="col-md-3 col-sm-3 col-xs-3 slidering">
+                            <div class="thumbnail"><img src="images/g3.jpg" alt="Image" style="max-width:100%;"></div>
+                        </div>
+                        <div class="col-md-3 col-sm-3 col-xs-3 slidering">
+                            <div class="thumbnail"><img src="images/g4.jpg" alt="Image" style="max-width:100%;"></div>
                         </div>
                     </div>
-        </c:forEach>
+                </div>
+                <div class="item">
+                    <div class="row">
+                        <div class="col-md-3 col-sm-3 col-xs-3 slidering">
+                            <div class="thumbnail"><img src="images/g5.jpg" alt="Image" style="max-width:100%;"></div>
+                        </div>
+                        <div class="col-md-3 col-sm-3 col-xs-3 slidering">
+                            <div class="thumbnail"><img src="images/g6.jpg" alt="Image" style="max-width:100%;"></div>
+                        </div>
+                        <div class="col-md-3 col-sm-3 col-xs-3 slidering">
+                            <div class="thumbnail"><img src="images/g2.jpg" alt="Image" style="max-width:100%;"></div>
+                        </div>
+                        <div class="col-md-3 col-sm-3 col-xs-3 slidering">
+                            <div class="thumbnail"><img src="images/g1.jpg" alt="Image" style="max-width:100%;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="row">
+                        <div class="col-md-3 col-sm-3 col-xs-3 slidering">
+                            <div class="thumbnail"><img src="images/g1.jpg" alt="Image" style="max-width:100%;"></div>
+                        </div>
+                        <div class="col-md-3 col-sm-3 col-xs-3 slidering">
+                            <div class="thumbnail"><img src="images/g2.jpg" alt="Image" style="max-width:100%;"></div>
+                        </div>
+                        <div class="col-md-3 col-sm-3 col-xs-3 slidering">
+                            <div class="thumbnail"><img src="images/g3.jpg" alt="Image" style="max-width:100%;"></div>
+                        </div>
+                        <div class="col-md-3 col-sm-3 col-xs-3 slidering">
+                            <div class="thumbnail"><img src="images/g4.jpg" alt="Image" style="max-width:100%;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="row">
+                        <div class="col-md-3 col-sm-3 col-xs-3 slidering">
+                            <div class="thumbnail"><img src="images/g1.jpg" alt="Image" style="max-width:100%;"></div>
+                        </div>
+                        <div class="col-md-3 col-sm-3 col-xs-3 slidering">
+                            <div class="thumbnail"><img src="images/g2.jpg" alt="Image" style="max-width:100%;"></div>
+                        </div>
+                        <div class="col-md-3 col-sm-3 col-xs-3 slidering">
+                            <div class="thumbnail"><img src="images/g3.jpg" alt="Image" style="max-width:100%;"></div>
+                        </div>
+                        <div class="col-md-3 col-sm-3 col-xs-3 slidering">
+                            <div class="thumbnail"><img src="images/g4.jpg" alt="Image" style="max-width:100%;"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </section>
-        <!-- Footer-->
-        <footer class="py-5 bg-dark">
-            <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2021</p></div>
-        </footer>
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
-    </body>
+            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                <span class="fa fa-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                <span class="fa fa-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+            <!-- The Modal -->
+
+        </div>
+    </div>
+
+    <div class="clearfix"> </div>
+</div>
+<!--//banner -->
+
+<!-- /newsletter-->
+<div class="newsletter_w3layouts_agile">
+    <div class="col-sm-6 newsleft">
+        <h3>Sign up for Newsletter !</h3>
+    </div>
+    <div class="col-sm-6 newsright">
+        <form action="#" method="post">
+            <input type="email" placeholder="Enter your email..." name="email" required="">
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+    <div class="clearfix"></div>
+</div>
+<!-- //newsletter-->
+<!-- footer -->
+<div class="footer_agileinfo_w3">
+    <div class="footer_inner_info_w3ls_agileits">
+        <div class="col-md-3 footer-left">
+            <h2><a href="index.html"><span>D</span>owny Shoes </a></h2>
+            <p>Lorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora.</p>
+            <ul class="social-nav model-3d-0 footer-social social two">
+                <li>
+                    <a href="#" class="facebook">
+                        <div class="front"><i class="fa fa-facebook" aria-hidden="true"></i></div>
+                        <div class="back"><i class="fa fa-facebook" aria-hidden="true"></i></div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="twitter">
+                        <div class="front"><i class="fa fa-twitter" aria-hidden="true"></i></div>
+                        <div class="back"><i class="fa fa-twitter" aria-hidden="true"></i></div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="instagram">
+                        <div class="front"><i class="fa fa-instagram" aria-hidden="true"></i></div>
+                        <div class="back"><i class="fa fa-instagram" aria-hidden="true"></i></div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="pinterest">
+                        <div class="front"><i class="fa fa-linkedin" aria-hidden="true"></i></div>
+                        <div class="back"><i class="fa fa-linkedin" aria-hidden="true"></i></div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-9 footer-right">
+            <div class="sign-grds">
+                <div class="col-md-4 sign-gd">
+                    <h4>Our <span>Information</span> </h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="404.html">Services</a></li>
+                        <li><a href="404.html">Short Codes</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-5 sign-gd-two">
+                    <h4>Store <span>Information</span></h4>
+                    <div class="address">
+                        <div class="address-grid">
+                            <div class="address-left">
+                                <i class="fa fa-phone" aria-hidden="true"></i>
+                            </div>
+                            <div class="address-right">
+                                <h6>Phone Number</h6>
+                                <p>+1 234 567 8901</p>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                        <div class="address-grid">
+                            <div class="address-left">
+                                <i class="fa fa-envelope" aria-hidden="true"></i>
+                            </div>
+                            <div class="address-right">
+                                <h6>Email Address</h6>
+                                <p>Email :<a href="mailto:example@email.com"> mail@example.com</a></p>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                        <div class="address-grid">
+                            <div class="address-left">
+                                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                            </div>
+                            <div class="address-right">
+                                <h6>Location</h6>
+                                <p>Broome St, NY 10002,California, USA.
+
+                                </p>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 sign-gd flickr-post">
+                    <h4>Flickr <span>Posts</span></h4>
+                    <ul>
+                        <li><a href="single.html"><img src="./images/t1.jpg" alt=" " class="img-responsive" /></a></li>
+                        <li><a href="single.html"><img src="./images/t2.jpg" alt=" " class="img-responsive" /></a></li>
+                        <li><a href="single.html"><img src="./images/t3.jpg" alt=" " class="img-responsive" /></a></li>
+                        <li><a href="single.html"><img src="./images/t4.jpg" alt=" " class="img-responsive" /></a></li>
+                        <li><a href="single.html"><img src="./images/t1.jpg" alt=" " class="img-responsive" /></a></li>
+                        <li><a href="single.html"><img src="./images/t2.jpg" alt=" " class="img-responsive" /></a></li>
+                        <li><a href="single.html"><img src="./images/t3.jpg" alt=" " class="img-responsive" /></a></li>
+                        <li><a href="single.html"><img src="./images/t2.jpg" alt=" " class="img-responsive" /></a></li>
+                        <li><a href="single.html"><img src="./images/t4.jpg" alt=" " class="img-responsive" /></a></li>
+                    </ul>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+
+        <p class="copy-right-w3ls-agileits">&copy 2018 Downy Shoes. All rights reserved | Design by <a href="http://w3layouts.com/">W3layouts</a></p>
+    </div>
+</div>
+</div>
+
+<!-- //footer -->
+<a href="#home" id="toTop" class="scroll" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+<!-- js -->
+<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+<!-- //js -->
+<!-- /nav -->
+<script src="js/modernizr-2.6.2.min.js"></script>
+<script src="js/classie.js"></script>
+<script src="js/demo1.js"></script>
+<!-- //nav -->
+<!-- cart-js -->
+<script src="js/minicart.js"></script>
+<script>
+shoe.render();
+
+shoe.cart.on('shoe_checkout', function (evt) {
+    var items, len, i;
+
+    if (this.subtotal() > 0) {
+        items = this.items();
+
+        for (i = 0, len = items.length; i < len; i++) {
+        }
+    }
+});
+</script>
+<!-- //cart-js -->
+<!--search-bar-->
+<script src="./js/search.js"></script>
+<!--//search-bar-->
+<script src="./js/responsiveslides.min.js"></script>
+<script>
+$(function () {
+    $("#slider4").responsiveSlides({
+        auto: true,
+        pager: true,
+        nav: true,
+        speed: 1000,
+        namespace: "callbacks",
+        before: function () {
+            $('.events').append("<li>before event fired.</li>");
+        },
+        after: function () {
+            $('.events').append("<li>after event fired.</li>");
+        }
+    });
+});
+</script>
+<!-- js for portfolio lightbox -->
+<!-- start-smoth-scrolling -->
+<script type="text/javascript" src="./js/move-top.js"></script>
+<script type="text/javascript" src="./js/easing.js"></script>
+<script type="text/javascript">
+jQuery(document).ready(function ($) {
+    $(".scroll").click(function (event) {
+        event.preventDefault();
+        $('html,body').animate({
+            scrollTop: $(this.hash).offset().top
+        }, 1000);
+    });
+});
+</script>
+<!-- //end-smoth-scrolling -->
+
+<script type="text/javascript" src="./js/bootstrap-3.1.1.min.js"></script>
+
+
+</body>
+
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
