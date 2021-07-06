@@ -49,8 +49,8 @@
                                         <td>${emp.estado}</td>
                                         <td>${emp.user}</td>
                                         <td>
-                                            <a class="btn btn-warning" href="controlador?menu=editEmpleado&id=${emp.idEmpleado}">Editar</a>
-                                            <a class="btn btn-danger" href="controlador?menu=eliminarEmpleado&id=${emp.idEmpleado}">Eliminar</a>
+                                            <a class="btn btn-warning" href="empleadocontroller?menu=editEmpleado&id=${emp.idEmpleado}">Editar</a>
+                                            <a class="btn btn-danger" href="empleadocontroller?menu=eliminarEmpleado&id=${emp.idEmpleado}">Eliminar</a>
                                         </td>
                                     </tr>
                                 </c:forEach>

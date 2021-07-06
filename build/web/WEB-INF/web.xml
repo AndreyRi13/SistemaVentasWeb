@@ -7,7 +7,7 @@
     </servlet>
         <servlet-mapping>
         <servlet-name>EmpleadoController</servlet-name>
-        <url-pattern>/vistas/controlador</url-pattern>
+        <url-pattern>/vistas/empleadocontroller</url-pattern>
     </servlet-mapping>
     
     

@@ -8,7 +8,7 @@ package Control;
 import DAO.EmpleadoDAO;
 import DTO.Empleado;
 import DTO.Producto;
-import Negocio.Administrar;
+import Negocio.AdministrarEmpleado;
 import Negocio.Login;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -46,7 +46,6 @@ public class EmpleadoController extends HttpServlet {
                 addEmpleado(request, response);
                 break;
 
-
             case "editEmpleado":
                 editEmpleado(request, response);
                 break;
@@ -73,7 +72,7 @@ public class EmpleadoController extends HttpServlet {
         String estado = request.getParameter("txtEstado");
         String usuario = request.getParameter("txtUser");
         /*Instancia El negocio de administrar  */
-        Administrar adm = new Administrar();
+        AdministrarEmpleado adm = new AdministrarEmpleado();
         if (adm.agregarEmpleado(dni, nombres, telefono, estado, usuario) == true) {
 
             listaEmpleado(request, response);
@@ -88,21 +87,21 @@ public class EmpleadoController extends HttpServlet {
 ///////////////////////////////////////METODO DE LISTAR EMPLEADOS
     public void listaEmpleado(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        Administrar adm = new Administrar();
+        AdministrarEmpleado adm = new AdministrarEmpleado();
         List<Empleado> emplead = adm.listaEmpleados();
         request.setAttribute("empleados", emplead);
         RequestDispatcher dispatcher = request.getRequestDispatcher("listaEmpleado.jsp");
         dispatcher.forward(request, response);
     }
 
-    Integer idEmple = 0;
 ///////////////////////////////////////METODO DE DIRECCIONAR PARA EDICION DE EMPLEADO
+    Integer idEmple = 0;
 
     public void editEmpleado(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         idEmple = Integer.parseInt(request.getParameter("id"));
         Empleado emplead = null;
-        Administrar adm = new Administrar();
+        AdministrarEmpleado adm = new AdministrarEmpleado();
         try {
             emplead = adm.buscarEmpleadoporId(idEmple);
             request.setAttribute("empleado", emplead);
@@ -117,7 +116,7 @@ public class EmpleadoController extends HttpServlet {
 
     public void editarEmpleado(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        Administrar admi = new Administrar();
+        AdministrarEmpleado admi = new AdministrarEmpleado();
         String dni1 = request.getParameter("txtDni");
         String nombres1 = request.getParameter("txtNombres");
         String telefono1 = request.getParameter("txtTelefono");
@@ -134,7 +133,7 @@ public class EmpleadoController extends HttpServlet {
 
     public void eliminaEmpleado(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        Administrar adm = new Administrar();
+        AdministrarEmpleado adm = new AdministrarEmpleado();
         Integer id = Integer.parseInt(request.getParameter("id"));
         try {
             adm.eliminarEmpleado(id);

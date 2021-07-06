@@ -17,9 +17,9 @@ import java.util.List;
  *
  * @author Andrey R
  */
-public class Administrar {
+public class AdministrarEmpleado {
 
-    public Administrar() {
+    public AdministrarEmpleado() {
     }
 
     /*CRUD EMPLEADO*/
@@ -96,40 +96,6 @@ public class Administrar {
         List<Empleado> empleados = emp.readEmpleados();
         return empleados;
     }
-    
-    
-        /*CRUD PRODUCTO*/
-    public boolean agregarProducto(Integer referencia, String nombres, String descripcion, String marca, String color,double precio,Integer stock,String estado,String Foto) {
 
-        ProductoDAO producto = new ProductoDAO();
-
-        Producto pro = new Producto();
-
-        pro.setReferencia(referencia);
-        pro.setNombres(nombres);
-        pro.setDescripción(descripcion);
-        pro.setMarca(marca);
-        pro.setColor(color);
-        pro.setPrecio(precio);
-        pro.setStock(stock);
-        pro.setEstado(estado);
-        pro.setFoto(Foto);
-      
-        try {
-            producto.addProducto(pro);
-            return true;
-        } catch (Exception e) {
-            return false;
-
-        }
-
-    }
-    
-    
-        public List<Producto> listaProductos() {
-        ProductoDAO pro = new ProductoDAO();
-        List<Producto> productos = pro.readProductos();
-        return productos;
-    }
 
 }

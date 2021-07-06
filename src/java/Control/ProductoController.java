@@ -7,7 +7,9 @@ package Control;
 
 import DTO.Empleado;
 import DTO.Producto;
-import Negocio.Administrar;
+import Negocio.AdministrarEmpleado;
+import Negocio.AdministrarProducto;
+import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -40,14 +42,28 @@ public class ProductoController extends HttpServlet {
         String action = request.getParameter("menu");
 
         switch (action) {
-
             case "agregarProducto":
                 request.getRequestDispatcher("agregarProducto.jsp").forward(request, response);
                 break;
 
-         
+            case "addProducto":
+                addProducto(request, response);
+                break;
+
             case "listaProducto":
                 listaProducto(request, response);
+                break;
+
+            case "editProducto":
+                editProducto(request, response);
+                break;
+
+            case "editarProducto":
+                editarProducto(request, response);
+                break;
+
+            case "eliminarProducto":
+                eliminaProducto(request, response);
                 break;
 
             default:
@@ -55,25 +71,25 @@ public class ProductoController extends HttpServlet {
         }
     }
 
-
-
 ///////////////////////////////////////METODO DE AGREGAR PRODUCTO
     public void addProducto(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
         Integer referencia = Integer.parseInt(request.getParameter("txtReferencia"));
         String nombres = request.getParameter("txtNombres");
-        String descripción = request.getParameter("txtDescripción");
+        String descripcion = request.getParameter("txtDescripcion");
         String marca = request.getParameter("txtMarca");
         String color = request.getParameter("txtColor");
-        double precio = Double.parseDouble(request.getParameter("textPrecio"));
+        String colorSuela = request.getParameter("txtColorS");
+        Integer talla = Integer.parseInt(request.getParameter("txtTalla"));
+        Double precio = Double.parseDouble(request.getParameter("txtPrecio"));
         Integer stock = Integer.parseInt(request.getParameter("txtStock"));
         String estado = request.getParameter("txtEstado");
         String Foto = request.getParameter("txtFoto");
 
         /*Instancia El negocio de administrar  */
-        Administrar adm = new Administrar();
-        if (adm.agregarProducto(referencia, nombres, descripción, marca, color, precio, stock, estado, Foto) == true) {
+        AdministrarProducto adm = new AdministrarProducto();
+        if (adm.agregarProducto(referencia, nombres, descripcion, marca, color, colorSuela, talla, precio, stock, estado, Foto) == true) {
 
             listaProducto(request, response);
 
@@ -87,11 +103,68 @@ public class ProductoController extends HttpServlet {
     ///////////////////////////////////////METODO DE LISTAR PRODUCTOS
     public void listaProducto(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        Administrar adm = new Administrar();
+        AdministrarProducto adm = new AdministrarProducto();
         List<Producto> product = adm.listaProductos();
         request.setAttribute("productos", product);
         RequestDispatcher dispatcher = request.getRequestDispatcher("listaProductos.jsp");
         dispatcher.forward(request, response);
+    }
+
+///////////////////////////////////////METODO DE RIDECCIONAR A EDITAR PRODUCTOS
+    Integer idProduct = 0;
+
+    public void editProducto(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        idProduct = Integer.parseInt(request.getParameter("id"));
+        Producto product = null;
+        AdministrarProducto adm = new AdministrarProducto();
+        try {
+            product = adm.buscarProductoporId(idProduct);
+            request.setAttribute("producto", product);
+            RequestDispatcher dispatcher = request.getRequestDispatcher("editarProducto.jsp");
+            dispatcher.forward(request, response);
+        } catch (Exception ex) {
+            Logger.getLogger(ProductoController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+
+    ///////////////////////////////////////METODO DE EDITAR PRODUCTOS
+    public void editarProducto(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        AdministrarProducto admi = new AdministrarProducto();
+
+        Integer referencia = Integer.parseInt(request.getParameter("txtReferencia"));
+        String nombres = request.getParameter("txtNombres");
+        String descripcion = request.getParameter("txtDescripcion");
+        String marca = request.getParameter("txtMarca");
+        String color = request.getParameter("txtColor");
+        String colorSuela = request.getParameter("txtColorS");
+        Integer talla = Integer.parseInt(request.getParameter("txtTalla"));
+        Double precio = Double.parseDouble(request.getParameter("txtPrecio"));
+        Integer stock = Integer.parseInt(request.getParameter("txtStock"));
+        String estado = request.getParameter("txtEstado");
+        String Foto = request.getParameter("txtFoto");
+
+        try {
+            admi.editarProducto(idProduct, referencia, nombres, descripcion, marca, color, colorSuela, talla, precio, stock, estado, Foto);
+            listaProducto(request, response);
+        } catch (Exception ex) {
+            Logger.getLogger(ProductoController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+///////////////////////////////////////METODO DE ELIMINAR EMPLEADO
+
+    public void eliminaProducto(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        AdministrarProducto adm = new AdministrarProducto();
+        Integer ide = Integer.parseInt(request.getParameter("id"));
+        try {
+            adm.eliminarProduct(ide);
+            listaProducto(request, response);
+        } catch (Exception ex) {
+            Logger.getLogger(ProductoController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @Override

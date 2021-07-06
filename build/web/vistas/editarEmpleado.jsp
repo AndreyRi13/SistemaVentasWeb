@@ -23,7 +23,7 @@
 
 
                     <div class="well well-sm">
-                        <form class="form-horizontal" action="controlador?menu=editarEmpleado" method="POST">
+                        <form class="form-horizontal" action="empleadocontroller?menu=editarEmpleado" method="POST">
                             <fieldset>
                                 <div class="row">
                                     <legend class="text-center header">Actualizar Empleado</legend>

@@ -12,14 +12,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Lob;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- *
+ *RESETEAR PRIMARY KEY ALTER TABLE producto AUTO_INCREMENT = 1
  * @author Andrey R
  */
 @Entity
@@ -30,8 +29,11 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Producto.findByIdProducto", query = "SELECT p FROM Producto p WHERE p.idProducto = :idProducto"),
     @NamedQuery(name = "Producto.findByReferencia", query = "SELECT p FROM Producto p WHERE p.referencia = :referencia"),
     @NamedQuery(name = "Producto.findByNombres", query = "SELECT p FROM Producto p WHERE p.nombres = :nombres"),
+    @NamedQuery(name = "Producto.findByDescripcion", query = "SELECT p FROM Producto p WHERE p.descripcion = :descripcion"),
     @NamedQuery(name = "Producto.findByMarca", query = "SELECT p FROM Producto p WHERE p.marca = :marca"),
     @NamedQuery(name = "Producto.findByColor", query = "SELECT p FROM Producto p WHERE p.color = :color"),
+    @NamedQuery(name = "Producto.findByColorSuela", query = "SELECT p FROM Producto p WHERE p.colorSuela = :colorSuela"),
+    @NamedQuery(name = "Producto.findByTalla", query = "SELECT p FROM Producto p WHERE p.talla = :talla"),
     @NamedQuery(name = "Producto.findByPrecio", query = "SELECT p FROM Producto p WHERE p.precio = :precio"),
     @NamedQuery(name = "Producto.findByStock", query = "SELECT p FROM Producto p WHERE p.stock = :stock"),
     @NamedQuery(name = "Producto.findByEstado", query = "SELECT p FROM Producto p WHERE p.estado = :estado"),
@@ -46,19 +48,24 @@ public class Producto implements Serializable {
     private Integer idProducto;
     @Basic(optional = false)
     @Column(name = "Referencia")
-    private int referencia;
+    private Integer referencia;
     @Column(name = "Nombres")
     private String nombres;
     @Basic(optional = false)
-    @Lob
-    @Column(name = "Descripci\u00f3n")
-    private String descripción;
+    @Column(name = "Descripcion")
+    private String descripcion;
     @Basic(optional = false)
     @Column(name = "Marca")
     private String marca;
     @Basic(optional = false)
     @Column(name = "Color")
     private String color;
+    @Basic(optional = false)
+    @Column(name = "ColorSuela")
+    private String colorSuela;
+    @Basic(optional = false)
+    @Column(name = "Talla")
+    private int talla;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Column(name = "Precio")
     private Double precio;
@@ -77,12 +84,14 @@ public class Producto implements Serializable {
         this.idProducto = idProducto;
     }
 
-    public Producto(Integer idProducto, int referencia, String descripción, String marca, String color, String foto) {
+    public Producto(Integer idProducto, int referencia, String descripcion, String marca, String color, String colorSuela, int talla, String foto) {
         this.idProducto = idProducto;
         this.referencia = referencia;
-        this.descripción = descripción;
+        this.descripcion = descripcion;
         this.marca = marca;
         this.color = color;
+        this.colorSuela = colorSuela;
+        this.talla = talla;
         this.foto = foto;
     }
 
@@ -110,12 +119,12 @@ public class Producto implements Serializable {
         this.nombres = nombres;
     }
 
-    public String getDescripción() {
-        return descripción;
+    public String getDescripcion() {
+        return descripcion;
     }
 
-    public void setDescripción(String descripción) {
-        this.descripción = descripción;
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
     public String getMarca() {
@@ -132,6 +141,22 @@ public class Producto implements Serializable {
 
     public void setColor(String color) {
         this.color = color;
+    }
+
+    public String getColorSuela() {
+        return colorSuela;
+    }
+
+    public void setColorSuela(String colorSuela) {
+        this.colorSuela = colorSuela;
+    }
+
+    public int getTalla() {
+        return talla;
+    }
+
+    public void setTalla(int talla) {
+        this.talla = talla;
     }
 
     public Double getPrecio() {

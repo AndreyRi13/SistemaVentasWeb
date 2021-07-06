@@ -50,7 +50,7 @@
                                         <td>${pro.idProducto}</td>
                                         <td>${pro.referencia}</td>
                                         <td>${pro.nombres}</td>
-                                        <td>${pro.descripción}</td>
+                                        <td>${pro.descripcion}</td>
                                         <td>${pro.marca}</td>
                                         <td>${pro.color}</td>
                                         <td>${pro.precio}</td>
@@ -58,8 +58,8 @@
                                         <td>${pro.estado}</td>
                                         <td>${pro.foto}</td>
                                         <td>
-                                            <a class="btn btn-warning" href="controlador?menu=editProducto&id=${pro.idProducto}">Editar</a>
-                                            <a class="btn btn-danger" href="controlador?menu=eliminarProducto&id=${pro.idProducto}">Eliminar</a>
+                                            <a class="btn btn-warning" href="productocontroller?menu=editProducto&id=${pro.idProducto}">Editar</a>
+                                            <a class="btn btn-danger"  href="productocontroller?menu=eliminarProducto&id=${pro.idProducto}">Eliminar</a>
                                         </td>
                                     </tr>
                                 </c:forEach>

@@ -20,7 +20,7 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
 
-        <title>Minics</title>
+        <title>CAYSAM</title>
 
 
         <!-- bootstrap core css -->
@@ -209,7 +209,7 @@
                         <div class="col-sm-6 col-lg-4">
                             <div class="box">
                                 <div class="img-box">
-                                    <img src="images/p1.png" alt="">
+                                    <img src="images/${producto.foto}" alt="">
                                     <a href="" class="add_cart_btn">
                                         <span>
                                             Agrgar al Carrito
