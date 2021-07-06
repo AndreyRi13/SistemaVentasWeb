@@ -4,9 +4,6 @@
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>DTO.Empleado</class>
     <class>DTO.Producto</class>
-    <class>DTO.DetalleVentas</class>
-    <class>DTO.Ventas</class>
-    <class>DTO.Cliente</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/bd_ventas?zeroDateTimeBehavior=CONVERT_TO_NULL"/>

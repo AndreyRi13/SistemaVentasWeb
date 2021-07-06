@@ -1,33 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
-    <filter>
-        <filter-name>Index</filter-name>
-        <filter-class>Control.Index</filter-class>
-    </filter>
-    <filter-mapping>
-        <filter-name>Index</filter-name>
-        <servlet-name>Inicio</servlet-name>
-    </filter-mapping>
-    <filter-mapping>
-        <filter-name>Index</filter-name>
-        <url-pattern>/inicio</url-pattern>
-    </filter-mapping>
+    
     <servlet>
-        <servlet-name>Controlador</servlet-name>
-        <servlet-class>Control.Controlador</servlet-class>
+        <servlet-name>EmpleadoController</servlet-name>
+        <servlet-class>Control.EmpleadoController</servlet-class>
     </servlet>
+        <servlet-mapping>
+        <servlet-name>EmpleadoController</servlet-name>
+        <url-pattern>/vistas/controlador</url-pattern>
+    </servlet-mapping>
+    
+    
     <servlet>
         <servlet-name>Validar</servlet-name>
         <servlet-class>Control.Validar</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>Controlador</servlet-name>
-        <url-pattern>/vistas/controlador</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>Validar</servlet-name>
         <url-pattern>/vistas/validar</url-pattern>
+    </servlet-mapping>    
+    
+
+    <servlet>
+        <servlet-name>Index</servlet-name>
+        <servlet-class>Control.Index</servlet-class>
+    </servlet>
+     <servlet-mapping>
+        <servlet-name>Index</servlet-name>
+        <url-pattern>/inicio</url-pattern>
     </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>ProductoController</servlet-name>
+        <servlet-class>Control.ProductoController</servlet-class>
+    </servlet>    
+    <servlet-mapping>
+        <servlet-name>ProductoController</servlet-name>
+        <url-pattern>/vistas/productocontroller</url-pattern>
+    </servlet-mapping>
+
     <session-config>
         <session-timeout>
             30

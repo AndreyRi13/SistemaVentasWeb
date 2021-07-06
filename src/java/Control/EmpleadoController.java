@@ -7,6 +7,7 @@ package Control;
 
 import DAO.EmpleadoDAO;
 import DTO.Empleado;
+import DTO.Producto;
 import Negocio.Administrar;
 import Negocio.Login;
 import java.io.IOException;
@@ -25,7 +26,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Andrey R
  */
-public class Controlador extends HttpServlet {
+public class EmpleadoController extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -37,18 +38,6 @@ public class Controlador extends HttpServlet {
                 request.getRequestDispatcher("agregarEmpleado.jsp").forward(request, response);
                 break;
 
-            case "agregarProducto":
-                request.getRequestDispatcher("agregarProducto.jsp").forward(request, response);
-                break;
-
-            case "agregarVentas":
-                request.getRequestDispatcher("agregarVentas.jsp").forward(request, response);
-                break;
-
-            case "listaClientes":
-                request.getRequestDispatcher("listaClientes.jsp").forward(request, response);
-                break;
-
             case "listaEmpleado":
                 listaEmpleado(request, response);
                 break;
@@ -56,6 +45,7 @@ public class Controlador extends HttpServlet {
             case "addEmpleado":
                 addEmpleado(request, response);
                 break;
+
 
             case "editEmpleado":
                 editEmpleado(request, response);
@@ -73,8 +63,8 @@ public class Controlador extends HttpServlet {
                 throw new AssertionError();
         }
     }
-    
-   /*Metodo para agregar empleado  */
+
+    ///////////////////////////////////////Metodo para agregar empleado
     public void addEmpleado(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String dni = request.getParameter("txtDni");
@@ -82,7 +72,7 @@ public class Controlador extends HttpServlet {
         String telefono = request.getParameter("txtTelefono");
         String estado = request.getParameter("txtEstado");
         String usuario = request.getParameter("txtUser");
- /*Instancia El negocio de administrar  */
+        /*Instancia El negocio de administrar  */
         Administrar adm = new Administrar();
         if (adm.agregarEmpleado(dni, nombres, telefono, estado, usuario) == true) {
 
@@ -95,6 +85,7 @@ public class Controlador extends HttpServlet {
 
     }
 
+///////////////////////////////////////METODO DE LISTAR EMPLEADOS
     public void listaEmpleado(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         Administrar adm = new Administrar();
@@ -105,6 +96,7 @@ public class Controlador extends HttpServlet {
     }
 
     Integer idEmple = 0;
+///////////////////////////////////////METODO DE DIRECCIONAR PARA EDICION DE EMPLEADO
 
     public void editEmpleado(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -117,10 +109,11 @@ public class Controlador extends HttpServlet {
             RequestDispatcher dispatcher = request.getRequestDispatcher("editarEmpleado.jsp");
             dispatcher.forward(request, response);
         } catch (Exception ex) {
-            Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(EmpleadoController.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
+///////////////////////////////////////METODO DE EDITAR EMPLEADO
 
     public void editarEmpleado(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -134,9 +127,10 @@ public class Controlador extends HttpServlet {
             admi.editarEmpleado(idEmple, dni1, nombres1, telefono1, estado1, usuario1);
             listaEmpleado(request, response);
         } catch (Exception ex) {
-            Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(EmpleadoController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+///////////////////////////////////////METODO DE ELIMINAR EMPLEADO
 
     public void eliminaEmpleado(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -146,7 +140,7 @@ public class Controlador extends HttpServlet {
             adm.eliminarEmpleado(id);
             listaEmpleado(request, response);
         } catch (Exception ex) {
-            Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(EmpleadoController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

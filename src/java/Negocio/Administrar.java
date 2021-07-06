@@ -6,7 +6,9 @@
 package Negocio;
 
 import DAO.EmpleadoDAO;
+import DAO.ProductoDAO;
 import DTO.Empleado;
+import DTO.Producto;
 import static java.lang.System.console;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,26 +22,21 @@ public class Administrar {
     public Administrar() {
     }
 
+    /*CRUD EMPLEADO*/
     public boolean agregarEmpleado(String dni, String nombres, String telefono, String estado, String usuario) {
-
         EmpleadoDAO empleado = new EmpleadoDAO();
-
         Empleado emp = new Empleado();
-
         emp.setDni(dni);
         emp.setNombres(nombres);
         emp.setTelefono(telefono);
         emp.setEstado(estado);
         emp.setUser(usuario);
-
         try {
             empleado.addEmpleado(emp);
             return true;
         } catch (Exception e) {
             return false;
-
         }
-
     }
 
     public Empleado buscarEmpleadoporId(Integer idEmpleado) throws Exception {
@@ -53,36 +50,28 @@ public class Administrar {
         }
         return aux;
     }
-// String dni1 = request.getParameter("txtDni");
-//        String nombres1 = request.getParameter("txtNombres");
-//        String telefono1 = request.getParameter("txtTelefono");
-//        String estado1 = request.getParameter("txtEstado");
-//        String usuario1 = request.getParameter("txtUser");
-
     
-    
-    
-    public int buscaridporDatos(String dni1, String nombres1, String telefono1, String estado1, String usuario1) throws Exception {
-        EmpleadoDAO emp = new EmpleadoDAO();
-        List<Empleado> empleadosList = emp.readEmpleados();
-        int aux = 0;
-        for (Empleado m : empleadosList) {
-            if (m.getDni().equals(dni1)) {
-
-                if (m.getNombres().equals(nombres1)) {
-
-                    if (m.getTelefono().equals(telefono1)) {
-                        if (m.getEstado().equals(estado1)) {
-                            if (m.getUser().equals(usuario1)) {
-                                aux = m.getIdEmpleado();
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        return aux;
-    }
+//    public int buscaridporDatos(String dni1, String nombres1, String telefono1, String estado1, String usuario1) throws Exception {
+//        EmpleadoDAO emp = new EmpleadoDAO();
+//        List<Empleado> empleadosList = emp.readEmpleados();
+//        int aux = 0;
+//        for (Empleado m : empleadosList) {
+//            if (m.getDni().equals(dni1)) {
+//
+//                if (m.getNombres().equals(nombres1)) {
+//
+//                    if (m.getTelefono().equals(telefono1)) {
+//                        if (m.getEstado().equals(estado1)) {
+//                            if (m.getUser().equals(usuario1)) {
+//                                aux = m.getIdEmpleado();
+//                            }
+//                        }
+//                    }
+//                }
+//            }
+//        }
+//        return aux;
+//    }
 
     public void editarEmpleado(Integer id, String dni1, String nombres1, String telefono1, String estado1, String usuario1) throws Exception {
         Empleado em = new Empleado();
@@ -106,6 +95,41 @@ public class Administrar {
         EmpleadoDAO emp = new EmpleadoDAO();
         List<Empleado> empleados = emp.readEmpleados();
         return empleados;
+    }
+    
+    
+        /*CRUD PRODUCTO*/
+    public boolean agregarProducto(Integer referencia, String nombres, String descripcion, String marca, String color,double precio,Integer stock,String estado,String Foto) {
+
+        ProductoDAO producto = new ProductoDAO();
+
+        Producto pro = new Producto();
+
+        pro.setReferencia(referencia);
+        pro.setNombres(nombres);
+        pro.setDescripción(descripcion);
+        pro.setMarca(marca);
+        pro.setColor(color);
+        pro.setPrecio(precio);
+        pro.setStock(stock);
+        pro.setEstado(estado);
+        pro.setFoto(Foto);
+      
+        try {
+            producto.addProducto(pro);
+            return true;
+        } catch (Exception e) {
+            return false;
+
+        }
+
+    }
+    
+    
+        public List<Producto> listaProductos() {
+        ProductoDAO pro = new ProductoDAO();
+        List<Producto> productos = pro.readProductos();
+        return productos;
     }
 
 }

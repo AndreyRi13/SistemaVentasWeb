@@ -7,7 +7,10 @@ package DAO;
 
 import DTO.Producto;
 import Persistencia.ProductoJpaController;
+import Persistencia.exceptions.NonexistentEntityException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -35,12 +38,24 @@ ProductoJpaController pro;
         return this.pro.findProducto(idProducto);
     }
     
-    public void insert(Producto p) throws Exception{
+    public void addProducto(Producto p) throws Exception{
         this.pro.create(p);
     }
-    public void update(Producto p) throws Exception{
+    public void updateProducto(Producto p) throws Exception{
         this.pro.edit(p);
     }
     
+  
+    public boolean deleteProducto(Integer idPro){
+    
+        try {
+            pro.destroy(idPro);
+            return true;
+        } catch (NonexistentEntityException ex) {
+            Logger.getLogger(EmpleadoDAO.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+
+}
 
 }

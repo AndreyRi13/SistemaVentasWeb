@@ -6,535 +6,595 @@
 
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
 <!DOCTYPE html>
 <html lang="es">
-
     <head>
-        <title>Store CAYSAM</title>
-        <!-- custom-theme -->
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <meta name="keywords" content="Downy Shoes Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
-              Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
-        <script type="application/x-javascript">
-            addEventListener("load", function () {
-            setTimeout(hideURLbar, 0);
-            }, false);
+        <!-- Basic -->
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <!-- Mobile Metas -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <!-- Site Metas -->
+        <link rel="icon" href="./images/fevicon.png" type="image/gif" />
+        <meta name="keywords" content="" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
 
-            function hideURLbar() {
-            window.scrollTo(0, 1);
-            }
-        </script>
-        <!-- //custom-theme -->
-        <link href="./css/inicio/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
-        <link rel="stylesheet" href="./css/inicio/shop.css" type="text/css" media="screen" property="" />
-        <link href="./css/inicio/style7.css" rel="stylesheet" type="text/css" media="all" />
-        <link href="./css/inicio/style.css" rel="stylesheet" type="text/css" media="all" />
-        <!-- font-awesome-icons -->
-        <link href="./css/inicio/font-awesome.css" rel="stylesheet">
-        <!-- //font-awesome-icons -->
-        <link href="//fonts.googleapis.com/css?family=Montserrat:100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800"
-              rel="stylesheet">
-        <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800" rel="stylesheet">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <title>Minics</title>
+
+
+        <!-- bootstrap core css -->
+        <link rel="stylesheet" type="text/css" href="./css/inicio/bootstrap.css" />
+
+        <!-- fonts style -->
+        <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet"> <!-- range slider -->
+
+        <!-- font awesome style -->
+        <link href="./css/inicio/font-awesome.min.css" rel="stylesheet" />
+        <link href="./css/inicio/ion.rangeSlider.min.css" rel="stylesheet" />
+        <link href="./css/inicio/style.css.map" rel="stylesheet" />
+        <!-- Custom styles for this template -->
+        <link href="./css/inicio/style.css" rel="stylesheet" />
+        <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
+        <!-- responsive style -->
+        <link href="./css/inicio/responsive.css" rel="stylesheet" />
+
     </head>
 
     <body>
-        <!-- banner -->
-        <div class="container">
 
+        <div class="hero_area">
+            <!-- header section strats -->
+            <header class="header_section">
+                <div class="header_top">
+                    <div class="container-fluid">
+                        <div class="top_nav_container">
+                            <div class="contact_nav">
+                                <a href="">
+                                    <i class="fa fa-phone" aria-hidden="true"></i>
+                                    <span>
+                                        Call : +57 3105666554
+                                    </span>
+                                </a>
+                                <a href="">
+                                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                                    <span>
+                                        Email : demo@gmail.com
+                                    </span>
+                                </a>
+                            </div>
+                            <from class="search_form">
+                                <input type="text" class="form-control" placeholder="Buscar calzado...">
+                                <button class="" type="submit">
+                                    <i class="fa fa-search" aria-hidden="true"></i>
+                                </button>
+                            </from>
+                            <div class="user_option_box">
+                                <a href="vistas/validar?a=Login" class="account-link">
+                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                    <span>
+                                        Mi Cuenta
+                                    </span>
+                                </a>
+                                <a href="" class="cart-link">
+                                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                    <span>
+                                        Carrito
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
 
-            <header class="header">
-
-                <div class="logo">
-                    <h1><a class="navbar-brand" href="index.html"><span>CAYSAM</span> <i>Shoes</i></a></h1>
+                    </div>
                 </div>
-
-            </header>
-
-
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <a class="navbar-brand" href="#">Navbar</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Dropdown
+                <div class="header_bottom">
+                    <div class="container-fluid">
+                        <nav class="navbar navbar-expand-lg custom_nav-container ">
+                            <a class="navbar-brand" href="index.html">
+                                <span>
+                                    CAYSAM
+                                </span>
                             </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Something else here</a>
+
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class=""> </span>
+                            </button>
+
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                <ul class="navbar-nav ">
+                                    <li class="nav-item active">
+                                        <a class="nav-link" href="">Inicio <span class="sr-only">(current)</span></a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="about.html"> Nosotros</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="product.html">Productos</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="why.html">Por qué nosotros</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="testimonial.html">Testimonio</a>
+                                    </li>
+                                </ul>
                             </div>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                        </li>
-                    </ul>
-
-                    <form class="form-inline my-2 my-lg-0">
-                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                    </form>
-
-
+                        </nav>
+                    </div>
                 </div>
-
-            </nav>
-
-
-        </div>
-
-
-
-        <div class="clearfix"></div>
-
-        <!-- /slider -->
-        <div class="slider">
-            <div class="callbacks_container">
-                <ul class="rslides callbacks callbacks1" id="slider4">
-
-                    <li>
-                        <div class="banner-top2">
-                            <div class="banner-info-wthree">
-                                <h3>Nike</h3>
-                                <p>See how good they feel.</p>
-
+            </header>
+            <!-- end header section -->
+            <!-- slider section -->
+            <section class="slider_section ">
+                <div id="customCarousel1" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="container ">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="detail-box">
+                                            <h1>
+                                                Bienvenido a tu tienda virtual
+                                            </h1>
+                                            <p>
+                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste quam velit saepe dolorem deserunt quo quidem ad optio.
+                                            </p>
+                                            <a href="">
+                                                Leer Más
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="img-box">
+                                            <img src="images/slider-img.jpg" alt="">
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-
                         </div>
-                    </li>
-                    <li>
-                        <div class="banner-top3">
-                            <div class="banner-info-wthree">
-                                <h3>Heels</h3>
-                                <p>For All Walks of Life.</p>
-
+                        <div class="carousel-item">
+                            <div class="container ">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="detail-box">
+                                            <h1>
+                                                Bienvenido a tu tienda virtual
+                                            </h1>
+                                            <p>
+                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste quam velit saepe dolorem deserunt quo quidem ad optio.
+                                            </p>
+                                            <a href="">
+                                                Leer Más
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="img-box">
+                                            <img src="images/slider-img.jpg" alt="">
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-
                         </div>
-                    </li>
-                    <li>
-                        <div class="banner-top">
-                            <div class="banner-info-wthree">
-                                <h3>Sneakers</h3>
-                                <p>See how good they feel.</p>
+                    </div>
+                    <div class="carousel_btn_box">
+                        <a class="carousel-control-prev" href="#customCarousel1" role="button" data-slide="prev">
+                            <i class="fa fa-angle-left" aria-hidden="true"></i>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#customCarousel1" role="button" data-slide="next">
+                            <i class="fa fa-angle-right" aria-hidden="true"></i>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+            <!-- end slider section -->
+        </div>
 
+
+        <!-- product section -->
+
+        <section class="product_section layout_padding">
+            <div class="container">
+                <div class="heading_container heading_center">
+                    <h2>
+                        Todos los Productos
+                    </h2>
+                </div>
+                <div class="row">
+                    <c:forEach var="producto" items="${productos}">
+                        <div class="col-sm-6 col-lg-4">
+                            <div class="box">
+                                <div class="img-box">
+                                    <img src="images/p1.png" alt="">
+                                    <a href="" class="add_cart_btn">
+                                        <span>
+                                            Agrgar al Carrito
+                                        </span>
+                                    </a>
+                                </div>
+                                <div class="detail-box">
+                                    <h5>
+                                        ${producto.nombres}
+                                    </h5>
+                                    <div class="product_info">
+                                        <h5>
+                                            <span>$</span>${producto.precio}
+                                        </h5>
+                                        <div class="star_container">
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-
                         </div>
-                    </li>
-                    <li>
-                        <div class="banner-top1">
-                            <div class="banner-info-wthree">
-                                <h3>Adidas</h3>
-                                <p>For All Walks of Life.</p>
-
-                            </div>
-
-                        </div>
-                    </li>
-                </ul>
-            </div>
-            <div class="clearfix"> </div>
-        </div>
-        <!-- //slider -->
-        <ul class="top_icons">
-            <li><a href="#"><span class="fa fa-facebook" aria-hidden="true"></span></a></li>
-            <li><a href="#"><span class="fa fa-twitter" aria-hidden="true"></span></a></li>
-            <li><a href="#"><span class="fa fa-linkedin" aria-hidden="true"></span></a></li>
-            <li><a href="#"><span class="fa fa-google-plus" aria-hidden="true"></span></a></li>
-
-        </ul>
-    </div>
-</div>
-<!-- //banner -->
-<!-- /girds_bottom-->
-<div class="grids_bottom">
-    <div class="style-grids">
-        <div class="col-md-6 style-grid style-grid-1">
-            <img src="./images/b1.jpg" alt="shoe">
-        </div>
-    </div>
-    <div class="col-md-6 style-grid style-grid-2">
-        <div class="style-image-1_info">
-            <div class="style-grid-2-text_info">
-                <h3>Nike DOWNSHIFTER</h3>
-                <p>Itaque earum rerum hic tenetur a sapiente delectus reiciendis maiores alias consequatur.sed quia non numquam eius modi
-                    tempora incidunt ut labore et dolore .</p>
-                <div class="shop-button">
-                    <a href="shop.html">Shop Now</a>
+                    </c:forEach>
                 </div>
-            </div>
-        </div>
-        <div class="style-image-2">
-            <img src="./images/b2.jpg" alt="shoe">
-            <div class="style-grid-2-text">
-                <h3>Air force</h3>
-            </div>
-        </div>
-    </div>
-    <div class="clearfix"></div>
-</div>
-</div>
-<!-- //grids_bottom-->
-<!-- /girds_bottom2-->
-<div class="grids_sec_2">
-    <div class="style-grids_main">
-        <div class="col-md-6 grids_sec_2_left">
-            <div class="grid_sec_info">
-                <div class="style-grid-2-text_info">
-                    <h3>Sneakers</h3>
-                    <p>Itaque earum rerum hic tenetur a sapiente delectus reiciendis maiores alias consequatur.sed quia non numquam eius modi
-                        tempora incidunt ut labore .</p>
-                    <div class="shop-button">
-                        <a href="shop.html">Shop Now</a>
-                    </div>
-                </div>
-            </div>
-            <div class="style-image-2">
-                <img src="./images/b4.jpg" alt="shoe">
-                <div class="style-grid-2-text">
-                    <h3>Air force</h3>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6 grids_sec_2_left">
-
-            <div class="style-image-2">
-                <img src="./images/b3.jpg" alt="shoe">
-                <div class="style-grid-2-text">
-                    <h3>Air force</h3>
-                </div>
-            </div>
-            <div class="grid_sec_info last">
-                <div class="style-grid-2-text_info">
-                    <h3>Sneakers</h3>
-                    <p>Itaque earum rerum hic tenetur a sapiente delectus reiciendis maiores alias consequatur.sed quia non numquam eius modi
-                        tempora incidunt ut labore .</p>
-                    <div class="shop-button two">
-                        <a href="shop.html">Shop Now</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="clearfix"></div>
-    </div>
-</div>
-<!-- //grids_bottom2-->
-<!-- /Properties -->
-<div class="mid_slider_w3lsagile">
-    <div class="col-md-3 mid_slider_text">
-        <h5>Some More Shoes</h5>
-    </div>
-    <div class="col-md-9 mid_slider_info">
-        <div id="myCarousel" class="carousel slide" data-ride="carousel">
-            <!-- Indicators -->
-            <ol class="carousel-indicators">
-                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                <li data-target="#myCarousel" data-slide-to="1" class=""></li>
-                <li data-target="#myCarousel" data-slide-to="2" class=""></li>
-                <li data-target="#myCarousel" data-slide-to="3" class=""></li>
-            </ol>
-            <div class="carousel-inner" role="listbox">
-                <div class="item active">
-                    <div class="row">
-                        <div class="col-md-3 col-sm-3 col-xs-3 slidering">
-                            <div class="thumbnail"><img src="images/g1.jpg" alt="Image" style="max-width:100%;"></div>
-                        </div>
-                        <div class="col-md-3 col-sm-3 col-xs-3 slidering">
-                            <div class="thumbnail"><img src="images/g2.jpg" alt="Image" style="max-width:100%;"></div>
-                        </div>
-                        <div class="col-md-3 col-sm-3 col-xs-3 slidering">
-                            <div class="thumbnail"><img src="images/g3.jpg" alt="Image" style="max-width:100%;"></div>
-                        </div>
-                        <div class="col-md-3 col-sm-3 col-xs-3 slidering">
-                            <div class="thumbnail"><img src="images/g4.jpg" alt="Image" style="max-width:100%;"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="row">
-                        <div class="col-md-3 col-sm-3 col-xs-3 slidering">
-                            <div class="thumbnail"><img src="images/g5.jpg" alt="Image" style="max-width:100%;"></div>
-                        </div>
-                        <div class="col-md-3 col-sm-3 col-xs-3 slidering">
-                            <div class="thumbnail"><img src="images/g6.jpg" alt="Image" style="max-width:100%;"></div>
-                        </div>
-                        <div class="col-md-3 col-sm-3 col-xs-3 slidering">
-                            <div class="thumbnail"><img src="images/g2.jpg" alt="Image" style="max-width:100%;"></div>
-                        </div>
-                        <div class="col-md-3 col-sm-3 col-xs-3 slidering">
-                            <div class="thumbnail"><img src="images/g1.jpg" alt="Image" style="max-width:100%;"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="row">
-                        <div class="col-md-3 col-sm-3 col-xs-3 slidering">
-                            <div class="thumbnail"><img src="images/g1.jpg" alt="Image" style="max-width:100%;"></div>
-                        </div>
-                        <div class="col-md-3 col-sm-3 col-xs-3 slidering">
-                            <div class="thumbnail"><img src="images/g2.jpg" alt="Image" style="max-width:100%;"></div>
-                        </div>
-                        <div class="col-md-3 col-sm-3 col-xs-3 slidering">
-                            <div class="thumbnail"><img src="images/g3.jpg" alt="Image" style="max-width:100%;"></div>
-                        </div>
-                        <div class="col-md-3 col-sm-3 col-xs-3 slidering">
-                            <div class="thumbnail"><img src="images/g4.jpg" alt="Image" style="max-width:100%;"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="row">
-                        <div class="col-md-3 col-sm-3 col-xs-3 slidering">
-                            <div class="thumbnail"><img src="images/g1.jpg" alt="Image" style="max-width:100%;"></div>
-                        </div>
-                        <div class="col-md-3 col-sm-3 col-xs-3 slidering">
-                            <div class="thumbnail"><img src="images/g2.jpg" alt="Image" style="max-width:100%;"></div>
-                        </div>
-                        <div class="col-md-3 col-sm-3 col-xs-3 slidering">
-                            <div class="thumbnail"><img src="images/g3.jpg" alt="Image" style="max-width:100%;"></div>
-                        </div>
-                        <div class="col-md-3 col-sm-3 col-xs-3 slidering">
-                            <div class="thumbnail"><img src="images/g4.jpg" alt="Image" style="max-width:100%;"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-                <span class="fa fa-chevron-left" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-                <span class="fa fa-chevron-right" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
-            <!-- The Modal -->
-
-        </div>
-    </div>
-
-    <div class="clearfix"> </div>
-</div>
-<!--//banner -->
-
-<!-- /newsletter-->
-<div class="newsletter_w3layouts_agile">
-    <div class="col-sm-6 newsleft">
-        <h3>Sign up for Newsletter !</h3>
-    </div>
-    <div class="col-sm-6 newsright">
-        <form action="#" method="post">
-            <input type="email" placeholder="Enter your email..." name="email" required="">
-            <input type="submit" value="Submit">
-        </form>
-    </div>
-
-    <div class="clearfix"></div>
-</div>
-<!-- //newsletter-->
-<!-- footer -->
-<div class="footer_agileinfo_w3">
-    <div class="footer_inner_info_w3ls_agileits">
-        <div class="col-md-3 footer-left">
-            <h2><a href="index.html"><span>D</span>owny Shoes </a></h2>
-            <p>Lorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora.</p>
-            <ul class="social-nav model-3d-0 footer-social social two">
-                <li>
-                    <a href="#" class="facebook">
-                        <div class="front"><i class="fa fa-facebook" aria-hidden="true"></i></div>
-                        <div class="back"><i class="fa fa-facebook" aria-hidden="true"></i></div>
+                <div class="btn_box">
+                    <a href="" class="view_more-link">
+                        Ver Más
                     </a>
-                </li>
-                <li>
-                    <a href="#" class="twitter">
-                        <div class="front"><i class="fa fa-twitter" aria-hidden="true"></i></div>
-                        <div class="back"><i class="fa fa-twitter" aria-hidden="true"></i></div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="instagram">
-                        <div class="front"><i class="fa fa-instagram" aria-hidden="true"></i></div>
-                        <div class="back"><i class="fa fa-instagram" aria-hidden="true"></i></div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="pinterest">
-                        <div class="front"><i class="fa fa-linkedin" aria-hidden="true"></i></div>
-                        <div class="back"><i class="fa fa-linkedin" aria-hidden="true"></i></div>
-                    </a>
-                </li>
-            </ul>
-        </div>
-        <div class="col-md-9 footer-right">
-            <div class="sign-grds">
-                <div class="col-md-4 sign-gd">
-                    <h4>Our <span>Information</span> </h4>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="404.html">Services</a></li>
-                        <li><a href="404.html">Short Codes</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
                 </div>
+            </div>
+        </section>
 
-                <div class="col-md-5 sign-gd-two">
-                    <h4>Store <span>Information</span></h4>
-                    <div class="address">
-                        <div class="address-grid">
-                            <div class="address-left">
-                                <i class="fa fa-phone" aria-hidden="true"></i>
-                            </div>
-                            <div class="address-right">
-                                <h6>Phone Number</h6>
-                                <p>+1 234 567 8901</p>
-                            </div>
-                            <div class="clearfix"> </div>
-                        </div>
-                        <div class="address-grid">
-                            <div class="address-left">
-                                <i class="fa fa-envelope" aria-hidden="true"></i>
-                            </div>
-                            <div class="address-right">
-                                <h6>Email Address</h6>
-                                <p>Email :<a href="mailto:example@email.com"> mail@example.com</a></p>
-                            </div>
-                            <div class="clearfix"> </div>
-                        </div>
-                        <div class="address-grid">
-                            <div class="address-left">
-                                <i class="fa fa-map-marker" aria-hidden="true"></i>
-                            </div>
-                            <div class="address-right">
-                                <h6>Location</h6>
-                                <p>Broome St, NY 10002,California, USA.
+        <!-- end product section -->
 
+        <!-- about section -->
+
+        <section class="about_section">
+            <div class="container-fluid  ">
+                <div class="row">
+                    <div class="col-md-5 ml-auto">
+                        <div class="detail-box pr-md-3">
+                            <div class="heading_container">
+                                <h2>
+
+                                    Ofrecemos lo mejor para usted
+                                </h2>
+                            </div>
+                            <p>
+                                Totam architecto rem beatae veniam, cum officiis adipisci soluta perspiciatis ipsa, expedita maiores quae accusantium. Animi veniam aperiam, necessitatibus mollitia ipsum id optio ipsa odio ab facilis sit labore officia!
+                                Repellat expedita, deserunt eum soluta rem culpa. Aut, necessitatibus cumque. Voluptas consequuntur vitae aperiam animi sint earum, ex unde cupiditate, molestias dolore quos quas possimus eveniet facilis magnam? Vero, dicta.
+                            </p>
+                            <a href="">
+                                Leer Más
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 px-0">
+                        <div class="img-box">
+                            <img src="images/about-img.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- end about section -->
+
+        <!-- why us section -->
+
+        <section class="why_us_section layout_padding">
+            <div class="container">
+                <div class="heading_container heading_center">
+                    <h2>
+                        Why Choose Us
+                    </h2>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="box ">
+                            <div class="img-box">
+                                <img src="images/w1.png" alt="">
+                            </div>
+                            <div class="detail-box">
+                                <h5>
+                                    Fast Delivery
+                                </h5>
+                                <p>
+                                    variations of passages of Lorem Ipsum available
                                 </p>
                             </div>
-                            <div class="clearfix"> </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="box ">
+                            <div class="img-box">
+                                <img src="images/w2.png" alt="">
+                            </div>
+                            <div class="detail-box">
+                                <h5>
+                                    Free Shiping
+                                </h5>
+                                <p>
+                                    variations of passages of Lorem Ipsum available
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="box ">
+                            <div class="img-box">
+                                <img src="images/w3.png" alt="">
+                            </div>
+                            <div class="detail-box">
+                                <h5>
+                                    Best Quality
+                                </h5>
+                                <p>
+                                    variations of passages of Lorem Ipsum available
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3 sign-gd flickr-post">
-                    <h4>Flickr <span>Posts</span></h4>
-                    <ul>
-                        <li><a href="single.html"><img src="./images/t1.jpg" alt=" " class="img-responsive" /></a></li>
-                        <li><a href="single.html"><img src="./images/t2.jpg" alt=" " class="img-responsive" /></a></li>
-                        <li><a href="single.html"><img src="./images/t3.jpg" alt=" " class="img-responsive" /></a></li>
-                        <li><a href="single.html"><img src="./images/t4.jpg" alt=" " class="img-responsive" /></a></li>
-                        <li><a href="single.html"><img src="./images/t1.jpg" alt=" " class="img-responsive" /></a></li>
-                        <li><a href="single.html"><img src="./images/t2.jpg" alt=" " class="img-responsive" /></a></li>
-                        <li><a href="single.html"><img src="./images/t3.jpg" alt=" " class="img-responsive" /></a></li>
-                        <li><a href="single.html"><img src="./images/t2.jpg" alt=" " class="img-responsive" /></a></li>
-                        <li><a href="single.html"><img src="./images/t4.jpg" alt=" " class="img-responsive" /></a></li>
-                    </ul>
-                </div>
-                <div class="clearfix"></div>
             </div>
-        </div>
-        <div class="clearfix"></div>
+        </section>
 
-        <p class="copy-right-w3ls-agileits">&copy 2018 Downy Shoes. All rights reserved | Design by <a href="http://w3layouts.com/">W3layouts</a></p>
-    </div>
-</div>
-</div>
-
-<!-- //footer -->
-<a href="#home" id="toTop" class="scroll" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <!-- end why us section -->
 
 
-<!-- js -->
-<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
-<!-- //js -->
-<!-- /nav -->
-<script src="js/modernizr-2.6.2.min.js"></script>
-<script src="js/classie.js"></script>
-<script src="js/demo1.js"></script>
-<!-- //nav -->
-<!-- cart-js -->
-<script src="js/minicart.js"></script>
-<script>
-shoe.render();
+        <!-- client section -->
 
-shoe.cart.on('shoe_checkout', function (evt) {
-    var items, len, i;
+        <section class="client_section layout_padding-bottom">
+            <div class="container">
+                <div class="heading_container heading_center">
+                    <h2>
+                        What Says Our Customers
+                    </h2>
+                </div>
+            </div>
+            <div class="client_container ">
+                <div id="carouselExample2Controls" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="container">
+                                <div class="box">
+                                    <div class="detail-box">
+                                        <p>
+                                            <i class="fa fa-quote-left" aria-hidden="true"></i>
+                                        </p>
+                                        <p>
+                                            It is a long established fact that a reader will be distracted by the readable content of a page
+                                            when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal
+                                            distribution of letters, as opposed to using 'Content here, content here', making it lookIt is a
+                                            long established fact that a reader will be distracted by the readable content of a page when
+                                            looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal
+                                            distribution of letters, as opposed to using 'Content here, content here', making it look
+                                        </p>
+                                    </div>
+                                    <div class="client-id">
+                                        <div class="img-box">
+                                            <img src="images/client.jpg" alt="">
+                                        </div>
+                                        <div class="name">
+                                            <h5>
+                                                James Dew
+                                            </h5>
+                                            <h6>
+                                                Photographer
+                                            </h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="container">
+                                <div class="box">
+                                    <div class="detail-box">
+                                        <p>
+                                            <i class="fa fa-quote-left" aria-hidden="true"></i>
+                                        </p>
+                                        <p>
+                                            It is a long established fact that a reader will be distracted by the readable content of a page
+                                            when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal
+                                            distribution of letters, as opposed to using 'Content here, content here', making it lookIt is a
+                                            long established fact that a reader will be distracted by the readable content of a page when
+                                            looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal
+                                            distribution of letters, as opposed to using 'Content here, content here', making it look
+                                        </p>
+                                    </div>
+                                    <div class="client-id">
+                                        <div class="img-box">
+                                            <img src="images/client.jpg" alt="">
+                                        </div>
+                                        <div class="name">
+                                            <h5>
+                                                James Dew
+                                            </h5>
+                                            <h6>
+                                                Photographer
+                                            </h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="container">
+                                <div class="box">
+                                    <div class="detail-box">
+                                        <p>
+                                            <i class="fa fa-quote-left" aria-hidden="true"></i>
+                                        </p>
+                                        <p>
+                                            It is a long established fact that a reader will be distracted by the readable content of a page
+                                            when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal
+                                            distribution of letters, as opposed to using 'Content here, content here', making it lookIt is a
+                                            long established fact that a reader will be distracted by the readable content of a page when
+                                            looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal
+                                            distribution of letters, as opposed to using 'Content here, content here', making it look
+                                        </p>
+                                    </div>
+                                    <div class="client-id">
+                                        <div class="img-box">
+                                            <img src="images/client.jpg" alt="">
+                                        </div>
+                                        <div class="name">
+                                            <h5>
+                                                James Dew
+                                            </h5>
+                                            <h6>
+                                                Photographer
+                                            </h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel_btn-box">
+                        <a class="carousel-control-prev" href="#carouselExample2Controls" role="button" data-slide="prev">
+                            <span>
+                                <i class="fa fa-angle-left" aria-hidden="true"></i>
+                            </span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExample2Controls" role="button" data-slide="next">
+                            <span>
+                                <i class="fa fa-angle-right" aria-hidden="true"></i>
+                            </span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- end client section -->
 
-    if (this.subtotal() > 0) {
-        items = this.items();
+        <!-- info section -->
+        <section class="info_section ">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="info_contact">
+                            <h5>
+                                <a href="" class="navbar-brand">
+                                    <span>
+                                        Minics
+                                    </span>
+                                </a>
+                            </h5>
+                            <p>
+                                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                Address
+                            </p>
+                            <p>
+                                <i class="fa fa-phone" aria-hidden="true"></i>
+                                +01 1234567890
+                            </p>
+                            <p>
+                                <i class="fa fa-envelope" aria-hidden="true"></i>
+                                demo@gmail.com
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="info_info">
+                            <h5>
+                                Information
+                            </h5>
+                            <p>
+                                Eligendi sunt, provident, debitis nemo, facilis cupiditate velit libero dolorum aperiam enim nulla iste maxime corrupti ad illo libero minus.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="info_links">
+                            <h5>
+                                Useful Link
+                            </h5>
+                            <ul>
+                                <li>
+                                    <a href="index.html">
+                                        Home
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="about.html">
+                                        About
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="product.html">
+                                        Products
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="why.html">
+                                        Why Us
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="testimonial.html">
+                                        Testimonial
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="info_form ">
+                            <h5>
+                                Newsletter
+                            </h5>
+                            <form action="">
+                                <input type="email" placeholder="Enter your email">
+                                <button>
+                                    Subscribe
+                                </button>
+                            </form>
+                            <div class="social_box">
+                                <a href="">
+                                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                                </a>
+                                <a href="">
+                                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                                </a>
+                                <a href="">
+                                    <i class="fa fa-instagram" aria-hidden="true"></i>
+                                </a>
+                                <a href="">
+                                    <i class="fa fa-youtube" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        for (i = 0, len = items.length; i < len; i++) {
-        }
-    }
-});
-</script>
-<!-- //cart-js -->
-<!--search-bar-->
-<script src="./js/search.js"></script>
-<!--//search-bar-->
-<script src="./js/responsiveslides.min.js"></script>
-<script>
-$(function () {
-    $("#slider4").responsiveSlides({
-        auto: true,
-        pager: true,
-        nav: true,
-        speed: 1000,
-        namespace: "callbacks",
-        before: function () {
-            $('.events').append("<li>before event fired.</li>");
-        },
-        after: function () {
-            $('.events').append("<li>after event fired.</li>");
-        }
-    });
-});
-</script>
-<!-- js for portfolio lightbox -->
-<!-- start-smoth-scrolling -->
-<script type="text/javascript" src="./js/move-top.js"></script>
-<script type="text/javascript" src="./js/easing.js"></script>
-<script type="text/javascript">
-jQuery(document).ready(function ($) {
-    $(".scroll").click(function (event) {
-        event.preventDefault();
-        $('html,body').animate({
-            scrollTop: $(this.hash).offset().top
-        }, 1000);
-    });
-});
-</script>
-<!-- //end-smoth-scrolling -->
-
-<script type="text/javascript" src="./js/bootstrap-3.1.1.min.js"></script>
+        <!-- end info_section -->
 
 
-</body>
+        <!-- footer section -->
+        <footer class="footer_section">
+            <div class="container">
+                <p>
+                    &copy; <span id="displayYear"></span> All Rights Reserved By
+                    <a href="https://html.design/">Free Html Templates</a>
+                </p>
+            </div>
+        </footer>
+        <!-- footer section -->
+
+        <!-- jQery -->
+        <script src="./js/jquery-3.4.1.min.js"></script>
+        <!-- bootstrap js -->
+        <script src="./js/bootstrap.js"></script>
+        <!-- custom js -->
+        <script src="./js/custom.js"></script>
+
+
+    </body>
 
 </html>
-
-
-
-
-
-
-
-
-
-
-
-

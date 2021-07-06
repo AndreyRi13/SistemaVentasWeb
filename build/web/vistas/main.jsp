@@ -64,8 +64,8 @@
                             </a>
                             <div class="collapse" id="collapseProductos" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="controlador?menu=agregarProducto" target="myFrame">Agregar Producto</a>
-                                    <a class="nav-link" href="#">Lista de Producto</a>
+                                    <a class="nav-link" href="productocontroller?menu=agregarProducto" target="myFrame">Agregar Producto</a>
+                                    <a class="nav-link" href="productocontroller?menu=listaProducto" target="myFrame">Lista de Producto</a>
                                 </nav>
                             </div>
 
@@ -79,8 +79,8 @@
                             </a>
                             <div class="collapse" id="collapseEmpleados" aria-labelledby="headingTwo">
                                 <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                                    <a class="nav-link" href="controlador?menu=agregarEmpleado" target="myFrame">Agregar Empleado</a>
-                                    <a class="nav-link" href="controlador?menu=listaEmpleado" target="myFrame">Lista de Empleado</a>                                 
+                                    <a class="nav-link" href="empleadocontroller?menu=agregarEmpleado" target="myFrame">Agregar Empleado</a>
+                                    <a class="nav-link" href="empleadocontroller?menu=listaEmpleado" target="myFrame">Lista de Empleado</a>                                 
                                 </nav>
                             </div>
 
@@ -93,7 +93,7 @@
                             <div class="collapse" id="collapseClientes" aria-labelledby="headingThree" >
                                 <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
                                     <a class="nav-link" href="#">Agregar Cliente</a>
-                                    <a class="nav-link" href="controlador?menu=listaClientes" target="myFrame">Lista de Clientes</a>                                 
+                                    <a class="nav-link" href="clientecontroller?menu=listaClientes" target="myFrame">Lista de Clientes</a>                                 
                                 </nav>
                             </div>
                             <div class="sb-sidenav-menu-heading">Administración de Ventas</div>
@@ -104,9 +104,9 @@
                             </a>
                             <div class="collapse" id="collapseVentas" aria-labelledby="headingFour">
                                 <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                                    <a class="nav-link" href="controlador?menu=agregarProducto" target="myFrame">Agregar Venta</a>
-                                    <a class="nav-link" href="#">Lista de Venta</a>      
-                                    <a class="nav-link" href="#">Informe de Ventas</a>   
+                                    <a class="nav-link" href="ventacontroller?menu=agregarVenta" target="myFrame">Agregar Venta</a>
+                                    <a class="nav-link" href="ventacontroller?menu=listarVenta" target="myFrame">Lista de Venta</a>      
+                                    <a class="nav-link" href="ventacontroller?menu=informeVenta" target="myFrame">Informe de Ventas</a>   
                                 </nav>
                             </div>
 
