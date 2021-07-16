@@ -6,9 +6,9 @@
 package Negocio;
 
 import DAO.EmpleadoDAO;
-import DAO.ProductoDAO;
+import DAO.CalzadoDAO;
 import DTO.Empleado;
-import DTO.Producto;
+import DTO.Calzado;
 import static java.lang.System.console;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,14 +23,10 @@ public class AdministrarEmpleado {
     }
 
     /*CRUD EMPLEADO*/
-    public boolean agregarEmpleado(String dni, String nombres, String telefono, String estado, String usuario) {
+    public boolean agregarEmpleado(String cedula,String nombres,String apellidos,String username,String password,String direccion,String numeroCelular,String correoElectronico,String estado) {
         EmpleadoDAO empleado = new EmpleadoDAO();
-        Empleado emp = new Empleado();
-        emp.setDni(dni);
-        emp.setNombres(nombres);
-        emp.setTelefono(telefono);
-        emp.setEstado(estado);
-        emp.setUser(usuario);
+        Empleado emp = new Empleado(cedula,nombres,apellidos,username,password,direccion,numeroCelular,correoElectronico,estado);
+        
         try {
             empleado.addEmpleado(emp);
             return true;
@@ -50,7 +46,7 @@ public class AdministrarEmpleado {
         }
         return aux;
     }
-    
+
 //    public int buscaridporDatos(String dni1, String nombres1, String telefono1, String estado1, String usuario1) throws Exception {
 //        EmpleadoDAO emp = new EmpleadoDAO();
 //        List<Empleado> empleadosList = emp.readEmpleados();
@@ -72,30 +68,31 @@ public class AdministrarEmpleado {
 //        }
 //        return aux;
 //    }
-
-    public void editarEmpleado(Integer id, String dni1, String nombres1, String telefono1, String estado1, String usuario1) throws Exception {
+    public void editarEmpleado(Integer id, String cedula, String nombres, String apellidos, String username, String password, String direccion, String numeroCelular, String correoElectronico, String estado) throws Exception {
         Empleado em = new Empleado();
         em.setIdEmpleado(id);
-        em.setDni(dni1);
-        em.setNombres(nombres1);
-        em.setTelefono(telefono1);
-        em.setEstado(estado1);
-        em.setUser(usuario1);
+        em.setCedula(cedula);
+        em.setNombres(nombres);
+        em.setApellidos(apellidos);
+        em.setUsername(username);
+        em.setPassword(password);
+        em.setDireccion(direccion);
+        em.setNumeroCelular(numeroCelular);
+        em.setCorreoElectronico(correoElectronico);
+        em.setEstado(estado);
         EmpleadoDAO empdao = new EmpleadoDAO();
         empdao.updateEmpleado(em);
     }
 
     public void eliminarEmpleado(Integer id) throws Exception {
-      EmpleadoDAO empdao = new EmpleadoDAO();
+        EmpleadoDAO empdao = new EmpleadoDAO();
         empdao.deleteEmpleado(id);
     }
-    
-    
+
     public List<Empleado> listaEmpleados() {
         EmpleadoDAO emp = new EmpleadoDAO();
         List<Empleado> empleados = emp.readEmpleados();
         return empleados;
     }
-
 
 }

@@ -5,8 +5,8 @@
  */
 package DAO;
 
-import DTO.Producto;
-import Persistencia.ProductoJpaController;
+import DTO.Calzado;
+import Persistencia.CalzadoJpaController;
 import Persistencia.exceptions.NonexistentEntityException;
 import java.util.List;
 import java.util.logging.Level;
@@ -16,34 +16,34 @@ import java.util.logging.Logger;
  *
  * @author Andrey R
  */
-public class ProductoDAO {
+public class CalzadoDAO {
 
-    ProductoJpaController pro;
+    CalzadoJpaController pro;
 
-    public ProductoDAO() {
+    public CalzadoDAO() {
 
         Conexion con = Conexion.getConexion();
-        this.pro = new ProductoJpaController(con.getBd());
+        this.pro = new CalzadoJpaController(con.getBd());
 
     }
 
-    public List<Producto> readProductos() {
-        return this.pro.findProductoEntities();
+    public List<Calzado> readCalzados() {
+        return this.pro.findCalzadoEntities();
     }
 
-    public Producto findProducto(int idProducto) {
-        return this.pro.findProducto(idProducto);
+    public Calzado findCalzado(int idCalzado) {
+        return this.pro.findCalzado(idCalzado);
     }
 
-    public void addProducto(Producto p) throws Exception {
+    public void addCalzado(Calzado p) throws Exception {
         this.pro.create(p);
     }
 
-    public void updateProducto(Producto p) throws Exception {
+    public void updateCalzado(Calzado p) throws Exception {
         this.pro.edit(p);
     }
 
-    public boolean deleteProducto(Integer idPro) {
+    public boolean deleteCalzado(Integer idPro) {
 
         try {
             pro.destroy(idPro);

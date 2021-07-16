@@ -5,9 +5,8 @@
  */
 package Persistencia;
 
-import DTO.Empleado;
+import DTO.Comprador;
 import Persistencia.exceptions.NonexistentEntityException;
-import Persistencia.exceptions.PreexistingEntityException;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -21,9 +20,9 @@ import javax.persistence.criteria.Root;
  *
  * @author Andrey R
  */
-public class EmpleadoJpaController implements Serializable {
+public class CompradorJpaController implements Serializable {
 
-    public EmpleadoJpaController(EntityManagerFactory emf) {
+    public CompradorJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
     private EntityManagerFactory emf = null;
@@ -32,18 +31,13 @@ public class EmpleadoJpaController implements Serializable {
         return emf.createEntityManager();
     }
 
-    public void create(Empleado empleado) throws PreexistingEntityException, Exception {
+    public void create(Comprador comprador) {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            em.persist(empleado);
+            em.persist(comprador);
             em.getTransaction().commit();
-        } catch (Exception ex) {
-            if (findEmpleado(empleado.getIdEmpleado()) != null) {
-                throw new PreexistingEntityException("Empleado " + empleado + " already exists.", ex);
-            }
-            throw ex;
         } finally {
             if (em != null) {
                 em.close();
@@ -51,19 +45,19 @@ public class EmpleadoJpaController implements Serializable {
         }
     }
 
-    public void edit(Empleado empleado) throws NonexistentEntityException, Exception {
+    public void edit(Comprador comprador) throws NonexistentEntityException, Exception {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            empleado = em.merge(empleado);
+            comprador = em.merge(comprador);
             em.getTransaction().commit();
         } catch (Exception ex) {
             String msg = ex.getLocalizedMessage();
             if (msg == null || msg.length() == 0) {
-                Integer id = empleado.getIdEmpleado();
-                if (findEmpleado(id) == null) {
-                    throw new NonexistentEntityException("The empleado with id " + id + " no longer exists.");
+                Integer id = comprador.getIdComprador();
+                if (findComprador(id) == null) {
+                    throw new NonexistentEntityException("The comprador with id " + id + " no longer exists.");
                 }
             }
             throw ex;
@@ -79,14 +73,14 @@ public class EmpleadoJpaController implements Serializable {
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            Empleado empleado;
+            Comprador comprador;
             try {
-                empleado = em.getReference(Empleado.class, id);
-                empleado.getIdEmpleado();
+                comprador = em.getReference(Comprador.class, id);
+                comprador.getIdComprador();
             } catch (EntityNotFoundException enfe) {
-                throw new NonexistentEntityException("The empleado with id " + id + " no longer exists.", enfe);
+                throw new NonexistentEntityException("The comprador with id " + id + " no longer exists.", enfe);
             }
-            em.remove(empleado);
+            em.remove(comprador);
             em.getTransaction().commit();
         } finally {
             if (em != null) {
@@ -95,19 +89,19 @@ public class EmpleadoJpaController implements Serializable {
         }
     }
 
-    public List<Empleado> findEmpleadoEntities() {
-        return findEmpleadoEntities(true, -1, -1);
+    public List<Comprador> findCompradorEntities() {
+        return findCompradorEntities(true, -1, -1);
     }
 
-    public List<Empleado> findEmpleadoEntities(int maxResults, int firstResult) {
-        return findEmpleadoEntities(false, maxResults, firstResult);
+    public List<Comprador> findCompradorEntities(int maxResults, int firstResult) {
+        return findCompradorEntities(false, maxResults, firstResult);
     }
 
-    private List<Empleado> findEmpleadoEntities(boolean all, int maxResults, int firstResult) {
+    private List<Comprador> findCompradorEntities(boolean all, int maxResults, int firstResult) {
         EntityManager em = getEntityManager();
         try {
             CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
-            cq.select(cq.from(Empleado.class));
+            cq.select(cq.from(Comprador.class));
             Query q = em.createQuery(cq);
             if (!all) {
                 q.setMaxResults(maxResults);
@@ -119,20 +113,20 @@ public class EmpleadoJpaController implements Serializable {
         }
     }
 
-    public Empleado findEmpleado(Integer id) {
+    public Comprador findComprador(Integer id) {
         EntityManager em = getEntityManager();
         try {
-            return em.find(Empleado.class, id);
+            return em.find(Comprador.class, id);
         } finally {
             em.close();
         }
     }
 
-    public int getEmpleadoCount() {
+    public int getCompradorCount() {
         EntityManager em = getEntityManager();
         try {
             CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
-            Root<Empleado> rt = cq.from(Empleado.class);
+            Root<Comprador> rt = cq.from(Comprador.class);
             cq.select(em.getCriteriaBuilder().count(rt));
             Query q = em.createQuery(cq);
             return ((Long) q.getSingleResult()).intValue();

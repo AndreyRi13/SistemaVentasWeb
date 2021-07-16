@@ -45,9 +45,9 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <c:forEach var="pro" items="${productos}">
+                                <c:forEach var="pro" items="${calzados}">
                                     <tr>
-                                        <td>${pro.idProducto}</td>
+                                        <td>${pro.idCalzado}</td>
                                         <td>${pro.referencia}</td>
                                         <td>${pro.nombres}</td>
                                         <td>${pro.descripcion}</td>
@@ -58,8 +58,8 @@
                                         <td>${pro.estado}</td>
                                         <td>${pro.foto}</td>
                                         <td>
-                                            <a class="btn btn-warning" href="productocontroller?menu=editProducto&id=${pro.idProducto}">Editar</a>
-                                            <a class="btn btn-danger"  href="productocontroller?menu=eliminarProducto&id=${pro.idProducto}">Eliminar</a>
+                                            <a class="btn btn-warning" href="calzadocontroller?menu=editCalzado&id=${pro.idCalzado}">Editar</a>
+                                            <a class="btn btn-danger"  href="calzadocontroller?menu=eliminarCalzado&id=${pro.idCalzado}">Eliminar</a>
                                         </td>
                                     </tr>
                                 </c:forEach>
@@ -67,7 +67,9 @@
                         </table>
 
                     </div>
-
+                </div>
+            </div>
+        </div>
 
                     <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script> 
                     <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap5.min.js"></script> 

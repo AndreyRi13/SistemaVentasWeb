@@ -1,16 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
-    
     <servlet>
         <servlet-name>EmpleadoController</servlet-name>
         <servlet-class>Control.EmpleadoController</servlet-class>
     </servlet>
-        <servlet-mapping>
+    <servlet>
+        <servlet-name>CompradorController</servlet-name>
+        <servlet-class>Control.CompradorController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>VentasController</servlet-name>
+        <servlet-class>Control.VentasController</servlet-class>
+    </servlet>
+    <servlet-mapping>
         <servlet-name>EmpleadoController</servlet-name>
         <url-pattern>/vistas/empleadocontroller</url-pattern>
     </servlet-mapping>
-    
-    
     <servlet>
         <servlet-name>Validar</servlet-name>
         <servlet-class>Control.Validar</servlet-class>
@@ -18,27 +23,31 @@
     <servlet-mapping>
         <servlet-name>Validar</servlet-name>
         <url-pattern>/vistas/validar</url-pattern>
-    </servlet-mapping>    
-    
-
+    </servlet-mapping>
     <servlet>
         <servlet-name>Index</servlet-name>
         <servlet-class>Control.Index</servlet-class>
     </servlet>
-     <servlet-mapping>
+    <servlet-mapping>
         <servlet-name>Index</servlet-name>
         <url-pattern>/inicio</url-pattern>
     </servlet-mapping>
-    
     <servlet>
-        <servlet-name>ProductoController</servlet-name>
-        <servlet-class>Control.ProductoController</servlet-class>
-    </servlet>    
+        <servlet-name>CalzadoController</servlet-name>
+        <servlet-class>Control.CalzadoController</servlet-class>
+    </servlet>
     <servlet-mapping>
-        <servlet-name>ProductoController</servlet-name>
-        <url-pattern>/vistas/productocontroller</url-pattern>
+        <servlet-name>CalzadoController</servlet-name>
+        <url-pattern>/vistas/calzadocontroller</url-pattern>
     </servlet-mapping>
-
+    <servlet-mapping>
+        <servlet-name>CompradorController</servlet-name>
+        <url-pattern>/vistas/compradorcontroller</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>VentasController</servlet-name>
+        <url-pattern>/vistas/ventascontroller</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30

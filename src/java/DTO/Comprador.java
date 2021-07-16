@@ -22,28 +22,28 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author Andrey R
  */
 @Entity
-@Table(name = "empleado")
+@Table(name = "comprador")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Empleado.findAll", query = "SELECT e FROM Empleado e"),
-    @NamedQuery(name = "Empleado.findByIdEmpleado", query = "SELECT e FROM Empleado e WHERE e.idEmpleado = :idEmpleado"),
-    @NamedQuery(name = "Empleado.findByCedula", query = "SELECT e FROM Empleado e WHERE e.cedula = :cedula"),
-    @NamedQuery(name = "Empleado.findByNombres", query = "SELECT e FROM Empleado e WHERE e.nombres = :nombres"),
-    @NamedQuery(name = "Empleado.findByApellidos", query = "SELECT e FROM Empleado e WHERE e.apellidos = :apellidos"),
-    @NamedQuery(name = "Empleado.findByUsername", query = "SELECT e FROM Empleado e WHERE e.username = :username"),
-    @NamedQuery(name = "Empleado.findByPassword", query = "SELECT e FROM Empleado e WHERE e.password = :password"),
-    @NamedQuery(name = "Empleado.findByDireccion", query = "SELECT e FROM Empleado e WHERE e.direccion = :direccion"),
-    @NamedQuery(name = "Empleado.findByNumeroCelular", query = "SELECT e FROM Empleado e WHERE e.numeroCelular = :numeroCelular"),
-    @NamedQuery(name = "Empleado.findByCorreoElectronico", query = "SELECT e FROM Empleado e WHERE e.correoElectronico = :correoElectronico"),
-    @NamedQuery(name = "Empleado.findByEstado", query = "SELECT e FROM Empleado e WHERE e.estado = :estado")})
-public class Empleado implements Serializable {
+    @NamedQuery(name = "Comprador.findAll", query = "SELECT c FROM Comprador c"),
+    @NamedQuery(name = "Comprador.findByIdComprador", query = "SELECT c FROM Comprador c WHERE c.idComprador = :idComprador"),
+    @NamedQuery(name = "Comprador.findByCedula", query = "SELECT c FROM Comprador c WHERE c.cedula = :cedula"),
+    @NamedQuery(name = "Comprador.findByNombres", query = "SELECT c FROM Comprador c WHERE c.nombres = :nombres"),
+    @NamedQuery(name = "Comprador.findByApellidos", query = "SELECT c FROM Comprador c WHERE c.apellidos = :apellidos"),
+    @NamedQuery(name = "Comprador.findByUsername", query = "SELECT c FROM Comprador c WHERE c.username = :username"),
+    @NamedQuery(name = "Comprador.findByPassword", query = "SELECT c FROM Comprador c WHERE c.password = :password"),
+    @NamedQuery(name = "Comprador.findByDireccion", query = "SELECT c FROM Comprador c WHERE c.direccion = :direccion"),
+    @NamedQuery(name = "Comprador.findByNumeroCelular", query = "SELECT c FROM Comprador c WHERE c.numeroCelular = :numeroCelular"),
+    @NamedQuery(name = "Comprador.findByCorreoElectronico", query = "SELECT c FROM Comprador c WHERE c.correoElectronico = :correoElectronico"),
+    @NamedQuery(name = "Comprador.findByEstado", query = "SELECT c FROM Comprador c WHERE c.estado = :estado")})
+public class Comprador implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "idEmpleado")
-    private Integer idEmpleado;
+    @Column(name = "idComprador")
+    private Integer idComprador;
     @Basic(optional = false)
     @Column(name = "cedula")
     private String cedula;
@@ -66,14 +66,21 @@ public class Empleado implements Serializable {
     @Column(name = "estado")
     private String estado;
 
-    public Empleado() {
+    public Comprador() {
     }
 
-    public Empleado(Integer idEmpleado) {
-        this.idEmpleado = idEmpleado;
+    public Comprador(Integer idComprador) {
+        this.idComprador = idComprador;
     }
 
-    public Empleado(String cedula, String nombres, String apellidos, String username, String password, String direccion, String numeroCelular, String correoElectronico, String estado) {
+    public Comprador(Integer idComprador, String cedula, String username, String password) {
+        this.idComprador = idComprador;
+        this.cedula = cedula;
+        this.username = username;
+        this.password = password;
+    }
+
+    public Comprador(String cedula, String nombres, String apellidos, String username, String password, String direccion, String numeroCelular, String correoElectronico, String estado) {
         this.cedula = cedula;
         this.nombres = nombres;
         this.apellidos = apellidos;
@@ -86,19 +93,14 @@ public class Empleado implements Serializable {
     }
 
     
-    public Empleado(Integer idEmpleado, String cedula, String username, String password) {
-        this.idEmpleado = idEmpleado;
-        this.cedula = cedula;
-        this.username = username;
-        this.password = password;
+    
+    
+    public Integer getIdComprador() {
+        return idComprador;
     }
 
-    public Integer getIdEmpleado() {
-        return idEmpleado;
-    }
-
-    public void setIdEmpleado(Integer idEmpleado) {
-        this.idEmpleado = idEmpleado;
+    public void setIdComprador(Integer idComprador) {
+        this.idComprador = idComprador;
     }
 
     public String getCedula() {
@@ -176,18 +178,18 @@ public class Empleado implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (idEmpleado != null ? idEmpleado.hashCode() : 0);
+        hash += (idComprador != null ? idComprador.hashCode() : 0);
         return hash;
     }
 
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Empleado)) {
+        if (!(object instanceof Comprador)) {
             return false;
         }
-        Empleado other = (Empleado) object;
-        if ((this.idEmpleado == null && other.idEmpleado != null) || (this.idEmpleado != null && !this.idEmpleado.equals(other.idEmpleado))) {
+        Comprador other = (Comprador) object;
+        if ((this.idComprador == null && other.idComprador != null) || (this.idComprador != null && !this.idComprador.equals(other.idComprador))) {
             return false;
         }
         return true;
@@ -195,7 +197,7 @@ public class Empleado implements Serializable {
 
     @Override
     public String toString() {
-        return "DTO.Empleado[ idEmpleado=" + idEmpleado + " ]";
+        return "DTO.Comprador[ idComprador=" + idComprador + " ]";
     }
     
 }

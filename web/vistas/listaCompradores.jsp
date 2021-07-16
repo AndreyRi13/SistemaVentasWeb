@@ -1,6 +1,6 @@
 <%-- 
-    Document   : empleado
-    Created on : 2/07/2021, 2:29:46 p. m.
+    Document   : clientes
+    Created on : 1/07/2021, 11:10:40 p. m.
     Author     : Andrey R
 --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
@@ -42,19 +42,19 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <c:forEach var="emp" items="${empleados}">
+                                <c:forEach var="com" items="${compradores}">
                                     <tr>
-                                        <td>${emp.idEmpleado}</td>
-                                        <td>${emp.cedula}</td>
-                                        <td>${emp.nombres}</td>
-                                        <td>${emp.apellidos}</td>
-                                        <td>${emp.direccion}</td>
-                                        <td>${emp.numeroCelular}</td>
+                                        <td>${com.idComprador}</td>
+                                        <td>${com.cedula}</td>
+                                        <td>${com.nombres}</td>
+                                        <td>${com.apellidos}</td>
+                                        <td>${com.direccion}</td>
+                                        <td>${com.numeroCelular}</td>
                                         <td>${emp.correoElectronico}</td>
                                         <td>${emp.estado}</td>
                                         <td>
-                                            <a class="btn btn-warning" href="empleadocontroller?menu=editEmpleado&id=${emp.idEmpleado}">Editar</a>
-                                            <a class="btn btn-danger" href="empleadocontroller?menu=eliminarEmpleado&id=${emp.idEmpleado}">Eliminar</a>
+                                            <a class="btn btn-warning" href="compradorcontroller?menu=editComprador&id=${com.idComprador}">Editar</a>
+                                            <a class="btn btn-danger" href="compradorcontroller?menu=eliminarComprador&id=${com.idComprador}">Eliminar</a>
                                         </td>
                                     </tr>
                                 </c:forEach>

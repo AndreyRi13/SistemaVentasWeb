@@ -5,8 +5,8 @@
  */
 package Negocio;
 
-import DAO.ProductoDAO;
-import DTO.Producto;
+import DAO.CalzadoDAO;
+import DTO.Calzado;
 import java.util.List;
 
 /**
@@ -19,9 +19,9 @@ public class N_Inicio {
     }
     
     
-    public List<Producto> listEmpleados(){
-       ProductoDAO pr = new ProductoDAO();
-        List<Producto> product = pr.readProductos();
+    public List<Calzado> listCalzados(){
+       CalzadoDAO pr = new CalzadoDAO();
+        List<Calzado> product = pr.readCalzados();
         return product;
     }
 }

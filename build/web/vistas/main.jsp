@@ -13,7 +13,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Dashboard - SB Admin</title>
+        <title>Main</title>
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
         <link href="../css/styles_main.css" rel="stylesheet" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
@@ -28,7 +28,7 @@
 
             <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
                 <div class="input-group">
-                    <h5 class="mt-2 text-white">${empleado.nombres}</h5>
+                    <h5 class="mt-2 text-white">${empleado.nombres} ${empleado.apellidos}</h5>
                 </div>
             </form>
 
@@ -36,7 +36,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#!">${empleado.user}</a></li>                             
+                        <li><a class="dropdown-item" href="#!">${empleado.username}</a></li>                             
                         <li><a class="dropdown-item" href="#!">Configuracion</a></li>
                         <li><hr class="dropdown-divider" /></li>
                         <form action="validar" method="POST">
@@ -56,16 +56,16 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Home
                             </a>
-                            <div class="sb-sidenav-menu-heading">Administración de Productos</div>
+                            <div class="sb-sidenav-menu-heading">Administración de Calzados</div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseProductos" aria-expanded="false" aria-controls="collapseProductos">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                Producto
+                                Calzado
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
                             <div class="collapse" id="collapseProductos" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="productocontroller?menu=agregarProducto" target="myFrame">Agregar Producto</a>
-                                    <a class="nav-link" href="productocontroller?menu=listaProducto" target="myFrame">Lista de Producto</a>
+                                    <a class="nav-link" href="calzadocontroller?menu=agregarCalzado" target="myFrame">Agregar Calzado</a>
+                                    <a class="nav-link" href="calzadocontroller?menu=listaCalzado" target="myFrame">Lista de Calzado</a>
                                 </nav>
                             </div>
 
@@ -84,16 +84,16 @@
                                 </nav>
                             </div>
 
-                            <div class="sb-sidenav-menu-heading">Administración de Clientes</div>
+                            <div class="sb-sidenav-menu-heading">Administración de Compradores</div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseClientes" aria-expanded="false" aria-controls="collapseClientes">
                                 <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                                Clientes
+                                Compradores
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
                             <div class="collapse" id="collapseClientes" aria-labelledby="headingThree" >
                                 <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                                    <a class="nav-link" href="#">Agregar Cliente</a>
-                                    <a class="nav-link" href="clientecontroller?menu=listaClientes" target="myFrame">Lista de Clientes</a>                                 
+                                    <a class="nav-link" href="compradorcontroller?menu=agregarComprador" target="myFrame">Agregar Comprador</a>
+                                    <a class="nav-link" href="compradorcontroller?menu=listaCompradores" target="myFrame">Lista de Comprador</a>                                 
                                 </nav>
                             </div>
                             <div class="sb-sidenav-menu-heading">Administración de Ventas</div>

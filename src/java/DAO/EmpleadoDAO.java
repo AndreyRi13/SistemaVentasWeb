@@ -35,8 +35,10 @@ public class EmpleadoDAO {
         return this.empleado.findEmpleado(idEmpleado);
     }
 
-    public void addEmpleado(Empleado emp) {
-        this.empleado.create(emp);
+    public void addEmpleado(Empleado emp) throws Exception {
+   
+            this.empleado.create(emp);
+  
     }
     
     public boolean deleteEmpleado(Integer idEm){

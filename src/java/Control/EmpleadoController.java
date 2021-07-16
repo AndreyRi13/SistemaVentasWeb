@@ -7,7 +7,7 @@ package Control;
 
 import DAO.EmpleadoDAO;
 import DTO.Empleado;
-import DTO.Producto;
+import DTO.Calzado;
 import Negocio.AdministrarEmpleado;
 import Negocio.Login;
 import java.io.IOException;
@@ -66,14 +66,20 @@ public class EmpleadoController extends HttpServlet {
     ///////////////////////////////////////Metodo para agregar empleado
     public void addEmpleado(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String dni = request.getParameter("txtDni");
+        
+        String cedula = request.getParameter("txtCedula");
         String nombres = request.getParameter("txtNombres");
-        String telefono = request.getParameter("txtTelefono");
+        String apellidos = request.getParameter("txtApellidos");
+        String username = request.getParameter("txtUsername");
+        String password = request.getParameter("txtPassword");
+        String direccion = request.getParameter("txtDireccion");
+        String numeroCelular = request.getParameter("txtNumeroCelular");
+        String correoElectronico = request.getParameter("txtCorreoElectronico");    
         String estado = request.getParameter("txtEstado");
-        String usuario = request.getParameter("txtUser");
+
         /*Instancia El negocio de administrar  */
         AdministrarEmpleado adm = new AdministrarEmpleado();
-        if (adm.agregarEmpleado(dni, nombres, telefono, estado, usuario) == true) {
+        if (adm.agregarEmpleado(cedula,nombres,apellidos,username,password,direccion,numeroCelular,correoElectronico,estado) == true) {
 
             listaEmpleado(request, response);
 
@@ -117,13 +123,17 @@ public class EmpleadoController extends HttpServlet {
     public void editarEmpleado(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         AdministrarEmpleado admi = new AdministrarEmpleado();
-        String dni1 = request.getParameter("txtDni");
-        String nombres1 = request.getParameter("txtNombres");
-        String telefono1 = request.getParameter("txtTelefono");
-        String estado1 = request.getParameter("txtEstado");
-        String usuario1 = request.getParameter("txtUser");
+        String cedula = request.getParameter("txtCedula");
+        String nombres = request.getParameter("txtNombres");
+        String apellidos = request.getParameter("txtApellidos");
+        String username = request.getParameter("txtUsername");
+        String password = request.getParameter("txtPassword");
+        String direccion = request.getParameter("txtDireccion");
+        String numeroCelular = request.getParameter("txtNumeroCelular");
+        String correoElectronico = request.getParameter("txtCorreoElectronico");    
+        String estado = request.getParameter("txtEstado");
         try {
-            admi.editarEmpleado(idEmple, dni1, nombres1, telefono1, estado1, usuario1);
+            admi.editarEmpleado(idEmple, cedula,  nombres, apellidos,  username,  password,  direccion,  numeroCelular,  correoElectronico,  estado);
             listaEmpleado(request, response);
         } catch (Exception ex) {
             Logger.getLogger(EmpleadoController.class.getName()).log(Level.SEVERE, null, ex);

@@ -32,8 +32,8 @@
                                     <div class="form-group col-lg-6 col-sm-6 col-xl-6 col-6 col-md-6">
                                         <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>                                     
                                         <div class="col-lg-6 col-sm-6 col-xl-6 col-6 col-md-6">
-                                            <label>DNI</label>
-                                            <input id="fname" name="txtDni" type="text" placeholder="Digite el DNI" class="form-control">
+                                            <label>Cedula</label>
+                                            <input id="fname" name="txtCedula" type="text" placeholder="Digite la Cedula" class="form-control">
                                         </div>
                                     </div>
 
@@ -45,12 +45,54 @@
                                             <input id="fname" name="txtNombres" type="text" placeholder="Digite los Nombres" class="form-control">
                                         </div>
                                     </div>
+                                    
+                                    <div class="form-group col-lg-6 col-sm-6 col-xl-6 col-6 col-md-6">
+                                        <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>                                     
+                                        <div class="col-lg-6 col-sm-6 col-xl-6 col-6 col-md-6">
+                                            <label>Apellidos</label>
+                                            <input id="fname" name="txtApellidos" type="text" placeholder="Digite los Apellidos" class="form-control">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group col-lg-6 col-sm-6 col-xl-6 col-6 col-md-6">
+                                        <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>                                     
+                                        <div class="col-lg-6 col-sm-6 col-xl-6 col-6 col-md-6">
+                                            <label>Username</label>
+                                            <input id="fname" name="txtUsername" type="text" placeholder="Digite el Username" class="form-control">
+                                        </div>
+                                    </div><!-- comment -->
+                                    
+                                    <div class="form-group col-lg-6 col-sm-6 col-xl-6 col-6 col-md-6">
+                                        <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>                                     
+                                        <div class="col-lg-6 col-sm-6 col-xl-6 col-6 col-md-6">
+                                            <label>Password</label>
+                                            <input id="fname" name="txtPassword" type="text" placeholder="Digite la Password" class="form-control">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group col-lg-6 col-sm-6 col-xl-6 col-6 col-md-6">
+                                        <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>                                     
+                                        <div class="col-lg-6 col-sm-6 col-xl-6 col-6 col-md-6">
+                                            <label>Direccion</label>
+                                            <input id="fname" name="txtDireccion" type="text" placeholder="Digite la Direccion" class="form-control">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group col-lg-6 col-sm-6 col-xl-6 col-6 col-md-6">
+                                        <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>                                     
+                                        <div class="col-lg-6 col-sm-6 col-xl-6 col-6 col-md-6">
+                                            <label>Numero de Celular</label>
+                                            <input id="fname" name="txtNumeroCelular" type="text" placeholder="Digite el Numero de Celular" class="form-control">
+                                        </div>
+                                    </div>
+                                    
+    
 
                                     <div class="form-group col-lg-6 col-sm-6 col-xl-6 col-6 col-md-6">
                                         <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>                                     
                                         <div class="col-lg-6 col-sm-6 col-xl-6 col-6 col-md-6">
-                                            <label>Telefono</label>
-                                            <input id="fname" name="txtTelefono" type="text" placeholder="Digite el Telefono" class="form-control">
+                                            <label>Correo Electronico</label>
+                                            <input id="fname" name="txtCorreoElectronico" type="text" placeholder="Digite el Correo Electronico" class="form-control">
                                         </div>
                                     </div>
 
@@ -59,14 +101,6 @@
                                         <div class="col-lg-6 col-sm-6 col-xl-6 col-6 col-md-6">
                                             <label>Estado</label>
                                             <input id="fname" name="txtEstado" type="text" placeholder="Digite el Estado" class="form-control">
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group col-lg-6 col-sm-6 col-xl-6 col-6 col-md-6">
-                                        <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>                                     
-                                        <div class="col-lg-6 col-sm-6 col-xl-6 col-6 col-md-6">
-                                            <label>Usuario</label>
-                                            <input id="fname" name="txtUser" type="text" placeholder="Digite el Usuario" class="form-control">
                                         </div>
                                     </div>
 

@@ -6,9 +6,11 @@
 package Negocio;
 
 import DAO.EmpleadoDAO;
-import DAO.ProductoDAO;
+import DAO.CalzadoDAO;
+import DAO.CompradorDAO;
 import DTO.Empleado;
-import DTO.Producto;
+import DTO.Calzado;
+import DTO.Comprador;
 import java.util.List;
 
 /**
@@ -20,24 +22,78 @@ public class Login {
     public Login() {
     }
 
-    public Empleado login(String user, String pass) {
+    public String tipoLogin(String user, String pass) {
 
-        Empleado emp = null;
+     String tipo=null;
+        Empleado emp = new Empleado();
+        EmpleadoDAO empldao = new EmpleadoDAO();
+        List<Empleado> empleadoList = empldao.readEmpleados();
+
+        for (Empleado m : empleadoList) {
+            if (m.getUsername().equals(user)) {
+                if (m.getPassword().equals(pass)) {
+
+                    tipo="Empleado";
+
+                }
+            }
+        }
+
+        Comprador com = new Comprador();
+        CompradorDAO comdao = new CompradorDAO();
+        List<Comprador> compradorList = comdao.readCompradores();
+
+        for (Comprador c : compradorList) {
+            if (c.getUsername().equals(user)) {
+                if (c.getPassword().equals(pass)) {
+
+                   tipo="Comprador";
+                }
+
+            }
+        }
+
+       return tipo;
+    }
+
+    public Empleado loginEmpleado(String user, String pass) {
+
+        Empleado emp = new Empleado();
         EmpleadoDAO empldao = new EmpleadoDAO();
 
         List<Empleado> empleadoList = empldao.readEmpleados();
 
         for (Empleado m : empleadoList) {
-            if (m.getUser().equals(user)) {
-                if (m.getDni().equals(pass)) {
+            if (m.getUsername().equals(user)) {
+                if (m.getPassword().equals(pass)) {
 
                     emp = m;
 
                 }
             }
         }
+
         return emp;
     }
-    
-  
+
+    public Comprador loginComprador(String user, String pass) {
+
+        Comprador com = new Comprador();
+        CompradorDAO comdao = new CompradorDAO();
+
+        List<Comprador> empleadoList = comdao.readCompradores();
+
+        for (Comprador m : empleadoList) {
+            if (m.getUsername().equals(user)) {
+                if (m.getPassword().equals(pass)) {
+
+                    com = m;
+
+                }
+            }
+        }
+
+        return com;
+    }
+
 }

@@ -18,74 +18,74 @@ import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- *RESETEAR PRIMARY KEY ALTER TABLE producto AUTO_INCREMENT = 1
+ *
  * @author Andrey R
  */
 @Entity
-@Table(name = "producto")
+@Table(name = "calzado")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Producto.findAll", query = "SELECT p FROM Producto p"),
-    @NamedQuery(name = "Producto.findByIdProducto", query = "SELECT p FROM Producto p WHERE p.idProducto = :idProducto"),
-    @NamedQuery(name = "Producto.findByReferencia", query = "SELECT p FROM Producto p WHERE p.referencia = :referencia"),
-    @NamedQuery(name = "Producto.findByNombres", query = "SELECT p FROM Producto p WHERE p.nombres = :nombres"),
-    @NamedQuery(name = "Producto.findByDescripcion", query = "SELECT p FROM Producto p WHERE p.descripcion = :descripcion"),
-    @NamedQuery(name = "Producto.findByMarca", query = "SELECT p FROM Producto p WHERE p.marca = :marca"),
-    @NamedQuery(name = "Producto.findByColor", query = "SELECT p FROM Producto p WHERE p.color = :color"),
-    @NamedQuery(name = "Producto.findByColorSuela", query = "SELECT p FROM Producto p WHERE p.colorSuela = :colorSuela"),
-    @NamedQuery(name = "Producto.findByTalla", query = "SELECT p FROM Producto p WHERE p.talla = :talla"),
-    @NamedQuery(name = "Producto.findByPrecio", query = "SELECT p FROM Producto p WHERE p.precio = :precio"),
-    @NamedQuery(name = "Producto.findByStock", query = "SELECT p FROM Producto p WHERE p.stock = :stock"),
-    @NamedQuery(name = "Producto.findByEstado", query = "SELECT p FROM Producto p WHERE p.estado = :estado"),
-    @NamedQuery(name = "Producto.findByFoto", query = "SELECT p FROM Producto p WHERE p.foto = :foto")})
-public class Producto implements Serializable {
+    @NamedQuery(name = "Calzado.findAll", query = "SELECT c FROM Calzado c"),
+    @NamedQuery(name = "Calzado.findByIdCalzado", query = "SELECT c FROM Calzado c WHERE c.idCalzado = :idCalzado"),
+    @NamedQuery(name = "Calzado.findByReferencia", query = "SELECT c FROM Calzado c WHERE c.referencia = :referencia"),
+    @NamedQuery(name = "Calzado.findByNombres", query = "SELECT c FROM Calzado c WHERE c.nombres = :nombres"),
+    @NamedQuery(name = "Calzado.findByDescripcion", query = "SELECT c FROM Calzado c WHERE c.descripcion = :descripcion"),
+    @NamedQuery(name = "Calzado.findByMarca", query = "SELECT c FROM Calzado c WHERE c.marca = :marca"),
+    @NamedQuery(name = "Calzado.findByColor", query = "SELECT c FROM Calzado c WHERE c.color = :color"),
+    @NamedQuery(name = "Calzado.findByColorSuela", query = "SELECT c FROM Calzado c WHERE c.colorSuela = :colorSuela"),
+    @NamedQuery(name = "Calzado.findByTalla", query = "SELECT c FROM Calzado c WHERE c.talla = :talla"),
+    @NamedQuery(name = "Calzado.findByPrecio", query = "SELECT c FROM Calzado c WHERE c.precio = :precio"),
+    @NamedQuery(name = "Calzado.findByStock", query = "SELECT c FROM Calzado c WHERE c.stock = :stock"),
+    @NamedQuery(name = "Calzado.findByEstado", query = "SELECT c FROM Calzado c WHERE c.estado = :estado"),
+    @NamedQuery(name = "Calzado.findByFoto", query = "SELECT c FROM Calzado c WHERE c.foto = :foto")})
+public class Calzado implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "IdProducto")
-    private Integer idProducto;
+    @Column(name = "idCalzado")
+    private Integer idCalzado;
     @Basic(optional = false)
-    @Column(name = "Referencia")
-    private Integer referencia;
-    @Column(name = "Nombres")
+    @Column(name = "referencia")
+    private int referencia;
+    @Column(name = "nombres")
     private String nombres;
     @Basic(optional = false)
-    @Column(name = "Descripcion")
+    @Column(name = "descripcion")
     private String descripcion;
     @Basic(optional = false)
-    @Column(name = "Marca")
+    @Column(name = "marca")
     private String marca;
     @Basic(optional = false)
-    @Column(name = "Color")
+    @Column(name = "color")
     private String color;
     @Basic(optional = false)
-    @Column(name = "ColorSuela")
+    @Column(name = "colorSuela")
     private String colorSuela;
     @Basic(optional = false)
-    @Column(name = "Talla")
+    @Column(name = "talla")
     private int talla;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
-    @Column(name = "Precio")
+    @Column(name = "precio")
     private Double precio;
-    @Column(name = "Stock")
+    @Column(name = "stock")
     private Integer stock;
-    @Column(name = "Estado")
+    @Column(name = "estado")
     private String estado;
     @Basic(optional = false)
-    @Column(name = "Foto")
+    @Column(name = "foto")
     private String foto;
 
-    public Producto() {
+    public Calzado() {
     }
 
-    public Producto(Integer idProducto) {
-        this.idProducto = idProducto;
+    public Calzado(Integer idCalzado) {
+        this.idCalzado = idCalzado;
     }
 
-    public Producto(Integer idProducto, int referencia, String descripcion, String marca, String color, String colorSuela, int talla, String foto) {
-        this.idProducto = idProducto;
+    public Calzado(Integer idCalzado, int referencia, String descripcion, String marca, String color, String colorSuela, int talla, String foto) {
+        this.idCalzado = idCalzado;
         this.referencia = referencia;
         this.descripcion = descripcion;
         this.marca = marca;
@@ -95,12 +95,12 @@ public class Producto implements Serializable {
         this.foto = foto;
     }
 
-    public Integer getIdProducto() {
-        return idProducto;
+    public Integer getIdCalzado() {
+        return idCalzado;
     }
 
-    public void setIdProducto(Integer idProducto) {
-        this.idProducto = idProducto;
+    public void setIdCalzado(Integer idCalzado) {
+        this.idCalzado = idCalzado;
     }
 
     public int getReferencia() {
@@ -194,18 +194,18 @@ public class Producto implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (idProducto != null ? idProducto.hashCode() : 0);
+        hash += (idCalzado != null ? idCalzado.hashCode() : 0);
         return hash;
     }
 
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Producto)) {
+        if (!(object instanceof Calzado)) {
             return false;
         }
-        Producto other = (Producto) object;
-        if ((this.idProducto == null && other.idProducto != null) || (this.idProducto != null && !this.idProducto.equals(other.idProducto))) {
+        Calzado other = (Calzado) object;
+        if ((this.idCalzado == null && other.idCalzado != null) || (this.idCalzado != null && !this.idCalzado.equals(other.idCalzado))) {
             return false;
         }
         return true;
@@ -213,7 +213,7 @@ public class Producto implements Serializable {
 
     @Override
     public String toString() {
-        return "DTO.Producto[ idProducto=" + idProducto + " ]";
+        return "DTO.Calzado[ idCalzado=" + idCalzado + " ]";
     }
     
 }

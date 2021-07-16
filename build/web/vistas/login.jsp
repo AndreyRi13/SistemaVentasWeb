@@ -42,7 +42,7 @@
                             <div class="col-md-8">
                                 <div class="mb-4">
                                     <h3>Iniciar Sesion</h3>
-                                    <p class="mb-4">Administrador</p>
+                                  
                                 </div>
                                 <form action="validar?a=ingresar" method="POST">
                                     <label for="username">Digita tu usuario</label>
@@ -59,17 +59,19 @@
                                     </div>
 
                                     <div class="d-flex mb-5 align-items-center">
-                                        <label class="control control--checkbox mb-0"><span class="caption">Remember me</span>
+                                        <label class="control control--checkbox mb-0"><span class="caption">Recordarme</span>
                                             <input type="checkbox" checked="checked"/>
                                             <div class="control__indicator"></div>
                                         </label>
-                                        <span class="ml-auto"><a href="#" class="forgot-pass">Forgot Password</a></span> 
+                                        <span class="ml-auto"><a style="color: black;" href="compradorcontroller?menu=registrarComprador" class="forgot-pass">Registrate</a></span> 
+                                        <br>
+                                        <span class="ml-auto"><a style="color: black;" href="#" class="forgot-pass">Olvide mi contraseña</a></span> 
                                     </div>                            
                                     <button type="submit"  class="btn btn-success">
                                         Ingresar
                                     </button>
 
-                                    <span class="d-block text-left my-4 text-muted">&mdash; or login with &mdash;</span>
+                                    <span class="d-block text-left my-4 text-muted">&mdash; Iniciar Sesion Con &mdash;</span>
 
                                     <div class="social-login">
                                         <a href="#" class="facebook">

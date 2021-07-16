@@ -31,11 +31,13 @@
                             <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>DNI</th>
+                                    <th>CEDULA</th>
                                     <th>NOMBRES</th>
-                                    <th>TELEFONO</th>
+                                    <th>APELLIDOS</th>
+                                    <th>DIRECCION</th>
+                                    <th>CELULAR</th>
+                                    <th>CORREO</th>
                                     <th>ESTADO</th>
-                                    <th>USER</th>
                                     <th>ACCIONES</th>
                                 </tr>
                             </thead>
@@ -43,11 +45,13 @@
                                 <c:forEach var="emp" items="${empleados}">
                                     <tr>
                                         <td>${emp.idEmpleado}</td>
-                                        <td>${emp.dni}</td>
+                                        <td>${emp.cedula}</td>
                                         <td>${emp.nombres}</td>
-                                        <td>${emp.telefono}</td>
+                                        <td>${emp.apellidos}</td>
+                                        <td>${emp.direccion}</td>
+                                        <td>${emp.numeroCelular}</td>
+                                        <td>${emp.correoElectronico}</td>
                                         <td>${emp.estado}</td>
-                                        <td>${emp.user}</td>
                                         <td>
                                             <a class="btn btn-warning" href="empleadocontroller?menu=editEmpleado&id=${emp.idEmpleado}">Editar</a>
                                             <a class="btn btn-danger" href="empleadocontroller?menu=eliminarEmpleado&id=${emp.idEmpleado}">Eliminar</a>
@@ -59,9 +63,11 @@
 
                     </div>
 
-
-                    <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script> 
-                    <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap5.min.js"></script> 
-                    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script> 
-                    </body>
-                    </html>
+                </div>
+            </div>
+        </div>
+        <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script> 
+        <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap5.min.js"></script> 
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script> 
+    </body>
+</html>

@@ -56,7 +56,7 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Home
                             </a>
-                            <div class="sb-sidenav-menu-heading">Administración de Calzados</div>
+<!--                            <div class="sb-sidenav-menu-heading">Administración de Calzados</div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseProductos" aria-expanded="false" aria-controls="collapseProductos">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 Calzado
@@ -108,7 +108,7 @@
                                     <a class="nav-link" href="ventacontroller?menu=listarVenta" target="myFrame">Lista de Venta</a>      
                                     <a class="nav-link" href="ventacontroller?menu=informeVenta" target="myFrame">Informe de Ventas</a>   
                                 </nav>
-                            </div>
+                            </div>-->
 
                         </div>
                     </div>

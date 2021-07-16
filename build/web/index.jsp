@@ -205,7 +205,7 @@
                     </h2>
                 </div>
                 <div class="row">
-                    <c:forEach var="producto" items="${productos}">
+                    <c:forEach var="producto" items="${calzados}">
                         <div class="col-sm-6 col-lg-4">
                             <div class="box">
                                 <div class="img-box">
