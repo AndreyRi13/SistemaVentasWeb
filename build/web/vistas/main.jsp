@@ -4,6 +4,20 @@
     Author     : Andrey R
 --%>
 
+
+
+<%@page import="DTO.Empleado"%>
+    <%
+    HttpSession sesion;
+    sesion = request.getSession(false);
+    Empleado emplead = (Empleado) sesion.getAttribute("empleado");
+    if(emplead==null) {
+
+        response.sendRedirect("/SistemasVentasWeb/inicio");
+
+    } else {
+
+%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="es">
@@ -18,8 +32,14 @@
         <link href="../css/styles_main.css" rel="stylesheet" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+   
+
+    
     </head>
     <body class="sb-nav-fixed">
+
+        
+       
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
             <a class="navbar-brand ps-3" href="index.html">CAYSAM</a>
@@ -28,7 +48,7 @@
 
             <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
                 <div class="input-group">
-                    <h5 class="mt-2 text-white">${empleado.nombres} ${empleado.apellidos}</h5>
+                    <h5 class="mt-2 text-white">${empleado.nombres}  ${empleado.apellidos}</h5>
                 </div>
             </form>
 
@@ -39,8 +59,9 @@
                         <li><a class="dropdown-item" href="#!">${empleado.username}</a></li>                             
                         <li><a class="dropdown-item" href="#!">Configuracion</a></li>
                         <li><hr class="dropdown-divider" /></li>
-                        <form action="validar" method="POST">
+                        <form action="logout" method="POST">
                             <li><button class="dropdown-item" name="a" value="Salir">Salir</button></li>
+
                         </form>
                     </ul>
                 </li>
@@ -155,3 +176,5 @@
         <script src="../js/datatables-simple-demo.js"></script>
     </body>
 </html>
+<%    }
+%>

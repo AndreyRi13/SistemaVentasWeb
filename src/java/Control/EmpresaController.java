@@ -5,16 +5,8 @@
  */
 package Control;
 
-import DAO.CalzadoDAO;
-import DAO.EmpresaDAO;
-import DTO.Calzado;
-import DTO.Empresa;
-import Negocio.AdministrarCalzado;
 import java.io.IOException;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.servlet.RequestDispatcher;
+import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -24,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Andrey R
  */
-public class Index extends HttpServlet {
+public class EmpresaController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,35 +29,18 @@ public class Index extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-        String action = request.getParameter("a");
-
-        if (action == null) {
-            CalzadoDAO pr = new CalzadoDAO();
-            List<Calzado> product = pr.readCalzados();
-            EmpresaDAO empr = new EmpresaDAO();
-            Empresa empresa = empr.findEmpresa(1);
-            request.setAttribute("calzados", product);
-            request.setAttribute("empresa", empresa);
-            RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
-            dispatcher.forward(request, response);
-
-        } else if ("Login".equals(action)) {
-            RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");
-            dispatcher.forward(request, response);
-
-        } else if ("verMas".equals(action)) {           
-            int idCal = Integer.parseInt(request.getParameter("id"));
-            AdministrarCalzado cal = new AdministrarCalzado();
-            try {
-                Calzado calzado = cal.buscarCalzadoporId(idCal);
-                request.setAttribute("calzado", calzado);
-                RequestDispatcher dispatcher = request.getRequestDispatcher("productoVerMas.jsp");
-                dispatcher.forward(request, response);
-            } catch (Exception ex) {
-                Logger.getLogger(Index.class.getName()).log(Level.SEVERE, null, ex);
-            }
-
+        response.setContentType("text/html;charset=UTF-8");
+        try ( PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet EmpresaController</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet EmpresaController at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
         }
     }
 

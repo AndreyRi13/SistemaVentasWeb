@@ -195,7 +195,9 @@ public class Empleado implements Serializable {
 
     @Override
     public String toString() {
-        return "DTO.Empleado[ idEmpleado=" + idEmpleado + " ]";
+        return "Empleado{" + "idEmpleado=" + idEmpleado + ", cedula=" + cedula + ", nombres=" + nombres + ", apellidos=" + apellidos + ", username=" + username + ", password=" + password + ", direccion=" + direccion + ", numeroCelular=" + numeroCelular + ", correoElectronico=" + correoElectronico + ", estado=" + estado + '}';
     }
+
+   
     
 }

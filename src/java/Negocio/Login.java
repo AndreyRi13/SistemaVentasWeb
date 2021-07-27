@@ -22,6 +22,8 @@ public class Login {
     public Login() {
     }
 
+     
+
     public String tipoLogin(String user, String pass) {
 
      String tipo=null;

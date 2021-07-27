@@ -55,13 +55,13 @@
                                 <a href="">
                                     <i class="fa fa-phone" aria-hidden="true"></i>
                                     <span>
-                                        Call : +57 3105666554
+                                        Telefonos: ${empresa.telefonos}
                                     </span>
                                 </a>
                                 <a href="">
                                     <i class="fa fa-envelope" aria-hidden="true"></i>
                                     <span>
-                                        Email : demo@gmail.com
+                                        Correo: ${empresa.correoElectronico}
                                     </span>
                                 </a>
                             </div>
@@ -92,7 +92,7 @@
                 <div class="header_bottom">
                     <div class="container-fluid">
                         <nav class="navbar navbar-expand-lg custom_nav-container ">
-                            <a class="navbar-brand" href="index.html">
+                            <a class="navbar-brand" href="/SistemasVentasWeb/inicio">
                                 <span>
                                     CAYSAM
                                 </span>
@@ -105,19 +105,21 @@
                             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                 <ul class="navbar-nav ">
                                     <li class="nav-item active">
-                                        <a class="nav-link" href="">Inicio <span class="sr-only">(current)</span></a>
+                                        <a class="nav-link" href="/SistemasVentasWeb/inicio">Inicio <span class="sr-only">(current)</span></a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#productos">Productos</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="about.html"> Nosotros</a>
+                                        <a class="nav-link" href="#nosotros">Nosotros</a>
+                                    </li>                                   
+
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#porquenosotros">Por qué elegirnos</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="product.html">Productos</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="why.html">Por qué nosotros</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="testimonial.html">Testimonio</a>
+                                        <a class="nav-link" href="#testimonios">Nuestros clientes</a>
                                     </li>
                                 </ul>
                             </div>
@@ -127,7 +129,7 @@
             </header>
             <!-- end header section -->
             <!-- slider section -->
-            <section class="slider_section ">
+            <section class="slider_section">
                 <div id="customCarousel1" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
@@ -139,7 +141,7 @@
                                                 Bienvenido a tu tienda virtual
                                             </h1>
                                             <p>
-                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste quam velit saepe dolorem deserunt quo quidem ad optio.
+                                                ${empresa.saludo}                                           
                                             </p>
                                             <a href="">
                                                 Leer Más
@@ -163,7 +165,7 @@
                                                 Bienvenido a tu tienda virtual
                                             </h1>
                                             <p>
-                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste quam velit saepe dolorem deserunt quo quidem ad optio.
+                                                ${empresa.saludo}
                                             </p>
                                             <a href="">
                                                 Leer Más
@@ -179,12 +181,12 @@
                             </div>
                         </div>
                     </div>
-                    <div class="carousel_btn_box">
-                        <a class="carousel-control-prev" href="#customCarousel1" role="button" data-slide="prev">
+                    <div class="carousel_btn_box" style="width:50px; height:50px;">
+                        <a class="carousel-control-prev" href="#customCarousel1" role="button" data-slide="prev" style="width: 25px; height:25px;">
                             <i class="fa fa-angle-left" aria-hidden="true"></i>
                             <span class="sr-only">Previous</span>
                         </a>
-                        <a class="carousel-control-next" href="#customCarousel1" role="button" data-slide="next">
+                        <a class="carousel-control-next" href="#customCarousel1" role="button" data-slide="next" style="width: 25px; height:25px;">
                             <i class="fa fa-angle-right" aria-hidden="true"></i>
                             <span class="sr-only">Next</span>
                         </a>
@@ -197,7 +199,7 @@
 
         <!-- product section -->
 
-        <section class="product_section layout_padding">
+        <section class="product_section layout_padding" id="productos">
             <div class="container">
                 <div class="heading_container heading_center">
                     <h2>
@@ -209,13 +211,22 @@
                         <div class="col-sm-6 col-lg-4">
                             <div class="box">
                                 <div class="img-box">
-                                    <img src="images/${producto.foto}" alt="">
+                                    <img src="images/${producto.foto}" alt="" style="width:365px; height:265px;">
                                     <a href="" class="add_cart_btn">
                                         <span>
                                             Agrgar al Carrito
                                         </span>
                                     </a>
+
                                 </div>
+
+                                <a href="/SistemasVentasWeb/inicio?a=verMas&id=${producto.idCalzado}" class="add_cart_btn">
+                                    <span>
+                                        Ver más
+                                    </span>
+                                </a>
+
+
                                 <div class="detail-box">
                                     <h5>
                                         ${producto.nombres}
@@ -249,7 +260,7 @@
 
         <!-- about section -->
 
-        <section class="about_section">
+        <section class="about_section" id="nosotros">
             <div class="container-fluid  ">
                 <div class="row">
                     <div class="col-md-5 ml-auto">
@@ -261,12 +272,8 @@
                                 </h2>
                             </div>
                             <p>
-                                Totam architecto rem beatae veniam, cum officiis adipisci soluta perspiciatis ipsa, expedita maiores quae accusantium. Animi veniam aperiam, necessitatibus mollitia ipsum id optio ipsa odio ab facilis sit labore officia!
-                                Repellat expedita, deserunt eum soluta rem culpa. Aut, necessitatibus cumque. Voluptas consequuntur vitae aperiam animi sint earum, ex unde cupiditate, molestias dolore quos quas possimus eveniet facilis magnam? Vero, dicta.
+                                ${empresa.ofrecemos}
                             </p>
-                            <a href="">
-                                Leer Más
-                            </a>
                         </div>
                     </div>
                     <div class="col-md-6 px-0">
@@ -282,11 +289,11 @@
 
         <!-- why us section -->
 
-        <section class="why_us_section layout_padding">
+        <section class="why_us_section layout_padding" id="porquenosotros">
             <div class="container">
                 <div class="heading_container heading_center">
                     <h2>
-                        Why Choose Us
+                        Por qué elegirnos
                     </h2>
                 </div>
                 <div class="row">
@@ -344,11 +351,11 @@
 
         <!-- client section -->
 
-        <section class="client_section layout_padding-bottom">
+        <section class="client_section layout_padding-bottom" id="testimonios">
             <div class="container">
                 <div class="heading_container heading_center">
                     <h2>
-                        What Says Our Customers
+                        Qué dicen nuestros clientes
                     </h2>
                 </div>
             </div>
@@ -363,12 +370,7 @@
                                             <i class="fa fa-quote-left" aria-hidden="true"></i>
                                         </p>
                                         <p>
-                                            It is a long established fact that a reader will be distracted by the readable content of a page
-                                            when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal
-                                            distribution of letters, as opposed to using 'Content here, content here', making it lookIt is a
-                                            long established fact that a reader will be distracted by the readable content of a page when
-                                            looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal
-                                            distribution of letters, as opposed to using 'Content here, content here', making it look
+                                            ${empresa.nuestrosClientes}
                                         </p>
                                     </div>
                                     <div class="client-id">
@@ -395,12 +397,7 @@
                                             <i class="fa fa-quote-left" aria-hidden="true"></i>
                                         </p>
                                         <p>
-                                            It is a long established fact that a reader will be distracted by the readable content of a page
-                                            when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal
-                                            distribution of letters, as opposed to using 'Content here, content here', making it lookIt is a
-                                            long established fact that a reader will be distracted by the readable content of a page when
-                                            looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal
-                                            distribution of letters, as opposed to using 'Content here, content here', making it look
+                                            ${empresa.nuestrosClientes}
                                         </p>
                                     </div>
                                     <div class="client-id">
@@ -419,38 +416,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="carousel-item">
-                            <div class="container">
-                                <div class="box">
-                                    <div class="detail-box">
-                                        <p>
-                                            <i class="fa fa-quote-left" aria-hidden="true"></i>
-                                        </p>
-                                        <p>
-                                            It is a long established fact that a reader will be distracted by the readable content of a page
-                                            when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal
-                                            distribution of letters, as opposed to using 'Content here, content here', making it lookIt is a
-                                            long established fact that a reader will be distracted by the readable content of a page when
-                                            looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal
-                                            distribution of letters, as opposed to using 'Content here, content here', making it look
-                                        </p>
-                                    </div>
-                                    <div class="client-id">
-                                        <div class="img-box">
-                                            <img src="images/client.jpg" alt="">
-                                        </div>
-                                        <div class="name">
-                                            <h5>
-                                                James Dew
-                                            </h5>
-                                            <h6>
-                                                Photographer
-                                            </h6>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+
                     </div>
                     <div class="carousel_btn-box">
                         <a class="carousel-control-prev" href="#carouselExample2Controls" role="button" data-slide="prev">
@@ -475,82 +441,49 @@
         <section class="info_section ">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-3">
+                    <div class="col-md-5">
                         <div class="info_contact">
                             <h5>
                                 <a href="" class="navbar-brand">
                                     <span>
-                                        Minics
+                                        CAYSAM
                                     </span>
                                 </a>
                             </h5>
                             <p>
                                 <i class="fa fa-map-marker" aria-hidden="true"></i>
-                                Address
+                                Direccion: ${empresa.direccion}
                             </p>
                             <p>
                                 <i class="fa fa-phone" aria-hidden="true"></i>
-                                +01 1234567890
+                                Telefonos: ${empresa.telefonos}
                             </p>
                             <p>
                                 <i class="fa fa-envelope" aria-hidden="true"></i>
-                                demo@gmail.com
+                                Correo Electronico: ${empresa.correoElectronico}
                             </p>
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="info_info">
                             <h5>
-                                Information
+                                Informacion
                             </h5>
-                            <p>
-                                Eligendi sunt, provident, debitis nemo, facilis cupiditate velit libero dolorum aperiam enim nulla iste maxime corrupti ad illo libero minus.
+                            <p style="text-align: justify;">
+                                ${empresa.ofrecemos}                            
                             </p>
                         </div>
                     </div>
-                    <div class="col-md-3">
-                        <div class="info_links">
-                            <h5>
-                                Useful Link
-                            </h5>
-                            <ul>
-                                <li>
-                                    <a href="index.html">
-                                        Home
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="about.html">
-                                        About
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="product.html">
-                                        Products
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="why.html">
-                                        Why Us
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="testimonial.html">
-                                        Testimonial
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
+                    
+                    <div class="col-md-4">
                         <div class="info_form ">
                             <h5>
-                                Newsletter
+                                Recibir Promociones e Informacion
                             </h5>
                             <form action="">
-                                <input type="email" placeholder="Enter your email">
+                                <input type="email" placeholder="Dejanos tu Correo Electronico">
                                 <button>
-                                    Subscribe
+                                    Suscribirme
                                 </button>
                             </form>
                             <div class="social_box">
@@ -580,8 +513,9 @@
         <footer class="footer_section">
             <div class="container">
                 <p>
-                    &copy; <span id="displayYear"></span> All Rights Reserved By
-                    <a href="https://html.design/">Free Html Templates</a>
+                    &copy; <span id="displayYear"></span> Todos los derechos reservados por CAYSAM
+                    <br>Desarrollador:
+                    <a href="https://github.com/AndreyRi13/">Andrey Rivera</a>
                 </p>
             </div>
         </footer>

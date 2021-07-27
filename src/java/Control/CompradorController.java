@@ -35,21 +35,22 @@ public class CompradorController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-     
+
         String action = request.getParameter("menu");
 
         switch (action) {
-            
-            
+
             case "registrarComprador":
                 request.getRequestDispatcher("registrarComprador.jsp").forward(request, response);
                 break;
-            
-            
+
             case "agregarComprador":
                 request.getRequestDispatcher("agregarComprador.jsp").forward(request, response);
                 break;
 
+            case "registroComprador":
+                registroComprador(request, response);
+                break;
             case "listaCompradores":
                 listaComprador(request, response);
                 break;
@@ -78,7 +79,7 @@ public class CompradorController extends HttpServlet {
     ///////////////////////////////////////Metodo para agregar comprador
     public void addComprador(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         String cedula = request.getParameter("txtCedula");
         String nombres = request.getParameter("txtNombres");
         String apellidos = request.getParameter("txtApellidos");
@@ -86,14 +87,39 @@ public class CompradorController extends HttpServlet {
         String password = request.getParameter("txtPassword");
         String direccion = request.getParameter("txtDireccion");
         String numeroCelular = request.getParameter("txtNumeroCelular");
-        String correoElectronico = request.getParameter("txtCorreoElectronico");    
+        String correoElectronico = request.getParameter("txtCorreoElectronico");
         String estado = request.getParameter("txtEstado");
 
         /*Instancia El negocio de administrar  */
         AdministrarComprador adm = new AdministrarComprador();
-        if (adm.agregarComprador(cedula,nombres,apellidos,username,password,direccion,numeroCelular,correoElectronico,estado) == true) {
+        if (adm.agregarComprador(cedula, nombres, apellidos, username, password, direccion, numeroCelular, correoElectronico, estado) == true) {
 
             listaComprador(request, response);
+
+        } else {
+            request.getRequestDispatcher("agregarComprador.jsp").forward(request, response);
+        }
+
+    }
+    
+    
+        public void registroComprador(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        String cedula = request.getParameter("txtCedula");
+        String nombres = request.getParameter("txtNombres");
+        String apellidos = request.getParameter("txtApellidos");
+        String username = request.getParameter("txtUsername");
+        String password = request.getParameter("txtPassword");
+        String direccion = request.getParameter("txtDireccion");
+        String numeroCelular = request.getParameter("txtNumeroCelular");
+        String correoElectronico = request.getParameter("txtCorreoElectronico");
+        String estado = request.getParameter("txtEstado");
+
+        /*Instancia El negocio de administrar  */
+        AdministrarComprador adm = new AdministrarComprador();
+        if (adm.agregarComprador(cedula, nombres, apellidos, username, password, direccion, numeroCelular, correoElectronico, estado) == true) {
+
+          response.sendRedirect("/SistemasVentasWeb/inicio");
 
         } else {
 
@@ -142,10 +168,10 @@ public class CompradorController extends HttpServlet {
         String password = request.getParameter("txtPassword");
         String direccion = request.getParameter("txtDireccion");
         String numeroCelular = request.getParameter("txtNumeroCelular");
-        String correoElectronico = request.getParameter("txtCorreoElectronico");    
+        String correoElectronico = request.getParameter("txtCorreoElectronico");
         String estado = request.getParameter("txtEstado");
         try {
-            admi.editarComprador(idEmple, cedula,  nombres, apellidos,  username,  password,  direccion,  numeroCelular,  correoElectronico,  estado);
+            admi.editarComprador(idEmple, cedula, nombres, apellidos, username, password, direccion, numeroCelular, correoElectronico, estado);
             listaComprador(request, response);
         } catch (Exception ex) {
             Logger.getLogger(CompradorController.class.getName()).log(Level.SEVERE, null, ex);

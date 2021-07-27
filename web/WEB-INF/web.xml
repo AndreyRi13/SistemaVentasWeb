@@ -12,6 +12,14 @@
         <servlet-name>VentasController</servlet-name>
         <servlet-class>Control.VentasController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LogoutServlet</servlet-name>
+        <servlet-class>Control.LogoutServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EmpresaController</servlet-name>
+        <servlet-class>Control.EmpresaController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>EmpleadoController</servlet-name>
         <url-pattern>/vistas/empleadocontroller</url-pattern>
@@ -47,6 +55,14 @@
     <servlet-mapping>
         <servlet-name>VentasController</servlet-name>
         <url-pattern>/vistas/ventascontroller</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LogoutServlet</servlet-name>
+        <url-pattern>/vistas/logout</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EmpresaController</servlet-name>
+        <url-pattern>/empresacontroller</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

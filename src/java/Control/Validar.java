@@ -13,8 +13,12 @@ import Negocio.N_Inicio;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
+import javax.servlet.FilterChain;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -35,16 +39,19 @@ public class Validar extends HttpServlet {
                 ingresar(request, response);
                 break;
 
-            case "Salir":
-                login(request, response);
-                break;
-
             case "Login":
                 login(request, response);
                 break;
 
+            case "dasboard":
+                dashboard(request, response);
+                break;
+
         }
 
+    }
+
+    public Validar() {
     }
 
     public void ingresar(HttpServletRequest request, HttpServletResponse response)
@@ -55,48 +62,44 @@ public class Validar extends HttpServlet {
         Login lg = new Login();
 
         if (lg.tipoLogin(user, pass) != null) {
+
             if (lg.tipoLogin(user, pass).equals("Empleado")) {
-                Empleado empleado;
-                empleado = lg.loginEmpleado(user, pass);
-                HttpSession sessionE = request.getSession(true);
-                sessionE.setAttribute("empleado", empleado);
-                sessionE.setMaxInactiveInterval(300);
-                RequestDispatcher dispatcher = request.getRequestDispatcher("main.jsp");
-                dispatcher.forward(request, response);
+                HttpSession session = request.getSession();
+        
+                Empleado empleado = lg.loginEmpleado(user, pass);
+                session.setAttribute("empleado", empleado);
+                dashboard(request, response);
 
-            } else {
-                Comprador comprador;
-                comprador = lg.loginComprador(user, pass);
-                HttpSession sessionC = request.getSession(true);
-                sessionC.setAttribute("comprador", comprador);
-                sessionC.setMaxInactiveInterval(300);
-                RequestDispatcher dispatcher = request.getRequestDispatcher("mainComprador.jsp");
-                dispatcher.forward(request, response);
-
+            } else if (lg.tipoLogin(user, pass).equals("Comprador")) {
+                HttpSession session = request.getSession();
+                Comprador comprador = lg.loginComprador(user, pass);
+                session.setAttribute("comprador", comprador);
+                dashboardComprador(request, response);
             }
 
         } else {
             String mensaje = "Error - Usuario o contraseña Incorrecta";
             request.setAttribute("mensaje", mensaje);
-            RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");
-            dispatcher.forward(request, response);
+            login(request, response);
         }
     }
 
-    
-    
-      
+    public void dashboard(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        RequestDispatcher dispatcher = request.getRequestDispatcher("main.jsp");
+        dispatcher.forward(request, response);
+    }
+
+    public void dashboardComprador(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        RequestDispatcher dispatcher = request.getRequestDispatcher("mainComprador.jsp");
+        dispatcher.forward(request, response);
+    }
+
     public void login(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        HttpSession session = request.getSession(true);
-        Empleado n = (Empleado) session.getAttribute("empleado");
-        session.removeAttribute("empleado");
-        session.invalidate();       
-        request.getHeader("Cookie");     
         RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");
         dispatcher.forward(request, response);
-        
-        
     }
 
     @Override
@@ -115,7 +118,7 @@ public class Validar extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-    
+
 //    public class SeguimientoSesion extends HttpServlet {
 //    public void service(HttpServletRequest req, HttpServletResponse res) throws IOException {
 //        //Retiramos el objeto Session antes de enviar ninguna salida al cliente
@@ -152,8 +155,4 @@ public class Validar extends HttpServlet {
 //        salida.println(“</BODY>”);
 //    }
 //}
- 
-
-  
-
 }

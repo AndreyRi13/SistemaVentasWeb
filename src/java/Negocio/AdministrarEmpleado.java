@@ -47,27 +47,6 @@ public class AdministrarEmpleado {
         return aux;
     }
 
-//    public int buscaridporDatos(String dni1, String nombres1, String telefono1, String estado1, String usuario1) throws Exception {
-//        EmpleadoDAO emp = new EmpleadoDAO();
-//        List<Empleado> empleadosList = emp.readEmpleados();
-//        int aux = 0;
-//        for (Empleado m : empleadosList) {
-//            if (m.getDni().equals(dni1)) {
-//
-//                if (m.getNombres().equals(nombres1)) {
-//
-//                    if (m.getTelefono().equals(telefono1)) {
-//                        if (m.getEstado().equals(estado1)) {
-//                            if (m.getUser().equals(usuario1)) {
-//                                aux = m.getIdEmpleado();
-//                            }
-//                        }
-//                    }
-//                }
-//            }
-//        }
-//        return aux;
-//    }
     public void editarEmpleado(Integer id, String cedula, String nombres, String apellidos, String username, String password, String direccion, String numeroCelular, String correoElectronico, String estado) throws Exception {
         Empleado em = new Empleado();
         em.setIdEmpleado(id);
