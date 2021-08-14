@@ -18,9 +18,9 @@ public class AdministrarEmpresa {
     }
 
     /*CRUD EMPRESA*/
-    public boolean agregarEmpresa(Integer idEmpresa,Integer rut, String saludo, String nosotros, String ofrecemos, String elegirnos, String nuestroClientes, String direccion, String telefonos, String correoElectronico) {
+    public boolean agregarEmpresa(Integer rut, String saludo, String nosotros, String ofrecemos, String elegirnos, String nuestroClientes, String direccion, String telefonos, String correoElectronico) {
         EmpresaDAO empresa = new EmpresaDAO();
-        Empresa emp = new Empresa( idEmpresa, rut,  saludo,  nosotros,  ofrecemos,  elegirnos,  nuestroClientes,  direccion,  telefonos, correoElectronico);
+        Empresa emp = new Empresa( rut,  saludo,  nosotros,  ofrecemos,  elegirnos,  nuestroClientes,  direccion,  telefonos, correoElectronico);
         
         try {
             empresa.addEmpresa(emp);

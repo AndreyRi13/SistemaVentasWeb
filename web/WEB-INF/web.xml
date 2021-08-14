@@ -20,6 +20,10 @@
         <servlet-name>EmpresaController</servlet-name>
         <servlet-class>Control.EmpresaController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Inicio</servlet-name>
+        <servlet-class>Control.Inicio</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>EmpleadoController</servlet-name>
         <url-pattern>/vistas/empleadocontroller</url-pattern>
@@ -31,14 +35,6 @@
     <servlet-mapping>
         <servlet-name>Validar</servlet-name>
         <url-pattern>/vistas/validar</url-pattern>
-    </servlet-mapping>
-    <servlet>
-        <servlet-name>Index</servlet-name>
-        <servlet-class>Control.Index</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>Index</servlet-name>
-        <url-pattern>/inicio</url-pattern>
     </servlet-mapping>
     <servlet>
         <servlet-name>CalzadoController</servlet-name>
@@ -63,6 +59,10 @@
     <servlet-mapping>
         <servlet-name>EmpresaController</servlet-name>
         <url-pattern>/empresacontroller</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Inicio</servlet-name>
+        <url-pattern>/inicio</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

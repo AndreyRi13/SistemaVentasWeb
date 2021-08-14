@@ -17,7 +17,7 @@ public class AdministrarComprador {
     public AdministrarComprador() {
     }
 
-    /*CRUD EMPLEADO*/
+    /*CRUD COMPRADOR*/
     public boolean agregarComprador(String cedula,String nombres,String apellidos,String username,String password,String direccion,String numeroCelular,String correoElectronico,String estado) {
         CompradorDAO empleado = new CompradorDAO();
         Comprador com = new Comprador(cedula,nombres,apellidos,username,password,direccion,numeroCelular,correoElectronico,estado);
@@ -42,27 +42,7 @@ public class AdministrarComprador {
         return aux;
     }
 
-//    public int buscaridporDatos(String dni1, String nombres1, String telefono1, String estado1, String usuario1) throws Exception {
-//        CompradorDAO emp = new CompradorDAO();
-//        List<Comprador> empleadosList = emp.readCompradors();
-//        int aux = 0;
-//        for (Comprador m : empleadosList) {
-//            if (m.getDni().equals(dni1)) {
-//
-//                if (m.getNombres().equals(nombres1)) {
-//
-//                    if (m.getTelefono().equals(telefono1)) {
-//                        if (m.getEstado().equals(estado1)) {
-//                            if (m.getUser().equals(usuario1)) {
-//                                aux = m.getIdComprador();
-//                            }
-//                        }
-//                    }
-//                }
-//            }
-//        }
-//        return aux;
-//    }
+
     public void editarComprador(Integer id, String cedula, String nombres, String apellidos, String username, String password, String direccion, String numeroCelular, String correoElectronico, String estado) throws Exception {
         Comprador em = new Comprador();
         em.setIdComprador(id);

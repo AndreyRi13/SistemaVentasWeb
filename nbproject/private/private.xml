@@ -11,42 +11,6 @@
         </file>
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/D:/DATOS%20USER/Documents/NetBeansProjects/SistemaVentasWeb/web/vistas/main.jsp</file>
-            <file>file:/D:/DATOS%20USER/Documents/NetBeansProjects/SistemaVentasWeb/src/java/Negocio/AdministrarEmpleado.java</file>
-            <file>file:/D:/DATOS%20USER/Documents/NetBeansProjects/SistemaVentasWeb/src/java/Negocio/AdministrarEmpresa.java</file>
-            <file>file:/D:/DATOS%20USER/Documents/NetBeansProjects/SistemaVentasWeb/src/java/DTO/Empleado.java</file>
-            <file>file:/D:/DATOS%20USER/Documents/NetBeansProjects/SistemaVentasWeb/src/java/Control/CompradorController.java</file>
-            <file>file:/D:/DATOS%20USER/Documents/NetBeansProjects/SistemaVentasWeb/src/java/DAO/CalzadoDAO.java</file>
-            <file>file:/D:/DATOS%20USER/Documents/NetBeansProjects/SistemaVentasWeb/src/java/Control/Validar.java</file>
-            <file>file:/D:/DATOS%20USER/Documents/NetBeansProjects/SistemaVentasWeb/src/java/DAO/VentasDAO.java</file>
-            <file>file:/D:/DATOS%20USER/Documents/NetBeansProjects/SistemaVentasWeb/web/vistas/registrarComprador.jsp</file>
-            <file>file:/D:/DATOS%20USER/Documents/NetBeansProjects/SistemaVentasWeb/src/java/Negocio/Login.java</file>
-            <file>file:/D:/DATOS%20USER/Documents/NetBeansProjects/SistemaVentasWeb/web/vistas/listaCompradores.jsp</file>
-            <file>file:/D:/DATOS%20USER/Documents/NetBeansProjects/SistemaVentasWeb/web/WEB-INF/web.xml</file>
-            <file>file:/D:/DATOS%20USER/Documents/NetBeansProjects/SistemaVentasWeb/src/java/Control/CalzadoController.java</file>
-            <file>file:/D:/DATOS%20USER/Documents/NetBeansProjects/SistemaVentasWeb/web/vistas/listaEmpleado.jsp</file>
-            <file>file:/D:/DATOS%20USER/Documents/NetBeansProjects/SistemaVentasWeb/web/productoVerMas.jsp</file>
-            <file>file:/D:/DATOS%20USER/Documents/NetBeansProjects/SistemaVentasWeb/web/index.jsp</file>
-            <file>file:/D:/DATOS%20USER/Documents/NetBeansProjects/SistemaVentasWeb/src/java/Negocio/AdministrarCalzado.java</file>
-            <file>file:/D:/DATOS%20USER/Documents/NetBeansProjects/SistemaVentasWeb/web/vistas/mainComprador.jsp</file>
-            <file>file:/D:/DATOS%20USER/Documents/NetBeansProjects/SistemaVentasWeb/src/java/Control/EmpresaController.java</file>
-            <file>file:/D:/DATOS%20USER/Documents/NetBeansProjects/SistemaVentasWeb/web/vistas/agregarVentas.jsp</file>
-            <file>file:/D:/DATOS%20USER/Documents/NetBeansProjects/SistemaVentasWeb/src/java/Control/LogoutServlet.java</file>
-            <file>file:/D:/DATOS%20USER/Documents/NetBeansProjects/SistemaVentasWeb/web/vistas/login.jsp</file>
-            <file>file:/D:/DATOS%20USER/Documents/NetBeansProjects/SistemaVentasWeb/web/vistas/footer.jsp</file>
-            <file>file:/D:/DATOS%20USER/Documents/NetBeansProjects/SistemaVentasWeb/web/vistas/header.jsp</file>
-            <file>file:/D:/DATOS%20USER/Documents/NetBeansProjects/SistemaVentasWeb/src/java/Control/EmpleadoController.java</file>
-            <file>file:/D:/DATOS%20USER/Documents/NetBeansProjects/SistemaVentasWeb/web/css/inicio/style.css</file>
-            <file>file:/D:/DATOS%20USER/Documents/NetBeansProjects/SistemaVentasWeb/src/java/Control/VentasController.java</file>
-            <file>file:/D:/DATOS%20USER/Documents/NetBeansProjects/SistemaVentasWeb/src/java/DAO/EmpleadoDAO.java</file>
-            <file>file:/D:/DATOS%20USER/Documents/NetBeansProjects/SistemaVentasWeb/src/java/DAO/Conexion.java</file>
-            <file>file:/D:/DATOS%20USER/Documents/NetBeansProjects/SistemaVentasWeb/src/java/DAO/EmpresaDAO.java</file>
-            <file>file:/D:/DATOS%20USER/Documents/NetBeansProjects/SistemaVentasWeb/src/java/DAO/CompradorDAO.java</file>
-            <file>file:/D:/DATOS%20USER/Documents/NetBeansProjects/SistemaVentasWeb/src/java/DTO/Empresa.java</file>
-            <file>file:/D:/DATOS%20USER/Documents/NetBeansProjects/SistemaVentasWeb/src/java/Negocio/AdministrarComprador.java</file>
-            <file>file:/D:/DATOS%20USER/Documents/NetBeansProjects/SistemaVentasWeb/src/java/Control/Index.java</file>
-            <file>file:/D:/DATOS%20USER/Documents/NetBeansProjects/SistemaVentasWeb/web/vistas/editarComprador.jsp</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

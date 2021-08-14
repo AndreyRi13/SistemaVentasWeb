@@ -1,6 +1,6 @@
 <%-- 
-    Document   : productoVerMas
-    Created on : 26/07/2021, 10:28:11 p. m.
+    Document   : carrito
+    Created on : 28/07/2021, 11:02:05 p. m.
     Author     : Andrey R
 --%>
 
@@ -128,92 +128,136 @@
                 </div>
             </header>
             <!-- product section -->
-
             <section class="product_section layout_padding">
                 <div class="container">
                     <div class="heading_container heading_center">
                         <h2>
-                            Producto
+                            Carrito
                         </h2>
                     </div>
-                    <div class="row">
 
 
-                        <div class="col-lg-6 col-6 col-sm-6 col-xl-6 col-">
-                            <div class="box">
-                                <div class="img-box">
-                                    <img src="images/${calzado.foto}" alt="" style="width:350px; height:300px;">
-                                </div>
-                                <div class="detail-box">
-                                    <h5>
-                                        ${calzado.nombres}
-                                    </h5>    
-                                </div>
+
+
+                    <div class="container mt-4">
+                        <div class="row">
+
+                            <div class="col-sm-8">
+                                <table class="table table-hover" border="1">
+                                    <thead>
+                                        <tr>
+                                            <th>ITEM</th>
+                                            <th>NOMBRES</th>
+                                            <th>DESCRIPCION</th>
+                                            <th>PRECIO</th>
+                                            <th>CANT</th>
+                                            <th>SUBTOTAL</th>
+                                            <th>ACCION</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <c:forEach var="car" items="${carrito}">
+                                        <tr>
+                                            <td>${car.getItem()}</td>
+                                            <td>${car.getItem()}</td>
+                                            <td>${car.getItem()}</td>
+                                            <td>${car.getItem()}</td>
+                                            <td>${car.getItem()}</td>
+                                            <td>${car.getItem()}</td>
+                                            <td>${car.getItem()}</td>
+                                        </tr>
+                                        </c:forEach>
+                                    </tbody>
+                                </table>
+                            </div> 
+                            <div class="col-sm-4">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3>Generar Compra</h3>
+                                        
+                                    </div>
+                                    <div class="card-body">
+                                        <label>SubTotal:</label>
+                                        <input type="text" readonly="" class="form-control">
+                                        <label>Descuento:</label>
+                                        <input type="text" readonly="" class="form-control">
+                                        <label>Total Pagar:</label>
+                                        <input type="text" readonly="" class="form-control">
+                                    </div>
+                                    <div class="card-footer">
+                                        <a href="" class="btn btn-info btn-block">Realizar Pago</a>
+                                        <a href="" class="btn btn-danger btn-block">Generar Pago</a>
+                                    </div>
+                                </div>  
+                                
                             </div>
 
 
 
                         </div>
-                        <div class="col-sm-6">
-                            <div class="box">
 
-                                <div class="detail-box">
-                                    <h3>
-                                        ${calzado.nombres}
-                                    </h3>
-                                    <br>
-                                    <h5>
-                                        <span style="color: red;">Descripcion</span>
-                                        <br>
-                                    </h5>
-                                    <h5>
-                                        ${calzado.descripcion}
-                                    </h5>
-                                    <br>
-                                    <h5>
-                                        <span style="color: red;">Tallas:</span> ${calzado.talla}
-                                        <br>
-                                    </h5>
-                                    <br>
-                                    <h5>
-                                        <span style="color: red;">Precio:</span> ${calzado.precio}
-                                        <br>
-                                    </h5>
-                                    <br>
-                                    <h5>
-                                        <span style="color: red;">Stock</span> ${calzado.stock}
-                                        <br>
-                                    </h5>
-                                    <br>
-                                    <h5>
-                                        <span style="color: red;">Valoracion</span>
-                                        <br><br>
-                                        <div class="star_container">
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-
-                                        </div>
-                                        <br>
-                                    </h5>
-
-                                </div>
-                            </div>
-
-
-
-                        </div>
                     </div>
 
 
-                </div>
 
 
-            </section>
+                    <c:forEach var="producto" items="${calzados}">
+
+                        <img src="images/${producto.foto}" alt="" style="width:365px; height:265px;">
+
+                        <a href="inicio?a=agregarCarrito&id=${producto.idCalzado}" class="add_cart_btn" style="width:155px;">
+                            <span>
+                                Agregar al Carrito
+                            </span>
+                        </a>
+
+                        <div class="col-6">
+                            <a href="" class="add_cart_btn" style="width:80px;">
+                                <span>
+                                    Comprar
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <a href="/SistemasVentasWeb/inicio?a=verMas&id=${producto.idCalzado}" class="add_cart_btn">
+                        <span>
+                            Ver más
+                        </span>
+                    </a>
+
+
+                    <div class="detail-box">
+                        <h5>
+                            ${producto.nombres}
+                        </h5>
+                        <div class="product_info">
+                            <h5>
+                                <span>$</span>${producto.precio}
+                            </h5>
+                            <div class="star_container">
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </div>
+            </div>
         </div>
-        <!-- end product section -->
+    </c:forEach>     
+
+
+
+
+
+
+</div>
+</section>
+</div>
+<!-- end product section -->
 
 
         <!-- info section -->

@@ -6,7 +6,9 @@
 package DTO;
 
 import java.io.Serializable;
+import java.util.Collection;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,8 +16,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -37,6 +41,12 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Comprador.findByCorreoElectronico", query = "SELECT c FROM Comprador c WHERE c.correoElectronico = :correoElectronico"),
     @NamedQuery(name = "Comprador.findByEstado", query = "SELECT c FROM Comprador c WHERE c.estado = :estado")})
 public class Comprador implements Serializable {
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idComprador")
+    private Collection<Carrito> carritoCollection;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idComprador")
+    
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -199,5 +209,15 @@ public class Comprador implements Serializable {
     public String toString() {
         return "DTO.Comprador[ idComprador=" + idComprador + " ]";
     }
+
+    @XmlTransient
+    public Collection<Carrito> getCarritoCollection() {
+        return carritoCollection;
+    }
+
+    public void setCarritoCollection(Collection<Carrito> carritoCollection) {
+        this.carritoCollection = carritoCollection;
+    }
+
     
 }

@@ -78,8 +78,8 @@
                                         Mi Cuenta
                                     </span>
                                 </a>
-                                <a href="" class="cart-link">
-                                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                <a href="inicio?a=carrito" class="cart-link">
+                                    <i class="fa fa-cart-plus" aria-hidden="true">(<label style="color:orange;">${contador}</label>)</i>
                                     <span>
                                         Carrito
                                     </span>
@@ -210,22 +210,31 @@
                     <c:forEach var="producto" items="${calzados}">
                         <div class="col-sm-6 col-lg-4">
                             <div class="box">
-                                <div class="img-box">
+                                <div class="row img-box">
                                     <img src="images/${producto.foto}" alt="" style="width:365px; height:265px;">
-                                    <a href="" class="add_cart_btn">
+                                   
+                                        <a href="inicio?a=agregarCarrito&id=${producto.idCalzado}" class="add_cart_btn" style="width:155px;">
+                                            <span>
+                                                Agregar al Carrito
+                                            </span>
+                                        </a>
+                                  
+                                    <div class="col-6">
+                                        <a href="" class="add_cart_btn" style="width:80px;">
+                                            <span>
+                                                Comprar
+                                            </span>
+                                        </a>
+                                    </div>
+                                </div>
+                                    <br>
+                                 <br>
+                                    <a href="inicio?a=verMas&id=${producto.idCalzado}" class="add_cart_btn">
                                         <span>
-                                            Agrgar al Carrito
+                                            Ver más
                                         </span>
                                     </a>
-
-                                </div>
-
-                                <a href="/SistemasVentasWeb/inicio?a=verMas&id=${producto.idCalzado}" class="add_cart_btn">
-                                    <span>
-                                        Ver más
-                                    </span>
-                                </a>
-
+                               
 
                                 <div class="detail-box">
                                     <h5>
@@ -304,10 +313,10 @@
                             </div>
                             <div class="detail-box">
                                 <h5>
-                                    Fast Delivery
+                                    Entrega Confiable y Rápida
                                 </h5>
                                 <p>
-                                    variations of passages of Lorem Ipsum available
+                                    ¡No perdemos el tiempo a la hora de dar el mejor servicio es por ello que contratamos las mejores !
                                 </p>
                             </div>
                         </div>
@@ -319,7 +328,7 @@
                             </div>
                             <div class="detail-box">
                                 <h5>
-                                    Free Shiping
+                                    Precios Asequibles
                                 </h5>
                                 <p>
                                     variations of passages of Lorem Ipsum available
@@ -334,7 +343,7 @@
                             </div>
                             <div class="detail-box">
                                 <h5>
-                                    Best Quality
+                                    Mejor calidad
                                 </h5>
                                 <p>
                                     variations of passages of Lorem Ipsum available
@@ -474,7 +483,7 @@
                             </p>
                         </div>
                     </div>
-                    
+
                     <div class="col-md-4">
                         <div class="info_form ">
                             <h5>

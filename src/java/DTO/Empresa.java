@@ -92,6 +92,19 @@ public class Empresa implements Serializable {
         this.telefonos = telefonos;
         this.correoElectronico = correoElectronico;
     }
+    
+        public Empresa( int rut, String saludo, String nosotros, String ofrecemos, String porqueElegirnos, String nuestrosClientes, String direccion, String telefonos, String correoElectronico) {
+
+        this.rut = rut;
+        this.saludo = saludo;
+        this.nosotros = nosotros;
+        this.ofrecemos = ofrecemos;
+        this.porqueElegirnos = porqueElegirnos;
+        this.nuestrosClientes = nuestrosClientes;
+        this.direccion = direccion;
+        this.telefonos = telefonos;
+        this.correoElectronico = correoElectronico;
+    }
 
     public Integer getIdEmpresa() {
         return idEmpresa;
