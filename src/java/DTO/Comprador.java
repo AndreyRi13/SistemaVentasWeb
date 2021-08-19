@@ -42,11 +42,8 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Comprador.findByEstado", query = "SELECT c FROM Comprador c WHERE c.estado = :estado")})
 public class Comprador implements Serializable {
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idComprador")
-    private Collection<Carrito> carritoCollection;
-
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idComprador")
-    
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idCliente")
+    private Collection<Compras> comprasCollection;
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -101,10 +98,9 @@ public class Comprador implements Serializable {
         this.correoElectronico = correoElectronico;
         this.estado = estado;
     }
+    
+    
 
-    
-    
-    
     public Integer getIdComprador() {
         return idComprador;
     }
@@ -211,13 +207,12 @@ public class Comprador implements Serializable {
     }
 
     @XmlTransient
-    public Collection<Carrito> getCarritoCollection() {
-        return carritoCollection;
+    public Collection<Compras> getComprasCollection() {
+        return comprasCollection;
     }
 
-    public void setCarritoCollection(Collection<Carrito> carritoCollection) {
-        this.carritoCollection = carritoCollection;
+    public void setComprasCollection(Collection<Compras> comprasCollection) {
+        this.comprasCollection = comprasCollection;
     }
-
     
 }

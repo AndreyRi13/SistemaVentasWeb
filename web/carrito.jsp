@@ -16,6 +16,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <!-- Site Metas -->
         <link rel="icon" href="./images/fevicon.png" type="image/gif" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
         <meta name="keywords" content="" />
         <meta name="description" content="" />
         <meta name="author" content="" />
@@ -78,10 +79,10 @@
                                         Mi Cuenta
                                     </span>
                                 </a>
-                                <a href="inicio?a=carrito" class="cart-link">
-                                    <i class="fa fa-cart-plus" aria-hidden="true">(<label style="color:orange;">${contador}</label>)</i>
+                                <a href="/SistemasVentasWeb/inicio" class="cart-link">
+
                                     <span>
-                                        Carrito
+                                        Seguir Comprando
                                     </span>
                                 </a>
                             </div>
@@ -152,20 +153,33 @@
                                             <th>PRECIO</th>
                                             <th>CANT</th>
                                             <th>SUBTOTAL</th>
-                                            <th>ACCION</th>
+                                            <th>ELIMINAR</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <c:forEach var="car" items="${carrito}">
-                                        <tr>
-                                            <td>${car.getItem()}</td>
-                                            <td>${car.getItem()}</td>
-                                            <td>${car.getItem()}</td>
-                                            <td>${car.getItem()}</td>
-                                            <td>${car.getItem()}</td>
-                                            <td>${car.getItem()}</td>
-                                            <td>${car.getItem()}</td>
-                                        </tr>
+
+                                        <c:forEach var="item" items="${productos}">
+                                            <tr>
+                                                <td>${productos.indexOf(item)+1}</td>
+                                                <td>${item.getCalzado().getNombres()}</td>
+                                                <td>${item.getCalzado().getDescripcion()}</td>
+                                                <td>${item.getCalzado().getPrecio()}</td>
+                                                <td>
+                                                    <input type="hidden" id="idpro" value="${item.getCalzado().getIdCalzado()}">
+                                                    <input onClick="window.location.reload()" type="number" id="Cantidad" value="${item.getCantidad()}" class="form-control text-centert" min="1">  
+                                                    
+                                                    
+                                                </td>
+                                                <td>${item.getSubTotal()}</td>
+                                                <td class="text-center align-content-center">
+
+                                                    <input type="hidden" id="id" value="${productos.indexOf(item)}">
+                                                    <a href="#"  id="btnDelete"><i class="bi bi-trash-fill" style="font-size:25px;"></i></a>
+                                                    <!--<a id="btnDelete" class="btn btn-danger" href="inicio?a=eliminarItemCarrito&id=${productos.indexOf(item)}">Eliminar</a>-->
+
+
+                                                </td>                                     
+                                            </tr>
                                         </c:forEach>
                                     </tbody>
                                 </table>
@@ -174,22 +188,22 @@
                                 <div class="card">
                                     <div class="card-header">
                                         <h3>Generar Compra</h3>
-                                        
+
                                     </div>
                                     <div class="card-body">
                                         <label>SubTotal:</label>
-                                        <input type="text" readonly="" class="form-control">
+                                        <input type="text" value="${totalPagar}"  readonly="" class="form-control">
                                         <label>Descuento:</label>
-                                        <input type="text" readonly="" class="form-control">
+                                        <input type="text" value="0.0" readonly="" class="form-control">
                                         <label>Total Pagar:</label>
-                                        <input type="text" readonly="" class="form-control">
+                                        <input type="text" value="${totalPagar}" readonly="" class="form-control">
                                     </div>
                                     <div class="card-footer">
                                         <a href="" class="btn btn-info btn-block">Realizar Pago</a>
                                         <a href="" class="btn btn-danger btn-block">Generar Pago</a>
                                     </div>
                                 </div>  
-                                
+
                             </div>
 
 
@@ -197,67 +211,10 @@
                         </div>
 
                     </div>
-
-
-
-
-                    <c:forEach var="producto" items="${calzados}">
-
-                        <img src="images/${producto.foto}" alt="" style="width:365px; height:265px;">
-
-                        <a href="inicio?a=agregarCarrito&id=${producto.idCalzado}" class="add_cart_btn" style="width:155px;">
-                            <span>
-                                Agregar al Carrito
-                            </span>
-                        </a>
-
-                        <div class="col-6">
-                            <a href="" class="add_cart_btn" style="width:80px;">
-                                <span>
-                                    Comprar
-                                </span>
-                            </a>
-                        </div>
-                    </div>
-                    <br>
-                    <br>
-                    <a href="/SistemasVentasWeb/inicio?a=verMas&id=${producto.idCalzado}" class="add_cart_btn">
-                        <span>
-                            Ver más
-                        </span>
-                    </a>
-
-
-                    <div class="detail-box">
-                        <h5>
-                            ${producto.nombres}
-                        </h5>
-                        <div class="product_info">
-                            <h5>
-                                <span>$</span>${producto.precio}
-                            </h5>
-                            <div class="star_container">
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                            </div>
-                        </div>
-                    </div>
-            </div>
+                </div>
+            </section>
         </div>
-    </c:forEach>     
-
-
-
-
-
-
-</div>
-</section>
-</div>
-<!-- end product section -->
+        <!-- end product section -->
 
 
         <!-- info section -->
@@ -343,6 +300,7 @@
             </div>
         </footer>
         <!-- footer section -->
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
         <!-- jQery -->
         <script src="./js/jquery-3.4.1.min.js"></script>
@@ -350,7 +308,7 @@
         <script src="./js/bootstrap.js"></script>
         <!-- custom js -->
         <script src="./js/custom.js"></script>
-
+        <script src="./js/funciones.js" type="text/javascript"></script>
 
     </body>
 

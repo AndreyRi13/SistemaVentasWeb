@@ -4,6 +4,8 @@
     Author     : Andrey R
 --%>
 
+<%  %>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
@@ -79,7 +81,7 @@
                                     </span>
                                 </a>
                                 <a href="inicio?a=carrito" class="cart-link">
-                                    <i class="fa fa-cart-plus" aria-hidden="true">(<label style="color:orange;">${contador}</label>)</i>
+                                    <i class="fa fa-cart-plus" aria-hidden="true"><label style="color:orange;">${contador}</label></i>
                                     <span>
                                         Carrito
                                     </span>
@@ -213,14 +215,14 @@
                                 <div class="row img-box">
                                     <img src="images/${producto.foto}" alt="" style="width:365px; height:265px;">
                                    
-                                        <a href="inicio?a=agregarCarrito&id=${producto.idCalzado}" class="add_cart_btn" style="width:155px;">
+                                        <a href="inicio?a=addCart&id=${producto.idCalzado}" class="add_cart_btn" style="width:155px;">
                                             <span>
                                                 Agregar al Carrito
                                             </span>
                                         </a>
                                   
                                     <div class="col-6">
-                                        <a href="" class="add_cart_btn" style="width:80px;">
+                                        <a href="inicio?a=comprar&id=${producto.idCalzado}" class="add_cart_btn" style="width:80px;">
                                             <span>
                                                 Comprar
                                             </span>

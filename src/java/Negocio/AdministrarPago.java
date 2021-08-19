@@ -14,38 +14,14 @@ import java.util.List;
  * @author Andrey R
  */
 public class AdministrarPago {
-
-    /*CRUD PAGO
     
-    
-    private static final long serialVersionUID = 1L;
-    @Basic(optional = false)
-    @Column(name = "estado")
-    private String estado;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idPago")
-    private Collection<Carrito> carritoCollection;
-
-    private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
-    @Column(name = "idPago")
-    private Integer idPago;
-    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
-    @Column(name = "monto")
-    private Double monto;
-    
-    
-    
-     */
-    public boolean agregarPago(int item, double precioCompra, int cantidad, double subTotal, Calzado idCalzado, Comprador idComprador, Pago idPago) {
-
-        PagoDAO empleado = new PagoDAO();
-
-        Pago com = new Pago(item, precioCompra, cantidad, subTotal, idCalzado, idComprador, idPago);
-
+ /*CRUD Pago*/
+    public boolean agregarPago( Double monto, String estado) {
+        PagoDAO pago = new PagoDAO();
+        Pago emp = new Pago(monto,estado);
+        
         try {
-            empleado.addPago(com);
+            pago.addPago(emp);
             return true;
         } catch (Exception e) {
             return false;
@@ -54,9 +30,9 @@ public class AdministrarPago {
 
     public Pago buscarPagoporId(Integer idPago) throws Exception {
         PagoDAO emp = new PagoDAO();
-        List<Pago> empleadosList = emp.readPagos();
+        List<Pago> pagosList = emp.readPagos();
         Pago aux = null;
-        for (Pago m : empleadosList) {
+        for (Pago m : pagosList) {
             if (m.getIdPago().equals(idPago)) {
                 aux = m;
             }
@@ -64,30 +40,24 @@ public class AdministrarPago {
         return aux;
     }
 
-    public void editarPago(Integer idPago, int item, double precioCompra, int cantidad, double subTotal, Calzado idCalzado, Comprador idComprador, Pago idPago) throws Exception {
+    public void editarPago(Integer idPago, Double monto, String estado) throws Exception {
         Pago em = new Pago();
         em.setIdPago(idPago);
-        em.setItem(item);
-        em.setPrecioCompra(precioCompra);
-        em.setCantidad(cantidad);
-        em.setSubTotal(subTotal);
-        em.setIdCalzado(idCalzado);
-        em.setIdComprador(idComprador);
-        em.setIdPago(idPago);
-
+        em.setMonto(monto);
+        em.setEstado(estado);
+     
         PagoDAO empdao = new PagoDAO();
         empdao.updatePago(em);
     }
 
     public void eliminarPago(Integer id) throws Exception {
-        PagoDAO comdao = new PagoDAO();
-        comdao.deletePago(id);
+        PagoDAO empdao = new PagoDAO();
+        empdao.deletePago(id);
     }
 
-    public List<Pago> listaPagoes() {
+    public List<Pago> listaPagos() {
         PagoDAO emp = new PagoDAO();
-        List<Pago> empleados = emp.readPagos();
-        return empleados;
+        List<Pago> pago = emp.readPagos();
+        return pago;
     }
-
 }

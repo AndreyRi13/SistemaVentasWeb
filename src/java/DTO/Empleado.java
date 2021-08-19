@@ -47,8 +47,10 @@ public class Empleado implements Serializable {
     @Basic(optional = false)
     @Column(name = "cedula")
     private String cedula;
+    @Basic(optional = false)
     @Column(name = "nombres")
     private String nombres;
+    @Basic(optional = false)
     @Column(name = "apellidos")
     private String apellidos;
     @Basic(optional = false)
@@ -73,6 +75,15 @@ public class Empleado implements Serializable {
         this.idEmpleado = idEmpleado;
     }
 
+    public Empleado(Integer idEmpleado, String cedula, String nombres, String apellidos, String username, String password) {
+        this.idEmpleado = idEmpleado;
+        this.cedula = cedula;
+        this.nombres = nombres;
+        this.apellidos = apellidos;
+        this.username = username;
+        this.password = password;
+    }
+
     public Empleado(String cedula, String nombres, String apellidos, String username, String password, String direccion, String numeroCelular, String correoElectronico, String estado) {
         this.cedula = cedula;
         this.nombres = nombres;
@@ -86,13 +97,7 @@ public class Empleado implements Serializable {
     }
 
     
-    public Empleado(Integer idEmpleado, String cedula, String username, String password) {
-        this.idEmpleado = idEmpleado;
-        this.cedula = cedula;
-        this.username = username;
-        this.password = password;
-    }
-
+    
     public Integer getIdEmpleado() {
         return idEmpleado;
     }
@@ -195,9 +200,7 @@ public class Empleado implements Serializable {
 
     @Override
     public String toString() {
-        return "Empleado{" + "idEmpleado=" + idEmpleado + ", cedula=" + cedula + ", nombres=" + nombres + ", apellidos=" + apellidos + ", username=" + username + ", password=" + password + ", direccion=" + direccion + ", numeroCelular=" + numeroCelular + ", correoElectronico=" + correoElectronico + ", estado=" + estado + '}';
+        return "DTO.Empleado[ idEmpleado=" + idEmpleado + " ]";
     }
-
-   
     
 }

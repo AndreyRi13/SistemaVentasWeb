@@ -7,7 +7,6 @@ package Persistencia;
 
 import DTO.Empleado;
 import Persistencia.exceptions.NonexistentEntityException;
-import Persistencia.exceptions.PreexistingEntityException;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -32,18 +31,13 @@ public class EmpleadoJpaController implements Serializable {
         return emf.createEntityManager();
     }
 
-    public void create(Empleado empleado) throws PreexistingEntityException, Exception {
+    public void create(Empleado empleado) {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
             em.persist(empleado);
             em.getTransaction().commit();
-        } catch (Exception ex) {
-            if (findEmpleado(empleado.getIdEmpleado()) != null) {
-                throw new PreexistingEntityException("Empleado " + empleado + " already exists.", ex);
-            }
-            throw ex;
         } finally {
             if (em != null) {
                 em.close();

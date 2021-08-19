@@ -46,8 +46,7 @@ public class Validar extends HttpServlet {
             case "dasboard":
                 dashboard(request, response);
                 break;
-
-        }
+       }
 
     }
 
@@ -65,15 +64,14 @@ public class Validar extends HttpServlet {
 
             if (lg.tipoLogin(user, pass).equals("Empleado")) {
                 HttpSession session = request.getSession();
-        
                 Empleado empleado = lg.loginEmpleado(user, pass);
-                session.setAttribute("empleado", empleado);
+                session.setAttribute("usuario", empleado);
                 dashboard(request, response);
 
             } else if (lg.tipoLogin(user, pass).equals("Comprador")) {
                 HttpSession session = request.getSession();
                 Comprador comprador = lg.loginComprador(user, pass);
-                session.setAttribute("comprador", comprador);
+                session.setAttribute("usuario", comprador);
                 dashboardComprador(request, response);
             }
 
@@ -92,8 +90,7 @@ public class Validar extends HttpServlet {
 
     public void dashboardComprador(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("mainComprador.jsp");
-        dispatcher.forward(request, response);
+        response.sendRedirect("/SistemasVentasWeb/inicio");
     }
 
     public void login(HttpServletRequest request, HttpServletResponse response)

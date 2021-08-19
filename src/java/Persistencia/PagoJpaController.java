@@ -5,16 +5,20 @@
  */
 package Persistencia;
 
-import DTO.Pago;
-import Persistencia.exceptions.NonexistentEntityException;
 import java.io.Serializable;
-import java.util.List;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
 import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
+import DTO.Compras;
+import DTO.Pago;
+import Persistencia.exceptions.IllegalOrphanException;
+import Persistencia.exceptions.NonexistentEntityException;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 
 /**
  *
@@ -32,11 +36,29 @@ public class PagoJpaController implements Serializable {
     }
 
     public void create(Pago pago) {
+        if (pago.getComprasCollection() == null) {
+            pago.setComprasCollection(new ArrayList<Compras>());
+        }
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
+            Collection<Compras> attachedComprasCollection = new ArrayList<Compras>();
+            for (Compras comprasCollectionComprasToAttach : pago.getComprasCollection()) {
+                comprasCollectionComprasToAttach = em.getReference(comprasCollectionComprasToAttach.getClass(), comprasCollectionComprasToAttach.getIdCompras());
+                attachedComprasCollection.add(comprasCollectionComprasToAttach);
+            }
+            pago.setComprasCollection(attachedComprasCollection);
             em.persist(pago);
+            for (Compras comprasCollectionCompras : pago.getComprasCollection()) {
+                Pago oldIdPagoOfComprasCollectionCompras = comprasCollectionCompras.getIdPago();
+                comprasCollectionCompras.setIdPago(pago);
+                comprasCollectionCompras = em.merge(comprasCollectionCompras);
+                if (oldIdPagoOfComprasCollectionCompras != null) {
+                    oldIdPagoOfComprasCollectionCompras.getComprasCollection().remove(comprasCollectionCompras);
+                    oldIdPagoOfComprasCollectionCompras = em.merge(oldIdPagoOfComprasCollectionCompras);
+                }
+            }
             em.getTransaction().commit();
         } finally {
             if (em != null) {
@@ -45,12 +67,45 @@ public class PagoJpaController implements Serializable {
         }
     }
 
-    public void edit(Pago pago) throws NonexistentEntityException, Exception {
+    public void edit(Pago pago) throws IllegalOrphanException, NonexistentEntityException, Exception {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
+            Pago persistentPago = em.find(Pago.class, pago.getIdPago());
+            Collection<Compras> comprasCollectionOld = persistentPago.getComprasCollection();
+            Collection<Compras> comprasCollectionNew = pago.getComprasCollection();
+            List<String> illegalOrphanMessages = null;
+            for (Compras comprasCollectionOldCompras : comprasCollectionOld) {
+                if (!comprasCollectionNew.contains(comprasCollectionOldCompras)) {
+                    if (illegalOrphanMessages == null) {
+                        illegalOrphanMessages = new ArrayList<String>();
+                    }
+                    illegalOrphanMessages.add("You must retain Compras " + comprasCollectionOldCompras + " since its idPago field is not nullable.");
+                }
+            }
+            if (illegalOrphanMessages != null) {
+                throw new IllegalOrphanException(illegalOrphanMessages);
+            }
+            Collection<Compras> attachedComprasCollectionNew = new ArrayList<Compras>();
+            for (Compras comprasCollectionNewComprasToAttach : comprasCollectionNew) {
+                comprasCollectionNewComprasToAttach = em.getReference(comprasCollectionNewComprasToAttach.getClass(), comprasCollectionNewComprasToAttach.getIdCompras());
+                attachedComprasCollectionNew.add(comprasCollectionNewComprasToAttach);
+            }
+            comprasCollectionNew = attachedComprasCollectionNew;
+            pago.setComprasCollection(comprasCollectionNew);
             pago = em.merge(pago);
+            for (Compras comprasCollectionNewCompras : comprasCollectionNew) {
+                if (!comprasCollectionOld.contains(comprasCollectionNewCompras)) {
+                    Pago oldIdPagoOfComprasCollectionNewCompras = comprasCollectionNewCompras.getIdPago();
+                    comprasCollectionNewCompras.setIdPago(pago);
+                    comprasCollectionNewCompras = em.merge(comprasCollectionNewCompras);
+                    if (oldIdPagoOfComprasCollectionNewCompras != null && !oldIdPagoOfComprasCollectionNewCompras.equals(pago)) {
+                        oldIdPagoOfComprasCollectionNewCompras.getComprasCollection().remove(comprasCollectionNewCompras);
+                        oldIdPagoOfComprasCollectionNewCompras = em.merge(oldIdPagoOfComprasCollectionNewCompras);
+                    }
+                }
+            }
             em.getTransaction().commit();
         } catch (Exception ex) {
             String msg = ex.getLocalizedMessage();
@@ -68,7 +123,7 @@ public class PagoJpaController implements Serializable {
         }
     }
 
-    public void destroy(Integer id) throws NonexistentEntityException {
+    public void destroy(Integer id) throws IllegalOrphanException, NonexistentEntityException {
         EntityManager em = null;
         try {
             em = getEntityManager();
@@ -79,6 +134,17 @@ public class PagoJpaController implements Serializable {
                 pago.getIdPago();
             } catch (EntityNotFoundException enfe) {
                 throw new NonexistentEntityException("The pago with id " + id + " no longer exists.", enfe);
+            }
+            List<String> illegalOrphanMessages = null;
+            Collection<Compras> comprasCollectionOrphanCheck = pago.getComprasCollection();
+            for (Compras comprasCollectionOrphanCheckCompras : comprasCollectionOrphanCheck) {
+                if (illegalOrphanMessages == null) {
+                    illegalOrphanMessages = new ArrayList<String>();
+                }
+                illegalOrphanMessages.add("This Pago (" + pago + ") cannot be destroyed since the Compras " + comprasCollectionOrphanCheckCompras + " in its comprasCollection field has a non-nullable idPago field.");
+            }
+            if (illegalOrphanMessages != null) {
+                throw new IllegalOrphanException(illegalOrphanMessages);
             }
             em.remove(pago);
             em.getTransaction().commit();

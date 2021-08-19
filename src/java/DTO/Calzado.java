@@ -45,7 +45,7 @@ import javax.xml.bind.annotation.XmlTransient;
 public class Calzado implements Serializable {
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idCalzado")
-    private Collection<Carrito> carritoCollection;
+    private Collection<DetalleCompras> detalleComprasCollection;
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -220,18 +220,17 @@ public class Calzado implements Serializable {
 
     @Override
     public String toString() {
-        return "DTO.Calzado[ idCalzado=" + idCalzado + " ]";
+        return "Calzado{" + "idCalzado=" + idCalzado + ", referencia=" + referencia + ", nombres=" + nombres + ", descripcion=" + descripcion + ", marca=" + marca + ", color=" + color + ", colorSuela=" + colorSuela + ", talla=" + talla + ", precio=" + precio + ", stock=" + stock + ", estado=" + estado + ", foto=" + foto + '}';
     }
 
     @XmlTransient
-    public Collection<Carrito> getCarritoCollection() {
-        return carritoCollection;
+    public Collection<DetalleCompras> getDetalleComprasCollection() {
+        return detalleComprasCollection;
     }
 
-    public void setCarritoCollection(Collection<Carrito> carritoCollection) {
-        this.carritoCollection = carritoCollection;
+    public void setDetalleComprasCollection(Collection<DetalleCompras> detalleComprasCollection) {
+        this.detalleComprasCollection = detalleComprasCollection;
     }
-
-
+  
     
 }

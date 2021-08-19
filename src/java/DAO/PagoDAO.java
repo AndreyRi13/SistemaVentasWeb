@@ -7,6 +7,7 @@ package DAO;
 
 import DTO.Pago;
 import Persistencia.PagoJpaController;
+import Persistencia.exceptions.IllegalOrphanException;
 import Persistencia.exceptions.NonexistentEntityException;
 import java.util.List;
 import java.util.logging.Level;
@@ -17,45 +18,51 @@ import java.util.logging.Logger;
  * @author Andrey R
  */
 public class PagoDAO {
-PagoJpaController pr;
+PagoJpaController pago;
 
     public PagoDAO() {
 
         Conexion con = Conexion.getConexion();
-        this.pr = new PagoJpaController(con.getBd());
+        pago = new PagoJpaController(con.getBd());
 
     }
 
     public List<Pago> readPagos() {
-        return this.pr.findPagoEntities();
+        return this.pago.findPagoEntities();
     }
 
     public Pago findPago(int idPago) {
-        return this.pr.findPago(idPago);
+        return this.pago.findPago(idPago);
     }
 
     public void addPago(Pago emp) throws Exception {
    
-            this.pr.create(emp);
+            this.pago.create(emp);
   
     }
     
     public boolean deletePago(Integer idEm){
     
-        try {
-            pr.destroy(idEm);
-            return true;
-        } catch (NonexistentEntityException ex) {
-            Logger.getLogger(PagoDAO.class.getName()).log(Level.SEVERE, null, ex);
-            return false;
-        }
+      
+    try {
+        pago.destroy(idEm);
+        return true;
+    } catch (IllegalOrphanException ex) {
+        Logger.getLogger(PagoDAO.class.getName()).log(Level.SEVERE, null, ex);
+        return false;
+    } catch (NonexistentEntityException ex) {
+        Logger.getLogger(PagoDAO.class.getName()).log(Level.SEVERE, null, ex);
+        return false;
+    }
+         
+     
     
     }
     
     
     public boolean updatePago(Pago e){
         try {
-            pr.edit(e);
+            pago.edit(e);
             return true;
         } catch (Exception ex) {        
             Logger.getLogger(PagoDAO.class.getName()).log(Level.SEVERE, null, ex);

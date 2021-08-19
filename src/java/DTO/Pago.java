@@ -31,14 +31,12 @@ import javax.xml.bind.annotation.XmlTransient;
 @NamedQueries({
     @NamedQuery(name = "Pago.findAll", query = "SELECT p FROM Pago p"),
     @NamedQuery(name = "Pago.findByIdPago", query = "SELECT p FROM Pago p WHERE p.idPago = :idPago"),
-    @NamedQuery(name = "Pago.findByMonto", query = "SELECT p FROM Pago p WHERE p.monto = :monto")})
+    @NamedQuery(name = "Pago.findByMonto", query = "SELECT p FROM Pago p WHERE p.monto = :monto"),
+    @NamedQuery(name = "Pago.findByEstado", query = "SELECT p FROM Pago p WHERE p.estado = :estado")})
 public class Pago implements Serializable {
 
-    @Basic(optional = false)
-    @Column(name = "estado")
-    private String estado;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idPago")
-    private Collection<Carrito> carritoCollection;
+    private Collection<Compras> comprasCollection;
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -49,13 +47,25 @@ public class Pago implements Serializable {
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Column(name = "monto")
     private Double monto;
+    @Basic(optional = false)
+    @Column(name = "estado")
+    private String estado;
+ 
 
     public Pago() {
     }
 
-    public Pago(Integer idPago) {
+    public Pago(Integer idPago, Double monto, String estado) {
         this.idPago = idPago;
+        this.monto = monto;
+        this.estado = estado;
     }
+
+    public Pago(Double monto, String estado) {
+        this.monto = monto;
+        this.estado = estado;
+    }
+
 
     public Integer getIdPago() {
         return idPago;
@@ -73,6 +83,13 @@ public class Pago implements Serializable {
         this.monto = monto;
     }
 
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
 
     @Override
     public int hashCode() {
@@ -94,26 +111,14 @@ public class Pago implements Serializable {
         return true;
     }
 
-    @Override
-    public String toString() {
-        return "DTO.Pago[ idPago=" + idPago + " ]";
-    }
-
-    public String getEstado() {
-        return estado;
-    }
-
-    public void setEstado(String estado) {
-        this.estado = estado;
-    }
-
     @XmlTransient
-    public Collection<Carrito> getCarritoCollection() {
-        return carritoCollection;
+    public Collection<Compras> getComprasCollection() {
+        return comprasCollection;
     }
 
-    public void setCarritoCollection(Collection<Carrito> carritoCollection) {
-        this.carritoCollection = carritoCollection;
+    public void setComprasCollection(Collection<Compras> comprasCollection) {
+        this.comprasCollection = comprasCollection;
     }
-    
+
+
 }
