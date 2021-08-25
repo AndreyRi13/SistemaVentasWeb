@@ -1,0 +1,30 @@
+#file-select {          
+  position: relative;
+  display: inline-block;
+}
+ 
+#file-select::before {
+  background-color: #3a4468;
+  color: white;
+  display: flex;            
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px;
+  content: 'Seleccionar Foto'; /* testo por defecto */
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;                
+}
+ 
+#file-select input[type="file"] {
+  opacity: 0;
+  width: 100%;
+  height: 38px;
+  display: inline-block;            
+}
+ 
+#fotoPerfil::before {
+  content: 'Seleccionar Foto';
+}

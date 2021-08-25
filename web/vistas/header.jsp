@@ -58,7 +58,7 @@
 
         <link href="https://cdn.usebootstrap.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
         <script src="https://cdn.usebootstrap.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-
+        <link href="../css/estilo.css" rel="stylesheet" type="text/css"/>
 
     </head>
 
