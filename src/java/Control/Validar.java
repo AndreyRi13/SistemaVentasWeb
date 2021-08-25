@@ -5,9 +5,11 @@
  */
 package Control;
 
+import DAO.EmpresaDAO;
 import DTO.Empleado;
 import DTO.Calzado;
 import DTO.Comprador;
+import DTO.Empresa;
 import Negocio.Login;
 import Negocio.N_Inicio;
 import java.io.IOException;
@@ -46,7 +48,7 @@ public class Validar extends HttpServlet {
             case "dasboard":
                 dashboard(request, response);
                 break;
-       }
+        }
 
     }
 
@@ -95,6 +97,9 @@ public class Validar extends HttpServlet {
 
     public void login(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        EmpresaDAO empr = new EmpresaDAO();
+        Empresa empresa = empr.findEmpresa(1);
+        request.setAttribute("empresa", empresa);
         RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");
         dispatcher.forward(request, response);
     }

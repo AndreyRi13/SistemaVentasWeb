@@ -44,7 +44,7 @@ public class Inicio extends HttpServlet {
                 case "home":
                     home(request, response);
                     break;
-                case "Login":
+                case "Login":                  
                     RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");
                     dispatcher.forward(request, response);
                     break;
@@ -161,6 +161,7 @@ public class Inicio extends HttpServlet {
         }
 
     }
+    
 
     public void comprar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
