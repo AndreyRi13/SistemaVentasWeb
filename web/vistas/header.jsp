@@ -46,15 +46,18 @@
 
         <!-- responsive style -->
         <link href="../css/inicio/responsive.css" rel="stylesheet" />
+        <!-- Iconos style -->
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 
 
         <!-- MATERIAL DESIGN ICONIC FONT -->
         <link rel="stylesheet" href="../fonts/material-design-iconic-font/css/material-design-iconic-font.css">
-
+        <link href="../css/estilosRegistro.css" rel="stylesheet" type="text/css"/>
         <!-- STYLE CSS -->
         <link rel="stylesheet" href="../css/estilo.css">
 
-
+        <link href="https://cdn.usebootstrap.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="https://cdn.usebootstrap.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 
 
     </head>

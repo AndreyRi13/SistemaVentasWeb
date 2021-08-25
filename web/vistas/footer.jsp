@@ -94,7 +94,8 @@
 <!-- JQUERY STEP -->
 <script src="../js/jquery.steps.js"></script>
 <script src="../js/mainn.js"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdn.usebootstrap.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
