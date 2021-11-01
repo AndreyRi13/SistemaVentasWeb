@@ -7,15 +7,15 @@
 
 
 <%@page import="DTO.Empleado"%>
-    <%
-    HttpSession sesion;
+   <%
+   /* HttpSession sesion;
     sesion = request.getSession(false);
     Empleado emplead = (Empleado) sesion.getAttribute("empleado");
     if(emplead==null) {
 
         response.sendRedirect("/SistemasVentasWeb/inicio");
 
-    } else {
+    } else {*/
 
 %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -133,10 +133,10 @@
 
                         </div>
                     </div>
-                    <div class="sb-sidenav-footer">
+<!--                   <div class="sb-sidenav-footer">
                         <div class="small">Desarrollado por:</div>
                         Andrey Rivera
-                    </div>
+                    </div>-->
                 </nav>
             </div>
             <div id="layoutSidenav_content">
@@ -176,5 +176,5 @@
         <script src="../js/datatables-simple-demo.js"></script>
     </body>
 </html>
-<%    }
+<%   // }
 %>

@@ -67,7 +67,7 @@ public class Validar extends HttpServlet {
             if (lg.tipoLogin(user, pass).equals("Empleado")) {
                 HttpSession session = request.getSession();
                 Empleado empleado = lg.loginEmpleado(user, pass);
-                session.setAttribute("usuario", empleado);
+               session.setAttribute("usuario", empleado);
                 dashboard(request, response);
 
             } else if (lg.tipoLogin(user, pass).equals("Comprador")) {
