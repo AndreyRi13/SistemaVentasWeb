@@ -1,4 +1,4 @@
-![SistemaVentasWeb](https://drive.google.com/file/d/1gjwxndZSNna7sL5qz197SrujTD_Ltr6E/view?usp=sharing)
+![SistemaVentasWeb](https://photos.app.goo.gl/pfFQZUGwkhDvx6F26)
 # Proyecto:
 ## Tienda online y gestor de inventario para una empresa de calzado
 ***
