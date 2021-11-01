@@ -54,7 +54,7 @@ Usted puede ver el siguiente marco conceptual sobre Java Web:
   ***
 #### IDE
 
-- El proyecto se desarrolla usando Netbeans el cual es uno de los entornos mas utilizados a nivel profesional [Rodríguez, A. (2009)](#https://www.aprenderaprogramar.com/index.php?option=com_content&view=article&id=398:netbeans-eclipse-jcreator-jbuilder-icual-es-el-mejor-entorno-de-desarrollo-ide-para-java-cu00613b&catid=68&Itemid=188).
+- El proyecto se desarrolla usando Netbeans, el cual es uno de los entornos mas utilizados a nivel profesional [Rodríguez, A. (2009)](#https://www.aprenderaprogramar.com/index.php?option=com_content&view=article&id=398:netbeans-eclipse-jcreator-jbuilder-icual-es-el-mejor-entorno-de-desarrollo-ide-para-java-cu00613b&catid=68&Itemid=188).
 
 
 ***
