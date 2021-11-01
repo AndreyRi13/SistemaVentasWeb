@@ -1,5 +1,6 @@
-# SistemaVentasWeb
-## Tienda virtual para una empresa de calzado
+![Nomina](https://drive.google.com/file/d/1gjwxndZSNna7sL5qz197SrujTD_Ltr6E/view?usp=sharing)
+# Proyecto:
+## Tienda online y gestor de inventario para una empresa de calzado
 ***
 ## Índice
 1. [Características 🔗](#características)
@@ -23,7 +24,7 @@
 
 | Archivo      | Descripción  |
 |--------------|--------------|
-| [index.html](https://github.com/AndreyRi13/SistemaVentasWeb/tree/main/web) | Archivos del Front end|
+| [Vista](https://github.com/AndreyRi13/SistemaVentasWeb/tree/main/web) | Archivos del Front end o de las vistas|
 | [Negocio](https://github.com/AndreyRi13/SistemaVentasWeb/tree/main/src/java/Negocio) | Archivo Java con el modelo negocio del proyecto|
 | [Controladores](https://github.com/AndreyRi13/SistemaVentasWeb/tree/main/src/java/Control) | Archivos Java con los controladores|
 | [Entidades](https://gitlab.com/Andrey1304/nomina/-/tree/master/src/nomina/entities) | Archivos Java con los atributos de los objetos:Concepto, Empleado, Liquidacion, Proceso, Tercero, Tipo de concepto |
@@ -39,7 +40,7 @@
   - [![MySQL](https://img.shields.io/badge/-MySQL-yellow)](https://www.mysql.com/)
   - [![JPA](https://img.shields.io/badge/-JPA-red)](https://es.wikipedia.org/wiki/Java_Persistence_API)
   - [![HTML5](https://img.shields.io/badge/HTML5-CSS-green)](https://developer.mozilla.org/es/docs/Web/Guide/HTML/HTML5)
-  - [![Bootstrap 5.0](https://img.shields.io/badge/-Bootstrap%204.0-blueviolet)](https://getbootstrap.com/docs/5.0/getting-started/introduction/)
+  - [![Bootstrap 5.0](https://img.shields.io/badge/-Bootstrap%205.0-blueviolet)](https://getbootstrap.com/docs/5.0/getting-started/introduction/)
   - [![JavaScript](https://img.shields.io/badge/JavaScript-green)](https://developer.mozilla.org/es/docs/Web/JavaScript)
   
 
