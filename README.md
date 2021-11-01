@@ -24,10 +24,9 @@
 
 | Archivo      | Descripción  |
 |--------------|--------------|
-| [Vista](https://github.com/AndreyRi13/SistemaVentasWeb/tree/main/web) | Archivos del Front end o de las vistas|
+| [Vistas](https://github.com/AndreyRi13/SistemaVentasWeb/tree/main/web) | Archivos del Front end o de las vistas|
 | [Negocio](https://github.com/AndreyRi13/SistemaVentasWeb/tree/main/src/java/Negocio) | Archivo Java con el modelo negocio del proyecto|
 | [Controladores](https://github.com/AndreyRi13/SistemaVentasWeb/tree/main/src/java/Control) | Archivos Java con los controladores|
-| [Entidades](https://gitlab.com/Andrey1304/nomina/-/tree/master/src/nomina/entities) | Archivos Java con los atributos de los objetos:Concepto, Empleado, Liquidacion, Proceso, Tercero, Tipo de concepto |
 | [DAO](https://github.com/AndreyRi13/SistemaVentasWeb/tree/main/src/java/DAO) | Archivos Java con el patrón DAO en cada entidad y una interface de Conexion|
 | [DTO](https://github.com/AndreyRi13/SistemaVentasWeb/tree/main/src/java/DTO) | Archivos Java con el patrón DTO en cada entidad|
 | [persistence.xml](https://github.com/AndreyRi13/SistemaVentasWeb/blob/main/src/conf/persistence.xml) | Archivo XML con las propiedades de la persistencia en los datos,la especififcacion del gestor de base de datos y su usuario y contraseña, la URL de la base de datos y los drivers necesarios|
