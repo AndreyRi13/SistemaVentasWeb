@@ -54,7 +54,7 @@ Usted puede ver el siguiente marco conceptual sobre Java Web:
   ***
 #### IDE
 
-- El proyecto se desarrolla usando Netbeans, el cual es uno de los entornos mas utilizados a nivel profesional [Rodríguez, A. (2009)](#https://www.aprenderaprogramar.com/index.php?option=com_content&view=article&id=398:netbeans-eclipse-jcreator-jbuilder-icual-es-el-mejor-entorno-de-desarrollo-ide-para-java-cu00613b&catid=68&Itemid=188).
+- El proyecto se desarrollo usando Netbeans
 
 
 ***
@@ -80,5 +80,3 @@ Proyecto desarrollado por [Brayam Andrey Oliveros Rivera](<andreyrivera2018@gmai
    ***
 ### Referencias
 ###### Arquitectura Java Web Start para desplegar clientes de aplicaciones. (2021, 22 enero). ibm.https://www.ibm.com/docs/es/was/9.0.5?topic=start-java-web-architecture-deploying-application-clients
-
-###### Rodríguez, A. (2009). Eclipse IDE Entorno de desarrollo integrado para Java. aprenderaprogramar. http://www.edu4java.com/es/java/eclipse-ide-entorno-de-desarrollo.html
