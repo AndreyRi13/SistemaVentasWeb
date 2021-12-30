@@ -7,15 +7,15 @@
 
 
 <%@page import="DTO.Empleado"%>
-   <%
-   /* HttpSession sesion;
-    sesion = request.getSession(false);
-    Empleado emplead = (Empleado) sesion.getAttribute("empleado");
-    if(emplead==null) {
+<%
+    /* HttpSession sesion;
+ sesion = request.getSession(false);
+ Empleado emplead = (Empleado) sesion.getAttribute("empleado");
+ if(emplead==null) {
 
-        response.sendRedirect("/SistemasVentasWeb/inicio");
+     response.sendRedirect("/SistemasVentasWeb/inicio");
 
-    } else {*/
+ } else {*/
 
 %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -32,17 +32,16 @@
         <link href="../css/styles_main.css" rel="stylesheet" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-   
 
-    
+
+
     </head>
-    <body class="sb-nav-fixed">
+    <body class="sb-nav-fixed" style="background-color:#E4E8F5;">
 
-        
-       
+
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3" href="index.html">CAYSAM</a>
+            <a class="navbar-brand ps-3" href="#">CAYSAM</a>
             <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
 
@@ -56,17 +55,18 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#!">${empleado.username}</a></li>                             
-                        <li><a class="dropdown-item" href="#!">Configuracion</a></li>
-                        <li><hr class="dropdown-divider" /></li>
+                        <li><a class="dropdown-item" href="#!">${empleado.username}</a></li>                                              
+                        <li> <a class="dropdown-item" href="validar?a=PageditarPerfil" target="myFrame">Editar perfil</a></li>
+
+                        <li><hr class="dropdown-divider"/></li>
                         <form action="logout" method="POST">
                             <li><button class="dropdown-item" name="a" value="Salir">Salir</button></li>
-
                         </form>
                     </ul>
                 </li>
             </ul>
         </nav>
+
         <div id="layoutSidenav">
             <div id="layoutSidenav_nav">
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
@@ -77,7 +77,7 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Home
                             </a>
-                            <div class="sb-sidenav-menu-heading">Administración de Calzados</div>
+                            <!--<div class="sb-sidenav-menu-heading">Administración de Calzados</div>-->
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseProductos" aria-expanded="false" aria-controls="collapseProductos">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 Calzado
@@ -92,7 +92,7 @@
 
 
 
-                            <div class="sb-sidenav-menu-heading">Administración de Empleados</div>
+                            <!--<div class="sb-sidenav-menu-heading">Administración de Empleados</div>-->
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseEmpleados" aria-expanded="false" aria-controls="collapseEmpleados">
                                 <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
                                 Empleado
@@ -105,7 +105,7 @@
                                 </nav>
                             </div>
 
-                            <div class="sb-sidenav-menu-heading">Administración de Compradores</div>
+                            <!--<div class="sb-sidenav-menu-heading">Administración de Compradores</div>-->
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseClientes" aria-expanded="false" aria-controls="collapseClientes">
                                 <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
                                 Compradores
@@ -117,15 +117,14 @@
                                     <a class="nav-link" href="compradorcontroller?menu=listaCompradores" target="myFrame">Lista de Comprador</a>                                 
                                 </nav>
                             </div>
-                            <div class="sb-sidenav-menu-heading">Administración de Ventas</div>
+                            <!--<div class="sb-sidenav-menu-heading">Administración de Ventas</div>-->
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseVentas" aria-expanded="false" aria-controls="collapseVentas">
                                 <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
                                 Ventas
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
                             <div class="collapse" id="collapseVentas" aria-labelledby="headingFour">
-                                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                                    <a class="nav-link" href="ventacontroller?menu=agregarVenta" target="myFrame">Agregar Venta</a>
+                                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">                            
                                     <a class="nav-link" href="ventacontroller?menu=listarVenta" target="myFrame">Lista de Venta</a>      
                                     <a class="nav-link" href="ventacontroller?menu=informeVenta" target="myFrame">Informe de Ventas</a>   
                                 </nav>
@@ -133,39 +132,23 @@
 
                         </div>
                     </div>
-<!--                   <div class="sb-sidenav-footer">
+                    <div class="sb-sidenav-footer">
                         <div class="small">Desarrollado por:</div>
-                        Andrey Rivera
-                    </div>-->
+                        DigiTech
+                    </div>
                 </nav>
             </div>
-            <div id="layoutSidenav_content">
+
+            <div id="layoutSidenav_content">            
                 <main>
                     <div class="container-fluid px-4">
-                        <h2 class="mt-4">Administrar Tienda Virtual</h2>
-                        <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active">Bienvenido ${empleado.nombres} </li>
-                        </ol>
-                        <div class="m-4" style="height:550px;">
-
+                        <div class="m-2" style="height:606px;">
                             <iframe name="myFrame" style=" height:100%; width:100%"></iframe>
-
                         </div>
                     </div>
-                </main>
-                <footer class="py-4 bg-light mt-auto">
-                    <div class="container-fluid px-4">
-                        <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Your Website 2021</div>
-                            <div>
-                                <a href="#">Privacy Policy</a>
-                                &middot;
-                                <a href="#">Terms &amp; Conditions</a>
-                            </div>
-                        </div>
-                    </div>
-                </footer>
+                </main>             
             </div>
+
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="../js/scripts.js"></script>

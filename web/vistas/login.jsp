@@ -49,7 +49,7 @@
     </head>
     <body>
         <header class="header_section">
-            <div class="header_top">
+<!--            <div class="header_top">
                 <div class="container-fluid">
                     <div class="top_nav_container">
                         <div class="contact_nav">
@@ -73,13 +73,13 @@
                             </button>
                         </from>
                         <div class="user_option_box">
-                            <a href="vistas/validar?a=Login" class="account-link">
+                            <a href="/SistemasVentasWeb/vistas/validar?a=Login" class="account-link">
                                 <i class="fa fa-user" aria-hidden="true"></i>
                                 <span>
                                     Mi Cuenta
                                 </span>
                             </a>
-                            <a href="inicio?a=carrito" class="cart-link">
+                            <a href="/SistemasVentasWeb/inicio?a=carrito" class="cart-link">
                                 <i class="fa fa-cart-plus" aria-hidden="true"><label style="color:orange;">${contador}</label></i>
                                 <span>
                                     Carrito
@@ -89,7 +89,7 @@
                     </div>
 
                 </div>
-            </div>
+            </div>-->
             <div class="header_bottom">
                 <div class="container-fluid">
                     <nav class="navbar navbar-expand-lg custom_nav-container ">
@@ -110,18 +110,26 @@
                                 </li>
 
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#productos">Productos</a>
+                                    <a class="nav-link" href="/SistemasVentasWeb/inicio#productos">Productos</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#nosotros">Nosotros</a>
+                                    <a class="nav-link" href="/SistemasVentasWeb/inicio#nosotros">Nosotros</a>
                                 </li>                                   
 
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#porquenosotros">Por qué elegirnos</a>
+                                    <a class="nav-link" href="/SistemasVentasWeb/inicio#porquenosotros">Por qué elegirnos</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#testimonios">Nuestros clientes</a>
+                                    <a class="nav-link" href="/SistemasVentasWeb/inicio#testimonios">Nuestros clientes</a>
                                 </li>
+                                
+                                <li class="nav-item">
+                                        <div class="user_option_box">
+                                            <a href="/SistemasVentasWeb/vistas/validar?a=Login" class="nav-link">
+                                                <i class="fa fa-user" aria-hidden="true"></i>
+                                                <span>Mi cuenta</span>
+                                            </a> </div>
+                                    </li>
                             </ul>
                         </div>
                     </nav>
@@ -168,20 +176,7 @@
                                     <button type="submit"  class="btn btn-success">
                                         Ingresar
                                     </button>
-
-                                    <span class="d-block text-left my-4 text-muted">&mdash; Iniciar Sesion Con &mdash;</span>
-
-                                    <div class="social-login">
-                                        <a href="#" class="facebook">
-                                            <span class="icon-facebook mr-3"></span> 
-                                        </a>
-                                        <a href="#" class="twitter">
-                                            <span class="icon-twitter mr-3"></span> 
-                                        </a>
-                                        <a href="#" class="google">
-                                            <span class="icon-google mr-3"></span> 
-                                        </a>
-                                    </div>
+             
                                 </form>
                             </div>
 
@@ -283,7 +278,7 @@
                 <p>
                     &copy; <span id="displayYear"></span> Todos los derechos reservados por CAYSAM
                     <br>Desarrollador:
-                    <a href="https://github.com/AndreyRi13/">Andrey Rivera</a>
+                    <a href="#">DigiTech</a>
                 </p>
             </div>
         </footer>

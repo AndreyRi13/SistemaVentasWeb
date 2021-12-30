@@ -18,17 +18,11 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     </head>
     <body>
-
         <div class="card">
             <div class="card-body">
-
                 <div class="container">
-
-
                     <div class="well well-sm">
-
                         <table id="listEmpleados" class="table table-striped" style="width:100%">
-
                             <thead>
                                 <tr>
                                     <th>ID</th>
@@ -56,23 +50,22 @@
                                         <td>${pro.precio}</td>
                                         <td>${pro.stock}</td>
                                         <td>${pro.estado}</td>
-                                        <td>${pro.foto}</td>
-                                        <td>
-                                            <a class="btn btn-warning" href="calzadocontroller?menu=editCalzado&id=${pro.idCalzado}">Editar</a>
+                                        <td> <img src="../images/${pro.foto}" alt="Foto ${pro.foto}" style="width: 60px; height: 60px;" /> </td>
+                                        <td>                                          
+                                            <a class="btn btn-warning" href="calzadocontroller?menu=editCalzado&id=${pro.idCalzado}">Editar</a>                                           
                                             <a class="btn btn-danger"  href="calzadocontroller?menu=eliminarCalzado&id=${pro.idCalzado}">Eliminar</a>
                                         </td>
                                     </tr>
                                 </c:forEach>
                             </tbody>
                         </table>
-
                     </div>
                 </div>
             </div>
         </div>
 
-                    <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script> 
-                    <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap5.min.js"></script> 
-                    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script> 
-                    </body>
-                    </html>
+        <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script> 
+        <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap5.min.js"></script> 
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script> 
+    </body>
+</html>

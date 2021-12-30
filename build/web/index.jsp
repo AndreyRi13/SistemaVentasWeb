@@ -4,8 +4,7 @@
     Author     : Andrey R
 --%>
 
-<%  %>
-
+<%%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
@@ -50,47 +49,45 @@
         <div class="hero_area">
             <!-- header section strats -->
             <header class="header_section">
-                <div class="header_top">
-                    <div class="container-fluid">
-                        <div class="top_nav_container">
-                            <div class="contact_nav">
-                                <a href="">
-                                    <i class="fa fa-phone" aria-hidden="true"></i>
-                                    <span>
-                                        Telefonos: ${empresa.telefonos}
-                                    </span>
-                                </a>
-                                <a href="">
-                                    <i class="fa fa-envelope" aria-hidden="true"></i>
-                                    <span>
-                                        Correo: ${empresa.correoElectronico}
-                                    </span>
-                                </a>
-                            </div>
-                            <from class="search_form">
-                                <input type="text" class="form-control" placeholder="Buscar calzado...">
-                                <button class="" type="submit">
-                                    <i class="fa fa-search" aria-hidden="true"></i>
-                                </button>
-                            </from>
-                            <div class="user_option_box">
-                                <a href="vistas/validar?a=Login" class="account-link">
-                                    <i class="fa fa-user" aria-hidden="true"></i>
-                                    <span>
-                                        Mi Cuenta
-                                    </span>
-                                </a>
-                                <a href="inicio?a=carrito" class="cart-link">
-                                    <i class="fa fa-cart-plus" aria-hidden="true"><label style="color:orange;">${contador}</label></i>
-                                    <span>
-                                        Carrito
-                                    </span>
-                                </a>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
+                <!--                <div class="header_top">
+                                    <div class="container-fluid">
+                                        <div class="top_nav_container">
+                                            <div class="contact_nav">
+                                                <a href="">
+                                                    <i class="fa fa-phone" aria-hidden="true"></i>
+                                                    <span>
+                                                        Telefonos: ${empresa.telefonos}
+                                                    </span>
+                                                </a>
+                                                <a href="">
+                                                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                                                    <span>
+                                                        Correo: ${empresa.correoElectronico}
+                                                    </span>
+                                                </a>
+                                            </div>
+                                            <from class="search_form">
+                                                <input type="text" class="form-control" placeholder="Buscar calzado...">
+                                                <button class="" type="submit">
+                                                    <i class="fa fa-search" aria-hidden="true"></i>
+                                                </button>
+                                            </from>
+                                            <div class="user_option_box">
+                                                <a href="vistas/validar?a=Login" class="account-link">
+                                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                                    <span>Mi cuenta</span>
+                                                </a>
+                                                <a href="inicio?a=carrito" class="cart-link">
+                                                    <i class="fa fa-cart-plus" aria-hidden="true"><label style="color:orange;">${contador}</label></i>
+                                                    <span>
+                                                        Carrito
+                                                    </span>
+                                                </a>
+                                            </div>
+                                        </div>
+                
+                                    </div>
+                                </div>-->
                 <div class="header_bottom">
                     <div class="container-fluid">
                         <nav class="navbar navbar-expand-lg custom_nav-container ">
@@ -122,6 +119,14 @@
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" href="#testimonios">Nuestros clientes</a>
+                                    </li>
+                                    
+                                    <li class="nav-item">
+                                        <div class="user_option_box">
+                                            <a href="vistas/validar?a=Login" class="nav-link">
+                                                <i class="fa fa-user" aria-hidden="true"></i>
+                                                <span>Mi cuenta</span>
+                                            </a> </div>
                                     </li>
                                 </ul>
                             </div>
@@ -214,29 +219,21 @@
                             <div class="box">
                                 <div class="row img-box">
                                     <img src="images/${producto.foto}" alt="" style="width:365px; height:265px;">
-                                   
-                                        <a href="inicio?a=addCart&id=${producto.idCalzado}" class="add_cart_btn" style="width:155px;">
-                                            <span>
-                                                Agregar al Carrito
-                                            </span>
-                                        </a>
-                                  
-                                    <div class="col-6">
-                                        <a href="inicio?a=comprar&id=${producto.idCalzado}" class="add_cart_btn" style="width:80px;">
-                                            <span>
-                                                Comprar
-                                            </span>
-                                        </a>
-                                    </div>
-                                </div>
-                                    <br>
-                                 <br>
-                                    <a href="inicio?a=verMas&id=${producto.idCalzado}" class="add_cart_btn">
+
+                                    <a href="inicio?a=verMas" class="add_cart_btn" style="width:155px;">
                                         <span>
-                                            Ver más
+                                            Agregar al Carrito
                                         </span>
                                     </a>
-                               
+                                </div>
+                                <br>
+                                <br>
+                                <a href="inicio?a=verMas" class="add_cart_btn">
+                                    <span>
+                                        Ver más
+                                    </span>
+                                </a>
+
 
                                 <div class="detail-box">
                                     <h5>
@@ -289,7 +286,7 @@
                     </div>
                     <div class="col-md-6 px-0">
                         <div class="img-box">
-                            <img src="images/about-img.jpg" alt="">
+                            <img src="images/hombres-nike-air-max-270-blanco-negro.jpg" alt="" style="width: 500px;height: 400px;">
                         </div>
                     </div>
                 </div>
@@ -525,8 +522,8 @@
             <div class="container">
                 <p>
                     &copy; <span id="displayYear"></span> Todos los derechos reservados por CAYSAM
-                    <br>Desarrollador:
-                    <a href="https://github.com/AndreyRi13/">Andrey Rivera</a>
+                    <br>Desarrollador por:
+                    <a href="https://github.com/AndreyRi13/">DigiTech</a>
                 </p>
             </div>
         </footer>

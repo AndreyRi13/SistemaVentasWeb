@@ -10,6 +10,7 @@ import DAO.EmpresaDAO;
 import DTO.Calzado;
 import DTO.Carrito;
 import DTO.Carrito.ItemCarrito;
+import DTO.Comprador;
 import DTO.Empresa;
 import Negocio.AdministrarCalzado;
 import java.io.IOException;
@@ -41,48 +42,27 @@ public class Inicio extends HttpServlet {
         } else {
 
             switch (action) {
-                case "home":
-                    home(request, response);
-                    break;
-                case "Login":                  
+          
+                case "Login":
                     RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");
                     dispatcher.forward(request, response);
                     break;
-
-                case "eliminarItemCarrito":
-                    eliminarItemCarrito(request, response);
-                    break;
-
-                case "actualizarCantidad":
-                    actualizarCantidad(request, response);
-                    break;
-
-                case "comprar":
-                    comprar(request, response);
-                    break;
-
                 case "verMas":
                     verMas(request, response);
                     break;
 
-                case "addCart":
-                    addCart(request, response);
-                    break;
-                case "carrito":
-                    carrito(request, response);
-                    break;
-
+          
+                
             }
         }
     }
 
-    Cookie ck;
-    int cant = 0;
-    double totalPagar = 0.0;
-    Carrito carrito = new Carrito();
+    
+  
+  
     HttpSession session = null;
 
-    public void muestraInicio(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    private void muestraInicio(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         session = request.getSession();
         session.setAttribute("usuario", "invitado");
@@ -92,133 +72,14 @@ public class Inicio extends HttpServlet {
         Empresa empresa = empr.findEmpresa(1);
         request.setAttribute("calzados", product);
         request.setAttribute("empresa", empresa);
-        if (ck != null) {
-            request.setAttribute("contador", ck.getValue());
-        }
-
         RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
         dispatcher.forward(request, response);
     }
 
-    public void eliminarItemCarrito(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int index = 0;
-        index = Integer.parseInt(request.getParameter("id"));
-        carrito.eliminarItem(index);
-        cant = cant - 1;
-        ck.setValue("(" + String.valueOf(cant) + ")");
-        response.sendRedirect("/SistemasVentasWeb/inicio?a=carrito");
-    }
-
-    public void home(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.sendRedirect("/SistemasVentasWeb/inicio");
-    }
-
-    public void addCart(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int idCalza = 0;
-        idCalza = Integer.parseInt(request.getParameter("id"));
-        //Instancia la clase negocio y un objeto calzado
-        AdministrarCalzado cal = new AdministrarCalzado();
-        Calzado calzado = cal.buscarCalzadoporId(idCalza);
-        ck = new Cookie("contador", String.valueOf(cant));
-        if (calzado != null) {
-            carrito.agregarCalzado(calzado, 1);
-            cant = cant + 1;
-            ck.setValue("(" + String.valueOf(cant) + ")");
-            ck.setMaxAge(-1);
-            response.sendRedirect("/SistemasVentasWeb/inicio");
-        } else {
-            response.sendRedirect("/SistemasVentasWeb/inicio");
-        }
-    }
-
-    public void actualizarCantidad(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int idpro = Integer.parseInt(request.getParameter("idp"));
-        int canti = Integer.parseInt(request.getParameter("Cantidad"));
-
-        for (int i = 0; i < carrito.getProductos().size(); i++) {
-
-            if (this.carrito.getProductos().get(i).getCalzado().getIdCalzado() == idpro) {
-
-                if (canti > this.carrito.getProductos().get(i).getCantidad()) {
-                    cant = cant + 1;
-                    ck.setValue("(" + String.valueOf(cant) + ")");
-                    ck.setMaxAge(-1);
-
-                } else if (canti < this.carrito.getProductos().get(i).getCantidad()) {
-                    cant = cant - 1;
-                    ck.setValue("(" + String.valueOf(cant) + ")");
-                    ck.setMaxAge(-1);
-                } else {
-                    cant = cant;
-                    ck.setValue("(" + String.valueOf(cant) + ")");
-                    ck.setMaxAge(-1);
-
-                }
-
-                this.carrito.getProductos().get(i).setCantidad(canti);
-            }
-
-        }
-
-    }
-    
-
-    public void comprar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-        int idCalza = 0;
-        idCalza = Integer.parseInt(request.getParameter("id"));
-        //Instancia la clase negocio y un objeto calzado
-        AdministrarCalzado cal = new AdministrarCalzado();
-        Calzado calzado = cal.buscarCalzadoporId(idCalza);
-        System.out.println("Calzado: " + calzado);
-        ck = new Cookie("contador", String.valueOf(cant));
-        if (calzado != null) {
-            carrito.agregarCalzado(calzado, 1);
-            cant = cant + 1;
-            ck.setValue("(" + String.valueOf(cant) + ")");
-            ck.setMaxAge(-1);
-            EmpresaDAO empr = new EmpresaDAO();
-            Empresa empresa = empr.findEmpresa(1);
-            request.setAttribute("empresa", empresa);
-            request.setAttribute("productos", carrito.getProductos());
-            totalPagar = carrito.obtenerTotal();
-            request.setAttribute("totalPagar", totalPagar);
-            response.sendRedirect("/SistemasVentasWeb/inicio?a=carrito");
-        } else {
-            response.sendRedirect("/SistemasVentasWeb/inicio");
-        }
-
-    }
-
-    public void carrito(HttpServletRequest request, HttpServletResponse response)
+    private void verMas(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-        EmpresaDAO empr = new EmpresaDAO();
-        Empresa empresa = empr.findEmpresa(1);
-        request.setAttribute("empresa", empresa);
-        request.setAttribute("productos", carrito.getProductos());
-        totalPagar = carrito.obtenerTotal();
-        request.setAttribute("totalPagar", totalPagar);
-
-        request.getRequestDispatcher("carrito.jsp").forward(request, response);
-
-    }
-
-    public void verMas(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        int idCal = Integer.parseInt(request.getParameter("id"));
-        AdministrarCalzado cal = new AdministrarCalzado();
-        try {
-            Calzado calzado = cal.buscarCalzadoporId(idCal);
-            request.setAttribute("calzado", calzado);
-            EmpresaDAO empr = new EmpresaDAO();
-            Empresa empresa = empr.findEmpresa(1);
-            request.setAttribute("empresa", empresa);
-            RequestDispatcher dispatcher = request.getRequestDispatcher("productoVerMas.jsp");
-            dispatcher.forward(request, response);
-        } catch (Exception ex) {
-            Logger.getLogger(Inicio.class.getName()).log(Level.SEVERE, null, ex);
-        }
+       
+         response.sendRedirect("/SistemasVentasWeb/vistas/validar?a=Login");
 
     }
 

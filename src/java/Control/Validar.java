@@ -10,11 +10,14 @@ import DTO.Empleado;
 import DTO.Calzado;
 import DTO.Comprador;
 import DTO.Empresa;
+import Negocio.AdministrarEmpleado;
 import Negocio.Login;
 import Negocio.N_Inicio;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.FilterChain;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -48,12 +51,19 @@ public class Validar extends HttpServlet {
             case "dasboard":
                 dashboard(request, response);
                 break;
+            case "PageditarPerfil":
+                PageditarPerfil(request, response);
+                break;
+            case "editarPerfil":
+                editarPerfil(request, response);
+                break;
         }
 
     }
 
     public Validar() {
     }
+    int idUsuario = 0;
 
     public void ingresar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -67,14 +77,16 @@ public class Validar extends HttpServlet {
             if (lg.tipoLogin(user, pass).equals("Empleado")) {
                 HttpSession session = request.getSession();
                 Empleado empleado = lg.loginEmpleado(user, pass);
-               session.setAttribute("usuario", empleado);
+                idUsuario = empleado.getIdEmpleado();
+                session.setAttribute("empleado", empleado);
                 dashboard(request, response);
 
             } else if (lg.tipoLogin(user, pass).equals("Comprador")) {
                 HttpSession session = request.getSession();
                 Comprador comprador = lg.loginComprador(user, pass);
-                session.setAttribute("usuario", comprador);
-                dashboardComprador(request, response);
+                request.setAttribute("comprador", comprador);
+               dashboardComprador(request, response);
+
             }
 
         } else {
@@ -92,7 +104,36 @@ public class Validar extends HttpServlet {
 
     public void dashboardComprador(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.sendRedirect("/SistemasVentasWeb/inicio");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("mainComprador.jsp");
+        dispatcher.forward(request, response);
+    }
+
+    public void PageditarPerfil(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
+        RequestDispatcher dispatcher = request.getRequestDispatcher("editarPerfil.jsp");
+        dispatcher.forward(request, response);
+
+    }
+
+    public void editarPerfil(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        AdministrarEmpleado admi = new AdministrarEmpleado();
+        String cedula = request.getParameter("txtCedula");
+        String nombres = request.getParameter("txtNombres");
+        String apellidos = request.getParameter("txtApellidos");
+        String username = request.getParameter("txtUsername");
+        String password = request.getParameter("txtPassword");
+        String direccion = request.getParameter("txtDireccion");
+        String numeroCelular = request.getParameter("txtNumeroCelular");
+        String correoElectronico = request.getParameter("txtCorreoElectronico");
+        String estado = request.getParameter("txtEstado");
+        try {
+            admi.editarEmpleado(idUsuario, cedula, nombres, apellidos, username, password, direccion, numeroCelular, correoElectronico, estado);
+        } catch (Exception ex) {
+            Logger.getLogger(EmpleadoController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }
 
     public void login(HttpServletRequest request, HttpServletResponse response)
@@ -119,42 +160,5 @@ public class Validar extends HttpServlet {
     @Override
     public String getServletInfo() {
         return "Short description";
-    }// </editor-fold>
-
-//    public class SeguimientoSesion extends HttpServlet {
-//    public void service(HttpServletRequest req, HttpServletResponse res) throws IOException {
-//        //Retiramos el objeto Session antes de enviar ninguna salida al cliente
-//        HttpSession sesion = req.getSession();
-//        res.setContentType("text/html");
-//        PrintWriter salida = res.getWriter();
-//        salida.println(“<HEAD><TITLE> Seguir sesion”);
-//        salida.println(“</TITLE></HEAD><BODY>”);
-//        salida.println(“<h1> Seguimiento de sesión</h1>”);
-//        //Un contador de accesos simple para esta petición
-//        Integer ivalue = (Integer) sesion.getAttribute(“GorkaElorduy”);
-//        if (ivalue == null) {
-//            ivalue = new Integer(1);
-//        } else {
-//            ivalue = new Integer(ivalue.intValue() + 1);
-//        }
-//        sesion.setAttribute(“GorkaElorduy”, ivalue);
-//        salida.println(“Has accedido a esta página ” + ivalue + ” veces”);
-//        salida.println(“<h2>”);
-//        salida.println(“Grabados datos de la sesión </h2>”);
-//        //Iteramos por todos los datos de la sesión
-//        Enumeration nombresSesion = sesion.getAttributeNames();
-//        while (nombresSesion.hasMoreElements()) {
-//            String nombre = nombresSesion.nextElement().toString();
-//            Object valor = sesion.getAttribute(nombre);
-//            salida.println(nombre + ” = ” + valor + “<br>”);
-//        }
-//        salida.println(“<h3> Estadísticas de la sesión</h3>”);
-//        salida.println(“ID Sesion: ” + sesion.getId() + “<br>”);
-//        salida.println(“Nueva Sesión ” + sesion.isNew());
-//        salida.println(“Hora de creación: ” + sesion.getCreationTime());
-//        salida.println(“Intervalo de inactividad de la sesión: ” + sesion.getMaxInactiveInterval());
-//        salida.println(“ID de sesion desde cookie: ” + req.isRequestedSessionIdFromCookie());
-//        salida.println(“</BODY>”);
-//    }
-//}
+    }
 }
