@@ -15,7 +15,7 @@
         <!-- Mobile Metas -->
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <!-- Site Metas -->
-        <link rel="icon" href="./images/fevicon.png" type="image/gif" />
+        <link rel="icon" href="../images/fevicon.png" type="image/gif" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
         <meta name="keywords" content="" />
         <meta name="description" content="" />
@@ -25,75 +25,35 @@
 
 
         <!-- bootstrap core css -->
-        <link rel="stylesheet" type="text/css" href="./css/inicio/bootstrap.css" />
+        <link rel="stylesheet" type="text/css" href="../css/inicio/bootstrap.css" />
 
         <!-- fonts style -->
         <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet"> <!-- range slider -->
 
         <!-- font awesome style -->
-        <link href="./css/inicio/font-awesome.min.css" rel="stylesheet" />
-        <link href="./css/inicio/ion.rangeSlider.min.css" rel="stylesheet" />
-        <link href="./css/inicio/style.css.map" rel="stylesheet" />
+        <link href="../css/inicio/font-awesome.min.css" rel="stylesheet" />
+        <link href="../css/inicio/ion.rangeSlider.min.css" rel="stylesheet" />
+        <link href="../css/inicio/style.css.map" rel="stylesheet" />
         <!-- Custom styles for this template -->
-        <link href="./css/inicio/style.css" rel="stylesheet" />
-        <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+        <link href="../css/inicio/style.css" rel="stylesheet" />
+        <link rel="stylesheet" href="../path/to/font-awesome/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 
         <!-- responsive style -->
-        <link href="./css/inicio/responsive.css" rel="stylesheet" />
+        <link href="../css/inicio/responsive.css" rel="stylesheet" />
 
     </head>
 
     <body>
 
         <div class="hero_area">
-            <!-- header section strats -->
+         
             <header class="header_section">
-                <div class="header_top">
-                    <div class="container-fluid">
-                        <div class="top_nav_container">
-                            <div class="contact_nav">
-                                <a href="">
-                                    <i class="fa fa-phone" aria-hidden="true"></i>
-                                    <span>
-                                        Telefonos: ${empresa.telefonos}
-                                    </span>
-                                </a>
-                                <a href="">
-                                    <i class="fa fa-envelope" aria-hidden="true"></i>
-                                    <span>
-                                        Correo: ${empresa.correoElectronico}
-                                    </span>
-                                </a>
-                            </div>
-                            <from class="search_form">
-                                <input type="text" class="form-control" placeholder="Buscar calzado...">
-                                <button class="" type="submit">
-                                    <i class="fa fa-search" aria-hidden="true"></i>
-                                </button>
-                            </from>
-                            <div class="user_option_box">
-                                <a href="vistas/validar?a=Login" class="account-link">
-                                    <i class="fa fa-user" aria-hidden="true"></i>
-                                    <span>
-                                        Mi Cuenta
-                                    </span>
-                                </a>
-                                <a href="/SistemasVentasWeb/inicio" class="cart-link">
-
-                                    <span>
-                                        Seguir Comprando
-                                    </span>
-                                </a>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
+        
                 <div class="header_bottom">
                     <div class="container-fluid">
                         <nav class="navbar navbar-expand-lg custom_nav-container ">
-                            <a class="navbar-brand" href="/SistemasVentasWeb/inicio">
+                            <a class="navbar-brand" href="#">
                                 <span>
                                     CAYSAM
                                 </span>
@@ -105,22 +65,31 @@
 
                             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                 <ul class="navbar-nav ">
-                                    <li class="nav-item active">
-                                        <a class="nav-link" href="/SistemasVentasWeb/inicio">Inicio <span class="sr-only">(current)</span></a>
-                                    </li>
 
                                     <li class="nav-item">
-                                        <a class="nav-link" href="/SistemasVentasWeb/inicio#productos">Productos</a>
+                                        <div class="user_option_box">
+                                            <a href="comprascontroller?a=main" class="nav-link">
+                                                <span>
+                                                    Seguir Comprando
+                                                </span>
+                                            </a> </div>
                                     </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="/SistemasVentasWeb/inicio#nosotros">Nosotros</a>
-                                    </li>                                   
 
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="/SistemasVentasWeb/inicio#porquenosotros">Por qué elegirnos</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="/SistemasVentasWeb/inicio#testimonios">Nuestros clientes</a>
+                                  <li class="nav-item">
+                                        <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+                                            <li class="nav-item dropdown">
+                                                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-user" aria-hidden="true"></i>
+                                                    <span>${comprador.nombres} ${comprador.apellidos}</span></a>
+                                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                                    <li><a class="dropdown-item" href="#!">${comprador.username}</a></li>                                             
+                                                    <li> <a class="dropdown-item" href="validar?a=PageditarPerfil" target="myFrame">Editar perfil</a></li>
+                                                    <li><hr class="dropdown-divider"/></li>
+                                                    <form action="logout" method="POST">
+                                                        <li><button class="dropdown-item" name="a" value="Salir">Salir</button></li>
+                                                    </form>
+                                                </ul>
+                                            </li>
+                                        </ul>
                                     </li>
                                 </ul>
                             </div>
@@ -167,8 +136,8 @@
                                                 <td>
                                                     <input type="hidden" id="idpro" value="${item.getCalzado().getIdCalzado()}">
                                                     <input onClick="window.location.reload()" type="number" id="Cantidad" value="${item.getCantidad()}" class="form-control text-centert" min="1">  
-                                                    
-                                                    
+
+
                                                 </td>
                                                 <td>${item.getSubTotal()}</td>
                                                 <td class="text-center align-content-center">
@@ -295,20 +264,27 @@
                 <p>
                     &copy; <span id="displayYear"></span> Todos los derechos reservados por CAYSAM
                     <br>Desarrollador:
-                    <a href="https://github.com/AndreyRi13/">Andrey Rivera</a>
+                    <a href="#/">DigiTech</a>
                 </p>
             </div>
         </footer>
         <!-- footer section -->
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-        <!-- jQery -->
-        <script src="./js/jquery-3.4.1.min.js"></script>
+          <!-- jQery -->
+        <script src="../js/jquery-3.4.1.min.js"></script>
         <!-- bootstrap js -->
-        <script src="./js/bootstrap.js"></script>
+        <script src="../js/bootstrap.js"></script>
         <!-- custom js -->
-        <script src="./js/custom.js"></script>
-        <script src="./js/funciones.js" type="text/javascript"></script>
+        <script src="../js/custom.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="../js/scripts.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+        <script src="../assets/demo/chart-area-demo.js"></script>
+        <script src="../assets/demo/chart-bar-demo.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+        <script src="../js/datatables-simple-demo.js"></script>
+        <script src="../js/carrito.js" type="text/javascript"></script>
 
     </body>
 

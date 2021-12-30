@@ -8,7 +8,9 @@ import DAO.CalzadoDAO;
 import DAO.EmpresaDAO;
 import DTO.Calzado;
 import DTO.Carrito;
+import DTO.Comprador;
 import DTO.Empresa;
+import Control.Validar;
 import Negocio.AdministrarCalzado;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -40,12 +42,16 @@ public class ComprasController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         String action = request.getParameter("a");
+        String action = request.getParameter("a");
         if (action == null) {
-            muestraInicio(request, response);
+            MainComprador(request, response);
         } else {
 
             switch (action) {
+
+                case "main":
+                    MainComprador(request, response);
+                    break;
                 case "home":
                     home(request, response);
                     break;
@@ -76,32 +82,48 @@ public class ComprasController extends HttpServlet {
                 case "carrito":
                     carrito(request, response);
                     break;
-                
+
             }
+
         }
     }
 
-     Cookie ck;
+    Cookie ck;
     int cant = 0;
     double totalPagar = 0.0;
     Carrito carrito = new Carrito();
     HttpSession session = null;
-
-    private void muestraInicio(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    
+    private Comprador ObjectComprador(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    Comprador comp = (Comprador) request.getAttribute("comprador");
+    Comprador compra = new Comprador();
+    return compra= comp;
+    }
+    
+    private void MainComprador(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         session = request.getSession();
-        session.setAttribute("usuario", "invitado");
+      
+        if(session.isNew()==true){      
+        session.setAttribute("comprador", this.ObjectComprador(request, response));
+        request.setAttribute("comprador", this.ObjectComprador(request, response));
+        
+            System.out.println("Session "+session.toString());
+        
+        }
+   
         CalzadoDAO pr = new CalzadoDAO();
         List<Calzado> product = pr.readCalzados();
         EmpresaDAO empr = new EmpresaDAO();
         Empresa empresa = empr.findEmpresa(1);
         request.setAttribute("calzados", product);
         request.setAttribute("empresa", empresa);
+        // request.setAttribute("comprador", comp);
         if (ck != null) {
             request.setAttribute("contador", ck.getValue());
         }
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("mainComprador.jsp");
         dispatcher.forward(request, response);
     }
 
@@ -111,7 +133,7 @@ public class ComprasController extends HttpServlet {
         carrito.eliminarItem(index);
         cant = cant - 1;
         ck.setValue("(" + String.valueOf(cant) + ")");
-        response.sendRedirect("/SistemasVentasWeb/inicio?a=carrito");
+        response.sendRedirect("/SistemasVentasWeb/vistas/comprascontroller?a=main");
     }
 
     private void home(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -130,9 +152,9 @@ public class ComprasController extends HttpServlet {
             cant = cant + 1;
             ck.setValue("(" + String.valueOf(cant) + ")");
             ck.setMaxAge(-1);
-            response.sendRedirect("/SistemasVentasWeb/inicio");
+            response.sendRedirect("/SistemasVentasWeb/vistas/comprascontroller?a=main");
         } else {
-            response.sendRedirect("/SistemasVentasWeb/inicio");
+            response.sendRedirect("/SistemasVentasWeb/vistas/comprascontroller?a=main");
         }
     }
 
@@ -187,28 +209,32 @@ public class ComprasController extends HttpServlet {
             request.setAttribute("productos", carrito.getProductos());
             totalPagar = carrito.obtenerTotal();
             request.setAttribute("totalPagar", totalPagar);
-            response.sendRedirect("/SistemasVentasWeb/inicio?a=carrito");
+            response.sendRedirect("/SistemasVentasWeb/vistas/comprascontroller?a=carrito");
         } else {
-            response.sendRedirect("/SistemasVentasWeb/inicio");
+            response.sendRedirect("/SistemasVentasWeb/vistas/comprascontroller?a=main");
         }
 
     }
 
     private void carrito(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+       
+        session = request.getSession();
+      
+        if(session.isNew()==true){      
+        session.setAttribute("comprador", this.ObjectComprador(request, response));
+        request.setAttribute("comprador", this.ObjectComprador(request, response));
+        }
+        
         EmpresaDAO empr = new EmpresaDAO();
         Empresa empresa = empr.findEmpresa(1);
         request.setAttribute("empresa", empresa);
         request.setAttribute("productos", carrito.getProductos());
         totalPagar = carrito.obtenerTotal();
         request.setAttribute("totalPagar", totalPagar);
-
         request.getRequestDispatcher("carrito.jsp").forward(request, response);
 
     }
-
-   
 
     private void verMas(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -227,6 +253,7 @@ public class ComprasController extends HttpServlet {
         }
 
     }
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

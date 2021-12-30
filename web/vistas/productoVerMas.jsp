@@ -24,22 +24,22 @@
 
 
         <!-- bootstrap core css -->
-        <link rel="stylesheet" type="text/css" href="./css/inicio/bootstrap.css" />
+        <link rel="stylesheet" type="text/css" href="../css/inicio/bootstrap.css" />
 
         <!-- fonts style -->
         <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet"> <!-- range slider -->
 
         <!-- font awesome style -->
-        <link href="./css/inicio/font-awesome.min.css" rel="stylesheet" />
-        <link href="./css/inicio/ion.rangeSlider.min.css" rel="stylesheet" />
-        <link href="./css/inicio/style.css.map" rel="stylesheet" />
+        <link href="../css/inicio/font-awesome.min.css" rel="stylesheet" />
+        <link href="../css/inicio/ion.rangeSlider.min.css" rel="stylesheet" />
+        <link href="../css/inicio/style.css.map" rel="stylesheet" />
         <!-- Custom styles for this template -->
-        <link href="./css/inicio/style.css" rel="stylesheet" />
-        <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+        <link href="../css/inicio/style.css" rel="stylesheet" />
+        <link rel="stylesheet" href="../path/to/font-awesome/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 
         <!-- responsive style -->
-        <link href="./css/inicio/responsive.css" rel="stylesheet" />
+        <link href="../css/inicio/responsive.css" rel="stylesheet" />
 
     </head>
 
@@ -301,11 +301,11 @@
         <!-- footer section -->
 
         <!-- jQery -->
-        <script src="./js/jquery-3.4.1.min.js"></script>
+        <script src="../js/jquery-3.4.1.min.js"></script>
         <!-- bootstrap js -->
-        <script src="./js/bootstrap.js"></script>
+        <script src="../js/bootstrap.js"></script>
         <!-- custom js -->
-        <script src="./js/custom.js"></script>
+        <script src="../js/custom.js"></script>
 
 
     </body>

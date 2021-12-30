@@ -63,6 +63,7 @@ public class Validar extends HttpServlet {
 
     public Validar() {
     }
+
     int idUsuario = 0;
 
     public void ingresar(HttpServletRequest request, HttpServletResponse response)
@@ -83,10 +84,9 @@ public class Validar extends HttpServlet {
 
             } else if (lg.tipoLogin(user, pass).equals("Comprador")) {
                 HttpSession session = request.getSession();
-                Comprador comprador = lg.loginComprador(user, pass);
+                Comprador comprador = lg.loginComprador(user, pass);                
                 request.setAttribute("comprador", comprador);
-               dashboardComprador(request, response);
-
+                request.getRequestDispatcher("/vistas/comprascontroller?a=main").include(request, response);
             }
 
         } else {
@@ -99,12 +99,6 @@ public class Validar extends HttpServlet {
     public void dashboard(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("main.jsp");
-        dispatcher.forward(request, response);
-    }
-
-    public void dashboardComprador(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("mainComprador.jsp");
         dispatcher.forward(request, response);
     }
 

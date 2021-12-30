@@ -70,7 +70,7 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ComprasController</servlet-name>
-        <url-pattern>/ComprasController</url-pattern>
+        <url-pattern>/vistas/comprascontroller</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
