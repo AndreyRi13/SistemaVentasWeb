@@ -64,84 +64,54 @@
 
     <body>
 
-        <header class="header_section">
-            <div class="header_top">
-                <div class="container-fluid">
-                    <div class="top_nav_container">
-                        <div class="contact_nav">
-                            <a href="">
-                                <i class="fa fa-phone" aria-hidden="true"></i>
+        <div class="hero_area">
+            <!-- header section strats -->
+            <header class="header_section">
+              
+                <div class="header_bottom">
+                    <div class="container-fluid">
+                        <nav class="navbar navbar-expand-lg custom_nav-container ">
+                            <a class="navbar-brand" href="/SistemasVentasWeb/inicio">
                                 <span>
-                                    Telefonos: ${empresa.telefonos}
+                                    CAYSAM
                                 </span>
                             </a>
-                            <a href="">
-                                <i class="fa fa-envelope" aria-hidden="true"></i>
-                                <span>
-                                    Correo: ${empresa.correoElectronico}
-                                </span>
-                            </a>
-                        </div>
-                        <from class="search_form">
-                            <input type="text" class="form-control" placeholder="Buscar calzado...">
-                            <button class="" type="submit">
-                                <i class="fa fa-search" aria-hidden="true"></i>
+
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class=""> </span>
                             </button>
-                        </from>
-                        <div class="user_option_box">
-                            <a href="vistas/validar?a=Login" class="account-link">
-                                <i class="fa fa-user" aria-hidden="true"></i>
-                                <span>
-                                    Mi Cuenta
-                                </span>
-                            </a>
-                            <a href="inicio?a=carrito" class="cart-link">
-                                <i class="fa fa-cart-plus" aria-hidden="true"><label style="color:orange;">${contador}</label></i>
-                                <span>
-                                    Carrito
-                                </span>
-                            </a>
-                        </div>
+
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                <ul class="navbar-nav ">
+                                    <li class="nav-item active">
+                                        <a class="nav-link" href="/SistemasVentasWeb/inicio">Inicio <span class="sr-only">(current)</span></a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/SistemasVentasWeb/inicio#productos">Productos</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/SistemasVentasWeb/inicio#nosotros">Nosotros</a>
+                                    </li>                                   
+
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/SistemasVentasWeb/inicio#porquenosotros">Por qué elegirnos</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/SistemasVentasWeb/inicio#testimonios">Nuestros clientes</a>
+                                    </li>
+                                    
+                                    <li class="nav-item">
+                                        <div class="user_option_box">
+                                            <a href="/SistemasVentasWeb/vistas/validar?a=Login" class="nav-link">
+                                                <i class="fa fa-user" aria-hidden="true"></i>
+                                                <span>Mi cuenta</span>
+                                            </a> </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
                     </div>
-
                 </div>
-            </div>
-            <div class="header_bottom">
-                <div class="container-fluid">
-                    <nav class="navbar navbar-expand-lg custom_nav-container ">
-                        <a class="navbar-brand" href="/SistemasVentasWeb/inicio">
-                            <span>
-                                CAYSAM
-                            </span>
-                        </a>
-
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class=""> </span>
-                        </button>
-
-                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                            <ul class="navbar-nav ">
-                                <li class="nav-item active">
-                                    <a class="nav-link" href="/SistemasVentasWeb/inicio">Inicio <span class="sr-only">(current)</span></a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#productos">Productos</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#nosotros">Nosotros</a>
-                                </li>                                   
-
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#porquenosotros">Por qué elegirnos</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#testimonios">Nuestros clientes</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </nav>
-                </div>
-            </div>
-        </header>
-
+            </header>
+            <!-- end header section -->

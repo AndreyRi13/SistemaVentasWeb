@@ -89,36 +89,31 @@ public class ComprasController extends HttpServlet {
     }
 
     Cookie ck;
+    Cookie compr;
     int cant = 0;
     double totalPagar = 0.0;
     Carrito carrito = new Carrito();
     HttpSession session = null;
-    
-    private Comprador ObjectComprador(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    Comprador comp = (Comprador) request.getAttribute("comprador");
-    Comprador compra = new Comprador();
-    return compra= comp;
-    }
-    
+    Comprador comp=null;
+
     private void MainComprador(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        session = request.getSession();
-      
-        if(session.isNew()==true){      
-        session.setAttribute("comprador", this.ObjectComprador(request, response));
-        request.setAttribute("comprador", this.ObjectComprador(request, response));
+      if(comp==null){
+         comp = (Comprador) request.getAttribute("comprador");
+      }
+
+//        compr = new Cookie("nombre",comp);
+//        request.setAttribute("comprador", compr);
+//        
+ //       session = request.getSession();
         
-            System.out.println("Session "+session.toString());
-        
-        }
-   
         CalzadoDAO pr = new CalzadoDAO();
         List<Calzado> product = pr.readCalzados();
         EmpresaDAO empr = new EmpresaDAO();
         Empresa empresa = empr.findEmpresa(1);
         request.setAttribute("calzados", product);
         request.setAttribute("empresa", empresa);
-        // request.setAttribute("comprador", comp);
+        request.setAttribute("comprador", comp);
         if (ck != null) {
             request.setAttribute("contador", ck.getValue());
         }
@@ -218,14 +213,9 @@ public class ComprasController extends HttpServlet {
 
     private void carrito(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       
-        session = request.getSession();
-      
-        if(session.isNew()==true){      
-        session.setAttribute("comprador", this.ObjectComprador(request, response));
-        request.setAttribute("comprador", this.ObjectComprador(request, response));
-        }
+
         
+        request.setAttribute("comprador", comp);
         EmpresaDAO empr = new EmpresaDAO();
         Empresa empresa = empr.findEmpresa(1);
         request.setAttribute("empresa", empresa);

@@ -76,7 +76,7 @@
         <p>
             &copy; <span id="displayYear"></span> Todos los derechos reservados por CAYSAM
             <br>Desarrollador:
-            <a href="https://github.com/AndreyRi13/">Andrey Rivera</a>
+            <a href="https://github.com/AndreyRi13/">DigiTech</a>
         </p>
     </div>
 </footer>
