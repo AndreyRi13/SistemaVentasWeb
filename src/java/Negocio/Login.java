@@ -22,11 +22,9 @@ public class Login {
     public Login() {
     }
 
-     
-
     public String tipoLogin(String user, String pass) {
 
-     String tipo=null;
+        String tipo = null;
         Empleado emp = new Empleado();
         EmpleadoDAO empldao = new EmpleadoDAO();
         List<Empleado> empleadoList = empldao.readEmpleados();
@@ -35,7 +33,7 @@ public class Login {
             if (m.getUsername().equals(user)) {
                 if (m.getPassword().equals(pass)) {
 
-                    tipo="Empleado";
+                    tipo = "Empleado";
 
                 }
             }
@@ -49,13 +47,13 @@ public class Login {
             if (c.getUsername().equals(user)) {
                 if (c.getPassword().equals(pass)) {
 
-                   tipo="Comprador";
+                    tipo = "Comprador";
                 }
 
             }
         }
 
-       return tipo;
+        return tipo;
     }
 
     public Empleado loginEmpleado(String user, String pass) {

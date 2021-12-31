@@ -5,10 +5,13 @@
  */
 package Control;
 
+import DAO.EmpresaDAO;
 import DTO.Comprador;
+import DTO.Empresa;
 import Negocio.AdministrarComprador;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -24,15 +27,6 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class CompradorController extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
@@ -41,16 +35,13 @@ public class CompradorController extends HttpServlet {
         switch (action) {
 
             case "registrarComprador":
-                request.getRequestDispatcher("registrarComprador.jsp").forward(request, response);
-                break;
-
-            case "agregarComprador":
-                request.getRequestDispatcher("agregarComprador.jsp").forward(request, response);
+                redireccionarRegistro(request, response);
                 break;
 
             case "registroComprador":
                 registroComprador(request, response);
                 break;
+                
             case "listaCompradores":
                 listaComprador(request, response);
                 break;
@@ -76,6 +67,14 @@ public class CompradorController extends HttpServlet {
         }
     }
 
+    public void redireccionarRegistro(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        EmpresaDAO empr = new EmpresaDAO();
+        Empresa empresa = empr.findEmpresa(1);
+        request.setAttribute("empresa", empresa);
+        request.getRequestDispatcher("registrarComprador.jsp").forward(request, response);
+    }
+
     ///////////////////////////////////////Metodo para agregar comprador
     public void addComprador(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -83,16 +82,19 @@ public class CompradorController extends HttpServlet {
         String cedula = request.getParameter("txtCedula");
         String nombres = request.getParameter("txtNombres");
         String apellidos = request.getParameter("txtApellidos");
+        Date fechaNacimiento = request.getParameter("txtFechaNacimiento");
+        int edad = Integer.parseInt(request.getParameter("txtEdad"));
         String username = request.getParameter("txtUsername");
         String password = request.getParameter("txtPassword");
         String direccion = request.getParameter("txtDireccion");
         String numeroCelular = request.getParameter("txtNumeroCelular");
         String correoElectronico = request.getParameter("txtCorreoElectronico");
+         byte[] foto = request.getParameter("txtFechaNacimiento");
         String estado = request.getParameter("txtEstado");
 
         /*Instancia El negocio de administrar  */
         AdministrarComprador adm = new AdministrarComprador();
-        if (adm.agregarComprador(cedula, nombres, apellidos, username, password, direccion, numeroCelular, correoElectronico, estado) == true) {
+        if (adm.agregarComprador(cedula, nombres, apellidos,fechaNacimiento,edad, username, password, direccion, numeroCelular, correoElectronico,foto, estado) == true) {
 
             listaComprador(request, response);
 
@@ -101,13 +103,13 @@ public class CompradorController extends HttpServlet {
         }
 
     }
-    
-    
-        public void registroComprador(HttpServletRequest request, HttpServletResponse response)
+
+    public void registroComprador(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String cedula = request.getParameter("txtCedula");
         String nombres = request.getParameter("txtNombres");
         String apellidos = request.getParameter("txtApellidos");
+        int edad = request.getParameter("txtEdad");
         String username = request.getParameter("txtUsername");
         String password = request.getParameter("txtPassword");
         String direccion = request.getParameter("txtDireccion");
@@ -119,7 +121,7 @@ public class CompradorController extends HttpServlet {
         AdministrarComprador adm = new AdministrarComprador();
         if (adm.agregarComprador(cedula, nombres, apellidos, username, password, direccion, numeroCelular, correoElectronico, estado) == true) {
 
-          response.sendRedirect("/SistemasVentasWeb/inicio");
+            response.sendRedirect("/SistemasVentasWeb/inicio");
 
         } else {
 

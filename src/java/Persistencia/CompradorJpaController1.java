@@ -20,9 +20,9 @@ import javax.persistence.criteria.Root;
  *
  * @author Andrey
  */
-public class CompradorJpaController implements Serializable {
+public class CompradorJpaController1 implements Serializable {
 
-    public CompradorJpaController(EntityManagerFactory emf) {
+    public CompradorJpaController1(EntityManagerFactory emf) {
         this.emf = emf;
     }
     private EntityManagerFactory emf = null;

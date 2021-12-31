@@ -33,14 +33,6 @@
         <!-- responsive style -->
         <link href="../css/inicio/responsive.css" rel="stylesheet" />
 
-        <!-- Main style 
-        <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
-        <link href="../css/styles_main.css" rel="stylesheet" />
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
-        -->
-
     </head>
 
     <body>
@@ -166,7 +158,7 @@
             </section>
 
             <!-- end product section -->
-
+ </div>
 
             <!-- info section -->
             <section class="info_section ">

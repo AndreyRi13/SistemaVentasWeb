@@ -47,9 +47,9 @@
     <body>
 
         <div class="hero_area">
-         
+
             <header class="header_section">
-        
+
                 <div class="header_bottom">
                     <div class="container-fluid">
                         <nav class="navbar navbar-expand-lg custom_nav-container ">
@@ -75,7 +75,7 @@
                                             </a> </div>
                                     </li>
 
-                                  <li class="nav-item">
+                                    <li class="nav-item">
                                         <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
                                             <li class="nav-item dropdown">
                                                 <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-user" aria-hidden="true"></i>
@@ -271,7 +271,7 @@
         <!-- footer section -->
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-          <!-- jQery -->
+        <!-- jQery -->
         <script src="../js/jquery-3.4.1.min.js"></script>
         <!-- bootstrap js -->
         <script src="../js/bootstrap.js"></script>

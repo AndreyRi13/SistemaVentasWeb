@@ -23,10 +23,10 @@ public class AdministrarEmpleado {
     }
 
     /*CRUD EMPLEADO*/
-    public boolean agregarEmpleado(String cedula,String nombres,String apellidos,String username,String password,String direccion,String numeroCelular,String correoElectronico,String estado) {
+    public boolean agregarEmpleado(String cedula, String nombres, String apellidos, String username, String password, String direccion, String numeroCelular, String correoElectronico, String estado) {
         EmpleadoDAO empleado = new EmpleadoDAO();
-        Empleado emp = new Empleado(cedula,nombres,apellidos,username,password,direccion,numeroCelular,correoElectronico,estado);
-        
+        Empleado emp = new Empleado(cedula, nombres, apellidos, username, password, direccion, numeroCelular, correoElectronico, estado);
+
         try {
             empleado.addEmpleado(emp);
             return true;

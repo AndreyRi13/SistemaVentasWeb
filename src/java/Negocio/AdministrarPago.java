@@ -14,12 +14,12 @@ import java.util.List;
  * @author Andrey R
  */
 public class AdministrarPago {
-    
- /*CRUD Pago*/
-    public boolean agregarPago( Double monto, String estado) {
+
+    /*CRUD Pago*/
+    public boolean agregarPago(Double monto, String estado) {
         PagoDAO pago = new PagoDAO();
-        Pago emp = new Pago(monto,estado);
-        
+        Pago emp = new Pago(monto, estado);
+
         try {
             pago.addPago(emp);
             return true;
@@ -45,7 +45,7 @@ public class AdministrarPago {
         em.setIdPago(idPago);
         em.setMonto(monto);
         em.setEstado(estado);
-     
+
         PagoDAO empdao = new PagoDAO();
         empdao.updatePago(em);
     }

@@ -17,10 +17,9 @@ public class N_Inicio {
 
     public N_Inicio() {
     }
-    
-    
-    public List<Calzado> listCalzados(){
-       CalzadoDAO pr = new CalzadoDAO();
+
+    public List<Calzado> listCalzados() {
+        CalzadoDAO pr = new CalzadoDAO();
         List<Calzado> product = pr.readCalzados();
         return product;
     }

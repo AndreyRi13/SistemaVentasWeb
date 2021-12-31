@@ -42,7 +42,7 @@ public class Inicio extends HttpServlet {
         } else {
 
             switch (action) {
-          
+
                 case "Login":
                     RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");
                     dispatcher.forward(request, response);
@@ -51,15 +51,10 @@ public class Inicio extends HttpServlet {
                     verMas(request, response);
                     break;
 
-          
-                
             }
         }
     }
 
-    
-  
-  
     HttpSession session = null;
 
     private void muestraInicio(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -78,8 +73,8 @@ public class Inicio extends HttpServlet {
 
     private void verMas(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       
-         response.sendRedirect("/SistemasVentasWeb/vistas/validar?a=Login");
+
+        response.sendRedirect("/SistemasVentasWeb/vistas/validar?a=Login");
 
     }
 

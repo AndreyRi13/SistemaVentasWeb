@@ -18,11 +18,12 @@ import java.util.List;
  * @author Andrey R
  */
 public class AdministrarCompras {
- /*CRUD Compras*/
+
+    /*CRUD Compras*/
     public boolean agregarCompras(String fechaCompras, Double monto, String estado, Pago idPago, Comprador idCliente, Collection<DetalleCompras> detalleComprasCollection) {
         ComprasDAO compras = new ComprasDAO();
-        Compras emp = new Compras(fechaCompras,monto,estado,idPago,idCliente,detalleComprasCollection);
-        
+        Compras emp = new Compras(fechaCompras, monto, estado, idPago, idCliente, detalleComprasCollection);
+
         try {
             compras.addCompras(emp);
             return true;
@@ -53,7 +54,6 @@ public class AdministrarCompras {
         em.setIdPago(idPago);
         em.setDetalleComprasCollection(detalleComprasCollection);
 
-  
         ComprasDAO empdao = new ComprasDAO();
         empdao.updateCompras(em);
     }

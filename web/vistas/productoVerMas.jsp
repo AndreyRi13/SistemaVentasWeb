@@ -40,59 +40,23 @@
 
         <!-- responsive style -->
         <link href="../css/inicio/responsive.css" rel="stylesheet" />
+        
+       
+
 
     </head>
 
     <body>
 
         <div class="hero_area">
+
             <!-- header section strats -->
             <header class="header_section">
-                <div class="header_top">
-                    <div class="container-fluid">
-                        <div class="top_nav_container">
-                            <div class="contact_nav">
-                                <a href="">
-                                    <i class="fa fa-phone" aria-hidden="true"></i>
-                                    <span>
-                                        Telefonos: ${empresa.telefonos}
-                                    </span>
-                                </a>
-                                <a href="">
-                                    <i class="fa fa-envelope" aria-hidden="true"></i>
-                                    <span>
-                                        Correo: ${empresa.correoElectronico}
-                                    </span>
-                                </a>
-                            </div>
-                            <from class="search_form">
-                                <input type="text" class="form-control" placeholder="Buscar calzado...">
-                                <button class="" type="submit">
-                                    <i class="fa fa-search" aria-hidden="true"></i>
-                                </button>
-                            </from>
-                            <div class="user_option_box">
-                                <a href="vistas/validar?a=Login" class="account-link">
-                                    <i class="fa fa-user" aria-hidden="true"></i>
-                                    <span>
-                                        Mi Cuenta
-                                    </span>
-                                </a>
-                                <a href="inicio?a=carrito" class="cart-link">
-                                    <i class="fa fa-cart-plus" aria-hidden="true">(<label style="color:orange;">${contador}</label>)</i>
-                                    <span>
-                                        Carrito
-                                    </span>
-                                </a>
-                            </div>
-                        </div>
 
-                    </div>
-                </div>
                 <div class="header_bottom">
                     <div class="container-fluid">
                         <nav class="navbar navbar-expand-lg custom_nav-container ">
-                            <a class="navbar-brand" href="/SistemasVentasWeb/inicio">
+                            <a class="navbar-brand" href="#">
                                 <span>
                                     CAYSAM
                                 </span>
@@ -104,22 +68,32 @@
 
                             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                 <ul class="navbar-nav ">
-                                    <li class="nav-item active">
-                                        <a class="nav-link" href="/SistemasVentasWeb/inicio">Inicio <span class="sr-only">(current)</span></a>
+
+                                    <li class="nav-item">
+                                        <div class="user_option_box">
+                                            <a href="comprascontroller?a=carrito" class="nav-link">
+                                                <i class="fa fa-cart-plus" aria-hidden="true"><label style="color:orange;">${contador}</label></i>
+                                                <span>
+                                                    Carrito
+                                                </span>
+                                            </a> </div>
                                     </li>
 
                                     <li class="nav-item">
-                                        <a class="nav-link" href="/SistemasVentasWeb/inicio#productos">Productos</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="/SistemasVentasWeb/inicio#nosotros">Nosotros</a>
-                                    </li>                                   
-
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="/SistemasVentasWeb/inicio#porquenosotros">Por qué elegirnos</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="/SistemasVentasWeb/inicio#testimonios">Nuestros clientes</a>
+                                        <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+                                            <li class="nav-item dropdown">
+                                                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-user" aria-hidden="true"></i>
+                                                    <span>${comprador.nombres} ${comprador.apellidos}</span></a>
+                                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                                    <li><a class="dropdown-item" href="#!">${comprador.username}</a></li>                                              
+                                                    <li> <a class="dropdown-item" href="validar?a=PageditarPerfil" target="myFrame">Editar perfil</a></li>
+                                                    <li><hr class="dropdown-divider"/></li>
+                                                    <form action="logout" method="POST">
+                                                        <li><button class="dropdown-item" name="a" value="Salir">Salir</button></li>
+                                                    </form>
+                                                </ul>
+                                            </li>
+                                        </ul>
                                     </li>
                                 </ul>
                             </div>
@@ -127,36 +101,32 @@
                     </div>
                 </div>
             </header>
+
+            <!-- end header section -->
+
+
             <!-- product section -->
 
             <section class="product_section layout_padding">
                 <div class="container">
                     <div class="heading_container heading_center">
                         <h2>
-                            Producto
+                            PRODUCTO
                         </h2>
                     </div>
                     <div class="row">
 
 
-                        <div class="col-lg-6 col-6 col-sm-6 col-xl-6 col-">
+                        <div class="col-lg-6 col-6 col-sm-6 col-xl-6 col-6">
                             <div class="box">
                                 <div class="img-box">
-                                    <img src="images/${calzado.foto}" alt="" style="width:350px; height:300px;">
-                                </div>
-                                <div class="detail-box">
-                                    <h5>
-                                        ${calzado.nombres}
-                                    </h5>    
-                                </div>
+                                    <img src="../images/${calzado.foto}" alt="" style="width:350px; height:300px;">
+                                </div>                              
                             </div>
-
-
-
                         </div>
+
                         <div class="col-sm-6">
                             <div class="box">
-
                                 <div class="detail-box">
                                     <h3>
                                         ${calzado.nombres}
@@ -164,14 +134,13 @@
                                     <br>
                                     <h5>
                                         <span style="color: red;">Descripcion</span>
-                                        <br>
                                     </h5>
                                     <h5>
                                         ${calzado.descripcion}
                                     </h5>
                                     <br>
                                     <h5>
-                                        <span style="color: red;">Tallas:</span> ${calzado.talla}
+                                        <span style="color: red;" >Tallas:</span> ${calzado.talla}
                                         <br>
                                     </h5>
                                     <br>
@@ -294,7 +263,7 @@
                 <p>
                     &copy; <span id="displayYear"></span> Todos los derechos reservados por CAYSAM
                     <br>Desarrollador:
-                    <a href="https://github.com/AndreyRi13/">Andrey Rivera</a>
+                    <a href="https://github.com/AndreyRi13/">DigiTech</a>
                 </p>
             </div>
         </footer>
@@ -306,6 +275,14 @@
         <script src="../js/bootstrap.js"></script>
         <!-- custom js -->
         <script src="../js/custom.js"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="../js/scripts.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+        <script src="../assets/demo/chart-area-demo.js"></script>
+        <script src="../assets/demo/chart-bar-demo.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+        <script src="../js/datatables-simple-demo.js"></script>
 
 
     </body>

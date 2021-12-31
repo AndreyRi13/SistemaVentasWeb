@@ -1,29 +1,26 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package DTO;
 
 import java.io.Serializable;
-import java.util.Collection;
+import java.util.Date;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author Andrey R
+ * @author Andrey
  */
 @Entity
 @Table(name = "comprador")
@@ -34,6 +31,9 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Comprador.findByCedula", query = "SELECT c FROM Comprador c WHERE c.cedula = :cedula"),
     @NamedQuery(name = "Comprador.findByNombres", query = "SELECT c FROM Comprador c WHERE c.nombres = :nombres"),
     @NamedQuery(name = "Comprador.findByApellidos", query = "SELECT c FROM Comprador c WHERE c.apellidos = :apellidos"),
+    @NamedQuery(name = "Comprador.findByFechaNacimiento", query = "SELECT c FROM Comprador c WHERE c.fechaNacimiento = :fechaNacimiento"),
+    @NamedQuery(name = "Comprador.findByEdad", query = "SELECT c FROM Comprador c WHERE c.edad = :edad"),
+    @NamedQuery(name = "Comprador.findByGenero", query = "SELECT c FROM Comprador c WHERE c.genero = :genero"),
     @NamedQuery(name = "Comprador.findByUsername", query = "SELECT c FROM Comprador c WHERE c.username = :username"),
     @NamedQuery(name = "Comprador.findByPassword", query = "SELECT c FROM Comprador c WHERE c.password = :password"),
     @NamedQuery(name = "Comprador.findByDireccion", query = "SELECT c FROM Comprador c WHERE c.direccion = :direccion"),
@@ -42,34 +42,49 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Comprador.findByEstado", query = "SELECT c FROM Comprador c WHERE c.estado = :estado")})
 public class Comprador implements Serializable {
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idCliente")
-    private Collection<Compras> comprasCollection;
-
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "idComprador")
     private Integer idComprador;
     @Basic(optional = false)
     @Column(name = "cedula")
     private String cedula;
+    @Basic(optional = false)
     @Column(name = "nombres")
     private String nombres;
+    @Basic(optional = false)
     @Column(name = "apellidos")
     private String apellidos;
+    @Column(name = "fechaNacimiento")
+    @Temporal(TemporalType.DATE)
+    private Date fechaNacimiento;
+    @Basic(optional = false)
+    @Column(name = "edad")
+    private int edad;
+    @Basic(optional = false)
+    @Column(name = "genero")
+    private String genero;
     @Basic(optional = false)
     @Column(name = "username")
     private String username;
     @Basic(optional = false)
     @Column(name = "password")
     private String password;
+    @Basic(optional = false)
     @Column(name = "direccion")
     private String direccion;
+    @Basic(optional = false)
     @Column(name = "numeroCelular")
     private String numeroCelular;
+    @Basic(optional = false)
     @Column(name = "correoElectronico")
     private String correoElectronico;
+    @Basic(optional = false)
+    @Lob
+    @Column(name = "foto")
+    private byte[] foto;
+    @Basic(optional = false)
     @Column(name = "estado")
     private String estado;
 
@@ -80,26 +95,58 @@ public class Comprador implements Serializable {
         this.idComprador = idComprador;
     }
 
-    public Comprador(Integer idComprador, String cedula, String username, String password) {
+    public Comprador(Integer idComprador, String cedula, String nombres, String apellidos, int edad, String genero, String username, String password, String direccion, String numeroCelular, String correoElectronico, byte[] foto, String estado) {
         this.idComprador = idComprador;
-        this.cedula = cedula;
-        this.username = username;
-        this.password = password;
-    }
-
-    public Comprador(String cedula, String nombres, String apellidos, String username, String password, String direccion, String numeroCelular, String correoElectronico, String estado) {
         this.cedula = cedula;
         this.nombres = nombres;
         this.apellidos = apellidos;
+        this.edad = edad;
+        this.genero = genero;
         this.username = username;
         this.password = password;
         this.direccion = direccion;
         this.numeroCelular = numeroCelular;
         this.correoElectronico = correoElectronico;
+        this.foto = foto;
+        this.estado = estado;
+    }
+
+    public Comprador(Integer idComprador, String cedula, String nombres, String apellidos, Date fechaNacimiento, int edad, String genero, String username, String password, String direccion, String numeroCelular, String correoElectronico, byte[] foto, String estado) {
+        this.idComprador = idComprador;
+        this.cedula = cedula;
+        this.nombres = nombres;
+        this.apellidos = apellidos;
+        this.fechaNacimiento = fechaNacimiento;
+        this.edad = edad;
+        this.genero = genero;
+        this.username = username;
+        this.password = password;
+        this.direccion = direccion;
+        this.numeroCelular = numeroCelular;
+        this.correoElectronico = correoElectronico;
+        this.foto = foto;
         this.estado = estado;
     }
     
     
+
+    public Comprador(String cedula, String nombres, String apellidos, Date fechaNacimiento, int edad, String genero, String username, String password, String direccion, String numeroCelular, String correoElectronico, byte[] foto, String estado) {
+        this.cedula = cedula;
+        this.nombres = nombres;
+        this.apellidos = apellidos;
+        this.fechaNacimiento = fechaNacimiento;
+        this.edad = edad;
+        this.genero = genero;
+        this.username = username;
+        this.password = password;
+        this.direccion = direccion;
+        this.numeroCelular = numeroCelular;
+        this.correoElectronico = correoElectronico;
+        this.foto = foto;
+        this.estado = estado;
+    }
+    
+  
 
     public Integer getIdComprador() {
         return idComprador;
@@ -131,6 +178,30 @@ public class Comprador implements Serializable {
 
     public void setApellidos(String apellidos) {
         this.apellidos = apellidos;
+    }
+
+    public Date getFechaNacimiento() {
+        return fechaNacimiento;
+    }
+
+    public void setFechaNacimiento(Date fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
+    }
+
+    public int getEdad() {
+        return edad;
+    }
+
+    public void setEdad(int edad) {
+        this.edad = edad;
+    }
+
+    public String getGenero() {
+        return genero;
+    }
+
+    public void setGenero(String genero) {
+        this.genero = genero;
     }
 
     public String getUsername() {
@@ -173,6 +244,14 @@ public class Comprador implements Serializable {
         this.correoElectronico = correoElectronico;
     }
 
+    public byte[] getFoto() {
+        return foto;
+    }
+
+    public void setFoto(byte[] foto) {
+        this.foto = foto;
+    }
+
     public String getEstado() {
         return estado;
     }
@@ -204,15 +283,6 @@ public class Comprador implements Serializable {
     @Override
     public String toString() {
         return "DTO.Comprador[ idComprador=" + idComprador + " ]";
-    }
-
-    @XmlTransient
-    public Collection<Compras> getComprasCollection() {
-        return comprasCollection;
-    }
-
-    public void setComprasCollection(Collection<Compras> comprasCollection) {
-        this.comprasCollection = comprasCollection;
     }
     
 }

@@ -16,11 +16,12 @@ import java.util.List;
  * @author Andrey R
  */
 public class AdministrarDetalleCompras {
-     /*CRUD EMPLEADO*/
+
+    /*CRUD EMPLEADO*/
     public boolean agregarDetalleCompras(int cantidad, double precioCompra, Calzado idCalzado, Compras idCompras) {
         DetalleComprasDAO empleado = new DetalleComprasDAO();
-        DetalleCompras emp = new DetalleCompras(cantidad,precioCompra,idCalzado,idCompras);
-        
+        DetalleCompras emp = new DetalleCompras(cantidad, precioCompra, idCalzado, idCompras);
+
         try {
             empleado.addDetalleCompras(emp);
             return true;
@@ -48,7 +49,7 @@ public class AdministrarDetalleCompras {
         em.setPrecioCompra(precioCompra);
         em.setIdCalzado(idCalzado);
         em.setIdCompras(idCompras);
-        
+
         DetalleComprasDAO empdao = new DetalleComprasDAO();
         empdao.updateDetalleCompras(em);
     }

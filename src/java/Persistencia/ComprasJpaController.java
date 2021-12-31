@@ -1,18 +1,16 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Persistencia;
 
+import DTO.Compras;
 import java.io.Serializable;
 import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import DTO.Pago;
-import DTO.Comprador;
-import DTO.Compras;
 import DTO.DetalleCompras;
 import Persistencia.exceptions.IllegalOrphanException;
 import Persistencia.exceptions.NonexistentEntityException;
@@ -24,7 +22,7 @@ import javax.persistence.EntityManagerFactory;
 
 /**
  *
- * @author Andrey R
+ * @author Andrey
  */
 public class ComprasJpaController implements Serializable {
 
@@ -50,11 +48,6 @@ public class ComprasJpaController implements Serializable {
                 idPago = em.getReference(idPago.getClass(), idPago.getIdPago());
                 compras.setIdPago(idPago);
             }
-            Comprador idCliente = compras.getIdCliente();
-            if (idCliente != null) {
-                idCliente = em.getReference(idCliente.getClass(), idCliente.getIdComprador());
-                compras.setIdCliente(idCliente);
-            }
             Collection<DetalleCompras> attachedDetalleComprasCollection = new ArrayList<DetalleCompras>();
             for (DetalleCompras detalleComprasCollectionDetalleComprasToAttach : compras.getDetalleComprasCollection()) {
                 detalleComprasCollectionDetalleComprasToAttach = em.getReference(detalleComprasCollectionDetalleComprasToAttach.getClass(), detalleComprasCollectionDetalleComprasToAttach.getIdDetalle());
@@ -65,10 +58,6 @@ public class ComprasJpaController implements Serializable {
             if (idPago != null) {
                 idPago.getComprasCollection().add(compras);
                 idPago = em.merge(idPago);
-            }
-            if (idCliente != null) {
-                idCliente.getComprasCollection().add(compras);
-                idCliente = em.merge(idCliente);
             }
             for (DetalleCompras detalleComprasCollectionDetalleCompras : compras.getDetalleComprasCollection()) {
                 Compras oldIdComprasOfDetalleComprasCollectionDetalleCompras = detalleComprasCollectionDetalleCompras.getIdCompras();
@@ -95,8 +84,6 @@ public class ComprasJpaController implements Serializable {
             Compras persistentCompras = em.find(Compras.class, compras.getIdCompras());
             Pago idPagoOld = persistentCompras.getIdPago();
             Pago idPagoNew = compras.getIdPago();
-            Comprador idClienteOld = persistentCompras.getIdCliente();
-            Comprador idClienteNew = compras.getIdCliente();
             Collection<DetalleCompras> detalleComprasCollectionOld = persistentCompras.getDetalleComprasCollection();
             Collection<DetalleCompras> detalleComprasCollectionNew = compras.getDetalleComprasCollection();
             List<String> illegalOrphanMessages = null;
@@ -115,10 +102,6 @@ public class ComprasJpaController implements Serializable {
                 idPagoNew = em.getReference(idPagoNew.getClass(), idPagoNew.getIdPago());
                 compras.setIdPago(idPagoNew);
             }
-            if (idClienteNew != null) {
-                idClienteNew = em.getReference(idClienteNew.getClass(), idClienteNew.getIdComprador());
-                compras.setIdCliente(idClienteNew);
-            }
             Collection<DetalleCompras> attachedDetalleComprasCollectionNew = new ArrayList<DetalleCompras>();
             for (DetalleCompras detalleComprasCollectionNewDetalleComprasToAttach : detalleComprasCollectionNew) {
                 detalleComprasCollectionNewDetalleComprasToAttach = em.getReference(detalleComprasCollectionNewDetalleComprasToAttach.getClass(), detalleComprasCollectionNewDetalleComprasToAttach.getIdDetalle());
@@ -134,14 +117,6 @@ public class ComprasJpaController implements Serializable {
             if (idPagoNew != null && !idPagoNew.equals(idPagoOld)) {
                 idPagoNew.getComprasCollection().add(compras);
                 idPagoNew = em.merge(idPagoNew);
-            }
-            if (idClienteOld != null && !idClienteOld.equals(idClienteNew)) {
-                idClienteOld.getComprasCollection().remove(compras);
-                idClienteOld = em.merge(idClienteOld);
-            }
-            if (idClienteNew != null && !idClienteNew.equals(idClienteOld)) {
-                idClienteNew.getComprasCollection().add(compras);
-                idClienteNew = em.merge(idClienteNew);
             }
             for (DetalleCompras detalleComprasCollectionNewDetalleCompras : detalleComprasCollectionNew) {
                 if (!detalleComprasCollectionOld.contains(detalleComprasCollectionNewDetalleCompras)) {
@@ -198,11 +173,6 @@ public class ComprasJpaController implements Serializable {
             if (idPago != null) {
                 idPago.getComprasCollection().remove(compras);
                 idPago = em.merge(idPago);
-            }
-            Comprador idCliente = compras.getIdCliente();
-            if (idCliente != null) {
-                idCliente.getComprasCollection().remove(compras);
-                idCliente = em.merge(idCliente);
             }
             em.remove(compras);
             em.getTransaction().commit();

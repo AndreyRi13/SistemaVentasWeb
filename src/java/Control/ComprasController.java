@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
- */
+
 package Control;
 
 import DAO.CalzadoDAO;
@@ -31,15 +28,6 @@ import javax.servlet.http.HttpSession;
  */
 public class ComprasController extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String action = request.getParameter("a");
@@ -89,24 +77,18 @@ public class ComprasController extends HttpServlet {
     }
 
     Cookie ck;
-    Cookie compr;
     int cant = 0;
     double totalPagar = 0.0;
     Carrito carrito = new Carrito();
     HttpSession session = null;
-    Comprador comp=null;
+    Comprador comp = null;
 
     private void MainComprador(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-      if(comp==null){
-         comp = (Comprador) request.getAttribute("comprador");
-      }
+        if (comp == null) {
+            comp = (Comprador) request.getAttribute("comprador");
+        }
 
-//        compr = new Cookie("nombre",comp);
-//        request.setAttribute("comprador", compr);
-//        
- //       session = request.getSession();
-        
         CalzadoDAO pr = new CalzadoDAO();
         List<Calzado> product = pr.readCalzados();
         EmpresaDAO empr = new EmpresaDAO();
@@ -191,7 +173,6 @@ public class ComprasController extends HttpServlet {
         //Instancia la clase negocio y un objeto calzado
         AdministrarCalzado cal = new AdministrarCalzado();
         Calzado calzado = cal.buscarCalzadoporId(idCalza);
-        System.out.println("Calzado: " + calzado);
         ck = new Cookie("contador", String.valueOf(cant));
         if (calzado != null) {
             carrito.agregarCalzado(calzado, 1);
@@ -214,7 +195,6 @@ public class ComprasController extends HttpServlet {
     private void carrito(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        
         request.setAttribute("comprador", comp);
         EmpresaDAO empr = new EmpresaDAO();
         Empresa empresa = empr.findEmpresa(1);
@@ -233,6 +213,7 @@ public class ComprasController extends HttpServlet {
         try {
             Calzado calzado = cal.buscarCalzadoporId(idCal);
             request.setAttribute("calzado", calzado);
+            request.setAttribute("comprador", comp);
             EmpresaDAO empr = new EmpresaDAO();
             Empresa empresa = empr.findEmpresa(1);
             request.setAttribute("empresa", empresa);

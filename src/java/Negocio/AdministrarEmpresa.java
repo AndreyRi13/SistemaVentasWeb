@@ -14,14 +14,15 @@ import java.util.List;
  * @author Andrey R
  */
 public class AdministrarEmpresa {
-        public AdministrarEmpresa() {
+
+    public AdministrarEmpresa() {
     }
 
     /*CRUD EMPRESA*/
     public boolean agregarEmpresa(Integer rut, String saludo, String nosotros, String ofrecemos, String elegirnos, String nuestroClientes, String direccion, String telefonos, String correoElectronico) {
         EmpresaDAO empresa = new EmpresaDAO();
-        Empresa emp = new Empresa( rut,  saludo,  nosotros,  ofrecemos,  elegirnos,  nuestroClientes,  direccion,  telefonos, correoElectronico);
-        
+        Empresa emp = new Empresa(rut, saludo, nosotros, ofrecemos, elegirnos, nuestroClientes, direccion, telefonos, correoElectronico);
+
         try {
             empresa.addEmpresa(emp);
             return true;
@@ -42,7 +43,7 @@ public class AdministrarEmpresa {
         return aux;
     }
 
-    public void editarEmpresa(Integer idEmpresa,Integer rut, String saludo, String nosotros, String ofrecemos, String elegirnos, String nuestroClientes, String direccion, String telefonos, String correoElectronico) throws Exception {
+    public void editarEmpresa(Integer idEmpresa, Integer rut, String saludo, String nosotros, String ofrecemos, String elegirnos, String nuestroClientes, String direccion, String telefonos, String correoElectronico) throws Exception {
         Empresa em = new Empresa();
         em.setIdEmpresa(idEmpresa);
         em.setRut(rut);
@@ -57,7 +58,7 @@ public class AdministrarEmpresa {
 
         EmpresaDAO empdao = new EmpresaDAO();
         empdao.updateEmpresa(em);
-        
+
     }
 
     public void eliminarEmpresa(Integer id) throws Exception {

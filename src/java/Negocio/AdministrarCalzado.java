@@ -53,17 +53,16 @@ public class AdministrarCalzado {
         return Calzados;
     }
 
-    
-        public Calzado buscarCalzadoporId(Integer idCalzado){
+    public Calzado buscarCalzadoporId(Integer idCalzado) {
         CalzadoDAO pro = new CalzadoDAO();
         for (Calzado m : pro.readCalzados()) {
             if (m.getIdCalzado().equals(idCalzado)) {
-               return m;
+                return m;
             }
         }
         return null;
     }
-    
+
     public void editarCalzado(Integer idCalzado, Integer referencia, String nombres, String descripcion, String marca, String color, String colorSuela, Integer talla, double precio, Integer stock, String estado, String Foto) throws Exception {
         Calzado pro = new Calzado();
         pro.setIdCalzado(idCalzado);
