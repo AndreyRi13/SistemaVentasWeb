@@ -7,6 +7,7 @@ package DAO;
 
 import DTO.Comprador;
 import Persistencia.CompradorJpaController;
+import Persistencia.exceptions.IllegalOrphanException;
 import Persistencia.exceptions.NonexistentEntityException;
 import java.util.List;
 import java.util.logging.Level;
@@ -40,7 +41,7 @@ public class CompradorDAO {
   
     }
     
-    public boolean deleteComprador(Integer idEm){
+    public boolean deleteComprador(Integer idEm) throws IllegalOrphanException{
     
         try {
             comprador.destroy(idEm);

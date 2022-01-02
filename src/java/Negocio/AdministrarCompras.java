@@ -52,7 +52,7 @@ public class AdministrarCompras {
         em.setMonto(monto);
         em.setEstado(estado);
         em.setIdPago(idPago);
-        em.setDetalleComprasCollection(detalleComprasCollection);
+       
 
         ComprasDAO empdao = new ComprasDAO();
         empdao.updateCompras(em);

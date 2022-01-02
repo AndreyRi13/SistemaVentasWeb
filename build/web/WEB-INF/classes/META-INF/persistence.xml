@@ -5,11 +5,11 @@
     <class>DTO.Producto</class>
     <class>DTO.Calzado</class>
     <class>DTO.Empleado</class>
-    <class>DTO.Comprador</class>
     <class>DTO.Empresa</class>
     <class>DTO.Compras</class>
     <class>DTO.Pago</class>
     <class>DTO.DetalleCompras</class>
+    <class>DTO.Comprador</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/bd_ventas?zeroDateTimeBehavior=CONVERT_TO_NULL"/>

@@ -123,100 +123,106 @@
                         <div class="tab-content" id="myTabContent">
                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                 <h3 class="register-heading">REGISTRO</h3>
-                                <div class="row register-form">
-                                    <div class="col-md-6">
 
-                                        <div class="row">
-                                            <div class="col-6">
-                                                <span>Foto de perfil:</span>
+                                <form class="form-horizontal" action="compradorcontroller?menu=registroComprador" method="POST">
+                                    <div class="row register-form">
+                                        <div class="col-md-6">
+
+                                            <!--                                            <div class="row">
+                                                                                            <div class="col-6">
+                                                                                                <span>Foto de perfil:</span>
+                                                                                            </div>
+                                                                                            <div class="col-6">
+                                                                                                <div id="file-select" class="form-group" style="width: 100%; height: 60%;">
+                                                                                                    <input id="fotoPerfil" encType="multipart/form-data" type="file" name="txtFoto" accept="image/png, .jpeg, .jpg, image/gif">
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>-->
+
+
+                                            <div class="form-group">
+                                                <input id="fname" name="txtCedula" type="text" placeholder="Cedula" class="form-control"/>
+                                            </div> 
+                                            <div class="form-group">
+                                                <input  id="fname" name="txtNombres" type="text" placeholder="Nombres" class="form-control"/>
                                             </div>
-                                            <div class="col-6">
-                                                <div id="file-select" class="form-group" style="width: 100%; height: 60%;">
-                                                    <input id="fotoPerfil" type="file" name="txtFoto" accept="image/png, .jpeg, .jpg, image/gif">
+
+                                            <div class="form-group">
+                                                <input id="fname" name="txtUsername" type="text" placeholder="Usuario" class="form-control">
+                                            </div>
+
+                                            <div class="form-group">
+                                                <input  id="fname" name="txtDireccion" type="text" placeholder="Direccion" class="form-control">
+                                            </div>
+
+                                            <div class="form-group">
+                                                <input id="fname" name="txtCorreoElectronico" type="text" placeholder="Correo electronico" class="form-control">
+                                            </div>
+
+
+                                            <div class="form-group">
+                                                <label>Genero:</label>
+                                                <div class="maxl">
+
+                                                    <label class="radio inline"> 
+                                                        <input type="radio" name="txtGenero" value="masculino" checked>
+                                                        <span> Masculino </span> 
+                                                    </label>
+
+                                                    <label class="radio inline"> 
+                                                        <input type="radio"  value="femenino">
+                                                        <span>Femenino </span> 
+                                                    </label>
+
+                                                    <label class="radio inline"> 
+                                                        <input type="radio" value="otro">
+                                                        <span>Otro </span> 
+                                                    </label>
                                                 </div>
                                             </div>
+
                                         </div>
-                                        <div class="form-group">
-                                            <input  id="fname" name="txtNombres" type="text" placeholder="Nombres" class="form-control"/>
-                                        </div>
+                                        <div class="col-md-6">
 
-                                        <div class="form-group">
-                                            <input id="fname" name="txtUsername" type="text" placeholder="Usuario" class="form-control">
-                                        </div>
-
-                                        <div class="form-group">
-                                            <input  id="fname" name="txtDireccion" type="text" placeholder="Direccion" class="form-control">
-                                        </div>
-
-
-                                        <div class="form-group">
-                                            <input id="fname" name="txtNumeroCelular" type="text" placeholder="Numero de celular" class="form-control">
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label>Genero:</label>
-                                            <div class="maxl">
-
-                                                <label class="radio inline"> 
-                                                    <input type="radio" name="txtGenero" value="masculino" checked>
-                                                    <span> Masculino </span> 
-                                                </label>
-
-                                                <label class="radio inline"> 
-                                                    <input type="radio" name="txtGenero" value="femenino">
-                                                    <span>Femenino </span> 
-                                                </label>
-
-                                                <label class="radio inline"> 
-                                                    <input type="radio" name="txtGenero" value="otro">
-                                                    <span>Otro </span> 
-                                                </label>
+                                            <div class="form-group">
+                                                <input id="fname" name="txtNumeroCelular" type="text" placeholder="Numero de celular" class="form-control">
                                             </div>
-                                        </div>
-
-                                    </div>
-                                    <div class="col-md-6">
 
 
-                                        <div class="form-group">
-                                            <input id="fname" name="txtCedula" type="text" placeholder="Cedula" class="form-control"/>
-                                        </div>
 
-                                        <div class="form-group">
-                                            <input  id="fname" name="txtApellidos" type="text" placeholder="Apellidos" class="form-control"/>
-                                        </div>
 
-                                        <div class="form-group">
-                                            <input id="fname" name="txtPassword" type="text" placeholder="Contraseña" class="form-control">
-                                        </div>
+                                            <div class="form-group">
+                                                <input  id="fname" name="txtApellidos" type="text" placeholder="Apellidos" class="form-control"/>
+                                            </div>
 
-                                        <div class="form-group">
-                                            <input id="fname" name="txtPassword" type="text" placeholder="Confirma tu contraseña" class="form-control">
-                                        </div>
+                                            <div class="form-group">
+                                                <input id="fname" name="txtPassword" type="text" placeholder="Contraseña" class="form-control">
+                                            </div>
 
-                                        <div class="form-group">
-                                            <input id="fname" name="txtCorreoElectronico" type="text" placeholder="Correo electronico" class="form-control">
-                                        </div>
-                                        <div class="form-group">
+                                            <div class="form-group">
+                                                <input id="fname"  type="text" placeholder="Confirma tu contraseña" class="form-control">
+                                            </div>
 
-                                            <div class="row">
-                                                <div class="col-8">
-                                                    <label>Fecha de nacimiento:</label>
-                                                    <input id="fname" name="txtFechaNacimiento" type="date" placeholder="Fecha de nacimiento" class="form-control">  
+
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <div class="col-8">
+                                                        <label style="display: inline-block;">Fecha de nacimiento:</label>
+                                                        <input id="fname" name="txtFechaNacimiento" type="date" placeholder="Fecha de nacimiento" class="form-control">  
+                                                    </div>
+                                                    <div class="col-4">
+                                                        <label>Edad:</label>
+                                                        <input id="fname" name="txtEdad" type="number" placeholder="Edad" class="form-control">
+                                                    </div>    
                                                 </div>
-                                                <div class="col-4">
-                                                    <label>Edad:</label>
-                                                    <input id="fname" name="txtEdad" type="number" placeholder="Edad" class="form-control">
-                                                </div>    
                                             </div>
 
                                         </div>
 
+
+                                        <button style="background-color: #3a4468; color: white;" type="submit" class="btnRegister"/>Registrarme</button>
                                     </div>
-
-
-                                    <input style="background-color: #3a4468; color: white;" type="submit" class="btnRegister"  value="Registrarme"/>
-                                </div>
+                                </form>
                             </div>
                         </div>                       
                     </div>

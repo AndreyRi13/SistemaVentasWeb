@@ -84,11 +84,7 @@ public class ComprasController extends HttpServlet {
     Comprador comp = null;
 
     private void MainComprador(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-        if (comp == null) {
-            comp = (Comprador) request.getAttribute("comprador");
-        }
-
+        if (comp == null) {comp = (Comprador) request.getAttribute("comprador"); }
         CalzadoDAO pr = new CalzadoDAO();
         List<Calzado> product = pr.readCalzados();
         EmpresaDAO empr = new EmpresaDAO();

@@ -35,6 +35,10 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Pago.findByEstado", query = "SELECT p FROM Pago p WHERE p.estado = :estado")})
 public class Pago implements Serializable {
 
+    @Basic(optional = false)
+    @Column(name = "monto")
+    private double monto;
+
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idPago")
     private Collection<Compras> comprasCollection;
 
@@ -44,9 +48,6 @@ public class Pago implements Serializable {
     @Basic(optional = false)
     @Column(name = "idPago")
     private Integer idPago;
-    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
-    @Column(name = "monto")
-    private Double monto;
     @Basic(optional = false)
     @Column(name = "estado")
     private String estado;
@@ -75,13 +76,6 @@ public class Pago implements Serializable {
         this.idPago = idPago;
     }
 
-    public Double getMonto() {
-        return monto;
-    }
-
-    public void setMonto(Double monto) {
-        this.monto = monto;
-    }
 
     public String getEstado() {
         return estado;
@@ -118,6 +112,14 @@ public class Pago implements Serializable {
 
     public void setComprasCollection(Collection<Compras> comprasCollection) {
         this.comprasCollection = comprasCollection;
+    }
+
+    public double getMonto() {
+        return monto;
+    }
+
+    public void setMonto(double monto) {
+        this.monto = monto;
     }
 
 

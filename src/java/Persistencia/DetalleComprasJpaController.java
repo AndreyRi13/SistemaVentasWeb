@@ -1,7 +1,6 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Persistencia;
 
@@ -11,7 +10,6 @@ import javax.persistence.EntityNotFoundException;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import DTO.Calzado;
-import DTO.Compras;
 import DTO.DetalleCompras;
 import Persistencia.exceptions.NonexistentEntityException;
 import java.util.List;
@@ -20,7 +18,7 @@ import javax.persistence.EntityManagerFactory;
 
 /**
  *
- * @author Andrey R
+ * @author Andrey
  */
 public class DetalleComprasJpaController implements Serializable {
 
@@ -43,19 +41,10 @@ public class DetalleComprasJpaController implements Serializable {
                 idCalzado = em.getReference(idCalzado.getClass(), idCalzado.getIdCalzado());
                 detalleCompras.setIdCalzado(idCalzado);
             }
-            Compras idCompras = detalleCompras.getIdCompras();
-            if (idCompras != null) {
-                idCompras = em.getReference(idCompras.getClass(), idCompras.getIdCompras());
-                detalleCompras.setIdCompras(idCompras);
-            }
             em.persist(detalleCompras);
             if (idCalzado != null) {
                 idCalzado.getDetalleComprasCollection().add(detalleCompras);
                 idCalzado = em.merge(idCalzado);
-            }
-            if (idCompras != null) {
-                idCompras.getDetalleComprasCollection().add(detalleCompras);
-                idCompras = em.merge(idCompras);
             }
             em.getTransaction().commit();
         } finally {
@@ -73,15 +62,9 @@ public class DetalleComprasJpaController implements Serializable {
             DetalleCompras persistentDetalleCompras = em.find(DetalleCompras.class, detalleCompras.getIdDetalle());
             Calzado idCalzadoOld = persistentDetalleCompras.getIdCalzado();
             Calzado idCalzadoNew = detalleCompras.getIdCalzado();
-            Compras idComprasOld = persistentDetalleCompras.getIdCompras();
-            Compras idComprasNew = detalleCompras.getIdCompras();
             if (idCalzadoNew != null) {
                 idCalzadoNew = em.getReference(idCalzadoNew.getClass(), idCalzadoNew.getIdCalzado());
                 detalleCompras.setIdCalzado(idCalzadoNew);
-            }
-            if (idComprasNew != null) {
-                idComprasNew = em.getReference(idComprasNew.getClass(), idComprasNew.getIdCompras());
-                detalleCompras.setIdCompras(idComprasNew);
             }
             detalleCompras = em.merge(detalleCompras);
             if (idCalzadoOld != null && !idCalzadoOld.equals(idCalzadoNew)) {
@@ -91,14 +74,6 @@ public class DetalleComprasJpaController implements Serializable {
             if (idCalzadoNew != null && !idCalzadoNew.equals(idCalzadoOld)) {
                 idCalzadoNew.getDetalleComprasCollection().add(detalleCompras);
                 idCalzadoNew = em.merge(idCalzadoNew);
-            }
-            if (idComprasOld != null && !idComprasOld.equals(idComprasNew)) {
-                idComprasOld.getDetalleComprasCollection().remove(detalleCompras);
-                idComprasOld = em.merge(idComprasOld);
-            }
-            if (idComprasNew != null && !idComprasNew.equals(idComprasOld)) {
-                idComprasNew.getDetalleComprasCollection().add(detalleCompras);
-                idComprasNew = em.merge(idComprasNew);
             }
             em.getTransaction().commit();
         } catch (Exception ex) {
@@ -133,11 +108,6 @@ public class DetalleComprasJpaController implements Serializable {
             if (idCalzado != null) {
                 idCalzado.getDetalleComprasCollection().remove(detalleCompras);
                 idCalzado = em.merge(idCalzado);
-            }
-            Compras idCompras = detalleCompras.getIdCompras();
-            if (idCompras != null) {
-                idCompras.getDetalleComprasCollection().remove(detalleCompras);
-                idCompras = em.merge(idCompras);
             }
             em.remove(detalleCompras);
             em.getTransaction().commit();

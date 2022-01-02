@@ -40,14 +40,11 @@ public class ComprasDAO {
         this.compras.create(emp);
     }
 
-    public boolean deleteCompras(Integer idEm) {
+    public boolean deleteCompras(Integer idEm) throws IllegalOrphanException {
 
         try {
             compras.destroy(idEm);
             return true;
-        } catch (IllegalOrphanException ex) {
-            Logger.getLogger(ComprasDAO.class.getName()).log(Level.SEVERE, null, ex);
-            return false;
         } catch (NonexistentEntityException ex) {
             Logger.getLogger(ComprasDAO.class.getName()).log(Level.SEVERE, null, ex);
             return false;

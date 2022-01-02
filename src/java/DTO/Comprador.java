@@ -9,8 +9,9 @@ import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Lob;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -44,6 +45,7 @@ public class Comprador implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "idComprador")
     private Integer idComprador;
@@ -81,10 +83,6 @@ public class Comprador implements Serializable {
     @Column(name = "correoElectronico")
     private String correoElectronico;
     @Basic(optional = false)
-    @Lob
-    @Column(name = "foto")
-    private byte[] foto;
-    @Basic(optional = false)
     @Column(name = "estado")
     private String estado;
 
@@ -95,24 +93,7 @@ public class Comprador implements Serializable {
         this.idComprador = idComprador;
     }
 
-    public Comprador(Integer idComprador, String cedula, String nombres, String apellidos, int edad, String genero, String username, String password, String direccion, String numeroCelular, String correoElectronico, byte[] foto, String estado) {
-        this.idComprador = idComprador;
-        this.cedula = cedula;
-        this.nombres = nombres;
-        this.apellidos = apellidos;
-        this.edad = edad;
-        this.genero = genero;
-        this.username = username;
-        this.password = password;
-        this.direccion = direccion;
-        this.numeroCelular = numeroCelular;
-        this.correoElectronico = correoElectronico;
-        this.foto = foto;
-        this.estado = estado;
-    }
-
-    public Comprador(Integer idComprador, String cedula, String nombres, String apellidos, Date fechaNacimiento, int edad, String genero, String username, String password, String direccion, String numeroCelular, String correoElectronico, byte[] foto, String estado) {
-        this.idComprador = idComprador;
+    public Comprador(String cedula, String nombres, String apellidos, Date fechaNacimiento, int edad, String genero, String username, String password, String direccion, String numeroCelular, String correoElectronico, String estado) {
         this.cedula = cedula;
         this.nombres = nombres;
         this.apellidos = apellidos;
@@ -124,17 +105,14 @@ public class Comprador implements Serializable {
         this.direccion = direccion;
         this.numeroCelular = numeroCelular;
         this.correoElectronico = correoElectronico;
-        this.foto = foto;
         this.estado = estado;
     }
-    
-    
 
-    public Comprador(String cedula, String nombres, String apellidos, Date fechaNacimiento, int edad, String genero, String username, String password, String direccion, String numeroCelular, String correoElectronico, byte[] foto, String estado) {
+    public Comprador(Integer idComprador, String cedula, String nombres, String apellidos, int edad, String genero, String username, String password, String direccion, String numeroCelular, String correoElectronico, String estado) {
+        this.idComprador = idComprador;
         this.cedula = cedula;
         this.nombres = nombres;
         this.apellidos = apellidos;
-        this.fechaNacimiento = fechaNacimiento;
         this.edad = edad;
         this.genero = genero;
         this.username = username;
@@ -142,11 +120,8 @@ public class Comprador implements Serializable {
         this.direccion = direccion;
         this.numeroCelular = numeroCelular;
         this.correoElectronico = correoElectronico;
-        this.foto = foto;
         this.estado = estado;
     }
-    
-  
 
     public Integer getIdComprador() {
         return idComprador;
@@ -242,14 +217,6 @@ public class Comprador implements Serializable {
 
     public void setCorreoElectronico(String correoElectronico) {
         this.correoElectronico = correoElectronico;
-    }
-
-    public byte[] getFoto() {
-        return foto;
-    }
-
-    public void setFoto(byte[] foto) {
-        this.foto = foto;
     }
 
     public String getEstado() {

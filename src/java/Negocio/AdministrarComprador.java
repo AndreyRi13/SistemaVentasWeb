@@ -20,9 +20,9 @@ public class AdministrarComprador {
     }
 
     /*CRUD COMPRADOR*/
-    public boolean agregarComprador(String cedula, String nombres, String apellidos, Date fechaNacimiento, int edad, String genero, String username, String password, String direccion, String numeroCelular, String correoElectronico, byte[] foto, String estado) {
+    public boolean agregarComprador(String cedula, String nombres, String apellidos, Date fechaNacimiento, int edad, String genero, String username, String password, String direccion, String numeroCelular, String correoElectronico,  String estado) {
         CompradorDAO empleado = new CompradorDAO();
-        Comprador com = new Comprador(cedula, nombres, apellidos,fechaNacimiento ,edad,genero,username, password, direccion, numeroCelular, correoElectronico,foto, estado);
+        Comprador com = new Comprador(cedula, nombres, apellidos,fechaNacimiento ,edad,genero,username, password, direccion, numeroCelular, correoElectronico, estado);
 
         try {
             empleado.addComprador(com);
@@ -44,7 +44,7 @@ public class AdministrarComprador {
         return aux;
     }
 
-    public void editarComprador(Integer id, String cedula, String nombres, String apellidos, Date fechaNacimiento, int edad, String genero, String username, String password, String direccion, String numeroCelular, String correoElectronico, byte[] foto, String estado) throws Exception {
+    public void editarComprador(Integer id, String cedula, String nombres, String apellidos, Date fechaNacimiento, int edad, String genero, String username, String password, String direccion, String numeroCelular, String correoElectronico,  String estado) throws Exception {
         Comprador em = new Comprador();
         em.setIdComprador(id);
         em.setCedula(cedula);
@@ -57,7 +57,6 @@ public class AdministrarComprador {
         em.setDireccion(direccion);
         em.setNumeroCelular(numeroCelular);
         em.setCorreoElectronico(correoElectronico);
-        em.setFoto(foto);
         em.setEstado(estado);
         CompradorDAO empdao = new CompradorDAO();
         empdao.updateComprador(em);
