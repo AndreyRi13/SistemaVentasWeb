@@ -19,7 +19,23 @@ public class AdministrarComprador {
     public AdministrarComprador() {
     }
 
-    /*CRUD COMPRADOR*/
+   
+    /**
+     * Metodo para agregar comprador
+     * @param cedula
+     * @param nombres
+     * @param apellidos
+     * @param fechaNacimiento
+     * @param edad
+     * @param genero
+     * @param username
+     * @param password
+     * @param direccion
+     * @param numeroCelular
+     * @param correoElectronico
+     * @param estado
+     * @return boolean
+     */
     public boolean agregarComprador(String cedula, String nombres, String apellidos, Date fechaNacimiento, int edad, String genero, String username, String password, String direccion, String numeroCelular, String correoElectronico,  String estado) {
         CompradorDAO empleado = new CompradorDAO();
         Comprador com = new Comprador(cedula, nombres, apellidos,fechaNacimiento ,edad,genero,username, password, direccion, numeroCelular, correoElectronico, estado);
@@ -32,6 +48,12 @@ public class AdministrarComprador {
         }
     }
 
+    /**
+     * Metodo para buscar comprador por id
+     * @param idComprador
+     * @return Comprador
+     * @throws Exception 
+     */
     public Comprador buscarCompradorporId(Integer idComprador) throws Exception {
         CompradorDAO emp = new CompradorDAO();
         List<Comprador> empleadosList = emp.readCompradores();
@@ -44,6 +66,23 @@ public class AdministrarComprador {
         return aux;
     }
 
+    /**
+     * Metodo para editar comprador
+     * @param id
+     * @param cedula
+     * @param nombres
+     * @param apellidos
+     * @param fechaNacimiento
+     * @param edad
+     * @param genero
+     * @param username
+     * @param password
+     * @param direccion
+     * @param numeroCelular
+     * @param correoElectronico
+     * @param estado
+     * @throws Exception 
+     */
     public void editarComprador(Integer id, String cedula, String nombres, String apellidos, Date fechaNacimiento, int edad, String genero, String username, String password, String direccion, String numeroCelular, String correoElectronico,  String estado) throws Exception {
         Comprador em = new Comprador();
         em.setIdComprador(id);
@@ -62,11 +101,20 @@ public class AdministrarComprador {
         empdao.updateComprador(em);
     }
 
+    /**
+     * Metodo para eliminar comprador por id
+     * @param id
+     * @throws Exception 
+     */
     public void eliminarComprador(Integer id) throws Exception {
         CompradorDAO comdao = new CompradorDAO();
         comdao.deleteComprador(id);
     }
 
+    /**
+     * Metodo para listar los compradores
+     * @return List
+     */
     public List<Comprador> listaCompradores() {
         CompradorDAO emp = new CompradorDAO();
         List<Comprador> empleados = emp.readCompradores();

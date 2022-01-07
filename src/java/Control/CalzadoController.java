@@ -58,10 +58,18 @@ public class CalzadoController extends HttpServlet {
         }
     }
 
-///////////////////////////////////////METODO DE AGREGAR Calzado
+    /**
+     * @ Metodo para agregar calzado
+     * 
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException 
+     */
     public void addCalzado(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+ 
         Integer referencia = Integer.parseInt(request.getParameter("txtReferencia"));
         String nombres = request.getParameter("txtNombres");
         String descripcion = request.getParameter("txtDescripcion");
@@ -74,7 +82,8 @@ public class CalzadoController extends HttpServlet {
         String estado = request.getParameter("txtEstado");
         String Foto = request.getParameter("txtFoto");
 
-        /*Instancia El negocio de administrar  */
+        /*Instancia objeto administrar calzado  */
+        
         AdministrarCalzado adm = new AdministrarCalzado();
         if (adm.agregarCalzado(referencia, nombres, descripcion, marca, color, colorSuela, talla, precio, stock, estado, Foto) == true) {
 
@@ -87,7 +96,14 @@ public class CalzadoController extends HttpServlet {
 
     }
 
-    ///////////////////////////////////////METODO DE LISTAR CalzadoS
+   
+    /**
+     * Metodo para listar los calzados
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException 
+     */
     public void listaCalzado(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         AdministrarCalzado adm = new AdministrarCalzado();
@@ -97,9 +113,18 @@ public class CalzadoController extends HttpServlet {
         dispatcher.forward(request, response);
     }
 
-///////////////////////////////////////METODO DE RIDECCIONAR A EDITAR CalzadoS
+/**
+ * Variable para obtener el id del producto
+ */
     Integer idProduct = 0;
 
+    /**
+     * Metodo que direcciona a editar Calzados
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException 
+     */
     public void editCalzado(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         idProduct = Integer.parseInt(request.getParameter("id"));
@@ -116,7 +141,14 @@ public class CalzadoController extends HttpServlet {
 
     }
 
-    ///////////////////////////////////////METODO DE EDITAR CalzadoS
+   
+    /**
+     * Metodo para editar calzados
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException 
+     */
     public void editarCalzado(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         AdministrarCalzado admi = new AdministrarCalzado();
@@ -140,8 +172,14 @@ public class CalzadoController extends HttpServlet {
             Logger.getLogger(CalzadoController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-///////////////////////////////////////METODO DE ELIMINAR EMPLEADO
 
+    /**
+     * Metodo para eliminar calzados
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException 
+     */
     public void eliminaCalzado(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         AdministrarCalzado adm = new AdministrarCalzado();
@@ -154,18 +192,38 @@ public class CalzadoController extends HttpServlet {
         }
     }
 
+    /**
+     * 
+     * 
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException 
+     */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
     }
 
+    /**
+     * 
+     * 
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException 
+     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
     }
 
+    /**
+     * 
+     * @return 
+     */
     @Override
     public String getServletInfo() {
         return "Short description";

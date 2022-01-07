@@ -18,7 +18,8 @@ import java.util.logging.Logger;
  * @author Andrey R
  */
 public class PagoDAO {
-PagoJpaController pago;
+
+    PagoJpaController pago;
 
     public PagoDAO() {
 
@@ -27,47 +28,65 @@ PagoJpaController pago;
 
     }
 
+    /**
+     *
+     * @return List
+     */
     public List<Pago> readPagos() {
         return this.pago.findPagoEntities();
     }
 
+    /**
+     *
+     * @param idPago
+     * @return Pago
+     */
     public Pago findPago(int idPago) {
         return this.pago.findPago(idPago);
     }
 
+    /**
+     *
+     * @param emp
+     * @throws Exception
+     */
     public void addPago(Pago emp) throws Exception {
-   
-            this.pago.create(emp);
-  
+
+        this.pago.create(emp);
+
     }
-    
-    public boolean deletePago(Integer idEm){
-    
-      
-    try {
-        pago.destroy(idEm);
-        return true;
-    } catch (IllegalOrphanException ex) {
-        Logger.getLogger(PagoDAO.class.getName()).log(Level.SEVERE, null, ex);
-        return false;
-    } catch (NonexistentEntityException ex) {
-        Logger.getLogger(PagoDAO.class.getName()).log(Level.SEVERE, null, ex);
-        return false;
-    }
-         
-     
-    
-    }
-    
-    
-    public boolean updatePago(Pago e){
+
+    /**
+     *
+     * @param idEm
+     * @return boolean
+     */
+    public boolean deletePago(Integer idEm) {
         try {
-            pago.edit(e);
+            pago.destroy(idEm);
             return true;
-        } catch (Exception ex) {        
+        } catch (IllegalOrphanException ex) {
+            Logger.getLogger(PagoDAO.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        } catch (NonexistentEntityException ex) {
             Logger.getLogger(PagoDAO.class.getName()).log(Level.SEVERE, null, ex);
             return false;
         }
     }
-    
+
+    /**
+     * 
+     * @param e
+     * @return boolean
+     */
+    public boolean updatePago(Pago e) {
+        try {
+            pago.edit(e);
+            return true;
+        } catch (Exception ex) {
+            Logger.getLogger(PagoDAO.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+    }
+
 }

@@ -71,7 +71,7 @@
 
                                     <li class="nav-item">
                                         <div class="user_option_box">
-                                            <a href="comprascontroller?a=carrito" class="nav-link">
+                                            <a href="carritocontroller?a=carrito" class="nav-link">
                                                 <i class="fa fa-cart-plus" aria-hidden="true"><label style="color:orange;">${contador}</label></i>
                                                 <span>
                                                     Carrito

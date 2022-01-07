@@ -12,22 +12,49 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/D:/Usuarios/Documentos/GitHub/SistemaVentasWeb/src/java/Control/PagoController.java</file>
             <file>file:/D:/Usuarios/Documentos/GitHub/SistemaVentasWeb/src/java/DAO/CompradorDAO.java</file>
-            <file>file:/D:/Usuarios/Documentos/GitHub/SistemaVentasWeb/web/vistas/agregarComprador.jsp</file>
-            <file>file:/D:/Usuarios/Documentos/GitHub/SistemaVentasWeb/src/java/Control/Validar.java</file>
-            <file>file:/D:/Usuarios/Documentos/GitHub/SistemaVentasWeb/src/java/DTO/Compras.java</file>
+            <file>file:/D:/Usuarios/Documentos/GitHub/SistemaVentasWeb/src/java/Negocio/AdministrarEmpleado.java</file>
+            <file>file:/D:/Usuarios/Documentos/GitHub/SistemaVentasWeb/src/java/DAO/EmpresaDAO.java</file>
+            <file>file:/D:/Usuarios/Documentos/GitHub/SistemaVentasWeb/src/java/DTO/Calzado.java</file>
+            <file>file:/D:/Usuarios/Documentos/GitHub/SistemaVentasWeb/web/vistas/carrito.jsp</file>
+            <file>file:/D:/Usuarios/Documentos/GitHub/SistemaVentasWeb/web/vistas/agregarEmpleado.jsp</file>
+            <file>file:/D:/Usuarios/Documentos/GitHub/SistemaVentasWeb/src/java/DTO/Carrito.java</file>
+            <file>file:/D:/Usuarios/Documentos/GitHub/SistemaVentasWeb/src/java/DAO/CalzadoDAO.java</file>
+            <file>file:/D:/Usuarios/Documentos/GitHub/SistemaVentasWeb/src/java/Negocio/AdministrarCalzado.java</file>
+            <file>file:/D:/Usuarios/Documentos/GitHub/SistemaVentasWeb/src/java/DAO/VentasDAO.java</file>
             <file>file:/D:/Usuarios/Documentos/GitHub/SistemaVentasWeb/src/java/Negocio/AdministrarCompras.java</file>
             <file>file:/D:/Usuarios/Documentos/GitHub/SistemaVentasWeb/src/java/Persistencia/CompradorJpaController.java</file>
             <file>file:/D:/Usuarios/Documentos/GitHub/SistemaVentasWeb/web/vistas/registrarComprador.jsp</file>
             <file>file:/D:/Usuarios/Documentos/GitHub/SistemaVentasWeb/src/java/Control/CompradorController.java</file>
-            <file>file:/D:/Usuarios/Documentos/GitHub/SistemaVentasWeb/src/java/DTO/Comprador.java</file>
-            <file>file:/D:/Usuarios/Documentos/GitHub/SistemaVentasWeb/src/java/Negocio/Login.java</file>
-            <file>file:/D:/Usuarios/Documentos/GitHub/SistemaVentasWeb/src/java/Control/EmpleadoController.java</file>
-            <file>file:/D:/Usuarios/Documentos/GitHub/SistemaVentasWeb/src/java/Control/Inicio.java</file>
-            <file>file:/D:/Usuarios/Documentos/GitHub/SistemaVentasWeb/src/java/Negocio/AdministrarComprador.java</file>
+            <file>file:/D:/Usuarios/Documentos/GitHub/SistemaVentasWeb/src/java/DAO/EmpleadoDAO.java</file>
+            <file>file:/D:/Usuarios/Documentos/GitHub/SistemaVentasWeb/web/index.jsp</file>
+            <file>file:/D:/Usuarios/Documentos/GitHub/SistemaVentasWeb/src/java/Control/EmpresaController.java</file>
             <file>file:/D:/Usuarios/Documentos/GitHub/SistemaVentasWeb/src/java/DAO/ComprasDAO.java</file>
             <file>file:/D:/Usuarios/Documentos/GitHub/SistemaVentasWeb/src/java/Control/ComprasController.java</file>
-            <file>file:/D:/Usuarios/Documentos/GitHub/SistemaVentasWeb/web/vistas/main.jsp</file>
+            <file>file:/D:/Usuarios/Documentos/GitHub/SistemaVentasWeb/src/java/Negocio/N_Inicio.java</file>
+            <file>file:/D:/Usuarios/Documentos/GitHub/SistemaVentasWeb/web/vistas/editarCalzado.jsp</file>
+            <file>file:/D:/Usuarios/Documentos/GitHub/SistemaVentasWeb/src/java/DAO/Conexion.java</file>
+            <file>file:/D:/Usuarios/Documentos/GitHub/SistemaVentasWeb/src/java/DAO/DetalleComprasDAO.java</file>
+            <file>file:/D:/Usuarios/Documentos/GitHub/SistemaVentasWeb/web/vistas/productoVerMas.jsp</file>
+            <file>file:/D:/Usuarios/Documentos/GitHub/SistemaVentasWeb/src/java/Control/CalzadoController.java</file>
+            <file>file:/D:/Usuarios/Documentos/GitHub/SistemaVentasWeb/src/java/Control/VentasController.java</file>
+            <file>file:/D:/Usuarios/Documentos/GitHub/SistemaVentasWeb/web/vistas/agregarComprador.jsp</file>
+            <file>file:/D:/Usuarios/Documentos/GitHub/SistemaVentasWeb/src/java/Control/LogoutServlet.java</file>
+            <file>file:/D:/Usuarios/Documentos/GitHub/SistemaVentasWeb/src/java/Control/Validar.java</file>
+            <file>file:/D:/Usuarios/Documentos/GitHub/SistemaVentasWeb/src/java/Negocio/AdministrarPago.java</file>
+            <file>file:/D:/Usuarios/Documentos/GitHub/SistemaVentasWeb/src/java/DAO/PagoDAO.java</file>
+            <file>file:/D:/Usuarios/Documentos/GitHub/SistemaVentasWeb/web/vistas/mainComprador.jsp</file>
+            <file>file:/D:/Usuarios/Documentos/GitHub/SistemaVentasWeb/src/java/Negocio/AdministrarDetalleCompras.java</file>
+            <file>file:/D:/Usuarios/Documentos/GitHub/SistemaVentasWeb/src/java/Negocio/Login.java</file>
+            <file>file:/D:/Usuarios/Documentos/GitHub/SistemaVentasWeb/web/js/carrito.js</file>
+            <file>file:/D:/Usuarios/Documentos/GitHub/SistemaVentasWeb/src/java/Negocio/AdministrarEmpresa.java</file>
+            <file>file:/D:/Usuarios/Documentos/GitHub/SistemaVentasWeb/web/vistas/pago.jsp</file>
+            <file>file:/D:/Usuarios/Documentos/GitHub/SistemaVentasWeb/src/java/Control/EmpleadoController.java</file>
+            <file>file:/D:/Usuarios/Documentos/GitHub/SistemaVentasWeb/src/java/Control/CarritoController.java</file>
+            <file>file:/D:/Usuarios/Documentos/GitHub/SistemaVentasWeb/src/java/Control/Inicio.java</file>
+            <file>file:/D:/Usuarios/Documentos/GitHub/SistemaVentasWeb/src/java/DAO/DatalleVentasDAO.java</file>
+            <file>file:/D:/Usuarios/Documentos/GitHub/SistemaVentasWeb/src/java/Negocio/AdministrarComprador.java</file>
         </group>
     </open-files>
 </project-private>

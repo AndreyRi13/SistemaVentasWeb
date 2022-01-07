@@ -21,25 +21,44 @@ public class ComprasDAO {
 
     ComprasJpaController compras;
 
+   
     public ComprasDAO() {
-
         Conexion con = Conexion.getConexion();
         this.compras = new ComprasJpaController(con.getBd());
-
     }
 
+    /**
+     * 
+     * @return List
+     */
     public List<Compras> readCompras() {
         return this.compras.findComprasEntities();
     }
 
+    /**
+     * 
+     * @param idCompras
+     * @return Compras
+     */
     public Compras findCompras(int idCompras) {
         return this.compras.findCompras(idCompras);
     }
 
+    /**
+     * 
+     * @param emp
+     * @throws Exception 
+     */
     public void addCompras(Compras emp) throws Exception {
         this.compras.create(emp);
     }
 
+    /**
+     * 
+     * @param idEm
+     * @return boolean
+     * @throws IllegalOrphanException 
+     */
     public boolean deleteCompras(Integer idEm) throws IllegalOrphanException {
 
         try {
@@ -52,6 +71,11 @@ public class ComprasDAO {
 
     }
 
+    /**
+     * 
+     * @param e
+     * @return boolean
+     */
     public boolean updateCompras(Compras e) {
         try {
             compras.edit(e);

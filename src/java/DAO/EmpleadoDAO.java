@@ -27,20 +27,39 @@ public class EmpleadoDAO {
 
     }
 
+    /**
+     * 
+     * @return List
+     */
     public List<Empleado> readEmpleados() {
         return this.empleado.findEmpleadoEntities();
     }
 
+    /**
+     * 
+     * @param idEmpleado
+     * @return Empleado
+     */
     public Empleado findEmpleado(int idEmpleado) {
         return this.empleado.findEmpleado(idEmpleado);
     }
 
+    /**
+     * 
+     * @param emp
+     * @throws Exception 
+     */
     public void addEmpleado(Empleado emp) throws Exception {
    
             this.empleado.create(emp);
   
     }
     
+    /**
+     * 
+     * @param idEm
+     * @return boolean
+     */
     public boolean deleteEmpleado(Integer idEm){
     
         try {
@@ -53,7 +72,11 @@ public class EmpleadoDAO {
     
     }
     
-    
+    /**
+     * 
+     * @param e
+     * @return boolean
+     */
     public boolean updateEmpleado(Empleado e){
         try {
             empleado.edit(e);

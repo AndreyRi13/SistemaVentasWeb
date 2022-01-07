@@ -15,21 +15,32 @@ import javax.servlet.http.HttpSession;
 
 public class LogoutServlet extends HttpServlet {
 
+    /**
+     * 
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException 
+     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
         String action = request.getParameter("a");
 
         switch (action) {
-
             case "Salir":
                 salir(request, response);
                 break;
-
         }
-
     }
    
+    /**
+     * 
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException 
+     */
     public void salir(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
        HttpSession sesion = request.getSession(false);
@@ -37,18 +48,36 @@ public class LogoutServlet extends HttpServlet {
         response.sendRedirect("/SistemasVentasWeb/inicio");
     }
 
+    /**
+     * 
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException 
+     */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
     }
 
+    /**
+     * 
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException 
+     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
     }
 
+    /**
+     * 
+     * @return 
+     */
     @Override
     public String getServletInfo() {
         return "Short description";

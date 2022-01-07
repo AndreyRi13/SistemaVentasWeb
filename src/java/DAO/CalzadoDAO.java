@@ -26,23 +26,46 @@ public class CalzadoDAO {
         this.pro = new CalzadoJpaController(con.getBd());
 
     }
-
+/**
+ * 
+ * @return List
+ */
     public List<Calzado> readCalzados() {
         return this.pro.findCalzadoEntities();
     }
 
+    /**
+     * 
+     * @param idCalzado
+     * @return Calzado
+     */
     public Calzado findCalzado(int idCalzado) {
         return this.pro.findCalzado(idCalzado);
     }
 
+    /**
+     * 
+     * @param p
+     * @throws Exception 
+     */
     public void addCalzado(Calzado p) throws Exception {
         this.pro.create(p);
     }
 
+    /**
+     * 
+     * @param p
+     * @throws Exception 
+     */
     public void updateCalzado(Calzado p) throws Exception {
         this.pro.edit(p);
     }
 
+    /**
+     * 
+     * @param idPro
+     * @return boolean
+     */
     public boolean deleteCalzado(Integer idPro) {
 
         try {

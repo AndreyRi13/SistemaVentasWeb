@@ -22,8 +22,13 @@ public class Login {
     public Login() {
     }
 
+    /**
+     * 
+     * @param user
+     * @param pass
+     * @return String
+     */
     public String tipoLogin(String user, String pass) {
-
         String tipo = null;
         Empleado emp = new Empleado();
         EmpleadoDAO empldao = new EmpleadoDAO();
@@ -56,6 +61,12 @@ public class Login {
         return tipo;
     }
 
+    /**
+     * 
+     * @param user
+     * @param pass
+     * @return Empleado
+     */
     public Empleado loginEmpleado(String user, String pass) {
 
         Empleado emp = new Empleado();
@@ -75,7 +86,12 @@ public class Login {
 
         return emp;
     }
-
+/**
+ * Metodo para verificar usuario y contraseña de usuario
+ * @param user
+ * @param pass
+ * @return Comprador
+ */
     public Comprador loginComprador(String user, String pass) {
 
         Comprador com = new Comprador();

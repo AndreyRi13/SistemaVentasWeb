@@ -26,20 +26,39 @@ public class DetalleComprasDAO{
 
     }
 
+    /**
+     * 
+     * @return List
+     */
     public List<DetalleCompras> readDetalleCompras() {
         return this.detalleCompras.findDetalleComprasEntities();
     }
 
+    /**
+     * 
+     * @param idDetalleCompras
+     * @return DetalleCompras
+     */
     public DetalleCompras findDetalleCompras(int idDetalleCompras) {
         return this.detalleCompras.findDetalleCompras(idDetalleCompras);
     }
 
+    /**
+     * 
+     * @param emp
+     * @throws Exception 
+     */
     public void addDetalleCompras(DetalleCompras emp) throws Exception {
    
             this.detalleCompras.create(emp);
   
     }
     
+    /**
+     * 
+     * @param idEm
+     * @return boolean
+     */
     public boolean deleteDetalleCompras(Integer idEm){
     
         try {
@@ -52,7 +71,11 @@ public class DetalleComprasDAO{
     
     }
     
-    
+    /**
+     * 
+     * @param e
+     * @return boolean
+     */
     public boolean updateDetalleCompras(DetalleCompras e){
         try {
             detalleCompras.edit(e);

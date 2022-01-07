@@ -1,4 +1,3 @@
-
 package Control;
 
 import DAO.EmpresaDAO;
@@ -31,6 +30,13 @@ import javax.servlet.http.HttpSession;
  */
 public class Validar extends HttpServlet {
 
+    /**
+     *
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String action = request.getParameter("a");
@@ -57,11 +63,20 @@ public class Validar extends HttpServlet {
 
     }
 
-    public Validar() {
-    }
+   
 
+    /**
+     * 
+     */
     int idUsuario = 0;
 
+    /**
+     * 
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException 
+     */
     public void ingresar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String user = request.getParameter("txtuser");
@@ -80,9 +95,9 @@ public class Validar extends HttpServlet {
 
             } else if (lg.tipoLogin(user, pass).equals("Comprador")) {
                 HttpSession session = request.getSession();
-                Comprador comprador = lg.loginComprador(user, pass);                
+                Comprador comprador = lg.loginComprador(user, pass);
                 request.setAttribute("comprador", comprador);
-                request.getRequestDispatcher("/vistas/comprascontroller?a=main").include(request, response);
+                request.getRequestDispatcher("/vistas/carritocontroller?a=main").include(request, response);
             }
 
         } else {
@@ -92,12 +107,26 @@ public class Validar extends HttpServlet {
         }
     }
 
+    /**
+     * 
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException 
+     */
     public void dashboard(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("main.jsp");
         dispatcher.forward(request, response);
     }
 
+    /**
+     * 
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException 
+     */
     public void PageditarPerfil(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
@@ -106,6 +135,13 @@ public class Validar extends HttpServlet {
 
     }
 
+    /**
+     * 
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException 
+     */
     public void editarPerfil(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         AdministrarEmpleado admi = new AdministrarEmpleado();
@@ -126,6 +162,13 @@ public class Validar extends HttpServlet {
 
     }
 
+    /**
+     * 
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException 
+     */
     public void login(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         EmpresaDAO empr = new EmpresaDAO();
@@ -135,18 +178,36 @@ public class Validar extends HttpServlet {
         dispatcher.forward(request, response);
     }
 
+    /**
+     * 
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException 
+     */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
     }
 
+    /**
+     * 
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException 
+     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
     }
 
+    /**
+     * 
+     * @return 
+     */
     @Override
     public String getServletInfo() {
         return "Short description";

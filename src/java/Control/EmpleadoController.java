@@ -24,6 +24,13 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class EmpleadoController extends HttpServlet {
 
+    /**
+     * 
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException 
+     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
@@ -59,7 +66,14 @@ public class EmpleadoController extends HttpServlet {
         }
     }
 
-    ///////////////////////////////////////Metodo para agregar empleado
+   
+    /**
+     * Metodo para agregar empleado
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException 
+     */
     public void addEmpleado(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
@@ -86,7 +100,14 @@ public class EmpleadoController extends HttpServlet {
 
     }
 
-///////////////////////////////////////METODO DE LISTAR EMPLEADOS
+
+    /**
+     * Metodo de listar empleados
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException 
+     */
     public void listaEmpleado(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         AdministrarEmpleado adm = new AdministrarEmpleado();
@@ -96,9 +117,19 @@ public class EmpleadoController extends HttpServlet {
         dispatcher.forward(request, response);
     }
 
-///////////////////////////////////////METODO DE DIRECCIONAR PARA EDICION DE EMPLEADO
+
+    /**
+     * Variable para obtener id de empleado
+     */
     Integer idEmple = 0;
 
+    /**
+     * Metodo de direccionar para edicion de empleado
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException 
+     */
     public void editEmpleado(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         idEmple = Integer.parseInt(request.getParameter("id"));
@@ -114,8 +145,14 @@ public class EmpleadoController extends HttpServlet {
         }
 
     }
-///////////////////////////////////////METODO DE EDITAR EMPLEADO
 
+/**
+ * Metodo para editar empleado
+ * @param request
+ * @param response
+ * @throws ServletException
+ * @throws IOException 
+ */
     public void editarEmpleado(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         AdministrarEmpleado admi = new AdministrarEmpleado();
@@ -135,8 +172,14 @@ public class EmpleadoController extends HttpServlet {
             Logger.getLogger(EmpleadoController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-///////////////////////////////////////METODO DE ELIMINAR EMPLEADO
 
+    /**
+     * Metodo para eliminar empleado
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException 
+     */
     public void eliminaEmpleado(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         AdministrarEmpleado adm = new AdministrarEmpleado();
@@ -149,18 +192,36 @@ public class EmpleadoController extends HttpServlet {
         }
     }
 
+    /**
+     * 
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException 
+     */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
     }
 
+    /**
+     * 
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException 
+     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
     }
 
+    /**
+     * 
+     * @return 
+     */
     @Override
     public String getServletInfo() {
         return "Short description";

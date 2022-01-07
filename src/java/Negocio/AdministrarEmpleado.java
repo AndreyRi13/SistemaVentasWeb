@@ -22,7 +22,20 @@ public class AdministrarEmpleado {
     public AdministrarEmpleado() {
     }
 
-    /*CRUD EMPLEADO*/
+  
+    /**
+     * CRUD EMPLEADO
+     * @param cedula
+     * @param nombres
+     * @param apellidos
+     * @param username
+     * @param password
+     * @param direccion
+     * @param numeroCelular
+     * @param correoElectronico
+     * @param estado
+     * @return boolean
+     */
     public boolean agregarEmpleado(String cedula, String nombres, String apellidos, String username, String password, String direccion, String numeroCelular, String correoElectronico, String estado) {
         EmpleadoDAO empleado = new EmpleadoDAO();
         Empleado emp = new Empleado(cedula, nombres, apellidos, username, password, direccion, numeroCelular, correoElectronico, estado);
@@ -35,6 +48,12 @@ public class AdministrarEmpleado {
         }
     }
 
+    /**
+     * Metodo para empleado por id
+     * @param idEmpleado
+     * @return Empleado
+     * @throws Exception 
+     */
     public Empleado buscarEmpleadoporId(Integer idEmpleado) throws Exception {
         EmpleadoDAO emp = new EmpleadoDAO();
         List<Empleado> empleadosList = emp.readEmpleados();
@@ -47,6 +66,20 @@ public class AdministrarEmpleado {
         return aux;
     }
 
+    /**
+     * 
+     * @param id
+     * @param cedula
+     * @param nombres
+     * @param apellidos
+     * @param username
+     * @param password
+     * @param direccion
+     * @param numeroCelular
+     * @param correoElectronico
+     * @param estado
+     * @throws Exception 
+     */
     public void editarEmpleado(Integer id, String cedula, String nombres, String apellidos, String username, String password, String direccion, String numeroCelular, String correoElectronico, String estado) throws Exception {
         Empleado em = new Empleado();
         em.setIdEmpleado(id);
@@ -63,11 +96,20 @@ public class AdministrarEmpleado {
         empdao.updateEmpleado(em);
     }
 
+    /**
+     * Metodo para eliminar empleado por id
+     * @param id
+     * @throws Exception 
+     */
     public void eliminarEmpleado(Integer id) throws Exception {
         EmpleadoDAO empdao = new EmpleadoDAO();
         empdao.deleteEmpleado(id);
     }
 
+    /**
+     * Metodo para listar empleados
+     * @return List
+     */
     public List<Empleado> listaEmpleados() {
         EmpleadoDAO emp = new EmpleadoDAO();
         List<Empleado> empleados = emp.readEmpleados();

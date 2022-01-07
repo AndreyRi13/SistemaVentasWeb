@@ -10,32 +10,36 @@ import javax.persistence.Persistence;
 
 /**
  * Es un singleton: Sólo una instancia en runtime
- * @author madarme
+ *
+ * @author Andrey
  */
 public class Conexion {
-    
+
     private static Conexion conexion;
-    private EntityManagerFactory bd; 
- 
+    private EntityManagerFactory bd;
+
     private Conexion() {
-        this.bd=Persistence.createEntityManagerFactory("SistemasVentasWebPU");
-         
+        this.bd = Persistence.createEntityManagerFactory("SistemasVentasWebPU");
+
     }
-     
-     
-    public static Conexion getConexion()
-    {
-        if(conexion==null)
-        {
-            conexion=new Conexion();
+
+    /**
+     *
+     * @return Conexion
+     */
+    public static Conexion getConexion() {
+        if (conexion == null) {
+            conexion = new Conexion();
         }
-    return conexion;
+        return conexion;
     }
- 
+
+    /**
+     *
+     * @return EntityManagerFactory
+     */
     public EntityManagerFactory getBd() {
         return bd;
     }
 
-
-    
 }

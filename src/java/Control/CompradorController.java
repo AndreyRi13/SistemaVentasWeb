@@ -36,6 +36,14 @@ import static sun.font.CreatedFontTracker.MAX_FILE_SIZE;
  */
 public class CompradorController extends HttpServlet {
 
+    /**
+     * 
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     * @throws ParseException 
+     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, ParseException {
 
@@ -80,6 +88,13 @@ public class CompradorController extends HttpServlet {
         }
     }
 
+    /**
+     * 
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException 
+     */
     public void redireccionarRegistro(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         EmpresaDAO empr = new EmpresaDAO();
@@ -88,7 +103,16 @@ public class CompradorController extends HttpServlet {
         request.getRequestDispatcher("registrarComprador.jsp").forward(request, response);
     }
 
-    ///////////////////////////////////////Metodo para agregar comprador
+  
+    /**
+     * Metodo para agregar comprador
+     * 
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     * @throws ParseException 
+     */
     public void registroComprador(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, ParseException {
 
@@ -118,6 +142,14 @@ public class CompradorController extends HttpServlet {
         }
     }
 
+    /**
+     * 
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     * @throws ParseException 
+     */
     public void addComprador(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, ParseException {
 
@@ -148,7 +180,14 @@ public class CompradorController extends HttpServlet {
 
     }
 
-///////////////////////////////////////METODO DE LISTAR compradores
+///////////////////////////////////////
+    /**
+     * Metodo de listar compradores
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException 
+     */
     public void listaComprador(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         AdministrarComprador adm = new AdministrarComprador();
@@ -158,9 +197,20 @@ public class CompradorController extends HttpServlet {
         dispatcher.forward(request, response);
     }
 
-///////////////////////////////////////METODO DE DIRECCIONAR PARA EDICION DE comprador
+/**
+ * Variable para obtener id de empleado
+ */
     Integer idEmple = 0;
 
+    /**
+     * 
+     * Metodo de direccionar para edicion de comprador
+     *
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException 
+     */
     public void editComprador(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         idEmple = Integer.parseInt(request.getParameter("id"));
@@ -177,8 +227,14 @@ public class CompradorController extends HttpServlet {
         }
 
     }
-///////////////////////////////////////METODO DE EDITAR comprador
-
+    
+    /**
+     * Metodo de editar comprador
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException 
+     */
     public void editarComprador(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         AdministrarComprador admi = new AdministrarComprador();
@@ -212,8 +268,14 @@ public class CompradorController extends HttpServlet {
                     .getName()).log(Level.SEVERE, null, ex);
         }
     }
-///////////////////////////////////////METODO DE ELIMINAR comprador
 
+    /**
+     * Metodo de eliminar comprador
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException 
+     */
     public void eliminaComprador(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         AdministrarComprador adm = new AdministrarComprador();
@@ -227,6 +289,13 @@ public class CompradorController extends HttpServlet {
         }
     }
 
+    /**
+     * 
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException 
+     */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -238,6 +307,13 @@ public class CompradorController extends HttpServlet {
         }
     }
 
+    /**
+     * 
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException 
+     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -249,6 +325,10 @@ public class CompradorController extends HttpServlet {
         }
     }
 
+    /**
+     * 
+     * @return 
+     */
     @Override
     public String getServletInfo() {
         return "Short description";

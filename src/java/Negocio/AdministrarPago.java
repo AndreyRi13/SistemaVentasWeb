@@ -15,7 +15,13 @@ import java.util.List;
  */
 public class AdministrarPago {
 
-    /*CRUD Pago*/
+ 
+    /**
+     * Metodo para agregar Pago
+     * @param monto
+     * @param estado
+     * @return boolean
+     */
     public boolean agregarPago(Double monto, String estado) {
         PagoDAO pago = new PagoDAO();
         Pago emp = new Pago(monto, estado);
@@ -28,6 +34,12 @@ public class AdministrarPago {
         }
     }
 
+    /**
+     * Metodo para buscar pago por id
+     * @param idPago
+     * @return Pago
+     * @throws Exception 
+     */
     public Pago buscarPagoporId(Integer idPago) throws Exception {
         PagoDAO emp = new PagoDAO();
         List<Pago> pagosList = emp.readPagos();
@@ -40,6 +52,13 @@ public class AdministrarPago {
         return aux;
     }
 
+    /**
+     * Metodo para editar pago
+     * @param idPago
+     * @param monto
+     * @param estado
+     * @throws Exception 
+     */
     public void editarPago(Integer idPago, Double monto, String estado) throws Exception {
         Pago em = new Pago();
         em.setIdPago(idPago);
@@ -50,11 +69,20 @@ public class AdministrarPago {
         empdao.updatePago(em);
     }
 
+    /**
+     * Metodo para eliminar pago por id
+     * @param id
+     * @throws Exception 
+     */
     public void eliminarPago(Integer id) throws Exception {
         PagoDAO empdao = new PagoDAO();
         empdao.deletePago(id);
     }
 
+    /**
+     * Metodo para listar pagos
+     * @return List
+     */
     public List<Pago> listaPagos() {
         PagoDAO emp = new PagoDAO();
         List<Pago> pago = emp.readPagos();

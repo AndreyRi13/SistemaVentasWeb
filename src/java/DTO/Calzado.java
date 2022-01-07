@@ -87,10 +87,25 @@ public class Calzado implements Serializable {
     public Calzado() {
     }
 
+    /**
+     * 
+     * @param idCalzado 
+     */
     public Calzado(Integer idCalzado) {
         this.idCalzado = idCalzado;
     }
 
+    /**
+     * 
+     * @param idCalzado
+     * @param referencia
+     * @param descripcion
+     * @param marca
+     * @param color
+     * @param colorSuela
+     * @param talla
+     * @param foto 
+     */
     public Calzado(Integer idCalzado, int referencia, String descripcion, String marca, String color, String colorSuela, int talla, String foto) {
         this.idCalzado = idCalzado;
         this.referencia = referencia;
@@ -102,18 +117,34 @@ public class Calzado implements Serializable {
         this.foto = foto;
     }
 
+    /**
+     * 
+     * @return Integer
+     */
     public Integer getIdCalzado() {
         return idCalzado;
     }
 
+    /**
+     * 
+     * @param idCalzado 
+     */
     public void setIdCalzado(Integer idCalzado) {
         this.idCalzado = idCalzado;
     }
 
+    /**
+     * 
+     * @return int
+     */
     public int getReferencia() {
         return referencia;
     }
 
+    /**
+     * 
+     * @param referencia 
+     */
     public void setReferencia(int referencia) {
         this.referencia = referencia;
     }
@@ -122,66 +153,130 @@ public class Calzado implements Serializable {
         return nombres;
     }
 
+    /**
+     * 
+     * @param nombres 
+     */
     public void setNombres(String nombres) {
         this.nombres = nombres;
     }
 
+    /**
+     * 
+     * @return String
+     */
     public String getDescripcion() {
         return descripcion;
     }
 
+    /**
+     * 
+     * @param descripcion 
+     */
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
 
+    /**
+     * 
+     * @return String
+     */
     public String getMarca() {
         return marca;
     }
 
+    /**
+     * 
+     * @param marca 
+     */
     public void setMarca(String marca) {
         this.marca = marca;
     }
 
+    /**
+     * 
+     * @return String
+     */
     public String getColor() {
         return color;
     }
 
+    /**
+     * 
+     * @param color 
+     */
     public void setColor(String color) {
         this.color = color;
     }
 
+    /**
+     * 
+     * @return String
+     */
     public String getColorSuela() {
         return colorSuela;
     }
 
+    /**
+     * 
+     * @param colorSuela 
+     */
     public void setColorSuela(String colorSuela) {
         this.colorSuela = colorSuela;
     }
 
+    /**
+     * 
+     * @return int
+     */
     public int getTalla() {
         return talla;
     }
 
+    /**
+     * 
+     * @param talla 
+     */
     public void setTalla(int talla) {
         this.talla = talla;
     }
 
+    /**
+     * 
+     * @return Double
+     */
     public Double getPrecio() {
         return precio;
     }
 
+    /**
+     * 
+     * @param precio 
+     */
     public void setPrecio(Double precio) {
         this.precio = precio;
     }
 
+    /**
+     * 
+     * @return 
+     */
     public Integer getStock() {
         return stock;
     }
 
+    /**
+     * 
+     * @param stock 
+     */
     public void setStock(Integer stock) {
         this.stock = stock;
     }
 
+    /**
+     * 
+     * @return 
+     */
     public String getEstado() {
         return estado;
     }

@@ -59,7 +59,7 @@
 
                                     <li class="nav-item">
                                         <div class="user_option_box">
-                                            <a href="comprascontroller?a=carrito" class="nav-link">
+                                            <a href="carritocontroller?a=carrito" class="nav-link">
                                                 <i class="fa fa-cart-plus" aria-hidden="true"><label style="color:orange;">${contador}</label></i>
                                                 <span>
                                                     Carrito
@@ -110,14 +110,14 @@
                                     <div class="row img-box">
                                         <img src="../images/${producto.foto}" alt="" style="width:365px; height:265px;">
 
-                                        <a href="comprascontroller?a=addCart&id=${producto.idCalzado}" class="add_cart_btn" style="width:155px;">
+                                        <a href="carritocontroller?a=addCart&id=${producto.idCalzado}" class="add_cart_btn" style="width:155px;">
                                             <span>
                                                 Agregar al Carrito
                                             </span>
                                         </a>
 
                                         <div class="col-6">
-                                            <a href="comprascontroller?a=comprar&id=${producto.idCalzado}" class="add_cart_btn" style="width:80px;">
+                                            <a href="carritocontroller?a=comprar&id=${producto.idCalzado}" class="add_cart_btn" style="width:80px;">
                                                 <span>
                                                     Comprar
                                                 </span>
@@ -126,7 +126,7 @@
                                     </div>
                                     <br>
                                     <br>
-                                    <a href="comprascontroller?a=verMas&id=${producto.idCalzado}" class="add_cart_btn">
+                                    <a href="carritocontroller?a=verMas&id=${producto.idCalzado}" class="add_cart_btn">
                                         <span>
                                             Ver más
                                         </span>

@@ -20,27 +20,48 @@ import java.util.logging.Logger;
 public class CompradorDAO {
  CompradorJpaController comprador;
 
+ 
+ 
     public CompradorDAO() {
-
         Conexion con = Conexion.getConexion();
         this.comprador = new CompradorJpaController(con.getBd());
 
     }
 
+    /**
+     * 
+     * @return List
+     */
     public List<Comprador> readCompradores() {
         return this.comprador.findCompradorEntities();
     }
 
+    /**
+     * 
+     * @param idComprador
+     * @return Comprador
+     */
     public Comprador findComprador(int idComprador) {
         return this.comprador.findComprador(idComprador);
     }
 
+    /**
+     * 
+     * @param emp
+     * @throws Exception 
+     */
     public void addComprador(Comprador emp) throws Exception {
    
             this.comprador.create(emp);
   
     }
     
+    /**
+     * 
+     * @param idEm
+     * @return boolean
+     * @throws IllegalOrphanException 
+     */
     public boolean deleteComprador(Integer idEm) throws IllegalOrphanException{
     
         try {
@@ -53,7 +74,11 @@ public class CompradorDAO {
     
     }
     
-    
+    /**
+     * 
+     * @param e
+     * @return boolean
+     */
     public boolean updateComprador(Comprador e){
         try {
             comprador.edit(e);

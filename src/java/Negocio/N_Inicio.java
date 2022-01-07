@@ -18,6 +18,10 @@ public class N_Inicio {
     public N_Inicio() {
     }
 
+    /**
+     * Metodo inicial de pagina principal para listar calzados
+     * @return List
+     */
     public List<Calzado> listCalzados() {
         CalzadoDAO pr = new CalzadoDAO();
         List<Calzado> product = pr.readCalzados();

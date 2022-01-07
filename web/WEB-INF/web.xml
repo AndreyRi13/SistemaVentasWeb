@@ -28,6 +28,14 @@
         <servlet-name>ComprasController</servlet-name>
         <servlet-class>Control.ComprasController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CarritoController</servlet-name>
+        <servlet-class>Control.CarritoController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>PagoController</servlet-name>
+        <servlet-class>Control.PagoController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>EmpleadoController</servlet-name>
         <url-pattern>/vistas/empleadocontroller</url-pattern>
@@ -71,6 +79,14 @@
     <servlet-mapping>
         <servlet-name>ComprasController</servlet-name>
         <url-pattern>/vistas/comprascontroller</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CarritoController</servlet-name>
+        <url-pattern>/vistas/carritocontroller</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PagoController</servlet-name>
+        <url-pattern>/vistas/pagocontroller</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -17,9 +17,7 @@
         <!-- Site Metas -->
         <link rel="icon" href="../images/fevicon.png" type="image/gif" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-        <meta name="keywords" content="" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
+
 
         <title>CAYSAM</title>
 
@@ -47,7 +45,6 @@
     <body>
 
         <div class="hero_area">
-
             <header class="header_section">
 
                 <div class="header_bottom">
@@ -97,93 +94,87 @@
                     </div>
                 </div>
             </header>
-            <!-- product section -->
-            <section class="product_section layout_padding">
-                <div class="container">
-                    <div class="heading_container heading_center">
-                        <h2>
-                            Carrito
-                        </h2>
-                    </div>
+
+                                                    
+            <!-- section pago--> 
+            <div class="container" style="align-items: center; padding: 100px;">
+                <form class="form-horizontal" action="comprascontroller?a=addCompra" method="POST">
+                    <div class="row">
+                        <div class="col-md-6 col-6">
+                            <div class="form-group">
+                                <h2>
+                                    <i class="fas fa-shipping-fast"></i>
+                                    Detalles de envío
+                                </h2>
+                            </div>
+                            <div class="form-group">
+                                <input  id="fname" name="txtNombres" type="text" placeholder="Nombre completo" class="form-control"/>
+                            </div>
+
+                            <div class="form-group">
+                                <input id="fname" name="txtUsername" type="text" placeholder="Pais" class="form-control">
+                            </div>
+
+                            <div class="form-group">
+                                <input  id="fname" name="txtDireccion" type="text" placeholder="Ciudad" class="form-control">
+                            </div>
+
+                            <div class="form-group">
+                                <input id="fname" name="txtCorreoElectronico" type="text" placeholder="Dirección" class="form-control">
+                            </div>
 
 
+                            <div class="form-group">
+                                <input id="fname" name="txtCorreoElectronico" type="text" placeholder="Código postal" class="form-control">
+                            </div>
+
+                        </div>
 
 
-                    <div class="container mt-4">
-                        <div class="row">
-
-                            <div class="col-sm-8">
-                                <table class="table table-hover" border="1">
-                                    <thead>
-                                        <tr>
-                                            <th>ITEM</th>
-                                            <th>NOMBRES</th>
-                                            <th>DESCRIPCION</th>
-                                            <th>PRECIO</th>
-                                            <th>CANT</th>
-                                            <th>SUBTOTAL</th>
-                                            <th>ELIMINAR</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-
-                                        <c:forEach var="item" items="${productos}">
-                                            <tr>
-                                                <td>${productos.indexOf(item)+1}</td>
-                                                <td>${item.getCalzado().getNombres()}</td>
-                                                <td>${item.getCalzado().getDescripcion()}</td>
-                                                <td>${item.getCalzado().getPrecio()}</td>
-                                                <td>
-                                                    <input type="hidden" id="idpro" value="${item.getCalzado().getIdCalzado()}">
-                                                    <input onClick="window.location.reload()" type="number" id="Cantidad" value="${item.getCantidad()}" class="form-control text-centert" min="1">  
-
-
-                                                </td>
-                                                <td>${item.getSubTotal()}</td>
-                                                <td class="text-center align-content-center">
-
-                                                    <input type="hidden" id="id" value="${productos.indexOf(item)}">
-                                                    <a href="#"  id="btnDelete"><i class="bi bi-trash-fill" style="font-size:25px;"></i></a>
-                                                    <!--<a id="btnDelete" class="btn btn-danger" href="inicio?a=eliminarItemCarrito&id=${productos.indexOf(item)}">Eliminar</a>-->
-
-
-                                                </td>                                     
-                                            </tr>
-                                        </c:forEach>
-                                    </tbody>
-                                </table>
-                            </div> 
-                            <div class="col-sm-4">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h3>Generar Compra</h3>
-
-                                    </div>
-                                    <div class="card-body">
-                                        <label>SubTotal:</label>
-                                        <input type="text" value="${totalPagar}"  readonly="" class="form-control">
-                                        <label>Descuento:</label>
-                                        <input type="text" value="0.0" readonly="" class="form-control">
-                                        <label>Total Pagar:</label>
-                                        <input type="text" value="${totalPagar}" readonly="" class="form-control">
-                                    </div>
-                                    <div class="card-footer">
-                                        <a href="pagocontroller?a=pagar" class="btn btn-info btn-block">Continuar compra</a>                                        
-                                    </div>
-                                </div>  
-
+                        <div class="col-md-6 col-6">
+                            <div class="form-group">
+                                <h2><i class="far fa-credit-card"></i> Información del pago</h2>
+                            </div>
+                            <div class="form-group">
+                                <input id="fname" name="txtNumeroCelular" type="text" placeholder="Credit Card No." class="form-control">
                             </div>
 
 
 
+
+                            <div class="form-group">
+                                <input  id="fname" name="txtApellidos" type="text" placeholder="Exp" class="form-control"/>
+                            </div>
+
+                            <div class="form-group">
+                                <input id="fname" name="txtPassword" type="text" placeholder="CCV" class="form-control">
+                            </div>
+
+
                         </div>
 
-                    </div>
-                </div>
-            </section>
-        </div>
-        <!-- end product section -->
 
+
+                    </div>
+                    <br> <br>
+                    <div  class="container align-content-end">
+
+                        <div  class="row">
+                            <div  class="col-2 col-md-2 col-lg-2" style="align-items: flex-end;">
+                                <button type="submit" class="btn btn-success">Comprar</button>
+                            </div>
+                            <div class="col-10 col-md-10 col-lg-10">
+                                <button  type="submit" class="btn btn-warning">Volver al carrito</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+
+        <!-- end section pago -->   
 
         <!-- info section -->
         <section class="info_section ">

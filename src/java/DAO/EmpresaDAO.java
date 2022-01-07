@@ -26,20 +26,37 @@ public class EmpresaDAO {
 
     }
 
+    /**
+     * 
+     * @return List
+     */
     public List<Empresa> readEmpresas() {
         return this.empresa.findEmpresaEntities();
     }
 
+    /**
+     * 
+     * @param idEmpresa
+     * @return Empresa
+     */
     public Empresa findEmpresa(int idEmpresa) {
         return this.empresa.findEmpresa(idEmpresa);
     }
 
+    /**
+     * 
+     * @param emp
+     * @throws Exception 
+     */
     public void addEmpresa(Empresa emp) throws Exception {
-   
             this.empresa.create(emp);
-  
     }
     
+    /**
+     * 
+     * @param idEm
+     * @return boolean
+     */
     public boolean deleteEmpresa(Integer idEm){
     
         try {
@@ -48,11 +65,14 @@ public class EmpresaDAO {
         } catch (NonexistentEntityException ex) {
             Logger.getLogger(EmpresaDAO.class.getName()).log(Level.SEVERE, null, ex);
             return false;
-        }
-    
+        }   
     }
     
-    
+    /**
+     * 
+     * @param e
+     * @return boolean
+     */
     public boolean updateEmpresa(Empresa e){
         try {
             empresa.edit(e);

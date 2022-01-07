@@ -1,70 +1,57 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
+ */
 package Control;
 
-import DAO.CalzadoDAO;
-import DAO.EmpresaDAO;
-import DTO.Calzado;
-import DTO.Carrito;
-import DTO.Comprador;
-import DTO.Empresa;
-import Negocio.AdministrarCalzado;
 import java.io.IOException;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author Andrey
  */
-
-public class ComprasController extends HttpServlet {
+public class PagoController extends HttpServlet {
 
     /**
-     * 
-     * @param request
-     * @param response
-     * @throws ServletException
-     * @throws IOException 
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String action = request.getParameter("a");
 
-        switch (action) {
+          String action = request.getParameter("a");
+      
+            switch (action) {
+                case "pagar":
+                    RequestDispatcher dispatcher = request.getRequestDispatcher("pago.jsp");
+                    dispatcher.forward(request, response);
+                    break;
+               
 
-            case "addCompra":
-                addCompra(request, response);
-                break;
-
+            
         }
-    }
-
-    /**
-     * 
-     * @param request
-     * @param response 
-     */
-    private void addCompra(HttpServletRequest request, HttpServletResponse response) {
-        try {
-            response.sendRedirect("/SistemasVentasWeb/vistas/carritocontroller?a=main");
-        } catch (IOException ex) {
-            Logger.getLogger(ComprasController.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
+    
 
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
-     * 
-     * @param request
-     * @param response
-     * @throws ServletException
-     * @throws IOException 
+     * Handles the HTTP <code>GET</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)

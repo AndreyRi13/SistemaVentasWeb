@@ -19,7 +19,7 @@ $(document).ready(function () {
                         ).then((result) => {
 
                     if (result.isConfirmed) {
-                        parent.location.href = "comprascontroller?a=carrito";
+                        parent.location.href = "carritocontroller?a=carrito";
                     }
                 });
             } else {
@@ -31,7 +31,7 @@ $(document).ready(function () {
     });
     
     function eliminar(id) {
-        var url = "comprascontroller?a=eliminarItemCarrito";
+        var url = "carritocontroller?a=eliminarItemCarrito";
         $.ajax({
             type: 'POST',
             url: url,
@@ -45,7 +45,7 @@ $(document).ready(function () {
     $("tr #Cantidad").click(function () {
         var idp=$(this).parent().find("#idpro").val();
         var cantidad = $(this).parent().find("#Cantidad").val();
-        var url = "comprascontroller?a=actualizarCantidad";
+        var url = "carritocontroller?a=actualizarCantidad";
         $.ajax({
             type: 'POST',
             url: url,

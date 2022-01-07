@@ -18,7 +18,22 @@ public class AdministrarCalzado {
     public AdministrarCalzado() {
     }
 
-    /*CRUD Calzado*/
+   
+    /**
+     * CRUD Calzado
+     * @param referencia
+     * @param nombres
+     * @param descripcion
+     * @param marca
+     * @param color
+     * @param colorSuela
+     * @param talla
+     * @param precio
+     * @param stock
+     * @param estado
+     * @param Foto
+     * @return 
+     */
     public boolean agregarCalzado(Integer referencia, String nombres, String descripcion, String marca, String color, String colorSuela, Integer talla, Double precio, Integer stock, String estado, String Foto) {
 
         CalzadoDAO Calzado = new CalzadoDAO();
@@ -47,12 +62,21 @@ public class AdministrarCalzado {
 
     }
 
+    /**
+     * 
+     * @return List
+     */
     public List<Calzado> listaCalzados() {
         CalzadoDAO pro = new CalzadoDAO();
         List<Calzado> Calzados = pro.readCalzados();
         return Calzados;
     }
 
+    /**
+     * 
+     * @param idCalzado
+     * @return Calzado
+     */
     public Calzado buscarCalzadoporId(Integer idCalzado) {
         CalzadoDAO pro = new CalzadoDAO();
         for (Calzado m : pro.readCalzados()) {
@@ -63,6 +87,22 @@ public class AdministrarCalzado {
         return null;
     }
 
+    /**
+     * 
+     * @param idCalzado
+     * @param referencia
+     * @param nombres
+     * @param descripcion
+     * @param marca
+     * @param color
+     * @param colorSuela
+     * @param talla
+     * @param precio
+     * @param stock
+     * @param estado
+     * @param Foto
+     * @throws Exception 
+     */
     public void editarCalzado(Integer idCalzado, Integer referencia, String nombres, String descripcion, String marca, String color, String colorSuela, Integer talla, double precio, Integer stock, String estado, String Foto) throws Exception {
         Calzado pro = new Calzado();
         pro.setIdCalzado(idCalzado);
@@ -81,6 +121,11 @@ public class AdministrarCalzado {
         prodao.updateCalzado(pro);
     }
 
+    /**
+     * Metodo para eliminar calzado por id
+     * @param id
+     * @throws Exception 
+     */
     public void eliminarProduct(Integer id) throws Exception {
         CalzadoDAO prodao = new CalzadoDAO();
         prodao.deleteCalzado(id);
