@@ -1,7 +1,6 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package DTO;
 
@@ -23,7 +22,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author Andrey R
+ * @author Andrey
  */
 @Entity
 @Table(name = "calzado")
@@ -44,9 +43,6 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Calzado.findByFoto", query = "SELECT c FROM Calzado c WHERE c.foto = :foto")})
 public class Calzado implements Serializable {
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idCalzado")
-    private Collection<DetalleCompras> detalleComprasCollection;
-
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -56,6 +52,7 @@ public class Calzado implements Serializable {
     @Basic(optional = false)
     @Column(name = "referencia")
     private int referencia;
+    @Basic(optional = false)
     @Column(name = "nombres")
     private String nombres;
     @Basic(optional = false)
@@ -73,78 +70,55 @@ public class Calzado implements Serializable {
     @Basic(optional = false)
     @Column(name = "talla")
     private int talla;
-    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
+    @Basic(optional = false)
     @Column(name = "precio")
-    private Double precio;
+    private double precio;
+    @Basic(optional = false)
     @Column(name = "stock")
-    private Integer stock;
+    private int stock;
+    @Basic(optional = false)
     @Column(name = "estado")
     private String estado;
     @Basic(optional = false)
     @Column(name = "foto")
     private String foto;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idCalzado")
+    private Collection<DetalleCompra> detalleCompraCollection;
 
     public Calzado() {
     }
 
-    /**
-     * 
-     * @param idCalzado 
-     */
     public Calzado(Integer idCalzado) {
         this.idCalzado = idCalzado;
     }
 
-    /**
-     * 
-     * @param idCalzado
-     * @param referencia
-     * @param descripcion
-     * @param marca
-     * @param color
-     * @param colorSuela
-     * @param talla
-     * @param foto 
-     */
-    public Calzado(Integer idCalzado, int referencia, String descripcion, String marca, String color, String colorSuela, int talla, String foto) {
+    public Calzado(Integer idCalzado, int referencia, String nombres, String descripcion, String marca, String color, String colorSuela, int talla, double precio, int stock, String estado, String foto) {
         this.idCalzado = idCalzado;
         this.referencia = referencia;
+        this.nombres = nombres;
         this.descripcion = descripcion;
         this.marca = marca;
         this.color = color;
         this.colorSuela = colorSuela;
         this.talla = talla;
+        this.precio = precio;
+        this.stock = stock;
+        this.estado = estado;
         this.foto = foto;
     }
 
-    /**
-     * 
-     * @return Integer
-     */
     public Integer getIdCalzado() {
         return idCalzado;
     }
 
-    /**
-     * 
-     * @param idCalzado 
-     */
     public void setIdCalzado(Integer idCalzado) {
         this.idCalzado = idCalzado;
     }
 
-    /**
-     * 
-     * @return int
-     */
     public int getReferencia() {
         return referencia;
     }
 
-    /**
-     * 
-     * @param referencia 
-     */
     public void setReferencia(int referencia) {
         this.referencia = referencia;
     }
@@ -153,130 +127,66 @@ public class Calzado implements Serializable {
         return nombres;
     }
 
-    /**
-     * 
-     * @param nombres 
-     */
     public void setNombres(String nombres) {
         this.nombres = nombres;
     }
 
-    /**
-     * 
-     * @return String
-     */
     public String getDescripcion() {
         return descripcion;
     }
 
-    /**
-     * 
-     * @param descripcion 
-     */
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
 
-    /**
-     * 
-     * @return String
-     */
     public String getMarca() {
         return marca;
     }
 
-    /**
-     * 
-     * @param marca 
-     */
     public void setMarca(String marca) {
         this.marca = marca;
     }
 
-    /**
-     * 
-     * @return String
-     */
     public String getColor() {
         return color;
     }
 
-    /**
-     * 
-     * @param color 
-     */
     public void setColor(String color) {
         this.color = color;
     }
 
-    /**
-     * 
-     * @return String
-     */
     public String getColorSuela() {
         return colorSuela;
     }
 
-    /**
-     * 
-     * @param colorSuela 
-     */
     public void setColorSuela(String colorSuela) {
         this.colorSuela = colorSuela;
     }
 
-    /**
-     * 
-     * @return int
-     */
     public int getTalla() {
         return talla;
     }
 
-    /**
-     * 
-     * @param talla 
-     */
     public void setTalla(int talla) {
         this.talla = talla;
     }
 
-    /**
-     * 
-     * @return Double
-     */
-    public Double getPrecio() {
+    public double getPrecio() {
         return precio;
     }
 
-    /**
-     * 
-     * @param precio 
-     */
-    public void setPrecio(Double precio) {
+    public void setPrecio(double precio) {
         this.precio = precio;
     }
 
-    /**
-     * 
-     * @return 
-     */
-    public Integer getStock() {
+    public int getStock() {
         return stock;
     }
 
-    /**
-     * 
-     * @param stock 
-     */
-    public void setStock(Integer stock) {
+    public void setStock(int stock) {
         this.stock = stock;
     }
 
-    /**
-     * 
-     * @return 
-     */
     public String getEstado() {
         return estado;
     }
@@ -291,6 +201,15 @@ public class Calzado implements Serializable {
 
     public void setFoto(String foto) {
         this.foto = foto;
+    }
+
+    @XmlTransient
+    public Collection<DetalleCompra> getDetalleCompraCollection() {
+        return detalleCompraCollection;
+    }
+
+    public void setDetalleCompraCollection(Collection<DetalleCompra> detalleCompraCollection) {
+        this.detalleCompraCollection = detalleCompraCollection;
     }
 
     @Override
@@ -315,17 +234,7 @@ public class Calzado implements Serializable {
 
     @Override
     public String toString() {
-        return "Calzado{" + "idCalzado=" + idCalzado + ", referencia=" + referencia + ", nombres=" + nombres + ", descripcion=" + descripcion + ", marca=" + marca + ", color=" + color + ", colorSuela=" + colorSuela + ", talla=" + talla + ", precio=" + precio + ", stock=" + stock + ", estado=" + estado + ", foto=" + foto + '}';
+        return "DTO.Calzado[ idCalzado=" + idCalzado + " ]";
     }
-
-    @XmlTransient
-    public Collection<DetalleCompras> getDetalleComprasCollection() {
-        return detalleComprasCollection;
-    }
-
-    public void setDetalleComprasCollection(Collection<DetalleCompras> detalleComprasCollection) {
-        this.detalleComprasCollection = detalleComprasCollection;
-    }
-  
     
 }

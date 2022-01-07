@@ -1,7 +1,6 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package DTO;
 
@@ -21,17 +20,17 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author Andrey R
+ * @author Andrey
  */
 @Entity
-@Table(name = "detalle_compras")
+@Table(name = "detalle_compra")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "DetalleCompras.findAll", query = "SELECT d FROM DetalleCompras d"),
-    @NamedQuery(name = "DetalleCompras.findByIdDetalle", query = "SELECT d FROM DetalleCompras d WHERE d.idDetalle = :idDetalle"),
-    @NamedQuery(name = "DetalleCompras.findByCantidad", query = "SELECT d FROM DetalleCompras d WHERE d.cantidad = :cantidad"),
-    @NamedQuery(name = "DetalleCompras.findByPrecioCompra", query = "SELECT d FROM DetalleCompras d WHERE d.precioCompra = :precioCompra")})
-public class DetalleCompras implements Serializable {
+    @NamedQuery(name = "DetalleCompra.findAll", query = "SELECT d FROM DetalleCompra d"),
+    @NamedQuery(name = "DetalleCompra.findByIdDetalle", query = "SELECT d FROM DetalleCompra d WHERE d.idDetalle = :idDetalle"),
+    @NamedQuery(name = "DetalleCompra.findByCantidad", query = "SELECT d FROM DetalleCompra d WHERE d.cantidad = :cantidad"),
+    @NamedQuery(name = "DetalleCompra.findByPrecioCompra", query = "SELECT d FROM DetalleCompra d WHERE d.precioCompra = :precioCompra")})
+public class DetalleCompra implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -48,35 +47,31 @@ public class DetalleCompras implements Serializable {
     @JoinColumn(name = "idCalzado", referencedColumnName = "idCalzado")
     @ManyToOne(optional = false)
     private Calzado idCalzado;
-    @JoinColumn(name = "idCompras", referencedColumnName = "idCompras")
+    @JoinColumn(name = "idCompra", referencedColumnName = "idCompra")
     @ManyToOne(optional = false)
-    private Compras idCompras;
+    private Compra idCompra;
 
-    public DetalleCompras() {
+    public DetalleCompra() {
     }
 
-    public DetalleCompras(Integer idDetalle) {
+    public DetalleCompra(Integer idDetalle) {
         this.idDetalle = idDetalle;
     }
 
-    public DetalleCompras(Integer idDetalle, int cantidad, double precioCompra, Calzado idCalzado, Compras idCompras) {
+    public DetalleCompra(Integer idDetalle, int cantidad, double precioCompra) {
         this.idDetalle = idDetalle;
         this.cantidad = cantidad;
         this.precioCompra = precioCompra;
-        this.idCalzado = idCalzado;
-        this.idCompras = idCompras;
     }
 
-
+    public DetalleCompra(int cantidad, double precioCompra, Calzado idCalzado, Compra idCompra) {
+        this.cantidad = cantidad;
+        this.precioCompra = precioCompra;
+        this.idCalzado = idCalzado;
+        this.idCompra = idCompra;
+    }
     
-
-    public DetalleCompras(int cantidad, double precioCompra, Calzado idCalzado, Compras idCompras) {
-
-        this.cantidad = cantidad;
-        this.precioCompra = precioCompra;
-        this.idCalzado = idCalzado;
-        this.idCompras = idCompras;
-    }
+    
 
     public Integer getIdDetalle() {
         return idDetalle;
@@ -110,12 +105,12 @@ public class DetalleCompras implements Serializable {
         this.idCalzado = idCalzado;
     }
 
-    public Compras getIdCompras() {
-        return idCompras;
+    public Compra getIdCompra() {
+        return idCompra;
     }
 
-    public void setIdCompras(Compras idCompras) {
-        this.idCompras = idCompras;
+    public void setIdCompra(Compra idCompra) {
+        this.idCompra = idCompra;
     }
 
     @Override
@@ -128,10 +123,10 @@ public class DetalleCompras implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof DetalleCompras)) {
+        if (!(object instanceof DetalleCompra)) {
             return false;
         }
-        DetalleCompras other = (DetalleCompras) object;
+        DetalleCompra other = (DetalleCompra) object;
         if ((this.idDetalle == null && other.idDetalle != null) || (this.idDetalle != null && !this.idDetalle.equals(other.idDetalle))) {
             return false;
         }
@@ -140,7 +135,7 @@ public class DetalleCompras implements Serializable {
 
     @Override
     public String toString() {
-        return "DTO.DetalleCompras[ idDetalle=" + idDetalle + " ]";
+        return "DTO.DetalleCompra[ idDetalle=" + idDetalle + " ]";
     }
-
+    
 }

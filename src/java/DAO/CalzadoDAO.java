@@ -7,6 +7,7 @@ package DAO;
 
 import DTO.Calzado;
 import Persistencia.CalzadoJpaController;
+import Persistencia.exceptions.IllegalOrphanException;
 import Persistencia.exceptions.NonexistentEntityException;
 import java.util.List;
 import java.util.logging.Level;
@@ -64,17 +65,23 @@ public class CalzadoDAO {
     /**
      * 
      * @param idPro
-     * @return boolean
+     * @return 
      */
     public boolean deleteCalzado(Integer idPro) {
 
+      
         try {
             pro.destroy(idPro);
             return true;
+        } catch (IllegalOrphanException ex) {
+            Logger.getLogger(CalzadoDAO.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
         } catch (NonexistentEntityException ex) {
-            Logger.getLogger(EmpleadoDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CalzadoDAO.class.getName()).log(Level.SEVERE, null, ex);
             return false;
         }
+            
+       
 
     }
 

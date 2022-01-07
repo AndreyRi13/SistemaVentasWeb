@@ -65,9 +65,6 @@ public class PagoDAO {
         try {
             pago.destroy(idEm);
             return true;
-        } catch (IllegalOrphanException ex) {
-            Logger.getLogger(PagoDAO.class.getName()).log(Level.SEVERE, null, ex);
-            return false;
         } catch (NonexistentEntityException ex) {
             Logger.getLogger(PagoDAO.class.getName()).log(Level.SEVERE, null, ex);
             return false;

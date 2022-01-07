@@ -93,21 +93,6 @@ public class Comprador implements Serializable {
         this.idComprador = idComprador;
     }
 
-    public Comprador(String cedula, String nombres, String apellidos, Date fechaNacimiento, int edad, String genero, String username, String password, String direccion, String numeroCelular, String correoElectronico, String estado) {
-        this.cedula = cedula;
-        this.nombres = nombres;
-        this.apellidos = apellidos;
-        this.fechaNacimiento = fechaNacimiento;
-        this.edad = edad;
-        this.genero = genero;
-        this.username = username;
-        this.password = password;
-        this.direccion = direccion;
-        this.numeroCelular = numeroCelular;
-        this.correoElectronico = correoElectronico;
-        this.estado = estado;
-    }
-
     public Comprador(Integer idComprador, String cedula, String nombres, String apellidos, int edad, String genero, String username, String password, String direccion, String numeroCelular, String correoElectronico, String estado) {
         this.idComprador = idComprador;
         this.cedula = cedula;
@@ -122,6 +107,22 @@ public class Comprador implements Serializable {
         this.correoElectronico = correoElectronico;
         this.estado = estado;
     }
+
+    public Comprador(String cedula, String nombres, String apellidos, Date fechaNacimiento, int edad, String genero, String username, String password, String direccion, String numeroCelular, String correoElectronico, String estado) {
+        this.cedula = cedula;
+        this.nombres = nombres;
+        this.apellidos = apellidos;
+        this.fechaNacimiento = fechaNacimiento;
+        this.edad = edad;
+        this.genero = genero;
+        this.username = username;
+        this.password = password;
+        this.direccion = direccion;
+        this.numeroCelular = numeroCelular;
+        this.correoElectronico = correoElectronico;
+        this.estado = estado;
+    }
+    
 
     public Integer getIdComprador() {
         return idComprador;

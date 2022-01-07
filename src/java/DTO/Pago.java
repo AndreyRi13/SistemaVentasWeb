@@ -1,14 +1,11 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package DTO;
 
 import java.io.Serializable;
-import java.util.Collection;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,14 +13,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author Andrey R
+ * @author Andrey
  */
 @Entity
 @Table(name = "pago")
@@ -35,13 +30,6 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Pago.findByEstado", query = "SELECT p FROM Pago p WHERE p.estado = :estado")})
 public class Pago implements Serializable {
 
-    @Basic(optional = false)
-    @Column(name = "monto")
-    private double monto;
-
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idPago")
-    private Collection<Compras> comprasCollection;
-
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -49,24 +37,30 @@ public class Pago implements Serializable {
     @Column(name = "idPago")
     private Integer idPago;
     @Basic(optional = false)
+    @Column(name = "monto")
+    private double monto;
+    @Basic(optional = false)
     @Column(name = "estado")
     private String estado;
- 
 
     public Pago() {
     }
 
-    public Pago(Integer idPago, Double monto, String estado) {
+    public Pago(Integer idPago) {
+        this.idPago = idPago;
+    }
+
+    public Pago(Integer idPago, double monto, String estado) {
         this.idPago = idPago;
         this.monto = monto;
         this.estado = estado;
     }
 
-    public Pago(Double monto, String estado) {
+    public Pago(double monto, String estado) {
         this.monto = monto;
         this.estado = estado;
     }
-
+    
 
     public Integer getIdPago() {
         return idPago;
@@ -76,6 +70,13 @@ public class Pago implements Serializable {
         this.idPago = idPago;
     }
 
+    public double getMonto() {
+        return monto;
+    }
+
+    public void setMonto(double monto) {
+        this.monto = monto;
+    }
 
     public String getEstado() {
         return estado;
@@ -105,22 +106,9 @@ public class Pago implements Serializable {
         return true;
     }
 
-    @XmlTransient
-    public Collection<Compras> getComprasCollection() {
-        return comprasCollection;
+    @Override
+    public String toString() {
+        return "DTO.Pago[ idPago=" + idPago + " ]";
     }
-
-    public void setComprasCollection(Collection<Compras> comprasCollection) {
-        this.comprasCollection = comprasCollection;
-    }
-
-    public double getMonto() {
-        return monto;
-    }
-
-    public void setMonto(double monto) {
-        this.monto = monto;
-    }
-
-
+    
 }
