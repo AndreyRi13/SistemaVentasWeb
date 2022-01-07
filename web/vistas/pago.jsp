@@ -163,8 +163,9 @@
                             <div  class="col-2 col-md-2 col-lg-2" style="align-items: flex-end;">
                                 <button type="submit" class="btn btn-success">Comprar</button>
                             </div>
-                            <div class="col-10 col-md-10 col-lg-10">
-                                <button  type="submit" class="btn btn-warning">Volver al carrito</button>
+                            <div class="col-10 col-md-10 col-lg-10">                              
+                                        <a  href="carritocontroller?a=main" class="btn btn-warning">Volver al carrito</a>                                       
+                                                                
                             </div>
                         </div>
                     </div>
