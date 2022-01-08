@@ -82,7 +82,10 @@ public class CalzadoController extends HttpServlet {
         String estado = request.getParameter("txtEstado");
         String Foto = request.getParameter("txtFoto");
 
-        /*Instancia objeto administrar calzado  */
+        /**
+         * Instancia objeto administrar calzado  
+         *
+         */
         
         AdministrarCalzado adm = new AdministrarCalzado();
         if (adm.agregarCalzado(referencia, nombres, descripcion, marca, color, colorSuela, talla, precio, stock, estado, Foto) == true) {

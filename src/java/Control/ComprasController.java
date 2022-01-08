@@ -1,14 +1,23 @@
 package Control;
 
 import DAO.CalzadoDAO;
+import DAO.CompraDAO;
 import DAO.EmpresaDAO;
 import DTO.Calzado;
 import DTO.Carrito;
 import DTO.Comprador;
+import DTO.DetalleCompra;
 import DTO.Empresa;
 import Negocio.AdministrarCalzado;
+import Negocio.AdministrarCompra;
+import Negocio.AdministrarDetalleCompra;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Collection;
+import java.util.Date;
 import java.util.List;
+import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
@@ -23,18 +32,17 @@ import javax.servlet.http.HttpSession;
  *
  * @author Andrey
  */
-
 public class ComprasController extends HttpServlet {
 
     /**
-     * 
+     *
      * @param request
      * @param response
      * @throws ServletException
-     * @throws IOException 
+     * @throws IOException
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException, Exception {
         String action = request.getParameter("a");
 
         switch (action) {
@@ -47,11 +55,41 @@ public class ComprasController extends HttpServlet {
     }
 
     /**
-     * 
+     *
      * @param request
-     * @param response 
+     * @param response
      */
-    private void addCompra(HttpServletRequest request, HttpServletResponse response) {
+    private void addCompra(HttpServletRequest request, HttpServletResponse response) throws Exception {
+
+        AdministrarCompra admcom = new AdministrarCompra();
+
+        SimpleDateFormat dtf = new SimpleDateFormat("yyyy-MM-dd");
+        Calendar calendar = Calendar.getInstance();
+        Date fechaCompra = calendar.getTime();
+        String estado = "Pendiente";
+
+        CarritoController car = new CarritoController();
+
+        AdministrarDetalleCompra admdetcom = new AdministrarDetalleCompra();
+
+        Collection<DetalleCompra> detalleCompraCollection = null;
+        Random rnd = new Random();
+
+        Integer codigo = 0;
+
+        codigo = rnd.nextInt(99999999 - 100 + 1) + 100;
+        while (admcom.CodigoRepetido(codigo) == true) {
+            codigo = rnd.nextInt(99999999 - 1000000 + 1) + 1000000;
+        }
+        admcom.agregarCompra(codigo, fechaCompra, car.getCarrito().obtenerTotal(), estado, detalleCompraCollection);
+
+        //  int cantidad, double precioCompra, Calzado idCalzado, Compra idCompras
+        for (int i = 0; i < car.getCarrito().getProductos().size(); i++) {
+
+            admdetcom.agregarDetalleCompra(car.getCarrito().getProductos().get(i).getCantidad(), car.getCarrito().getProductos().get(i).getSubTotal(), car.getCarrito().getProductos().get(i).getCalzado(), admcom.buscarCompraporCodigo(codigo));
+
+        }
+
         try {
             response.sendRedirect("/SistemasVentasWeb/vistas/carritocontroller?a=main");
         } catch (IOException ex) {
@@ -60,16 +98,20 @@ public class ComprasController extends HttpServlet {
     }
 
     /**
-     * 
+     *
      * @param request
      * @param response
      * @throws ServletException
-     * @throws IOException 
+     * @throws IOException
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (Exception ex) {
+            Logger.getLogger(ComprasController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -83,7 +125,11 @@ public class ComprasController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (Exception ex) {
+            Logger.getLogger(ComprasController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**

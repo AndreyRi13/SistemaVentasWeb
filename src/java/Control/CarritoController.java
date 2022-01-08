@@ -92,6 +92,16 @@ public class CarritoController extends HttpServlet {
     int cant = 0;
     double totalPagar = 0.0;
     Carrito carrito = new Carrito();
+
+    public Carrito getCarrito() {
+        return carrito;
+    }
+
+    public void setCarrito(Carrito carrito) {
+        this.carrito = carrito;
+    }
+    
+    
     HttpSession session = null;
     Comprador comp = null;
 
@@ -182,7 +192,7 @@ public class CarritoController extends HttpServlet {
         int idpro = Integer.parseInt(request.getParameter("idp"));
         int canti = Integer.parseInt(request.getParameter("Cantidad"));
 
-        for (int i = 0; i < carrito.getProductos().size(); i++) {
+        for (int i = 0; i < this.carrito.getProductos().size(); i++) {
 
             if (this.carrito.getProductos().get(i).getCalzado().getIdCalzado() == idpro) {
 
@@ -225,15 +235,15 @@ public class CarritoController extends HttpServlet {
         Calzado calzado = cal.buscarCalzadoporId(idCalza);
         ck = new Cookie("contador", String.valueOf(cant));
         if (calzado != null) {
-            carrito.agregarCalzado(calzado, 1);
+            this.carrito.agregarCalzado(calzado, 1);
             cant = cant + 1;
             ck.setValue("(" + String.valueOf(cant) + ")");
             ck.setMaxAge(-1);
             EmpresaDAO empr = new EmpresaDAO();
             Empresa empresa = empr.findEmpresa(1);
             request.setAttribute("empresa", empresa);
-            request.setAttribute("productos", carrito.getProductos());
-            totalPagar = carrito.obtenerTotal();
+            request.setAttribute("productos", this.carrito.getProductos());
+            totalPagar = this.carrito.obtenerTotal();
             request.setAttribute("totalPagar", totalPagar);
             response.sendRedirect("/SistemasVentasWeb/vistas/carritocontroller?a=carrito");
         } else {

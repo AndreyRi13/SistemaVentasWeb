@@ -10,6 +10,8 @@ import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
+import DTO.Comprador;
+import DTO.Pago;
 import DTO.DetalleCompra;
 import Persistencia.exceptions.IllegalOrphanException;
 import Persistencia.exceptions.NonexistentEntityException;
@@ -42,6 +44,16 @@ public class CompraJpaController implements Serializable {
         try {
             em = getEntityManager();
             em.getTransaction().begin();
+            Comprador idCliente = compra.getIdCliente();
+            if (idCliente != null) {
+                idCliente = em.getReference(idCliente.getClass(), idCliente.getIdComprador());
+                compra.setIdCliente(idCliente);
+            }
+            Pago idPago = compra.getIdPago();
+            if (idPago != null) {
+                idPago = em.getReference(idPago.getClass(), idPago.getIdPago());
+                compra.setIdPago(idPago);
+            }
             Collection<DetalleCompra> attachedDetalleCompraCollection = new ArrayList<DetalleCompra>();
             for (DetalleCompra detalleCompraCollectionDetalleCompraToAttach : compra.getDetalleCompraCollection()) {
                 detalleCompraCollectionDetalleCompraToAttach = em.getReference(detalleCompraCollectionDetalleCompraToAttach.getClass(), detalleCompraCollectionDetalleCompraToAttach.getIdDetalle());
@@ -49,6 +61,14 @@ public class CompraJpaController implements Serializable {
             }
             compra.setDetalleCompraCollection(attachedDetalleCompraCollection);
             em.persist(compra);
+            if (idCliente != null) {
+                idCliente.getCompraCollection().add(compra);
+                idCliente = em.merge(idCliente);
+            }
+            if (idPago != null) {
+                idPago.getCompraCollection().add(compra);
+                idPago = em.merge(idPago);
+            }
             for (DetalleCompra detalleCompraCollectionDetalleCompra : compra.getDetalleCompraCollection()) {
                 Compra oldIdCompraOfDetalleCompraCollectionDetalleCompra = detalleCompraCollectionDetalleCompra.getIdCompra();
                 detalleCompraCollectionDetalleCompra.setIdCompra(compra);
@@ -72,6 +92,10 @@ public class CompraJpaController implements Serializable {
             em = getEntityManager();
             em.getTransaction().begin();
             Compra persistentCompra = em.find(Compra.class, compra.getIdCompra());
+            Comprador idClienteOld = persistentCompra.getIdCliente();
+            Comprador idClienteNew = compra.getIdCliente();
+            Pago idPagoOld = persistentCompra.getIdPago();
+            Pago idPagoNew = compra.getIdPago();
             Collection<DetalleCompra> detalleCompraCollectionOld = persistentCompra.getDetalleCompraCollection();
             Collection<DetalleCompra> detalleCompraCollectionNew = compra.getDetalleCompraCollection();
             List<String> illegalOrphanMessages = null;
@@ -86,6 +110,14 @@ public class CompraJpaController implements Serializable {
             if (illegalOrphanMessages != null) {
                 throw new IllegalOrphanException(illegalOrphanMessages);
             }
+            if (idClienteNew != null) {
+                idClienteNew = em.getReference(idClienteNew.getClass(), idClienteNew.getIdComprador());
+                compra.setIdCliente(idClienteNew);
+            }
+            if (idPagoNew != null) {
+                idPagoNew = em.getReference(idPagoNew.getClass(), idPagoNew.getIdPago());
+                compra.setIdPago(idPagoNew);
+            }
             Collection<DetalleCompra> attachedDetalleCompraCollectionNew = new ArrayList<DetalleCompra>();
             for (DetalleCompra detalleCompraCollectionNewDetalleCompraToAttach : detalleCompraCollectionNew) {
                 detalleCompraCollectionNewDetalleCompraToAttach = em.getReference(detalleCompraCollectionNewDetalleCompraToAttach.getClass(), detalleCompraCollectionNewDetalleCompraToAttach.getIdDetalle());
@@ -94,6 +126,22 @@ public class CompraJpaController implements Serializable {
             detalleCompraCollectionNew = attachedDetalleCompraCollectionNew;
             compra.setDetalleCompraCollection(detalleCompraCollectionNew);
             compra = em.merge(compra);
+            if (idClienteOld != null && !idClienteOld.equals(idClienteNew)) {
+                idClienteOld.getCompraCollection().remove(compra);
+                idClienteOld = em.merge(idClienteOld);
+            }
+            if (idClienteNew != null && !idClienteNew.equals(idClienteOld)) {
+                idClienteNew.getCompraCollection().add(compra);
+                idClienteNew = em.merge(idClienteNew);
+            }
+            if (idPagoOld != null && !idPagoOld.equals(idPagoNew)) {
+                idPagoOld.getCompraCollection().remove(compra);
+                idPagoOld = em.merge(idPagoOld);
+            }
+            if (idPagoNew != null && !idPagoNew.equals(idPagoOld)) {
+                idPagoNew.getCompraCollection().add(compra);
+                idPagoNew = em.merge(idPagoNew);
+            }
             for (DetalleCompra detalleCompraCollectionNewDetalleCompra : detalleCompraCollectionNew) {
                 if (!detalleCompraCollectionOld.contains(detalleCompraCollectionNewDetalleCompra)) {
                     Compra oldIdCompraOfDetalleCompraCollectionNewDetalleCompra = detalleCompraCollectionNewDetalleCompra.getIdCompra();
@@ -144,6 +192,16 @@ public class CompraJpaController implements Serializable {
             }
             if (illegalOrphanMessages != null) {
                 throw new IllegalOrphanException(illegalOrphanMessages);
+            }
+            Comprador idCliente = compra.getIdCliente();
+            if (idCliente != null) {
+                idCliente.getCompraCollection().remove(compra);
+                idCliente = em.merge(idCliente);
+            }
+            Pago idPago = compra.getIdPago();
+            if (idPago != null) {
+                idPago.getCompraCollection().remove(compra);
+                idPago = em.merge(idPago);
             }
             em.remove(compra);
             em.getTransaction().commit();

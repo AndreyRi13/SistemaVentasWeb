@@ -12,12 +12,22 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Usuarios/Documentos/GitHub/SistemaVentasWeb/src/java/DAO/EmpleadoDAO.java</file>
+            <file>file:/D:/Usuarios/Documentos/GitHub/SistemaVentasWeb/src/java/Control/CalzadoController.java</file>
+            <file>file:/D:/Usuarios/Documentos/GitHub/SistemaVentasWeb/src/java/DTO/Calzado.java</file>
+            <file>file:/D:/Usuarios/Documentos/GitHub/SistemaVentasWeb/src/java/Persistencia/CalzadoJpaController.java</file>
+            <file>file:/D:/Usuarios/Documentos/GitHub/SistemaVentasWeb/web/vistas/carrito.jsp</file>
+            <file>file:/D:/Usuarios/Documentos/GitHub/SistemaVentasWeb/src/java/Negocio/AdministrarCompra.java</file>
+            <file>file:/D:/Usuarios/Documentos/GitHub/SistemaVentasWeb/src/java/DTO/DetalleCompra.java</file>
+            <file>file:/D:/Usuarios/Documentos/GitHub/SistemaVentasWeb/src/java/DTO/Carrito.java</file>
+            <file>file:/D:/Usuarios/Documentos/GitHub/SistemaVentasWeb/src/java/Negocio/AdministrarCalzado.java</file>
             <file>file:/D:/Usuarios/Documentos/GitHub/SistemaVentasWeb/src/java/DAO/DatalleCompraDAO.java</file>
             <file>file:/D:/Usuarios/Documentos/GitHub/SistemaVentasWeb/src/java/Negocio/AdministrarDetalleCompra.java</file>
-            <file>file:/D:/Usuarios/Documentos/GitHub/SistemaVentasWeb/src/java/DTO/DetalleCompra.java</file>
+            <file>file:/D:/Usuarios/Documentos/GitHub/SistemaVentasWeb/src/java/DAO/CompraDAO.java</file>
+            <file>file:/D:/Usuarios/Documentos/GitHub/SistemaVentasWeb/src/java/Control/CarritoController.java</file>
             <file>file:/D:/Usuarios/Documentos/GitHub/SistemaVentasWeb/src/java/DTO/Compra.java</file>
-            <file>file:/D:/Usuarios/Documentos/GitHub/SistemaVentasWeb/src/java/DAO/PagoDAO.java</file>
+            <file>file:/D:/Usuarios/Documentos/GitHub/SistemaVentasWeb/src/java/Negocio/AdministrarComprador.java</file>
+            <file>file:/D:/Usuarios/Documentos/GitHub/SistemaVentasWeb/src/java/Control/ComprasController.java</file>
+            <file>file:/D:/Usuarios/Documentos/GitHub/SistemaVentasWeb/src/java/Control/DetalleCompraController.java</file>
         </group>
     </open-files>
 </project-private>

@@ -6,6 +6,7 @@ package DTO;
 
 import java.io.Serializable;
 import java.util.Collection;
+import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -13,10 +14,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
@@ -30,6 +35,7 @@ import javax.xml.bind.annotation.XmlTransient;
 @NamedQueries({
     @NamedQuery(name = "Compra.findAll", query = "SELECT c FROM Compra c"),
     @NamedQuery(name = "Compra.findByIdCompra", query = "SELECT c FROM Compra c WHERE c.idCompra = :idCompra"),
+    @NamedQuery(name = "Compra.findByCodigo", query = "SELECT c FROM Compra c WHERE c.codigo = :codigo"),
     @NamedQuery(name = "Compra.findByFechaCompra", query = "SELECT c FROM Compra c WHERE c.fechaCompra = :fechaCompra"),
     @NamedQuery(name = "Compra.findByPrecioTotal", query = "SELECT c FROM Compra c WHERE c.precioTotal = :precioTotal"),
     @NamedQuery(name = "Compra.findByEstado", query = "SELECT c FROM Compra c WHERE c.estado = :estado")})
@@ -42,14 +48,23 @@ public class Compra implements Serializable {
     @Column(name = "idCompra")
     private Integer idCompra;
     @Basic(optional = false)
+    @Column(name = "codigo")
+    private int codigo;
     @Column(name = "fechaCompra")
-    private String fechaCompra;
+    @Temporal(TemporalType.DATE)
+    private Date fechaCompra;
     @Basic(optional = false)
     @Column(name = "precioTotal")
     private double precioTotal;
     @Basic(optional = false)
     @Column(name = "estado")
     private String estado;
+    @JoinColumn(name = "idCliente", referencedColumnName = "idComprador")
+    @ManyToOne(optional = false)
+    private Comprador idCliente;
+    @JoinColumn(name = "idPago", referencedColumnName = "idPago")
+    @ManyToOne(optional = false)
+    private Pago idPago;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idCompra")
     private Collection<DetalleCompra> detalleCompraCollection;
 
@@ -60,23 +75,25 @@ public class Compra implements Serializable {
         this.idCompra = idCompra;
     }
 
-    public Compra(Integer idCompra, String fechaCompra, double precioTotal, String estado) {
+    public Compra(Integer idCompra, int codigo, double precioTotal, String estado) {
         this.idCompra = idCompra;
-        this.fechaCompra = fechaCompra;
+        this.codigo = codigo;
         this.precioTotal = precioTotal;
         this.estado = estado;
     }
 
-    public Compra(String fechaCompra, double precioTotal, String estado, Collection<DetalleCompra> detalleCompraCollection) {
+    public Compra(int codigo, Date fechaCompra, double precioTotal, String estado, Comprador idCliente, Pago idPago, Collection<DetalleCompra> detalleCompraCollection) {
+        this.codigo = codigo;
         this.fechaCompra = fechaCompra;
         this.precioTotal = precioTotal;
         this.estado = estado;
+        this.idCliente = idCliente;
+        this.idPago = idPago;
         this.detalleCompraCollection = detalleCompraCollection;
     }
+    
+    
 
-    
-    
-    
     public Integer getIdCompra() {
         return idCompra;
     }
@@ -85,11 +102,19 @@ public class Compra implements Serializable {
         this.idCompra = idCompra;
     }
 
-    public String getFechaCompra() {
+    public int getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
+    }
+
+    public Date getFechaCompra() {
         return fechaCompra;
     }
 
-    public void setFechaCompra(String fechaCompra) {
+    public void setFechaCompra(Date fechaCompra) {
         this.fechaCompra = fechaCompra;
     }
 
@@ -107,6 +132,22 @@ public class Compra implements Serializable {
 
     public void setEstado(String estado) {
         this.estado = estado;
+    }
+
+    public Comprador getIdCliente() {
+        return idCliente;
+    }
+
+    public void setIdCliente(Comprador idCliente) {
+        this.idCliente = idCliente;
+    }
+
+    public Pago getIdPago() {
+        return idPago;
+    }
+
+    public void setIdPago(Pago idPago) {
+        this.idPago = idPago;
     }
 
     @XmlTransient
