@@ -41,7 +41,7 @@
         <!--responsive style--> 
         <link href="../css/inicio/responsive.css" rel="stylesheet" />
         <!--Iconos style--> 
-        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" integrity="sha512-PgQMlq+nqFLV4ylk1gwUOgm6CtIIXkKwaIHp/PAIWHzig/lKZSEGKEysh0TCVbHJXCLN7WetD8TFecIky75ZfQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <!--MATERIAL DESIGN ICONIC FONT--> 
         <link rel="stylesheet" href="../fonts/material-design-iconic-font/css/material-design-iconic-font.css">
         <link href="../css/estilosRegistro.css" rel="stylesheet" type="text/css"/>

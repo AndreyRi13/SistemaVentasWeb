@@ -28,8 +28,8 @@
         <!-- Custom styles for this template -->
         <link href="../css/inicio/style.css" rel="stylesheet" />
         <link rel="stylesheet" href="../path/to/font-awesome/css/font-awesome.min.css">
-        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" integrity="sha512-PgQMlq+nqFLV4ylk1gwUOgm6CtIIXkKwaIHp/PAIWHzig/lKZSEGKEysh0TCVbHJXCLN7WetD8TFecIky75ZfQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="icon" href="../images/fevicon.png" type="image/gif" />
         <!-- responsive style -->
         <link href="../css/inicio/responsive.css" rel="stylesheet" />
 
@@ -158,105 +158,105 @@
             </section>
 
             <!-- end product section -->
- </div>
+        </div>
 
-            <!-- info section -->
-            <section class="info_section ">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-5">
-                            <div class="info_contact">
-                                <h5>
-                                    <a href="" class="navbar-brand">
-                                        <span>
-                                            CAYSAM
-                                        </span>
-                                    </a>
-                                </h5>
-                                <p>
-                                    <i class="fa fa-map-marker" aria-hidden="true"></i>
-                                    Direccion: ${empresa.direccion}
-                                </p>
-                                <p>
-                                    <i class="fa fa-phone" aria-hidden="true"></i>
-                                    Telefonos: ${empresa.telefonos}
-                                </p>
-                                <p>
-                                    <i class="fa fa-envelope" aria-hidden="true"></i>
-                                    Correo Electronico: ${empresa.correoElectronico}
-                                </p>
-                            </div>
+        <!-- info section -->
+        <section class="info_section ">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="info_contact">
+                            <h5>
+                                <a href="" class="navbar-brand">
+                                    <span>
+                                        CAYSAM
+                                    </span>
+                                </a>
+                            </h5>
+                            <p>
+                                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                Direccion: ${empresa.direccion}
+                            </p>
+                            <p>
+                                <i class="fa fa-phone" aria-hidden="true"></i>
+                                Telefonos: ${empresa.telefonos}
+                            </p>
+                            <p>
+                                <i class="fa fa-envelope" aria-hidden="true"></i>
+                                Correo Electronico: ${empresa.correoElectronico}
+                            </p>
                         </div>
-                        <div class="col-md-3">
-                            <div class="info_info">
-                                <h5>
-                                    Informacion
-                                </h5>
-                                <p style="text-align: justify;">
-                                    ${empresa.ofrecemos}                            
-                                </p>
-                            </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="info_info">
+                            <h5>
+                                Informacion
+                            </h5>
+                            <p style="text-align: justify;">
+                                ${empresa.ofrecemos}                            
+                            </p>
                         </div>
+                    </div>
 
-                        <div class="col-md-4">
-                            <div class="info_form ">
-                                <h5>
-                                    Recibir Promociones e Informacion
-                                </h5>
-                                <form action="">
-                                    <input type="email" placeholder="Dejanos tu Correo Electronico">
-                                    <button>
-                                        Suscribirme
-                                    </button>
-                                </form>
-                                <div class="social_box">
-                                    <a href="">
-                                        <i class="fa fa-facebook" aria-hidden="true"></i>
-                                    </a>
-                                    <a href="">
-                                        <i class="fa fa-twitter" aria-hidden="true"></i>
-                                    </a>
-                                    <a href="">
-                                        <i class="fa fa-instagram" aria-hidden="true"></i>
-                                    </a>
-                                    <a href="">
-                                        <i class="fa fa-youtube" aria-hidden="true"></i>
-                                    </a>
-                                </div>
+                    <div class="col-md-4">
+                        <div class="info_form ">
+                            <h5>
+                                Recibir Promociones e Informacion
+                            </h5>
+                            <form action="">
+                                <input type="email" placeholder="Dejanos tu Correo Electronico">
+                                <button>
+                                    Suscribirme
+                                </button>
+                            </form>
+                            <div class="social_box">
+                                <a href="">
+                                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                                </a>
+                                <a href="">
+                                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                                </a>
+                                <a href="">
+                                    <i class="fa fa-instagram" aria-hidden="true"></i>
+                                </a>
+                                <a href="">
+                                    <i class="fa fa-youtube" aria-hidden="true"></i>
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <!-- end info_section -->
+        <!-- end info_section -->
 
 
-            <!-- footer section -->
-            <footer class="footer_section">
-                <div class="container">
-                    <p>
-                        &copy; <span id="displayYear"></span> Todos los derechos reservados por CAYSAM
-                        <br>Desarrollador por:
-                        <a href="#">DigiTech</a>
-                    </p>
-                </div>
-            </footer>
-            <!-- footer section -->
+        <!-- footer section -->
+        <footer class="footer_section">
+            <div class="container">
+                <p>
+                    &copy; <span id="displayYear"></span> Todos los derechos reservados por CAYSAM
+                    <br>Desarrollador por:
+                    <a href="#">DigiTech</a>
+                </p>
+            </div>
+        </footer>
+        <!-- footer section -->
 
-            <!-- jQery -->
-            <script src="../js/jquery-3.4.1.min.js"></script>
-            <!-- bootstrap js -->
-            <script src="../js/bootstrap.js"></script>
-            <!-- custom js -->
-            <script src="../js/custom.js"></script>
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-            <script src="../js/scripts.js"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-            <script src="../assets/demo/chart-area-demo.js"></script>
-            <script src="../assets/demo/chart-bar-demo.js"></script>
-            <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
-            <script src="../js/datatables-simple-demo.js"></script>
+        <!-- jQery -->
+        <script src="../js/jquery-3.4.1.min.js"></script>
+        <!-- bootstrap js -->
+        <script src="../js/bootstrap.js"></script>
+        <!-- custom js -->
+        <script src="../js/custom.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="../js/scripts.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+        <script src="../assets/demo/chart-area-demo.js"></script>
+        <script src="../assets/demo/chart-bar-demo.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+        <script src="../js/datatables-simple-demo.js"></script>
 
     </body>
 

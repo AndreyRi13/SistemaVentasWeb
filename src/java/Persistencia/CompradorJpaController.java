@@ -4,16 +4,21 @@
  */
 package Persistencia;
 
-import DTO.Comprador;
-import Persistencia.exceptions.NonexistentEntityException;
 import java.io.Serializable;
-import java.util.List;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
 import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
+import DTO.Compra;
+import DTO.Comprador;
+import Persistencia.exceptions.IllegalOrphanException;
+import Persistencia.exceptions.NonexistentEntityException;
+import Persistencia.exceptions.PreexistingEntityException;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 
 /**
  *
@@ -30,13 +35,36 @@ public class CompradorJpaController implements Serializable {
         return emf.createEntityManager();
     }
 
-    public void create(Comprador comprador) {
+    public void create(Comprador comprador) throws PreexistingEntityException, Exception {
+        if (comprador.getCompraCollection() == null) {
+            comprador.setCompraCollection(new ArrayList<Compra>());
+        }
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
+            Collection<Compra> attachedCompraCollection = new ArrayList<Compra>();
+            for (Compra compraCollectionCompraToAttach : comprador.getCompraCollection()) {
+                compraCollectionCompraToAttach = em.getReference(compraCollectionCompraToAttach.getClass(), compraCollectionCompraToAttach.getIdCompra());
+                attachedCompraCollection.add(compraCollectionCompraToAttach);
+            }
+            comprador.setCompraCollection(attachedCompraCollection);
             em.persist(comprador);
+            for (Compra compraCollectionCompra : comprador.getCompraCollection()) {
+                Comprador oldIdCompradorOfCompraCollectionCompra = compraCollectionCompra.getIdComprador();
+                compraCollectionCompra.setIdComprador(comprador);
+                compraCollectionCompra = em.merge(compraCollectionCompra);
+                if (oldIdCompradorOfCompraCollectionCompra != null) {
+                    oldIdCompradorOfCompraCollectionCompra.getCompraCollection().remove(compraCollectionCompra);
+                    oldIdCompradorOfCompraCollectionCompra = em.merge(oldIdCompradorOfCompraCollectionCompra);
+                }
+            }
             em.getTransaction().commit();
+        } catch (Exception ex) {
+            if (findComprador(comprador.getIdComprador()) != null) {
+                throw new PreexistingEntityException("Comprador " + comprador + " already exists.", ex);
+            }
+            throw ex;
         } finally {
             if (em != null) {
                 em.close();
@@ -44,12 +72,45 @@ public class CompradorJpaController implements Serializable {
         }
     }
 
-    public void edit(Comprador comprador) throws NonexistentEntityException, Exception {
+    public void edit(Comprador comprador) throws IllegalOrphanException, NonexistentEntityException, Exception {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
+            Comprador persistentComprador = em.find(Comprador.class, comprador.getIdComprador());
+            Collection<Compra> compraCollectionOld = persistentComprador.getCompraCollection();
+            Collection<Compra> compraCollectionNew = comprador.getCompraCollection();
+            List<String> illegalOrphanMessages = null;
+            for (Compra compraCollectionOldCompra : compraCollectionOld) {
+                if (!compraCollectionNew.contains(compraCollectionOldCompra)) {
+                    if (illegalOrphanMessages == null) {
+                        illegalOrphanMessages = new ArrayList<String>();
+                    }
+                    illegalOrphanMessages.add("You must retain Compra " + compraCollectionOldCompra + " since its idComprador field is not nullable.");
+                }
+            }
+            if (illegalOrphanMessages != null) {
+                throw new IllegalOrphanException(illegalOrphanMessages);
+            }
+            Collection<Compra> attachedCompraCollectionNew = new ArrayList<Compra>();
+            for (Compra compraCollectionNewCompraToAttach : compraCollectionNew) {
+                compraCollectionNewCompraToAttach = em.getReference(compraCollectionNewCompraToAttach.getClass(), compraCollectionNewCompraToAttach.getIdCompra());
+                attachedCompraCollectionNew.add(compraCollectionNewCompraToAttach);
+            }
+            compraCollectionNew = attachedCompraCollectionNew;
+            comprador.setCompraCollection(compraCollectionNew);
             comprador = em.merge(comprador);
+            for (Compra compraCollectionNewCompra : compraCollectionNew) {
+                if (!compraCollectionOld.contains(compraCollectionNewCompra)) {
+                    Comprador oldIdCompradorOfCompraCollectionNewCompra = compraCollectionNewCompra.getIdComprador();
+                    compraCollectionNewCompra.setIdComprador(comprador);
+                    compraCollectionNewCompra = em.merge(compraCollectionNewCompra);
+                    if (oldIdCompradorOfCompraCollectionNewCompra != null && !oldIdCompradorOfCompraCollectionNewCompra.equals(comprador)) {
+                        oldIdCompradorOfCompraCollectionNewCompra.getCompraCollection().remove(compraCollectionNewCompra);
+                        oldIdCompradorOfCompraCollectionNewCompra = em.merge(oldIdCompradorOfCompraCollectionNewCompra);
+                    }
+                }
+            }
             em.getTransaction().commit();
         } catch (Exception ex) {
             String msg = ex.getLocalizedMessage();
@@ -67,7 +128,7 @@ public class CompradorJpaController implements Serializable {
         }
     }
 
-    public void destroy(Integer id) throws NonexistentEntityException {
+    public void destroy(Integer id) throws IllegalOrphanException, NonexistentEntityException {
         EntityManager em = null;
         try {
             em = getEntityManager();
@@ -78,6 +139,17 @@ public class CompradorJpaController implements Serializable {
                 comprador.getIdComprador();
             } catch (EntityNotFoundException enfe) {
                 throw new NonexistentEntityException("The comprador with id " + id + " no longer exists.", enfe);
+            }
+            List<String> illegalOrphanMessages = null;
+            Collection<Compra> compraCollectionOrphanCheck = comprador.getCompraCollection();
+            for (Compra compraCollectionOrphanCheckCompra : compraCollectionOrphanCheck) {
+                if (illegalOrphanMessages == null) {
+                    illegalOrphanMessages = new ArrayList<String>();
+                }
+                illegalOrphanMessages.add("This Comprador (" + comprador + ") cannot be destroyed since the Compra " + compraCollectionOrphanCheckCompra + " in its compraCollection field has a non-nullable idComprador field.");
+            }
+            if (illegalOrphanMessages != null) {
+                throw new IllegalOrphanException(illegalOrphanMessages);
             }
             em.remove(comprador);
             em.getTransaction().commit();

@@ -32,7 +32,7 @@
         <!-- Custom styles for this template -->
         <link href="../css/inicio/style.css" rel="stylesheet" />
         <link rel="stylesheet" href="../path/to/font-awesome/css/font-awesome.min.css">
-        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" integrity="sha512-PgQMlq+nqFLV4ylk1gwUOgm6CtIIXkKwaIHp/PAIWHzig/lKZSEGKEysh0TCVbHJXCLN7WetD8TFecIky75ZfQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
         <!-- responsive style -->
         <link href="../css/inicio/responsive.css" rel="stylesheet" />
@@ -105,24 +105,24 @@
                                 </h2>
                             </div>
                             <div class="form-group">
-                                <input  id="fname" name="txtNombres" type="text" placeholder="Nombre completo" class="form-control"/>
+                                <input  id="fname" name="txtNombres" type="text" placeholder="Nombre completo" class="form-control" required>
                             </div>
 
                             <div class="form-group">
-                                <input id="fname" name="txtUsername" type="text" placeholder="Pais" class="form-control">
+                                <input id="fname" name="txtUsername" type="text" placeholder="Pais" class="form-control" required>
                             </div>
 
                             <div class="form-group">
-                                <input  id="fname" name="txtDireccion" type="text" placeholder="Ciudad" class="form-control">
+                                <input  id="fname" name="txtDireccion" type="text" placeholder="Ciudad" class="form-control" required>
                             </div>
 
                             <div class="form-group">
-                                <input id="fname" name="txtCorreoElectronico" type="text" placeholder="Dirección" class="form-control">
+                                <input id="fname" name="txtCorreoElectronico" type="text" placeholder="Dirección" class="form-control" required>
                             </div>
 
 
                             <div class="form-group">
-                                <input id="fname" name="txtCorreoElectronico" type="text" placeholder="Código postal" class="form-control">
+                                <input id="fname" name="txtCorreoElectronico" type="text" placeholder="Código postal" class="form-control" required>
                             </div>
 
                         </div>
@@ -133,18 +133,18 @@
                                 <h2><i class="far fa-credit-card"></i> Información del pago</h2>
                             </div>
                             <div class="form-group">
-                                <input id="fname" name="txtNumeroCelular" type="text" placeholder="Credit Card No." class="form-control">
+                                <input id="fname" name="txtNumeroCelular" type="text" placeholder="Credit Card No." class="form-control" required>
                             </div>
 
 
 
 
                             <div class="form-group">
-                                <input  id="fname" name="txtApellidos" type="text" placeholder="Exp" class="form-control"/>
+                                <input  id="fname" name="txtApellidos" type="text" placeholder="Exp" class="form-control" required>
                             </div>
 
                             <div class="form-group">
-                                <input id="fname" name="txtPassword" type="text" placeholder="CCV" class="form-control">
+                                <input id="fname" name="txtPassword" type="text" placeholder="CCV" class="form-control" required>
                             </div>
 
 

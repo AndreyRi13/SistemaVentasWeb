@@ -76,38 +76,32 @@ public class ComprasController extends HttpServlet {
         Calendar calendar = Calendar.getInstance();
         Date fechaCompra = calendar.getTime();
         String estado = "Pendiente";
-
         AdministrarDetalleCompra admdetcom = new AdministrarDetalleCompra();
-        Collection<DetalleCompra> detalleCompraCollection = null;
+        /**
+         * Generar Codigo para la compra
+         */
         Random rnd = new Random();
         Integer codigo = 0;
         codigo = rnd.nextInt(99999999 - 100 + 1) + 100;
-
         while (admcom.CodigoRepetido(codigo) == true) {
             codigo = rnd.nextInt(99999999 - 1000000 + 1) + 1000000;
         }
 
         carrito = (Carrito) request.getAttribute("carrito");
-
-        System.out.println("Total " + carrito.obtenerTotal());
-        admcom.agregarCompra(codigo, fechaCompra, carrito.obtenerTotal(), estado);
-
-        //  int cantidad, double precioCompra, Calzado idCalzado, Compra idCompras
+       
+        admcom.agregarCompra(codigo, fechaCompra, carrito.obtenerTotal(), estado, compr);
         for (int i = 0; i < carrito.getProductos().size(); i++) {
 
             admdetcom.agregarDetalleCompra(carrito.getProductos().get(i).getCantidad(), carrito.getProductos().get(i).getSubTotal(), carrito.getProductos().get(i).getCalzado(), admcom.buscarCompraporCodigo(codigo));
-
         }
-        
-        MainController(request, response);
+   
 
+        // MainController(request, response);
     }
     
     
-     private void MainController(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        request.setAttribute("comprador", this.compr);
-        request.getRequestDispatcher("/vistas/carritocontroller?a=main").include(request, response);
+    private void MainController(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
 

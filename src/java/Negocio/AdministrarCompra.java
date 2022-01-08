@@ -17,9 +17,9 @@ import java.util.List;
  * @author Andrey
  */
 public class AdministrarCompra {
-     public boolean agregarCompra( int codigo, Date fechaCompra, double precioTotal, String estado) {
+     public boolean agregarCompra( int codigo, Date fechaCompra, double precioTotal, String estado, Comprador comprador) {
         CompraDAO empleado = new CompraDAO();
-        Compra com = new Compra(  codigo,fechaCompra,  precioTotal, estado);
+        Compra com = new Compra(  codigo,fechaCompra,  precioTotal, estado,comprador);
 
         try {
             empleado.addCompra(com);
@@ -84,13 +84,14 @@ public class AdministrarCompra {
      * @param idCompra
      * @throws Exception 
      */
-    public void editarCompra(Integer idCompra,  int codigo, Date fechaCompra, double precioTotal, String estado) throws Exception {
+    public void editarCompra(Integer idCompra,  int codigo, Date fechaCompra, double precioTotal, String estado,Comprador comprador) throws Exception {
         Compra em = new Compra();
         em.setIdCompra(idCompra);
         em.setCodigo(codigo);
         em.setFechaCompra(fechaCompra);
         em.setPrecioTotal(precioTotal);
         em.setEstado(estado);     
+        em.setIdComprador(comprador);
         CompraDAO comdao = new CompraDAO();
         comdao.updateCompra(em);
     }

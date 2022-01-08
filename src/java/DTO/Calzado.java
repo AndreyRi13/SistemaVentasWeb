@@ -120,8 +120,8 @@ public class Calzado implements Serializable {
         this.estado = estado;
         this.foto = foto;
     }
-
     
+
     public Integer getIdCalzado() {
         return idCalzado;
     }

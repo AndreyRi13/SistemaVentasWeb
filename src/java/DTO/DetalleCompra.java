@@ -70,6 +70,15 @@ public class DetalleCompra implements Serializable {
         this.idCalzado = idCalzado;
         this.idCompra = idCompra;
     }
+
+    public DetalleCompra(Integer idDetalle, int cantidad, double precioCompra, Calzado idCalzado, Compra idCompra) {
+        this.idDetalle = idDetalle;
+        this.cantidad = cantidad;
+        this.precioCompra = precioCompra;
+        this.idCalzado = idCalzado;
+        this.idCompra = idCompra;
+    }
+    
     
 
     public Integer getIdDetalle() {

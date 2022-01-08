@@ -138,6 +138,7 @@ public class CarritoController extends HttpServlet {
         if (comp == null) {
             comp = (Comprador) request.getAttribute("comprador");
         }
+      
         CalzadoDAO pr = new CalzadoDAO();
         List<Calzado> product = pr.readCalzados();
         EmpresaDAO empr = new EmpresaDAO();
@@ -148,7 +149,6 @@ public class CarritoController extends HttpServlet {
         if (ck != null) {
             request.setAttribute("contador", ck.getValue());
         }
-
         RequestDispatcher dispatcher = request.getRequestDispatcher("mainComprador.jsp");
         dispatcher.forward(request, response);
     }
@@ -183,7 +183,8 @@ public class CarritoController extends HttpServlet {
     private void CompraController(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         request.setAttribute("carrito", this.carrito);
-        request.getRequestDispatcher("/vistas/comprascontroller?a=addCompra").include(request, response);
+        request.getRequestDispatcher("comprascontroller?a=addCompra").include(request, response);
+        response.sendRedirect("/SistemasVentasWeb/vistas/carritocontroller?a=main");
 
     }
 

@@ -14,6 +14,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
@@ -57,6 +59,9 @@ public class Compra implements Serializable {
     @Basic(optional = false)
     @Column(name = "estado")
     private String estado;
+    @JoinColumn(name = "idComprador", referencedColumnName = "idComprador")
+    @ManyToOne(optional = false)
+    private Comprador idComprador;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idCompra")
     private Collection<DetalleCompra> detalleCompraCollection;
 
@@ -74,12 +79,23 @@ public class Compra implements Serializable {
         this.estado = estado;
     }
 
-    public Compra(int codigo, Date fechaCompra, double precioTotal, String estado) {
+    public Compra(Integer idCompra, int codigo, Date fechaCompra, double precioTotal, String estado, Comprador idComprador) {
+        this.idCompra = idCompra;
         this.codigo = codigo;
         this.fechaCompra = fechaCompra;
         this.precioTotal = precioTotal;
         this.estado = estado;
+        this.idComprador = idComprador;
     }
+
+    public Compra(int codigo, Date fechaCompra, double precioTotal, String estado, Comprador idComprador) {
+        this.codigo = codigo;
+        this.fechaCompra = fechaCompra;
+        this.precioTotal = precioTotal;
+        this.estado = estado;
+        this.idComprador = idComprador;
+    }
+    
     
 
     public Integer getIdCompra() {
@@ -120,6 +136,14 @@ public class Compra implements Serializable {
 
     public void setEstado(String estado) {
         this.estado = estado;
+    }
+
+    public Comprador getIdComprador() {
+        return idComprador;
+    }
+
+    public void setIdComprador(Comprador idComprador) {
+        this.idComprador = idComprador;
     }
 
     @XmlTransient

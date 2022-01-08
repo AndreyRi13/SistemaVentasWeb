@@ -9,10 +9,6 @@
         <servlet-class>Control.CompradorController</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>VentasController</servlet-name>
-        <servlet-class>Control.VentasController</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>LogoutServlet</servlet-name>
         <servlet-class>Control.LogoutServlet</servlet-class>
     </servlet>
@@ -59,10 +55,6 @@
     <servlet-mapping>
         <servlet-name>CompradorController</servlet-name>
         <url-pattern>/vistas/compradorcontroller</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>VentasController</servlet-name>
-        <url-pattern>/vistas/ventascontroller</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>LogoutServlet</servlet-name>

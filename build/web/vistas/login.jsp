@@ -40,7 +40,7 @@
         <!-- Custom styles for this template -->
         <link href="../css/inicio/style.css" rel="stylesheet" />
         <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
-        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" integrity="sha512-PgQMlq+nqFLV4ylk1gwUOgm6CtIIXkKwaIHp/PAIWHzig/lKZSEGKEysh0TCVbHJXCLN7WetD8TFecIky75ZfQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
         <!-- responsive style -->
         <link href="../css/inicio/responsive.css" rel="stylesheet" />
@@ -49,47 +49,6 @@
     </head>
     <body>
         <header class="header_section">
-<!--            <div class="header_top">
-                <div class="container-fluid">
-                    <div class="top_nav_container">
-                        <div class="contact_nav">
-                            <a href="">
-                                <i class="fa fa-phone" aria-hidden="true"></i>
-                                <span>
-                                    Telefonos: ${empresa.telefonos}
-                                </span>
-                            </a>
-                            <a href="">
-                                <i class="fa fa-envelope" aria-hidden="true"></i>
-                                <span>
-                                    Correo: ${empresa.correoElectronico}
-                                </span>
-                            </a>
-                        </div>
-                        <from class="search_form">
-                            <input type="text" class="form-control" placeholder="Buscar calzado...">
-                            <button class="" type="submit">
-                                <i class="fa fa-search" aria-hidden="true"></i>
-                            </button>
-                        </from>
-                        <div class="user_option_box">
-                            <a href="/SistemasVentasWeb/vistas/validar?a=Login" class="account-link">
-                                <i class="fa fa-user" aria-hidden="true"></i>
-                                <span>
-                                    Mi Cuenta
-                                </span>
-                            </a>
-                            <a href="/SistemasVentasWeb/inicio?a=carrito" class="cart-link">
-                                <i class="fa fa-cart-plus" aria-hidden="true"><label style="color:orange;">${contador}</label></i>
-                                <span>
-                                    Carrito
-                                </span>
-                            </a>
-                        </div>
-                    </div>
-
-                </div>
-            </div>-->
             <div class="header_bottom">
                 <div class="container-fluid">
                     <nav class="navbar navbar-expand-lg custom_nav-container ">

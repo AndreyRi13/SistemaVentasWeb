@@ -15,7 +15,7 @@
         <!-- Mobile Metas -->
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <!-- Site Metas -->
-        <link rel="icon" href="./images/fevicon.png" type="image/gif" />
+        <link rel="icon" href="../images/fevicon.png" type="image/gif" />
         <meta name="keywords" content="" />
         <meta name="description" content="" />
         <meta name="author" content="" />
@@ -36,7 +36,7 @@
         <!-- Custom styles for this template -->
         <link href="../css/inicio/style.css" rel="stylesheet" />
         <link rel="stylesheet" href="../path/to/font-awesome/css/font-awesome.min.css">
-        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" integrity="sha512-PgQMlq+nqFLV4ylk1gwUOgm6CtIIXkKwaIHp/PAIWHzig/lKZSEGKEysh0TCVbHJXCLN7WetD8TFecIky75ZfQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
         <!-- responsive style -->
         <link href="../css/inicio/responsive.css" rel="stylesheet" />

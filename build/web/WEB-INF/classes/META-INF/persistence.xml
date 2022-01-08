@@ -8,10 +8,10 @@
     <class>DTO.DetalleCompras</class>
     <class>DTO.Compras</class>
     <class>DTO.Calzado</class>
-    <class>DTO.Comprador</class>
     <class>DTO.Pago</class>
     <class>DTO.DetalleCompra</class>
     <class>DTO.Compra</class>
+    <class>DTO.Comprador</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/bd_ventas?zeroDateTimeBehavior=CONVERT_TO_NULL"/>
