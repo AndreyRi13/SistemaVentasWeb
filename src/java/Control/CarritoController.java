@@ -105,6 +105,15 @@ public class CarritoController extends HttpServlet {
     HttpSession session = null;
     Comprador comp = null;
 
+    public Comprador getComp() {
+        return comp;
+    }
+
+    public void setComp(Comprador comp) {
+        this.comp = comp;
+    }
+    
+
     /**
      * 
      * @param request
@@ -112,6 +121,7 @@ public class CarritoController extends HttpServlet {
      * @throws ServletException
      * @throws IOException 
      */
+  
     private void MainComprador(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         if (comp == null) {comp = (Comprador) request.getAttribute("comprador"); }
         CalzadoDAO pr = new CalzadoDAO();

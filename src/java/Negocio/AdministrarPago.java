@@ -15,6 +15,11 @@ import java.util.List;
  */
 public class AdministrarPago {
 
+    public AdministrarPago() {
+    }
+
+    
+    
  
     /**
      * Metodo para agregar Pago
@@ -22,9 +27,13 @@ public class AdministrarPago {
      * @param estado
      * @return boolean
      */
-    public boolean agregarPago(Double monto, String estado) {
+    
+    
+    
+    
+    public boolean agregarPago(Integer codigo,Double monto, String estado) {
         PagoDAO pago = new PagoDAO();
-        Pago emp = new Pago(monto, estado);
+        Pago emp = new Pago(codigo, monto, estado);
 
         try {
             pago.addPago(emp);
@@ -51,7 +60,35 @@ public class AdministrarPago {
         }
         return aux;
     }
-
+    
+     public Pago buscarPagoporCodigo(Integer codigo) throws Exception {
+        PagoDAO emp = new PagoDAO();
+        List<Pago> pagosList = emp.readPagos();
+        Pago aux = null;
+        for (Pago m : pagosList) {
+           if (m.getIdPago().equals(codigo)) {
+                aux = m;
+            }
+        }
+        return aux;
+    }
+    
+    
+ public boolean CodigoRepetido(Integer codigo) throws Exception {
+        PagoDAO emp = new PagoDAO();
+        List<Pago> pagosList = emp.readPagos();
+        Pago aux = null;
+        for (Pago m : pagosList) {
+           if (m.getCodigo()==codigo) {
+              return true;
+            }
+        }
+        return false;
+    }
+       
+    
+    
+    
     /**
      * Metodo para editar pago
      * @param idPago
@@ -59,9 +96,10 @@ public class AdministrarPago {
      * @param estado
      * @throws Exception 
      */
-    public void editarPago(Integer idPago, Double monto, String estado) throws Exception {
+    public void editarPago(Integer idPago, Integer codigo,Double monto, String estado) throws Exception {
         Pago em = new Pago();
         em.setIdPago(idPago);
+        em.setCodigo(codigo);
         em.setMonto(monto);
         em.setEstado(estado);
 

@@ -8,9 +8,11 @@ import DTO.Carrito;
 import DTO.Comprador;
 import DTO.DetalleCompra;
 import DTO.Empresa;
+import DTO.Pago;
 import Negocio.AdministrarCalzado;
 import Negocio.AdministrarCompra;
 import Negocio.AdministrarDetalleCompra;
+import Negocio.AdministrarPago;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -54,6 +56,8 @@ public class ComprasController extends HttpServlet {
         }
     }
 
+    Integer codigoP = 0;
+
     /**
      *
      * @param request
@@ -62,31 +66,30 @@ public class ComprasController extends HttpServlet {
     private void addCompra(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
         AdministrarCompra admcom = new AdministrarCompra();
-
         SimpleDateFormat dtf = new SimpleDateFormat("yyyy-MM-dd");
         Calendar calendar = Calendar.getInstance();
         Date fechaCompra = calendar.getTime();
         String estado = "Pendiente";
-
         CarritoController car = new CarritoController();
-
         AdministrarDetalleCompra admdetcom = new AdministrarDetalleCompra();
-
         Collection<DetalleCompra> detalleCompraCollection = null;
         Random rnd = new Random();
-
         Integer codigo = 0;
-
         codigo = rnd.nextInt(99999999 - 100 + 1) + 100;
+
         while (admcom.CodigoRepetido(codigo) == true) {
             codigo = rnd.nextInt(99999999 - 1000000 + 1) + 1000000;
         }
-        admcom.agregarCompra(codigo, fechaCompra, car.getCarrito().obtenerTotal(), estado, detalleCompraCollection);
+
+        this.addPago(request, response);
+        AdministrarPago admp = new AdministrarPago();
+
+        admcom.agregarCompra(codigo, fechaCompra, car.getCarrito().obtenerTotal(),estado, car.getComp().getIdComprador(), admp.buscarPagoporCodigo(codigoP).getIdPago());
 
         //  int cantidad, double precioCompra, Calzado idCalzado, Compra idCompras
         for (int i = 0; i < car.getCarrito().getProductos().size(); i++) {
 
-            admdetcom.agregarDetalleCompra(car.getCarrito().getProductos().get(i).getCantidad(), car.getCarrito().getProductos().get(i).getSubTotal(), car.getCarrito().getProductos().get(i).getCalzado(), admcom.buscarCompraporCodigo(codigo));
+            admdetcom.agregarDetalleCompra(car.getCarrito().getProductos().get(i).getCantidad(), car.getCarrito().getProductos().get(i).getSubTotal(), car.getCarrito().getProductos().get(i).getCalzado().getIdCalzado(), admcom.buscarCompraporCodigo(codigo).getIdCliente());
 
         }
 
@@ -95,6 +98,22 @@ public class ComprasController extends HttpServlet {
         } catch (IOException ex) {
             Logger.getLogger(ComprasController.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    private void addPago(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        Random rnd = new Random();
+
+        codigoP = rnd.nextInt(99999999 - 100 + 1) + 100;
+        AdministrarPago admp = new AdministrarPago();
+        while (admp.CodigoRepetido(codigoP) == true) {
+            codigoP = rnd.nextInt(99999999 - 1000000 + 1) + 1000000;
+        }
+
+        CarritoController car = new CarritoController();
+
+        String estado = "Efectivo";
+        admp.agregarPago(codigoP, car.totalPagar, estado);
+
     }
 
     /**

@@ -18,9 +18,9 @@ import java.util.List;
  * @author Andrey
  */
 public class AdministrarCompra {
-     public boolean agregarCompra( int codigo, Date fechaCompra, double precioTotal, String estado,Comprador idcomprador,Pago idPago, Collection<DetalleCompra> detalleCompraCollection) {
+     public boolean agregarCompra( int codigo, Date fechaCompra, double precioTotal, String estado,Integer idcomprador,Integer idPago) {
         CompraDAO empleado = new CompraDAO();
-        Compra com = new Compra(  codigo,  fechaCompra,  precioTotal, estado,idcomprador,idPago,detalleCompraCollection);
+        Compra com = new Compra(  codigo,  fechaCompra,  precioTotal, estado,idcomprador,idPago);
 
         try {
             empleado.addCompra(com);
@@ -85,14 +85,15 @@ public class AdministrarCompra {
      * @param idCompras
      * @throws Exception 
      */
-    public void editarCompra(Integer idCompra, int codigo, Date fechaCompra, double precioTotal, String estado, Collection<DetalleCompra> detalleCompraCollection) throws Exception {
+    public void editarCompra(Integer idCompra,  int codigo, Date fechaCompra, double precioTotal, String estado,Integer idcomprador,Integer idPago) throws Exception {
         Compra em = new Compra();
         em.setIdCompra(idCompra);
         em.setCodigo(codigo);
         em.setFechaCompra(fechaCompra);
         em.setPrecioTotal(precioTotal);
         em.setEstado(estado);
-        em.setDetalleCompraCollection(detalleCompraCollection);
+        em.setIdCliente(idcomprador);
+        em.setIdPago(idPago);
         CompraDAO comdao = new CompraDAO();
         comdao.updateCompra(em);
     }
@@ -115,6 +116,10 @@ public class AdministrarCompra {
         CompraDAO emp = new CompraDAO();
         List<Compra> Compra = emp.readCompra();
         return Compra;
+    }
+
+    public void agregarCompra(Integer codigo, Date fechaCompra, double obtenerTotal, Comprador comp, Pago buscarPagoporCodigo, String estado, Collection<DetalleCompra> detalleCompraCollection) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

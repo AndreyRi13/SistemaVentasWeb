@@ -5,19 +5,15 @@
 package Persistencia;
 
 import DTO.Calzado;
+import Persistencia.exceptions.NonexistentEntityException;
 import java.io.Serializable;
+import java.util.List;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
-import DTO.DetalleCompra;
-import Persistencia.exceptions.IllegalOrphanException;
-import Persistencia.exceptions.NonexistentEntityException;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
 
 /**
  *
@@ -35,29 +31,11 @@ public class CalzadoJpaController implements Serializable {
     }
 
     public void create(Calzado calzado) {
-        if (calzado.getDetalleCompraCollection() == null) {
-            calzado.setDetalleCompraCollection(new ArrayList<DetalleCompra>());
-        }
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            Collection<DetalleCompra> attachedDetalleCompraCollection = new ArrayList<DetalleCompra>();
-            for (DetalleCompra detalleCompraCollectionDetalleCompraToAttach : calzado.getDetalleCompraCollection()) {
-                detalleCompraCollectionDetalleCompraToAttach = em.getReference(detalleCompraCollectionDetalleCompraToAttach.getClass(), detalleCompraCollectionDetalleCompraToAttach.getIdDetalle());
-                attachedDetalleCompraCollection.add(detalleCompraCollectionDetalleCompraToAttach);
-            }
-            calzado.setDetalleCompraCollection(attachedDetalleCompraCollection);
             em.persist(calzado);
-            for (DetalleCompra detalleCompraCollectionDetalleCompra : calzado.getDetalleCompraCollection()) {
-                Calzado oldIdCalzadoOfDetalleCompraCollectionDetalleCompra = detalleCompraCollectionDetalleCompra.getIdCalzado();
-                detalleCompraCollectionDetalleCompra.setIdCalzado(calzado);
-                detalleCompraCollectionDetalleCompra = em.merge(detalleCompraCollectionDetalleCompra);
-                if (oldIdCalzadoOfDetalleCompraCollectionDetalleCompra != null) {
-                    oldIdCalzadoOfDetalleCompraCollectionDetalleCompra.getDetalleCompraCollection().remove(detalleCompraCollectionDetalleCompra);
-                    oldIdCalzadoOfDetalleCompraCollectionDetalleCompra = em.merge(oldIdCalzadoOfDetalleCompraCollectionDetalleCompra);
-                }
-            }
             em.getTransaction().commit();
         } finally {
             if (em != null) {
@@ -66,45 +44,12 @@ public class CalzadoJpaController implements Serializable {
         }
     }
 
-    public void edit(Calzado calzado) throws IllegalOrphanException, NonexistentEntityException, Exception {
+    public void edit(Calzado calzado) throws NonexistentEntityException, Exception {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            Calzado persistentCalzado = em.find(Calzado.class, calzado.getIdCalzado());
-            Collection<DetalleCompra> detalleCompraCollectionOld = persistentCalzado.getDetalleCompraCollection();
-            Collection<DetalleCompra> detalleCompraCollectionNew = calzado.getDetalleCompraCollection();
-            List<String> illegalOrphanMessages = null;
-            for (DetalleCompra detalleCompraCollectionOldDetalleCompra : detalleCompraCollectionOld) {
-                if (!detalleCompraCollectionNew.contains(detalleCompraCollectionOldDetalleCompra)) {
-                    if (illegalOrphanMessages == null) {
-                        illegalOrphanMessages = new ArrayList<String>();
-                    }
-                    illegalOrphanMessages.add("You must retain DetalleCompra " + detalleCompraCollectionOldDetalleCompra + " since its idCalzado field is not nullable.");
-                }
-            }
-            if (illegalOrphanMessages != null) {
-                throw new IllegalOrphanException(illegalOrphanMessages);
-            }
-            Collection<DetalleCompra> attachedDetalleCompraCollectionNew = new ArrayList<DetalleCompra>();
-            for (DetalleCompra detalleCompraCollectionNewDetalleCompraToAttach : detalleCompraCollectionNew) {
-                detalleCompraCollectionNewDetalleCompraToAttach = em.getReference(detalleCompraCollectionNewDetalleCompraToAttach.getClass(), detalleCompraCollectionNewDetalleCompraToAttach.getIdDetalle());
-                attachedDetalleCompraCollectionNew.add(detalleCompraCollectionNewDetalleCompraToAttach);
-            }
-            detalleCompraCollectionNew = attachedDetalleCompraCollectionNew;
-            calzado.setDetalleCompraCollection(detalleCompraCollectionNew);
             calzado = em.merge(calzado);
-            for (DetalleCompra detalleCompraCollectionNewDetalleCompra : detalleCompraCollectionNew) {
-                if (!detalleCompraCollectionOld.contains(detalleCompraCollectionNewDetalleCompra)) {
-                    Calzado oldIdCalzadoOfDetalleCompraCollectionNewDetalleCompra = detalleCompraCollectionNewDetalleCompra.getIdCalzado();
-                    detalleCompraCollectionNewDetalleCompra.setIdCalzado(calzado);
-                    detalleCompraCollectionNewDetalleCompra = em.merge(detalleCompraCollectionNewDetalleCompra);
-                    if (oldIdCalzadoOfDetalleCompraCollectionNewDetalleCompra != null && !oldIdCalzadoOfDetalleCompraCollectionNewDetalleCompra.equals(calzado)) {
-                        oldIdCalzadoOfDetalleCompraCollectionNewDetalleCompra.getDetalleCompraCollection().remove(detalleCompraCollectionNewDetalleCompra);
-                        oldIdCalzadoOfDetalleCompraCollectionNewDetalleCompra = em.merge(oldIdCalzadoOfDetalleCompraCollectionNewDetalleCompra);
-                    }
-                }
-            }
             em.getTransaction().commit();
         } catch (Exception ex) {
             String msg = ex.getLocalizedMessage();
@@ -122,7 +67,7 @@ public class CalzadoJpaController implements Serializable {
         }
     }
 
-    public void destroy(Integer id) throws IllegalOrphanException, NonexistentEntityException {
+    public void destroy(Integer id) throws NonexistentEntityException {
         EntityManager em = null;
         try {
             em = getEntityManager();
@@ -133,17 +78,6 @@ public class CalzadoJpaController implements Serializable {
                 calzado.getIdCalzado();
             } catch (EntityNotFoundException enfe) {
                 throw new NonexistentEntityException("The calzado with id " + id + " no longer exists.", enfe);
-            }
-            List<String> illegalOrphanMessages = null;
-            Collection<DetalleCompra> detalleCompraCollectionOrphanCheck = calzado.getDetalleCompraCollection();
-            for (DetalleCompra detalleCompraCollectionOrphanCheckDetalleCompra : detalleCompraCollectionOrphanCheck) {
-                if (illegalOrphanMessages == null) {
-                    illegalOrphanMessages = new ArrayList<String>();
-                }
-                illegalOrphanMessages.add("This Calzado (" + calzado + ") cannot be destroyed since the DetalleCompra " + detalleCompraCollectionOrphanCheckDetalleCompra + " in its detalleCompraCollection field has a non-nullable idCalzado field.");
-            }
-            if (illegalOrphanMessages != null) {
-                throw new IllegalOrphanException(illegalOrphanMessages);
             }
             em.remove(calzado);
             em.getTransaction().commit();

@@ -26,7 +26,7 @@ public class AdministrarDetalleCompra {
      * @param idCompras
      * @return boolean
      */
-    public boolean agregarDetalleCompra(int cantidad, double precioCompra, Calzado idCalzado, Compra idCompras) {
+    public boolean agregarDetalleCompra(int cantidad, double precioCompra, Integer idCalzado, Integer idCompras) {
         DatalleCompraDAO empleado = new DatalleCompraDAO();
         DetalleCompra emp = new DetalleCompra(cantidad, precioCompra,idCalzado,idCompras);
 
@@ -65,7 +65,7 @@ public class AdministrarDetalleCompra {
      * @param idCompras
      * @throws Exception 
      */
-    public void editarDetalleCompra(Integer id, int cantidad, double precioCompra, Calzado idCalzado, Compra idCompras) throws Exception {
+    public void editarDetalleCompra(Integer id, int cantidad, double precioCompra, Integer idCalzado, Integer idCompras) throws Exception {
         DetalleCompra em = new DetalleCompra();
         em.setIdDetalle(id);
         em.setCantidad(cantidad);

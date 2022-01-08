@@ -29,7 +29,9 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "DetalleCompra.findAll", query = "SELECT d FROM DetalleCompra d"),
     @NamedQuery(name = "DetalleCompra.findByIdDetalle", query = "SELECT d FROM DetalleCompra d WHERE d.idDetalle = :idDetalle"),
     @NamedQuery(name = "DetalleCompra.findByCantidad", query = "SELECT d FROM DetalleCompra d WHERE d.cantidad = :cantidad"),
-    @NamedQuery(name = "DetalleCompra.findByPrecioCompra", query = "SELECT d FROM DetalleCompra d WHERE d.precioCompra = :precioCompra")})
+    @NamedQuery(name = "DetalleCompra.findByPrecioCompra", query = "SELECT d FROM DetalleCompra d WHERE d.precioCompra = :precioCompra"),
+    @NamedQuery(name = "DetalleCompra.findByIdCalzado", query = "SELECT d FROM DetalleCompra d WHERE d.idCalzado = :idCalzado"),
+    @NamedQuery(name = "DetalleCompra.findByIdCompra", query = "SELECT d FROM DetalleCompra d WHERE d.idCompra = :idCompra")})
 public class DetalleCompra implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -46,10 +48,10 @@ public class DetalleCompra implements Serializable {
     private double precioCompra;
     @JoinColumn(name = "idCalzado", referencedColumnName = "idCalzado")
     @ManyToOne(optional = false)
-    private Calzado idCalzado;
+    private Integer idCalzado;
     @JoinColumn(name = "idCompra", referencedColumnName = "idCompra")
     @ManyToOne(optional = false)
-    private Compra idCompra;
+    private Integer idCompra;
 
     public DetalleCompra() {
     }
@@ -64,14 +66,12 @@ public class DetalleCompra implements Serializable {
         this.precioCompra = precioCompra;
     }
 
-    public DetalleCompra(int cantidad, double precioCompra, Calzado idCalzado, Compra idCompra) {
+    public DetalleCompra(int cantidad, double precioCompra, Integer idCalzado, Integer idCompra) {
         this.cantidad = cantidad;
         this.precioCompra = precioCompra;
         this.idCalzado = idCalzado;
         this.idCompra = idCompra;
     }
-    
-    
 
     public Integer getIdDetalle() {
         return idDetalle;
@@ -97,19 +97,19 @@ public class DetalleCompra implements Serializable {
         this.precioCompra = precioCompra;
     }
 
-    public Calzado getIdCalzado() {
+    public Integer getIdCalzado() {
         return idCalzado;
     }
 
-    public void setIdCalzado(Calzado idCalzado) {
+    public void setIdCalzado(Integer idCalzado) {
         this.idCalzado = idCalzado;
     }
 
-    public Compra getIdCompra() {
+    public Integer getIdCompra() {
         return idCompra;
     }
 
-    public void setIdCompra(Compra idCompra) {
+    public void setIdCompra(Integer idCompra) {
         this.idCompra = idCompra;
     }
 
@@ -121,21 +121,8 @@ public class DetalleCompra implements Serializable {
     }
 
     @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof DetalleCompra)) {
-            return false;
-        }
-        DetalleCompra other = (DetalleCompra) object;
-        if ((this.idDetalle == null && other.idDetalle != null) || (this.idDetalle != null && !this.idDetalle.equals(other.idDetalle))) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
     public String toString() {
         return "DTO.DetalleCompra[ idDetalle=" + idDetalle + " ]";
     }
-    
+
 }

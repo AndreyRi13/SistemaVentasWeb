@@ -38,7 +38,9 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Compra.findByCodigo", query = "SELECT c FROM Compra c WHERE c.codigo = :codigo"),
     @NamedQuery(name = "Compra.findByFechaCompra", query = "SELECT c FROM Compra c WHERE c.fechaCompra = :fechaCompra"),
     @NamedQuery(name = "Compra.findByPrecioTotal", query = "SELECT c FROM Compra c WHERE c.precioTotal = :precioTotal"),
-    @NamedQuery(name = "Compra.findByEstado", query = "SELECT c FROM Compra c WHERE c.estado = :estado")})
+    @NamedQuery(name = "Compra.findByEstado", query = "SELECT c FROM Compra c WHERE c.estado = :estado"),
+    @NamedQuery(name = "Compra.findByIdPago", query = "SELECT c FROM Compra c WHERE c.idPago = :idPago"),
+    @NamedQuery(name = "Compra.findByIdCliente", query = "SELECT c FROM Compra c WHERE c.idCliente = :idCliente")})
 public class Compra implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -61,12 +63,11 @@ public class Compra implements Serializable {
     private String estado;
     @JoinColumn(name = "idCliente", referencedColumnName = "idComprador")
     @ManyToOne(optional = false)
-    private Comprador idCliente;
+    private Integer idCliente;
     @JoinColumn(name = "idPago", referencedColumnName = "idPago")
     @ManyToOne(optional = false)
-    private Pago idPago;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idCompra")
-    private Collection<DetalleCompra> detalleCompraCollection;
+    private Integer idPago;
+    
 
     public Compra() {
     }
@@ -82,15 +83,16 @@ public class Compra implements Serializable {
         this.estado = estado;
     }
 
-    public Compra(int codigo, Date fechaCompra, double precioTotal, String estado, Comprador idCliente, Pago idPago, Collection<DetalleCompra> detalleCompraCollection) {
+    public Compra(int codigo, Date fechaCompra, double precioTotal, String estado, Integer idCliente, Integer idPago) {
         this.codigo = codigo;
         this.fechaCompra = fechaCompra;
         this.precioTotal = precioTotal;
         this.estado = estado;
         this.idCliente = idCliente;
         this.idPago = idPago;
-        this.detalleCompraCollection = detalleCompraCollection;
+     
     }
+    
     
     
 
@@ -134,30 +136,23 @@ public class Compra implements Serializable {
         this.estado = estado;
     }
 
-    public Comprador getIdCliente() {
+    public Integer getIdCliente() {
         return idCliente;
     }
 
-    public void setIdCliente(Comprador idCliente) {
+    public void setIdCliente(Integer idCliente) {
         this.idCliente = idCliente;
     }
 
-    public Pago getIdPago() {
+    public Integer getIdPago() {
         return idPago;
     }
 
-    public void setIdPago(Pago idPago) {
+    public void setIdPago(Integer idPago) {
         this.idPago = idPago;
     }
 
-    @XmlTransient
-    public Collection<DetalleCompra> getDetalleCompraCollection() {
-        return detalleCompraCollection;
-    }
-
-    public void setDetalleCompraCollection(Collection<DetalleCompra> detalleCompraCollection) {
-        this.detalleCompraCollection = detalleCompraCollection;
-    }
+   
 
     @Override
     public int hashCode() {
@@ -166,18 +161,7 @@ public class Compra implements Serializable {
         return hash;
     }
 
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Compra)) {
-            return false;
-        }
-        Compra other = (Compra) object;
-        if ((this.idCompra == null && other.idCompra != null) || (this.idCompra != null && !this.idCompra.equals(other.idCompra))) {
-            return false;
-        }
-        return true;
-    }
+ 
 
     @Override
     public String toString() {

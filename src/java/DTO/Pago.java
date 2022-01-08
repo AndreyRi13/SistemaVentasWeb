@@ -5,9 +5,7 @@
 package DTO;
 
 import java.io.Serializable;
-import java.util.Collection;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,10 +13,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -30,6 +26,7 @@ import javax.xml.bind.annotation.XmlTransient;
 @NamedQueries({
     @NamedQuery(name = "Pago.findAll", query = "SELECT p FROM Pago p"),
     @NamedQuery(name = "Pago.findByIdPago", query = "SELECT p FROM Pago p WHERE p.idPago = :idPago"),
+    @NamedQuery(name = "Pago.findByCodigo", query = "SELECT p FROM Pago p WHERE p.codigo = :codigo"),
     @NamedQuery(name = "Pago.findByMonto", query = "SELECT p FROM Pago p WHERE p.monto = :monto"),
     @NamedQuery(name = "Pago.findByEstado", query = "SELECT p FROM Pago p WHERE p.estado = :estado")})
 public class Pago implements Serializable {
@@ -41,13 +38,14 @@ public class Pago implements Serializable {
     @Column(name = "idPago")
     private Integer idPago;
     @Basic(optional = false)
+    @Column(name = "codigo")
+    private int codigo;
+    @Basic(optional = false)
     @Column(name = "monto")
     private double monto;
     @Basic(optional = false)
     @Column(name = "estado")
     private String estado;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idPago")
-    private Collection<Compra> compraCollection;
 
     public Pago() {
     }
@@ -56,17 +54,18 @@ public class Pago implements Serializable {
         this.idPago = idPago;
     }
 
-    public Pago(Integer idPago, double monto, String estado) {
+    public Pago(Integer idPago, int codigo, double monto, String estado) {
         this.idPago = idPago;
+        this.codigo = codigo;
         this.monto = monto;
         this.estado = estado;
     }
 
-    public Pago(double monto, String estado) {
+    public Pago(int codigo, double monto, String estado) {
+        this.codigo = codigo;
         this.monto = monto;
         this.estado = estado;
     }
-    
 
     public Integer getIdPago() {
         return idPago;
@@ -74,6 +73,14 @@ public class Pago implements Serializable {
 
     public void setIdPago(Integer idPago) {
         this.idPago = idPago;
+    }
+
+    public int getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
     }
 
     public double getMonto() {
@@ -90,15 +97,6 @@ public class Pago implements Serializable {
 
     public void setEstado(String estado) {
         this.estado = estado;
-    }
-
-    @XmlTransient
-    public Collection<Compra> getCompraCollection() {
-        return compraCollection;
-    }
-
-    public void setCompraCollection(Collection<Compra> compraCollection) {
-        this.compraCollection = compraCollection;
     }
 
     @Override
