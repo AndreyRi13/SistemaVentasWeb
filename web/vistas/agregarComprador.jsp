@@ -74,8 +74,8 @@
                                     <div class="form-group col-lg-6 col-sm-6 col-xl-6 col-6 col-md-6">
                                         <select class="form-select" name="txtEstado" id="fname">
                                             <option selected disabled>Estado del comprador</option>
-                                            <option value="Disponible">Habilitado</option>
-                                            <option value="NoDisponible">Deshabilitado</option>                                    
+                                            <option value="Habilitado">Habilitado</option>
+                                            <option value="Deshabilitado">Deshabilitado</option>                                    
                                         </select>
 
                                     </div>

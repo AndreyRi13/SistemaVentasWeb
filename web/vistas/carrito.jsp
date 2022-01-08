@@ -17,9 +17,7 @@
         <!-- Site Metas -->
         <link rel="icon" href="../images/fevicon.png" type="image/gif" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-        <meta name="keywords" content="" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
+
 
         <title>CAYSAM</title>
 
@@ -168,7 +166,7 @@
                                         <input type="text" value="${totalPagar}" readonly="" class="form-control">
                                     </div>
                                     <div class="card-footer">
-                                        <a href="pagocontroller?a=pagar" class="btn btn-info btn-block">Continuar compra</a>                                        
+                                        <a href="carritocontroller?a=pagocontroller" class="btn btn-info btn-block">Continuar compra</a>                                        
                                     </div>
                                 </div>  
 

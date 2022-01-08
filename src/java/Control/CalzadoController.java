@@ -73,7 +73,7 @@ public class CalzadoController extends HttpServlet {
         Integer referencia = Integer.parseInt(request.getParameter("txtReferencia"));
         String nombres = request.getParameter("txtNombres");
         String descripcion = request.getParameter("txtDescripcion");
-        String marca = request.getParameter("txtMarca");
+        String modelo = request.getParameter("txtModelo");
         String color = request.getParameter("txtColor");
         String colorSuela = request.getParameter("txtColorS");
         Integer talla = Integer.parseInt(request.getParameter("txtTalla"));
@@ -88,7 +88,7 @@ public class CalzadoController extends HttpServlet {
          */
         
         AdministrarCalzado adm = new AdministrarCalzado();
-        if (adm.agregarCalzado(referencia, nombres, descripcion, marca, color, colorSuela, talla, precio, stock, estado, Foto) == true) {
+        if (adm.agregarCalzado(referencia, nombres, descripcion, modelo, color, colorSuela, talla, precio, stock, estado, Foto) == true) {
 
             listaCalzado(request, response);
 
@@ -159,7 +159,7 @@ public class CalzadoController extends HttpServlet {
         Integer referencia = Integer.parseInt(request.getParameter("txtReferencia"));
         String nombres = request.getParameter("txtNombres");
         String descripcion = request.getParameter("txtDescripcion");
-        String marca = request.getParameter("txtMarca");
+        String modelo = request.getParameter("txtModelo");
         String color = request.getParameter("txtColor");
         String colorSuela = request.getParameter("txtColorS");
         Integer talla = Integer.parseInt(request.getParameter("txtTalla"));
@@ -169,7 +169,7 @@ public class CalzadoController extends HttpServlet {
         String Foto = request.getParameter("txtFoto");
 
         try {
-            admi.editarCalzado(idProduct, referencia, nombres, descripcion, marca, color, colorSuela, talla, precio, stock, estado, Foto);
+            admi.editarCalzado(idProduct, referencia, nombres, descripcion, modelo, color, colorSuela, talla, precio, stock, estado, Foto);
             listaCalzado(request, response);
         } catch (Exception ex) {
             Logger.getLogger(CalzadoController.class.getName()).log(Level.SEVERE, null, ex);

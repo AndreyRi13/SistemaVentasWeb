@@ -9,9 +9,6 @@
 <!DOCTYPE html>
 <html lang="es">
     <head>
-        <!-- Basic -->
-        <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <!-- Mobile Metas -->
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <!-- Site Metas -->
@@ -95,10 +92,10 @@
                 </div>
             </header>
 
-                                                    
+
             <!-- section pago--> 
             <div class="container" style="align-items: center; padding: 100px;">
-                <form class="form-horizontal" action="comprascontroller?a=addCompra" method="POST">
+                <form class="form-horizontal" action="carritocontroller?a=compracontroller" method="POST">
                     <div class="row">
                         <div class="col-md-6 col-6">
                             <div class="form-group">
@@ -164,8 +161,8 @@
                                 <button type="submit" class="btn btn-success">Comprar</button>
                             </div>
                             <div class="col-10 col-md-10 col-lg-10">                              
-                                        <a  href="carritocontroller?a=main" class="btn btn-warning">Volver al carrito</a>                                       
-                                                                
+                                <a  href="carritocontroller?a=main" class="btn btn-warning">Volver al carrito</a>                                       
+
                             </div>
                         </div>
                     </div>

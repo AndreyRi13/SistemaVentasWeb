@@ -29,7 +29,7 @@
                                     <th>REFERENCIA</th>
                                     <th>NOMBRES</th>
                                     <th>DESCRIPCION</th>
-                                    <th>MARCA</th>
+                                    <th>MODELO</th>
                                     <th>COLOR</th>
                                     <th>PRECIO</th>
                                     <th>STOCK</th>
@@ -45,7 +45,7 @@
                                         <td>${pro.referencia}</td>
                                         <td>${pro.nombres}</td>
                                         <td>${pro.descripcion}</td>
-                                        <td>${pro.marca}</td>
+                                        <td>${pro.modelo}</td>
                                         <td>${pro.color}</td>
                                         <td>${pro.precio}</td>
                                         <td>${pro.stock}</td>

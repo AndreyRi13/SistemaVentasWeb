@@ -8,7 +8,6 @@ import DAO.CompraDAO;
 import DTO.Compra;
 import DTO.Comprador;
 import DTO.DetalleCompra;
-import DTO.Pago;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
@@ -18,9 +17,9 @@ import java.util.List;
  * @author Andrey
  */
 public class AdministrarCompra {
-     public boolean agregarCompra( int codigo, Date fechaCompra, double precioTotal, String estado,Integer idcomprador,Integer idPago) {
+     public boolean agregarCompra( int codigo, Date fechaCompra, double precioTotal, String estado) {
         CompraDAO empleado = new CompraDAO();
-        Compra com = new Compra(  codigo,  fechaCompra,  precioTotal, estado,idcomprador,idPago);
+        Compra com = new Compra(  codigo,fechaCompra,  precioTotal, estado);
 
         try {
             empleado.addCompra(com);
@@ -31,7 +30,7 @@ public class AdministrarCompra {
     }
 
     /**
-     * Metodo para buscar detalle de compras por id
+     * Metodo para buscar  compras por id
      * @param idCompra
      * @return Compra
      * @throws Exception 
@@ -77,29 +76,27 @@ public class AdministrarCompra {
     
 
     /**
-     * Metodo para editar detalle de compra
+     * Metodo para editar  compra
      * @param id
      * @param cantidad
      * @param precioCompra
      * @param idCalzado
-     * @param idCompras
+     * @param idCompra
      * @throws Exception 
      */
-    public void editarCompra(Integer idCompra,  int codigo, Date fechaCompra, double precioTotal, String estado,Integer idcomprador,Integer idPago) throws Exception {
+    public void editarCompra(Integer idCompra,  int codigo, Date fechaCompra, double precioTotal, String estado) throws Exception {
         Compra em = new Compra();
         em.setIdCompra(idCompra);
         em.setCodigo(codigo);
         em.setFechaCompra(fechaCompra);
         em.setPrecioTotal(precioTotal);
-        em.setEstado(estado);
-        em.setIdCliente(idcomprador);
-        em.setIdPago(idPago);
+        em.setEstado(estado);     
         CompraDAO comdao = new CompraDAO();
         comdao.updateCompra(em);
     }
 
     /**
-     * Metodo para eliminar detalle de compra por id
+     * Metodo para eliminar compra por id
      * @param id
      * @throws Exception 
      */
@@ -109,7 +106,7 @@ public class AdministrarCompra {
     }
 
     /**
-     * Metodo para listar detalles de compras
+     * Metodo para listar compras
      * @return List
      */
     public List<Compra> listaCompras() {
@@ -118,8 +115,6 @@ public class AdministrarCompra {
         return Compra;
     }
 
-    public void agregarCompra(Integer codigo, Date fechaCompra, double obtenerTotal, Comprador comp, Pago buscarPagoporCodigo, String estado, Collection<DetalleCompra> detalleCompraCollection) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
 
 }

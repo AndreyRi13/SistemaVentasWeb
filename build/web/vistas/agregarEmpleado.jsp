@@ -70,8 +70,8 @@
 
                                         <select class="form-select" name="txtEstado" id="fname">
                                             <option selected disabled>Estado del empleado</option>
-                                            <option value="Disponible">Habilitado</option>
-                                            <option value="NoDisponible">Deshabilitado</option>                                    
+                                            <option value="Habilitado">Habilitado</option>
+                                            <option value="Deshabilitado">Deshabilitado</option>                                    
                                         </select>
                                     </div>
                                     <br><br><br><br><br>

@@ -24,7 +24,7 @@ public class AdministrarCalzado {
      * @param referencia
      * @param nombres
      * @param descripcion
-     * @param marca
+     * @param modelo
      * @param color
      * @param colorSuela
      * @param talla
@@ -34,7 +34,7 @@ public class AdministrarCalzado {
      * @param Foto
      * @return 
      */
-    public boolean agregarCalzado(Integer referencia, String nombres, String descripcion, String marca, String color, String colorSuela, Integer talla, Double precio, Integer stock, String estado, String Foto) {
+    public boolean agregarCalzado(Integer referencia, String nombres, String descripcion, String modelo, String color, String colorSuela, Integer talla, Double precio, Integer stock, String estado, String Foto) {
 
         CalzadoDAO Calzado = new CalzadoDAO();
 
@@ -43,7 +43,7 @@ public class AdministrarCalzado {
         pro.setReferencia(referencia);
         pro.setNombres(nombres);
         pro.setDescripcion(descripcion);
-        pro.setMarca(marca);
+        pro.setModelo(modelo);
         pro.setColor(color);
         pro.setColorSuela(colorSuela);
         pro.setTalla(talla);
@@ -93,7 +93,7 @@ public class AdministrarCalzado {
      * @param referencia
      * @param nombres
      * @param descripcion
-     * @param marca
+     * @param modelo
      * @param color
      * @param colorSuela
      * @param talla
@@ -103,13 +103,13 @@ public class AdministrarCalzado {
      * @param Foto
      * @throws Exception 
      */
-    public void editarCalzado(Integer idCalzado, Integer referencia, String nombres, String descripcion, String marca, String color, String colorSuela, Integer talla, double precio, Integer stock, String estado, String Foto) throws Exception {
+    public void editarCalzado(Integer idCalzado, Integer referencia, String nombres, String descripcion, String modelo, String color, String colorSuela, Integer talla, double precio, Integer stock, String estado, String Foto) throws Exception {
         Calzado pro = new Calzado();
         pro.setIdCalzado(idCalzado);
         pro.setReferencia(referencia);
         pro.setNombres(nombres);
         pro.setDescripcion(descripcion);
-        pro.setMarca(marca);
+        pro.setModelo(modelo);
         pro.setColor(color);
         pro.setColorSuela(colorSuela);
         pro.setTalla(talla);

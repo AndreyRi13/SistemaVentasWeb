@@ -123,6 +123,7 @@ public class Comprador implements Serializable {
         this.estado = estado;
     }
 
+    
     public Integer getIdComprador() {
         return idComprador;
     }

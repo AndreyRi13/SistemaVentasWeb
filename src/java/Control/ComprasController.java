@@ -8,11 +8,9 @@ import DTO.Carrito;
 import DTO.Comprador;
 import DTO.DetalleCompra;
 import DTO.Empresa;
-import DTO.Pago;
 import Negocio.AdministrarCalzado;
 import Negocio.AdministrarCompra;
 import Negocio.AdministrarDetalleCompra;
-import Negocio.AdministrarPago;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -36,6 +34,8 @@ import javax.servlet.http.HttpSession;
  */
 public class ComprasController extends HttpServlet {
 
+    Comprador compr;
+
     /**
      *
      * @param request
@@ -49,20 +49,26 @@ public class ComprasController extends HttpServlet {
 
         switch (action) {
 
+            case "pagar":
+                pagar(request, response);
+                break;
+
             case "addCompra":
                 addCompra(request, response);
                 break;
 
         }
     }
+    private Carrito carrito = new Carrito();
 
-    Integer codigoP = 0;
+    private void pagar(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        compr = (Comprador) request.getAttribute("comprador");
+        request.setAttribute("comprador", compr);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("pago.jsp");
+        dispatcher.forward(request, response);
 
-    /**
-     *
-     * @param request
-     * @param response
-     */
+    }
+
     private void addCompra(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
         AdministrarCompra admcom = new AdministrarCompra();
@@ -70,7 +76,7 @@ public class ComprasController extends HttpServlet {
         Calendar calendar = Calendar.getInstance();
         Date fechaCompra = calendar.getTime();
         String estado = "Pendiente";
-        CarritoController car = new CarritoController();
+
         AdministrarDetalleCompra admdetcom = new AdministrarDetalleCompra();
         Collection<DetalleCompra> detalleCompraCollection = null;
         Random rnd = new Random();
@@ -81,38 +87,27 @@ public class ComprasController extends HttpServlet {
             codigo = rnd.nextInt(99999999 - 1000000 + 1) + 1000000;
         }
 
-        this.addPago(request, response);
-        AdministrarPago admp = new AdministrarPago();
+        carrito = (Carrito) request.getAttribute("carrito");
 
-        admcom.agregarCompra(codigo, fechaCompra, car.getCarrito().obtenerTotal(),estado, car.getComp().getIdComprador(), admp.buscarPagoporCodigo(codigoP).getIdPago());
+        System.out.println("Total " + carrito.obtenerTotal());
+        admcom.agregarCompra(codigo, fechaCompra, carrito.obtenerTotal(), estado);
 
         //  int cantidad, double precioCompra, Calzado idCalzado, Compra idCompras
-        for (int i = 0; i < car.getCarrito().getProductos().size(); i++) {
+        for (int i = 0; i < carrito.getProductos().size(); i++) {
 
-            admdetcom.agregarDetalleCompra(car.getCarrito().getProductos().get(i).getCantidad(), car.getCarrito().getProductos().get(i).getSubTotal(), car.getCarrito().getProductos().get(i).getCalzado().getIdCalzado(), admcom.buscarCompraporCodigo(codigo).getIdCliente());
+            admdetcom.agregarDetalleCompra(carrito.getProductos().get(i).getCantidad(), carrito.getProductos().get(i).getSubTotal(), carrito.getProductos().get(i).getCalzado(), admcom.buscarCompraporCodigo(codigo));
 
         }
+        
+        MainController(request, response);
 
-        try {
-            response.sendRedirect("/SistemasVentasWeb/vistas/carritocontroller?a=main");
-        } catch (IOException ex) {
-            Logger.getLogger(ComprasController.class.getName()).log(Level.SEVERE, null, ex);
-        }
     }
+    
+    
+     private void MainController(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-    private void addPago(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        Random rnd = new Random();
-
-        codigoP = rnd.nextInt(99999999 - 100 + 1) + 100;
-        AdministrarPago admp = new AdministrarPago();
-        while (admp.CodigoRepetido(codigoP) == true) {
-            codigoP = rnd.nextInt(99999999 - 1000000 + 1) + 1000000;
-        }
-
-        CarritoController car = new CarritoController();
-
-        String estado = "Efectivo";
-        admp.agregarPago(codigoP, car.totalPagar, estado);
+        request.setAttribute("comprador", this.compr);
+        request.getRequestDispatcher("/vistas/carritocontroller?a=main").include(request, response);
 
     }
 

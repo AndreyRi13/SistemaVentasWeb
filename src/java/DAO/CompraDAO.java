@@ -64,8 +64,14 @@ public class CompraDAO {
      
      
         try {
-            Compra.destroy(idEm);
-              return true;
+            try {
+                Compra.destroy(idEm);
+                return true;
+            } catch (IllegalOrphanException ex) {
+                Logger.getLogger(CompraDAO.class.getName()).log(Level.SEVERE, null, ex);
+                 return false;
+            }
+              
         } catch (NonexistentEntityException ex) {
             Logger.getLogger(CompraDAO.class.getName()).log(Level.SEVERE, null, ex);
             return false;

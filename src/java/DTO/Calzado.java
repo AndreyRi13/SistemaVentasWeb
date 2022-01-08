@@ -5,7 +5,9 @@
 package DTO;
 
 import java.io.Serializable;
+import java.util.Collection;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,8 +15,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -29,7 +33,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Calzado.findByReferencia", query = "SELECT c FROM Calzado c WHERE c.referencia = :referencia"),
     @NamedQuery(name = "Calzado.findByNombres", query = "SELECT c FROM Calzado c WHERE c.nombres = :nombres"),
     @NamedQuery(name = "Calzado.findByDescripcion", query = "SELECT c FROM Calzado c WHERE c.descripcion = :descripcion"),
-    @NamedQuery(name = "Calzado.findByMarca", query = "SELECT c FROM Calzado c WHERE c.marca = :marca"),
+    @NamedQuery(name = "Calzado.findByModelo", query = "SELECT c FROM Calzado c WHERE c.modelo = :modelo"),
     @NamedQuery(name = "Calzado.findByColor", query = "SELECT c FROM Calzado c WHERE c.color = :color"),
     @NamedQuery(name = "Calzado.findByColorSuela", query = "SELECT c FROM Calzado c WHERE c.colorSuela = :colorSuela"),
     @NamedQuery(name = "Calzado.findByTalla", query = "SELECT c FROM Calzado c WHERE c.talla = :talla"),
@@ -55,8 +59,8 @@ public class Calzado implements Serializable {
     @Column(name = "descripcion")
     private String descripcion;
     @Basic(optional = false)
-    @Column(name = "marca")
-    private String marca;
+    @Column(name = "modelo")
+    private String modelo;
     @Basic(optional = false)
     @Column(name = "color")
     private String color;
@@ -78,6 +82,8 @@ public class Calzado implements Serializable {
     @Basic(optional = false)
     @Column(name = "foto")
     private String foto;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idCalzado")
+    private Collection<DetalleCompra> detalleCompraCollection;
 
     public Calzado() {
     }
@@ -86,12 +92,12 @@ public class Calzado implements Serializable {
         this.idCalzado = idCalzado;
     }
 
-    public Calzado(Integer idCalzado, int referencia, String nombres, String descripcion, String marca, String color, String colorSuela, int talla, double precio, int stock, String estado, String foto) {
+    public Calzado(Integer idCalzado, int referencia, String nombres, String descripcion, String modelo, String color, String colorSuela, int talla, double precio, int stock, String estado, String foto) {
         this.idCalzado = idCalzado;
         this.referencia = referencia;
         this.nombres = nombres;
         this.descripcion = descripcion;
-        this.marca = marca;
+        this.modelo = modelo;
         this.color = color;
         this.colorSuela = colorSuela;
         this.talla = talla;
@@ -101,6 +107,21 @@ public class Calzado implements Serializable {
         this.foto = foto;
     }
 
+    public Calzado(int referencia, String nombres, String descripcion, String modelo, String color, String colorSuela, int talla, double precio, int stock, String estado, String foto) {
+        this.referencia = referencia;
+        this.nombres = nombres;
+        this.descripcion = descripcion;
+        this.modelo = modelo;
+        this.color = color;
+        this.colorSuela = colorSuela;
+        this.talla = talla;
+        this.precio = precio;
+        this.stock = stock;
+        this.estado = estado;
+        this.foto = foto;
+    }
+
+    
     public Integer getIdCalzado() {
         return idCalzado;
     }
@@ -133,12 +154,12 @@ public class Calzado implements Serializable {
         this.descripcion = descripcion;
     }
 
-    public String getMarca() {
-        return marca;
+    public String getModelo() {
+        return modelo;
     }
 
-    public void setMarca(String marca) {
-        this.marca = marca;
+    public void setModelo(String modelo) {
+        this.modelo = modelo;
     }
 
     public String getColor() {
@@ -195,6 +216,15 @@ public class Calzado implements Serializable {
 
     public void setFoto(String foto) {
         this.foto = foto;
+    }
+
+    @XmlTransient
+    public Collection<DetalleCompra> getDetalleCompraCollection() {
+        return detalleCompraCollection;
+    }
+
+    public void setDetalleCompraCollection(Collection<DetalleCompra> detalleCompraCollection) {
+        this.detalleCompraCollection = detalleCompraCollection;
     }
 
     @Override

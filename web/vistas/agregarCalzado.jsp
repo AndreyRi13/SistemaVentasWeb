@@ -41,7 +41,7 @@
 
                             <div class="form-group col-lg-6 col-sm-6 col-xl-6 col-6 col-md-6">
 
-                                <input id="fname" name="txtMarca" type="text" placeholder="Marca" class="form-control"/>
+                                <input id="fname" name="txtModelo" type="text" placeholder="Modelo" class="form-control"/>
 
                             </div>
                             <br><br><br>

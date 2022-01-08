@@ -3,15 +3,15 @@
   <persistence-unit name="SistemasVentasWebPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>DTO.Producto</class>
-    <class>DTO.Calzado</class>
     <class>DTO.Empleado</class>
     <class>DTO.Empresa</class>
-    <class>DTO.Pago</class>
     <class>DTO.DetalleCompras</class>
     <class>DTO.Compras</class>
+    <class>DTO.Calzado</class>
     <class>DTO.Comprador</class>
-    <class>DTO.Compra</class>
+    <class>DTO.Pago</class>
     <class>DTO.DetalleCompra</class>
+    <class>DTO.Compra</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/bd_ventas?zeroDateTimeBehavior=CONVERT_TO_NULL"/>
