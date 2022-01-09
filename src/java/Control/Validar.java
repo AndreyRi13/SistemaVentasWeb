@@ -116,6 +116,8 @@ public class Validar extends HttpServlet {
      */
     public void dashboard(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        
         RequestDispatcher dispatcher = request.getRequestDispatcher("main.jsp");
         dispatcher.forward(request, response);
     }

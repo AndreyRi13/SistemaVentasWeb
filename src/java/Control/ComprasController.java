@@ -5,6 +5,7 @@ import DAO.CompraDAO;
 import DAO.EmpresaDAO;
 import DTO.Calzado;
 import DTO.Carrito;
+import DTO.Compra;
 import DTO.Comprador;
 import DTO.DetalleCompra;
 import DTO.Empresa;
@@ -13,6 +14,7 @@ import Negocio.AdministrarCompra;
 import Negocio.AdministrarDetalleCompra;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collection;
 import java.util.Date;
@@ -57,6 +59,14 @@ public class ComprasController extends HttpServlet {
                 addCompra(request, response);
                 break;
 
+            case "listarVenta":
+                listarVenta(request, response);
+                break;
+
+            case "informeVenta":
+                informeVenta(request, response);
+                break;
+
         }
     }
     private Carrito carrito = new Carrito();
@@ -88,20 +98,37 @@ public class ComprasController extends HttpServlet {
         }
 
         carrito = (Carrito) request.getAttribute("carrito");
-       
+
         admcom.agregarCompra(codigo, fechaCompra, carrito.obtenerTotal(), estado, compr);
         for (int i = 0; i < carrito.getProductos().size(); i++) {
 
             admdetcom.agregarDetalleCompra(carrito.getProductos().get(i).getCantidad(), carrito.getProductos().get(i).getSubTotal(), carrito.getProductos().get(i).getCalzado(), admcom.buscarCompraporCodigo(codigo));
         }
-   
-
-        // MainController(request, response);
     }
-    
-    
 
-    private void MainController(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    private void listarVenta(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        AdministrarCompra admcom = new AdministrarCompra();
+        List<Compra> compra = admcom.listaCompras();
+        request.setAttribute("ventas", compra);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("listaVentas.jsp");
+        dispatcher.forward(request, response);
+
+    }
+
+    private void informeVenta(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        AdministrarCompra admcom = new AdministrarCompra();
+       // AdministrarDetalleCompra admdet = new AdministrarDetalleCompra();
+        List<Compra> compra = admcom.listaCompras();
+       // List<DetalleCompra> detalleCompra = admdet.listaDetalleCompra();
+        ArrayList c = new ArrayList();
+        for (Compra co : compra) {
+            c.add(co);
+        }
+        request.setAttribute("c", c);
+//        request.setAttribute("detalleCompra", detalleCompra);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("informeVentas.jsp");
+        dispatcher.forward(request, response);
 
     }
 

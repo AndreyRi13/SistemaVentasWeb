@@ -125,8 +125,8 @@
                             </a>
                             <div class="collapse" id="collapseVentas" aria-labelledby="headingFour">
                                 <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">                            
-                                    <a class="nav-link" href="ventacontroller?menu=listarVenta" target="myFrame">Lista de Venta</a>      
-                                    <a class="nav-link" href="ventacontroller?menu=informeVenta" target="myFrame">Informe de Ventas</a>   
+                                    <a class="nav-link" href="comprascontroller?a=listarVenta" target="myFrame">Lista de Venta</a>      
+                                    <a class="nav-link" href="comprascontroller?a=informeVenta" target="myFrame">Informe de Ventas</a>   
                                 </nav>
                             </div>
 
@@ -138,7 +138,7 @@
                     </div>
                 </nav>
             </div>
-
+          
             <div id="layoutSidenav_content">            
                 <main>
                     <div class="container-fluid px-4">
@@ -148,6 +148,7 @@
                     </div>
                 </main>             
             </div>
+
 
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>

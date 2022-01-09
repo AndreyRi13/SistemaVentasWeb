@@ -48,10 +48,8 @@ public class CompraDAO {
      * @param emp
      * @throws Exception 
      */
-    public void addCompra(Compra emp) throws Exception {
-   
-            this.Compra.create(emp);
-  
+    public void addCompra(Compra emp) throws Exception {  
+            this.Compra.create(emp);  
     }
     
     /**

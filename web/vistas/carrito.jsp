@@ -17,17 +17,11 @@
         <!-- Site Metas -->
         <link rel="icon" href="../images/fevicon.png" type="image/gif" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-
-
         <title>CAYSAM</title>
-
-
         <!-- bootstrap core css -->
         <link rel="stylesheet" type="text/css" href="../css/inicio/bootstrap.css" />
-
         <!-- fonts style -->
         <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet"> <!-- range slider -->
-
         <!-- font awesome style -->
         <link href="../css/inicio/font-awesome.min.css" rel="stylesheet" />
         <link href="../css/inicio/ion.rangeSlider.min.css" rel="stylesheet" />
@@ -35,8 +29,7 @@
         <!-- Custom styles for this template -->
         <link href="../css/inicio/style.css" rel="stylesheet" />
         <link rel="stylesheet" href="../path/to/font-awesome/css/font-awesome.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" integrity="sha512-PgQMlq+nqFLV4ylk1gwUOgm6CtIIXkKwaIHp/PAIWHzig/lKZSEGKEysh0TCVbHJXCLN7WetD8TFecIky75ZfQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" integrity="sha512-PgQMlq+nqFLV4ylk1gwUOgm6CtIIXkKwaIHp/PAIWHzig/lKZSEGKEysh0TCVbHJXCLN7WetD8TFecIky75ZfQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <!-- responsive style -->
         <link href="../css/inicio/responsive.css" rel="stylesheet" />
 
