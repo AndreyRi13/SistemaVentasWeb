@@ -48,7 +48,7 @@
                                         <td>${venta.estado}</td>                                     
 
                                         <td>
-                                            <a class="btn btn-warning" href="comprascontroller?a=editCompra&id=${venta.idCompra}">Editar</a>
+                                            <a class="btn btn-warning" href="comprascontroller?a=editVenta&id=${venta.idCompra}">Editar</a>
                                          
                                         </td>
                                     </tr>

@@ -155,7 +155,6 @@ public class CalzadoController extends HttpServlet {
     public void editarCalzado(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         AdministrarCalzado admi = new AdministrarCalzado();
-
         Integer referencia = Integer.parseInt(request.getParameter("txtReferencia"));
         String nombres = request.getParameter("txtNombres");
         String descripcion = request.getParameter("txtDescripcion");

@@ -59,6 +59,14 @@ public class ComprasController extends HttpServlet {
                 addCompra(request, response);
                 break;
 
+            case "editVenta":
+                editVenta(request, response);
+                break;
+
+            case "editarVenta":
+                editarVenta(request, response);
+                break;
+
             case "listarVenta":
                 listarVenta(request, response);
                 break;
@@ -70,6 +78,7 @@ public class ComprasController extends HttpServlet {
         }
     }
     private Carrito carrito = new Carrito();
+    Integer idVenta = 0;
 
     private void pagar(HttpServletRequest request, HttpServletResponse response) throws Exception {
         compr = (Comprador) request.getAttribute("comprador");
@@ -80,7 +89,6 @@ public class ComprasController extends HttpServlet {
     }
 
     private void addCompra(HttpServletRequest request, HttpServletResponse response) throws Exception {
-
         AdministrarCompra admcom = new AdministrarCompra();
         SimpleDateFormat dtf = new SimpleDateFormat("yyyy-MM-dd");
         Calendar calendar = Calendar.getInstance();
@@ -96,13 +104,55 @@ public class ComprasController extends HttpServlet {
         while (admcom.CodigoRepetido(codigo) == true) {
             codigo = rnd.nextInt(99999999 - 1000000 + 1) + 1000000;
         }
-
         carrito = (Carrito) request.getAttribute("carrito");
 
         admcom.agregarCompra(codigo, fechaCompra, carrito.obtenerTotal(), estado, compr);
         for (int i = 0; i < carrito.getProductos().size(); i++) {
 
             admdetcom.agregarDetalleCompra(carrito.getProductos().get(i).getCantidad(), carrito.getProductos().get(i).getSubTotal(), carrito.getProductos().get(i).getCalzado(), admcom.buscarCompraporCodigo(codigo));
+        }
+    }
+
+    private void CalzadoVendido(HttpServletRequest request, HttpServletResponse response, Calzado idCal, int cantidad) throws Exception {
+        AdministrarCalzado adcal = new AdministrarCalzado();
+        if (idCal.getStock() >= 1) {
+            Integer cantVent = idCal.getStock() - cantidad;
+            adcal.editarCalzado(idCal.getIdCalzado(), idCal.getReferencia(), idCal.getNombres(), idCal.getDescripcion(), idCal.getModelo(), idCal.getColor(), idCal.getColorSuela(), idCal.getTalla(), idCal.getPrecio(), cantVent, idCal.getEstado(), idCal.getFoto());
+        } else {
+            adcal.editarCalzado(idCal.getIdCalzado(), idCal.getReferencia(), idCal.getNombres(), idCal.getDescripcion(), idCal.getModelo(), idCal.getColor(), idCal.getColorSuela(), idCal.getTalla(), idCal.getPrecio(), 0, "No disponible", idCal.getFoto());
+
+        }
+
+    }
+
+    private void editVenta(HttpServletRequest request, HttpServletResponse response) {
+        idVenta = Integer.parseInt(request.getParameter("id"));
+        Compra venta = null;
+        AdministrarCompra adm = new AdministrarCompra();
+        try {
+            venta = adm.buscarCompraporId(idVenta);
+            request.setAttribute("venta", venta);
+            RequestDispatcher dispatcher = request.getRequestDispatcher("editarVenta.jsp");
+            dispatcher.forward(request, response);
+        } catch (Exception ex) {
+            Logger.getLogger(CalzadoController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    private void editarVenta(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        AdministrarCompra admi = new AdministrarCompra();
+
+        int codigo = Integer.parseInt(request.getParameter("txtCodigo"));
+        Date fechaCompra = admi.buscarCompraporId(idVenta).getFechaCompra();
+        double precioTotal = Double.parseDouble(request.getParameter("txtPrecioTotal"));
+        String estado = request.getParameter("txtEstado");
+        Comprador idCompr = admi.buscarCompraporId(idVenta).getIdComprador();
+
+        try {
+            admi.editarCompra(idVenta, codigo, fechaCompra, precioTotal, estado, idCompr);
+            listarVenta(request, response);
+        } catch (Exception ex) {
+            Logger.getLogger(CalzadoController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -118,9 +168,9 @@ public class ComprasController extends HttpServlet {
 
     private void informeVenta(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         AdministrarCompra admcom = new AdministrarCompra();
-       // AdministrarDetalleCompra admdet = new AdministrarDetalleCompra();
+        // AdministrarDetalleCompra admdet = new AdministrarDetalleCompra();
         List<Compra> compra = admcom.listaCompras();
-       // List<DetalleCompra> detalleCompra = admdet.listaDetalleCompra();
+        // List<DetalleCompra> detalleCompra = admdet.listaDetalleCompra();
         ArrayList c = new ArrayList();
         for (Compra co : compra) {
             c.add(co);

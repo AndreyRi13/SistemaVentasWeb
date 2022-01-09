@@ -1,4 +1,10 @@
 <%-- 
+    Document   : editarVenta
+    Created on : 9/01/2022, 01:54:06 PM
+    Author     : Andrey
+--%>
+
+<%-- 
     Document   : editarEmpleado
     Created on : 3/07/2021, 11:31:27 p. m.
     Author     : Andrey R
@@ -10,7 +16,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Actualizar Empleado</title>
+        <title>Actualizar Venta</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     </head>
@@ -20,56 +26,36 @@
             <div class="card-body">
                 <div class="container">
                     <div class="well well-sm">
-                        <form class="form-horizontal" action="empleadocontroller?menu=editarEmpleado" method="POST">
+                        <form class="form-horizontal" action="comprascontroller?a=editarVenta" method="POST">
                             <fieldset>
                                 <div class="row">
-                                    <legend class="text-center header" id="title_ventana">ACTUALIZAR EMPLEADO</legend>
+                                    <legend class="text-center header" id="title_ventana">ACTUALIZAR VENTA</legend>
                                     <br><br><br>
                                     <div class="form-group col-lg-6 col-sm-6 col-xl-6 col-6 col-md-6">
-                                        <input id="fname" name="txtCedula" value="${empleado.cedula}" type="text" placeholder="Cedula" class="form-control">
+                                        <input id="fname" name="txtCodigo" value="${venta.codigo}" type="number"  class="form-control" disabled>
                                     </div>
                                     <br><br>
                                     <div class="form-group col-lg-6 col-sm-6 col-xl-6 col-6 col-md-6">
-                                        <input id="fname" name="txtNombres" value="${empleado.nombres}" type="text" placeholder="Nombres" class="form-control">
+                                        <input id="fname"  name="txtFechaCompra" value="${venta.fechaCompra}" type="text"  class="form-control" disabled>
                                     </div>
                                     <br><br>
                                     <div class="form-group col-lg-6 col-sm-6 col-xl-6 col-6 col-md-6">
-                                        <input id="fname" name="txtApellidos" value="${empleado.apellidos}" type="text" placeholder="Apellidos" class="form-control">
+                                        <input id="fname" name="txtPrecioTotal" value="${venta.precioTotal}" type="number" class="form-control" disabled>
                                     </div>
                                     <br><br>
                                     <div class="form-group col-lg-6 col-sm-6 col-xl-6 col-6 col-md-6">
-                                        <input id="fname" name="txtUsername" value="${empleado.username}" type="text" placeholder="Username" class="form-control">
+                                        <input id="fname" name="txtIdComprador" value="${venta.idComprador}" type="number" class="form-control" disabled>
                                     </div>
+                                    
+                                   
                                     <br><br>
-                                    <div class="form-group col-lg-6 col-sm-6 col-xl-6 col-6 col-md-6">
-                                        <input id="fname" name="txtPassword" type="text" value="${empleado.password}" placeholder="Password" class="form-control">
-                                    </div>
-                                    <br><br>
-
-                                    <div class="form-group col-lg-6 col-sm-6 col-xl-6 col-6 col-md-6">
-                                        <input id="fname" name="txtDireccion" type="text" value="${empleado.direccion}" placeholder="Direccion" class="form-control">
-                                    </div>
-
-                                    <br><br>
-                                    <div class="form-group col-lg-6 col-sm-6 col-xl-6 col-6 col-md-6">
-                                        <input id="fname" name="txtNumeroCelular" value="${empleado.numeroCelular}" type="text" placeholder="Numero de Celular" class="form-control">
-                                    </div>
-
-                                    <br><br>
-
-
-                                    <div class="form-group col-lg-6 col-sm-6 col-xl-6 col-6 col-md-6">
-                                        <input id="fname" name="txtCorreoElectronico" value="${empleado.correoElectronico}" type="text" placeholder="Correo Electronico" class="form-control">
-                                    </div>
-                                    <br><br>
-
-
+                 
                                     <div class="form-group col-lg-6 col-sm-6 col-xl-6 col-6 col-md-6">
 
                                         <select class="form-select" name="txtEstado" id="fname">
-                                            <option selected disabled>Estado del empleado</option>
-                                            <option value="Habilitado">Habilitado</option>
-                                            <option value="Deshabilitado">Deshabilitado</option>                                    
+                                            <option selected disabled>Estado de la venta</option>
+                                            <option value="Pendiente">Pendiente</option>
+                                            <option value="Exitosa">Exitosa</option>                                    
                                         </select>
                                     </div>
                                     <br><br><br><br><br>

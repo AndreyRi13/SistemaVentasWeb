@@ -24,45 +24,40 @@
                     <div class="well well-sm">
                         <form class="form-horizontal" action="calzadocontroller?menu=editarCalzado" method="POST">
                             <div class="row" style="align-items: center;">
-                                <legend class="text-center header" id="title_ventana">AGREGAR CALZADO</legend>
+                                <legend class="text-center header" id="title_ventana">ACTUALIZAR CALZADO</legend>
 
                                 <div class="form-group col-lg-6 col-sm-6 col-xl-6 col-6 col-md-6">
 
-                                    <input id="fname" name="txtReferencia" type="number" placeholder="Referencia" pattern="[0-9]+" class="form-control"/>
+                                    <input id="fname"  value="${calzado.referencia}" name="txtReferencia" type="number" placeholder="Referencia" pattern="[0-9]+" class="form-control"/>
 
                                 </div>
                                 <br><br><br>
 
                                 <div class="form-group col-lg-6 col-sm-6 col-xl-6 col-6 col-md-6">
 
-                                    <input id="fname" name="txtNombres" type="text" placeholder="Nombre" class="form-control"/>
+                                    <input id="fname" value="${calzado.nombres}"name="txtNombres" type="text" placeholder="Nombre" class="form-control"/>
 
                                 </div>
                                 <br><br><br>
 
                                 <div class="form-group col-lg-6 col-sm-6 col-xl-6 col-6 col-md-6">
 
-                                    <input id="fname" name="txtModelo" type="text" placeholder="Modelo" class="form-control"/>
+                                    <input id="fname" name="txtModelo" value="${calzado.modelo}" type="text" placeholder="Modelo" class="form-control"/>
 
                                 </div>
                                 <br><br><br>
 
                                 <div class="form-group col-lg-6 col-sm-6 col-xl-6 col-6 col-md-6">
-
-
-
-                                    <input id="fname" name="txtPrecio" type="text" placeholder="Precio" class="form-control"/>
-
-
-
+                                    <input id="fname" name="txtPrecio" value="${calzado.precio}"type="text" placeholder="Precio" class="form-control"/>
+                                </div>
+                                
+                                <br><br><br>
+                                <div class="form-group col-lg-6 col-sm-6 col-xl-6 col-6 col-md-6">
+                                    <input id="fname" value="${calzado.stock}" name="txtStock" type="number" placeholder="Stock"  pattern="[0-9]+"  class="form-control"/>
                                 </div>
                                 <br><br><br>
                                 <div class="form-group col-lg-6 col-sm-6 col-xl-6 col-6 col-md-6">
-                                    <input id="fname" name="txtStock" type="number" placeholder="Stock"  pattern="[0-9]+"  class="form-control"/>
-                                </div>
-                                <br><br><br>
-                                <div class="form-group col-lg-6 col-sm-6 col-xl-6 col-6 col-md-6">
-                                    <input id="fname" name="txtTalla" type="number" placeholder="Talla"  pattern="[0-9]+"  class="form-control"/>
+                                    <input id="fname" value="${calzado.talla}" name="txtTalla" type="number" placeholder="Talla"  pattern="[0-9]+"  class="form-control"/>
                                 </div>                                 
                                 <br><br><br>                     
                                 <div class="form-group col-lg-6 col-sm-6 col-xl-6 col-6 col-md-6">
@@ -71,7 +66,7 @@
                                             <p>Color del calzado</p>
                                         </div> 
                                         <div class="form-group col-lg-6 col-sm-6 col-xl-6 col-6 col-md-6"> 
-                                            <input type="color" name="txtColor" class="form-control form-control-color"  id="fname" value="#FFFFFF" title="Color del zapato"/>                                                                             
+                                            <input type="color" value="${calzado.color}" name="txtColor" class="form-control form-control-color"  id="fname" value="#FFFFFF" title="Color del zapato"/>                                                                             
                                         </div> 
                                     </div> 
                                 </div>
@@ -82,27 +77,27 @@
                                             <p>Color de la suela</p> 
                                         </div>
                                         <div class="form-group col-lg-6 col-sm-6 col-xl-6 col-6 col-md-6"> 
-                                            <input type="color" name="txtColorS" class="form-control form-control-color" id="fname" value="#FFFFFF" title="Color de la suela"/>
+                                            <input type="color" name="txtColorS" value="${calzado.colorSuela}"class="form-control form-control-color" id="fname" value="#FFFFFF" title="Color de la suela"/>
                                         </div>    
                                     </div>    
                                 </div>
                                 <br><br><br>
 
                                 <div class="form-group col-lg-4 col-sm-4 col-xl-4 col-4 col-md-4">
-                                    <textarea id="fname" name="txtDescripcion" type="text" placeholder="Descripción" class="form-control"></textarea>
+                                    <textarea id="fname" name="txtDescripcion" type="text" placeholder="Descripción" value="${calzado.descripcion}" class="form-control"></textarea>
                                 </div>
                                 <br><br><br>
                                 <div class="form-group col-lg-4 col-sm-4 col-xl-4 col-4 col-md-4">                                
-                                    <select class="form-select" name="txtEstado" id="fname">
+                                    <select class="form-select"value="${calzado.estado}"  name="txtEstado" id="fname">
                                         <option selected disabled>Estado del calzado</option>
                                         <option value="Disponible">Disponible</option>
-                                        <option value="NoDisponible">No disponible</option>                                    
+                                        <option value="No disponible">No disponible</option>                                    
                                     </select>
                                 </div>                         
                                 <br><br><br>
                                 <div class="form-group col-lg-4 col-sm-4 col-xl-4 col-4 col-md-4">                               
                                     <label>Selecciona una foto en formato PNG de tamaño inferior a 1MB.<br/></label>
-                                    <input id="fname" type="file" name="txtFoto" accept="image/gif, image/jpeg, image/png image/svg image/jpg image/webp image/jfif" class="form-control"/>                           
+                                    <input id="fname" type="file" value="${calzado.foto}" name="txtFoto" accept="image/gif, image/jpeg, image/png image/svg image/jpg image/webp image/jfif" class="form-control"/>                           
                                 </div>
                                 <br><br><br> <br><br><br><br><br>
                                 <div class="form-group col-lg-12 col-sm-12 col-xl-12 col-12 col-md-12">

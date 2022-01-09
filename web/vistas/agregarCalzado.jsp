@@ -95,7 +95,7 @@
                                 <select class="form-select" name="txtEstado" id="fname">
                                     <option selected disabled>Estado del calzado</option>
                                     <option value="Disponible">Disponible</option>
-                                    <option value="NoDisponible">No disponible</option>                                    
+                                    <option value="No disponible">No disponible</option>                                    
                                 </select>
                             </div>                         
                             <br><br><br>
