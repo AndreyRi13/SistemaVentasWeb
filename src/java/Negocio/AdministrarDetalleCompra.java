@@ -18,14 +18,14 @@ import java.util.List;
 public class AdministrarDetalleCompra {
 
     
-    /**
-     * Metodo para agregar detalle de compra
-     * @param cantidad
-     * @param precioCompra
-     * @param idCalzado
-     * @param idCompras
-     * @return boolean
-     */
+   /**
+    * Metodo para agregar detalle de compras
+    * @param cantidad
+    * @param precioCompra
+    * @param idCalzado
+    * @param idCompra
+    * @return 
+    */
     public boolean agregarDetalleCompra(int cantidad, double precioCompra, Calzado idCalzado, Compra idCompra) {
         DatalleCompraDAO empleado = new DatalleCompraDAO();
         DetalleCompra emp = new DetalleCompra(cantidad, precioCompra,idCalzado,idCompra);

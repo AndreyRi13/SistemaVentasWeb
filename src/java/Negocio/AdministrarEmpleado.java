@@ -24,7 +24,7 @@ public class AdministrarEmpleado {
 
   
     /**
-     * CRUD EMPLEADO
+     * Metodo para agregar empleado
      * @param cedula
      * @param nombres
      * @param apellidos
@@ -67,7 +67,7 @@ public class AdministrarEmpleado {
     }
 
     /**
-     * 
+     * Metodo para editar empleado
      * @param id
      * @param cedula
      * @param nombres

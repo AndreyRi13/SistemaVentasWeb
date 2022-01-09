@@ -35,7 +35,7 @@ public class LogoutServlet extends HttpServlet {
     }
    
     /**
-     * 
+     * Metodo que cierra sesion 
      * @param request
      * @param response
      * @throws ServletException

@@ -28,7 +28,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import static sun.font.CreatedFontTracker.MAX_FILE_SIZE;
 
 /**
  *
@@ -36,14 +35,7 @@ import static sun.font.CreatedFontTracker.MAX_FILE_SIZE;
  */
 public class CompradorController extends HttpServlet {
 
-    /**
-     * 
-     * @param request
-     * @param response
-     * @throws ServletException
-     * @throws IOException
-     * @throws ParseException 
-     */
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, ParseException {
 
@@ -88,8 +80,9 @@ public class CompradorController extends HttpServlet {
         }
     }
 
+    
     /**
-     * 
+     * Metodo para redireccionar a resgistro
      * @param request
      * @param response
      * @throws ServletException
@@ -104,9 +97,9 @@ public class CompradorController extends HttpServlet {
     }
 
   
+    
     /**
-     * Metodo para agregar comprador
-     * 
+     * Metodo para el registro del comprador
      * @param request
      * @param response
      * @throws ServletException
@@ -142,8 +135,9 @@ public class CompradorController extends HttpServlet {
         }
     }
 
+    
     /**
-     * 
+     * Metodo para agregar comprador desde el main
      * @param request
      * @param response
      * @throws ServletException
@@ -180,9 +174,9 @@ public class CompradorController extends HttpServlet {
 
     }
 
-///////////////////////////////////////
+    
     /**
-     * Metodo de listar compradores
+     * Metodo para listar comprador en el main
      * @param request
      * @param response
      * @throws ServletException
@@ -203,9 +197,7 @@ public class CompradorController extends HttpServlet {
     Integer idEmple = 0;
 
     /**
-     * 
-     * Metodo de direccionar para edicion de comprador
-     *
+     * Metodo para redireccionar a jsp editar comprador
      * @param request
      * @param response
      * @throws ServletException
@@ -228,8 +220,9 @@ public class CompradorController extends HttpServlet {
 
     }
     
+    
     /**
-     * Metodo de editar comprador
+     * Metodo para editar comprador
      * @param request
      * @param response
      * @throws ServletException
@@ -269,8 +262,9 @@ public class CompradorController extends HttpServlet {
         }
     }
 
+    
     /**
-     * Metodo de eliminar comprador
+     * Metodo para eliminar comprador
      * @param request
      * @param response
      * @throws ServletException
@@ -289,6 +283,7 @@ public class CompradorController extends HttpServlet {
         }
     }
 
+    
     /**
      * 
      * @param request
@@ -307,13 +302,8 @@ public class CompradorController extends HttpServlet {
         }
     }
 
-    /**
-     * 
-     * @param request
-     * @param response
-     * @throws ServletException
-     * @throws IOException 
-     */
+    
+    
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -325,10 +315,7 @@ public class CompradorController extends HttpServlet {
         }
     }
 
-    /**
-     * 
-     * @return 
-     */
+    
     @Override
     public String getServletInfo() {
         return "Short description";

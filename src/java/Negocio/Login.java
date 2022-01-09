@@ -23,7 +23,7 @@ public class Login {
     }
 
     /**
-     * 
+     * Metodo para validar que tipo de usuario es el que va ingresar
      * @param user
      * @param pass
      * @return String

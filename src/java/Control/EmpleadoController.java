@@ -1,4 +1,3 @@
-
 package Control;
 
 import DAO.EmpleadoDAO;
@@ -24,13 +23,6 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class EmpleadoController extends HttpServlet {
 
-    /**
-     * 
-     * @param request
-     * @param response
-     * @throws ServletException
-     * @throws IOException 
-     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
@@ -66,17 +58,16 @@ public class EmpleadoController extends HttpServlet {
         }
     }
 
-   
     /**
-     * Metodo para agregar empleado
+     *Metodo para agregar empleado a la base de datos
      * @param request
      * @param response
      * @throws ServletException
-     * @throws IOException 
+     * @throws IOException
      */
     public void addEmpleado(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         String cedula = request.getParameter("txtCedula");
         String nombres = request.getParameter("txtNombres");
         String apellidos = request.getParameter("txtApellidos");
@@ -84,12 +75,12 @@ public class EmpleadoController extends HttpServlet {
         String password = request.getParameter("txtPassword");
         String direccion = request.getParameter("txtDireccion");
         String numeroCelular = request.getParameter("txtNumeroCelular");
-        String correoElectronico = request.getParameter("txtCorreoElectronico");    
+        String correoElectronico = request.getParameter("txtCorreoElectronico");
         String estado = request.getParameter("txtEstado");
 
-        /*Instancia El negocio de administrar  */
+        /*Instancia el negocio de administrar  */
         AdministrarEmpleado adm = new AdministrarEmpleado();
-        if (adm.agregarEmpleado(cedula,nombres,apellidos,username,password,direccion,numeroCelular,correoElectronico,estado) == true) {
+        if (adm.agregarEmpleado(cedula, nombres, apellidos, username, password, direccion, numeroCelular, correoElectronico, estado) == true) {
 
             listaEmpleado(request, response);
 
@@ -100,13 +91,12 @@ public class EmpleadoController extends HttpServlet {
 
     }
 
-
     /**
-     * Metodo de listar empleados
+     * Metodo para redireccionar a jsp lista empleados
      * @param request
      * @param response
      * @throws ServletException
-     * @throws IOException 
+     * @throws IOException
      */
     public void listaEmpleado(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -117,18 +107,17 @@ public class EmpleadoController extends HttpServlet {
         dispatcher.forward(request, response);
     }
 
-
     /**
      * Variable para obtener id de empleado
      */
     Integer idEmple = 0;
 
     /**
-     * Metodo de direccionar para edicion de empleado
+     * Metodo de redireccionar a jsp  editar empleado
      * @param request
      * @param response
      * @throws ServletException
-     * @throws IOException 
+     * @throws IOException
      */
     public void editEmpleado(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -146,13 +135,13 @@ public class EmpleadoController extends HttpServlet {
 
     }
 
-/**
- * Metodo para editar empleado
- * @param request
- * @param response
- * @throws ServletException
- * @throws IOException 
- */
+    /**
+     * Metodo para editar empleado
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     public void editarEmpleado(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         AdministrarEmpleado admi = new AdministrarEmpleado();
@@ -163,10 +152,10 @@ public class EmpleadoController extends HttpServlet {
         String password = request.getParameter("txtPassword");
         String direccion = request.getParameter("txtDireccion");
         String numeroCelular = request.getParameter("txtNumeroCelular");
-        String correoElectronico = request.getParameter("txtCorreoElectronico");    
+        String correoElectronico = request.getParameter("txtCorreoElectronico");
         String estado = request.getParameter("txtEstado");
         try {
-            admi.editarEmpleado(idEmple, cedula,  nombres, apellidos,  username,  password,  direccion,  numeroCelular,  correoElectronico,  estado);
+            admi.editarEmpleado(idEmple, cedula, nombres, apellidos, username, password, direccion, numeroCelular, correoElectronico, estado);
             listaEmpleado(request, response);
         } catch (Exception ex) {
             Logger.getLogger(EmpleadoController.class.getName()).log(Level.SEVERE, null, ex);
@@ -178,7 +167,7 @@ public class EmpleadoController extends HttpServlet {
      * @param request
      * @param response
      * @throws ServletException
-     * @throws IOException 
+     * @throws IOException
      */
     public void eliminaEmpleado(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -192,26 +181,14 @@ public class EmpleadoController extends HttpServlet {
         }
     }
 
-    /**
-     * 
-     * @param request
-     * @param response
-     * @throws ServletException
-     * @throws IOException 
-     */
+    
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
     }
 
-    /**
-     * 
-     * @param request
-     * @param response
-     * @throws ServletException
-     * @throws IOException 
-     */
+   
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -219,8 +196,8 @@ public class EmpleadoController extends HttpServlet {
     }
 
     /**
-     * 
-     * @return 
+     *
+     * @return
      */
     @Override
     public String getServletInfo() {

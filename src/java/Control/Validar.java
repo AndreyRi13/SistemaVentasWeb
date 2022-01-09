@@ -30,13 +30,7 @@ import javax.servlet.http.HttpSession;
  */
 public class Validar extends HttpServlet {
 
-    /**
-     *
-     * @param request
-     * @param response
-     * @throws ServletException
-     * @throws IOException
-     */
+   
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String action = request.getParameter("a");
@@ -71,7 +65,7 @@ public class Validar extends HttpServlet {
     int idUsuario = 0;
 
     /**
-     * 
+     * Metodo que valida los datos de inicio de sesion
      * @param request
      * @param response
      * @throws ServletException
@@ -115,9 +109,7 @@ public class Validar extends HttpServlet {
      * @throws IOException 
      */
     public void dashboard(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        
-        
+            throws ServletException, IOException {              
         RequestDispatcher dispatcher = request.getRequestDispatcher("main.jsp");
         dispatcher.forward(request, response);
     }

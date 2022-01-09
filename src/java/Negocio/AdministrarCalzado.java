@@ -20,7 +20,7 @@ public class AdministrarCalzado {
 
    
     /**
-     * CRUD Calzado
+     * Metodo para agregar calzado
      * @param referencia
      * @param nombres
      * @param descripcion
@@ -63,7 +63,7 @@ public class AdministrarCalzado {
     }
 
     /**
-     * 
+     * Metodo para listar calzados
      * @return List
      */
     public List<Calzado> listaCalzados() {
@@ -73,7 +73,7 @@ public class AdministrarCalzado {
     }
 
     /**
-     * 
+     * Metodo para buscar calzados por id
      * @param idCalzado
      * @return Calzado
      */
@@ -88,7 +88,7 @@ public class AdministrarCalzado {
     }
 
     /**
-     * 
+     * Metodo para editar calzado
      * @param idCalzado
      * @param referencia
      * @param nombres

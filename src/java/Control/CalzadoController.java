@@ -58,9 +58,9 @@ public class CalzadoController extends HttpServlet {
         }
     }
 
+    
     /**
-     * @ Metodo para agregar calzado
-     * 
+     * Metodo para agregar calzado
      * @param request
      * @param response
      * @throws ServletException
@@ -100,8 +100,9 @@ public class CalzadoController extends HttpServlet {
     }
 
    
+    
     /**
-     * Metodo para listar los calzados
+     * Metodo para redireccionar a jsp listar calzado
      * @param request
      * @param response
      * @throws ServletException
@@ -122,7 +123,7 @@ public class CalzadoController extends HttpServlet {
     Integer idProduct = 0;
 
     /**
-     * Metodo que direcciona a editar Calzados
+     * Metodo para redireccionar a jsp editar calzado
      * @param request
      * @param response
      * @throws ServletException
@@ -145,8 +146,9 @@ public class CalzadoController extends HttpServlet {
     }
 
    
+    
     /**
-     * Metodo para editar calzados
+     * Metodo para editar calzado
      * @param request
      * @param response
      * @throws ServletException
@@ -175,8 +177,9 @@ public class CalzadoController extends HttpServlet {
         }
     }
 
+    
     /**
-     * Metodo para eliminar calzados
+     * Metodo para eliminar calzado
      * @param request
      * @param response
      * @throws ServletException
@@ -194,28 +197,14 @@ public class CalzadoController extends HttpServlet {
         }
     }
 
-    /**
-     * 
-     * 
-     * @param request
-     * @param response
-     * @throws ServletException
-     * @throws IOException 
-     */
+    
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
     }
 
-    /**
-     * 
-     * 
-     * @param request
-     * @param response
-     * @throws ServletException
-     * @throws IOException 
-     */
+    
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

@@ -38,13 +38,6 @@ public class ComprasController extends HttpServlet {
 
     Comprador compr;
 
-    /**
-     *
-     * @param request
-     * @param response
-     * @throws ServletException
-     * @throws IOException
-     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, Exception {
         String action = request.getParameter("a");
@@ -80,6 +73,12 @@ public class ComprasController extends HttpServlet {
     private Carrito carrito = new Carrito();
     Integer idVenta = 0;
 
+    /**
+     * Metodo para redireccionar a jsp pago
+     * @param request
+     * @param response
+     * @throws Exception 
+     */
     private void pagar(HttpServletRequest request, HttpServletResponse response) throws Exception {
         compr = (Comprador) request.getAttribute("comprador");
         request.setAttribute("comprador", compr);
@@ -88,6 +87,12 @@ public class ComprasController extends HttpServlet {
 
     }
 
+    /**
+     * Metodo para agregar compra
+     * @param request
+     * @param response
+     * @throws Exception 
+     */
     private void addCompra(HttpServletRequest request, HttpServletResponse response) throws Exception {
         AdministrarCompra admcom = new AdministrarCompra();
         SimpleDateFormat dtf = new SimpleDateFormat("yyyy-MM-dd");
@@ -113,6 +118,14 @@ public class ComprasController extends HttpServlet {
         }
     }
 
+    /**
+     * Metodo para actualizar stock de calzado vendido
+     * @param request
+     * @param response
+     * @param idCal
+     * @param cantidad
+     * @throws Exception 
+     */
     private void CalzadoVendido(HttpServletRequest request, HttpServletResponse response, Calzado idCal, int cantidad) throws Exception {
         AdministrarCalzado adcal = new AdministrarCalzado();
         if (idCal.getStock() >= 1) {
@@ -125,6 +138,12 @@ public class ComprasController extends HttpServlet {
 
     }
 
+    
+    /**
+     * Metodo para redireccionar a jsp editar venta
+     * @param request
+     * @param response 
+     */
     private void editVenta(HttpServletRequest request, HttpServletResponse response) {
         idVenta = Integer.parseInt(request.getParameter("id"));
         Compra venta = null;
@@ -139,6 +158,12 @@ public class ComprasController extends HttpServlet {
         }
     }
 
+    /**
+     * Metodo para editar ventas, solo edita el estado.
+     * @param request
+     * @param response
+     * @throws Exception 
+     */
     private void editarVenta(HttpServletRequest request, HttpServletResponse response) throws Exception {
         AdministrarCompra admi = new AdministrarCompra();
 
@@ -156,8 +181,15 @@ public class ComprasController extends HttpServlet {
         }
     }
 
+    
+    /**
+     * Metodo para redireccionar listar ventas en el main
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException 
+     */
     private void listarVenta(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
         AdministrarCompra admcom = new AdministrarCompra();
         List<Compra> compra = admcom.listaCompras();
         request.setAttribute("ventas", compra);
@@ -166,6 +198,13 @@ public class ComprasController extends HttpServlet {
 
     }
 
+    /**
+     * Metodo para redireccionar al informe de ventas
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException 
+     */
     private void informeVenta(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         AdministrarCompra admcom = new AdministrarCompra();
         // AdministrarDetalleCompra admdet = new AdministrarDetalleCompra();
@@ -182,13 +221,7 @@ public class ComprasController extends HttpServlet {
 
     }
 
-    /**
-     *
-     * @param request
-     * @param response
-     * @throws ServletException
-     * @throws IOException
-     */
+    
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

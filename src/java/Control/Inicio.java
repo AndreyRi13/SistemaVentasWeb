@@ -33,13 +33,7 @@ import javax.servlet.http.HttpSession;
  */
 public class Inicio extends HttpServlet {
 
-    /**
-     * 
-     * @param request
-     * @param response
-     * @throws ServletException
-     * @throws IOException 
-     */
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
@@ -68,7 +62,7 @@ public class Inicio extends HttpServlet {
     HttpSession session = null;
 
     /**
-     * 
+     * Metodo de pagina de inicio
      * @param request
      * @param response
      * @throws ServletException
@@ -89,7 +83,7 @@ public class Inicio extends HttpServlet {
     }
 
     /**
-     * 
+     * Metodo que redirreciona a login para consultar mas
      * @param request
      * @param response
      * @throws ServletException

@@ -17,6 +17,16 @@ import java.util.List;
  * @author Andrey
  */
 public class AdministrarCompra {
+    
+    /**
+     * Metodo para agregar compra
+     * @param codigo
+     * @param fechaCompra
+     * @param precioTotal
+     * @param estado
+     * @param comprador
+     * @return 
+     */
      public boolean agregarCompra( int codigo, Date fechaCompra, double precioTotal, String estado, Comprador comprador) {
         CompraDAO empleado = new CompraDAO();
         Compra com = new Compra(  codigo,fechaCompra,  precioTotal, estado,comprador);
@@ -29,12 +39,13 @@ public class AdministrarCompra {
         }
     }
 
-    /**
-     * Metodo para buscar  compras por id
-     * @param idCompra
-     * @return Compra
-     * @throws Exception 
-     */
+    
+     /**
+      * Metodo para buscar compra por id
+      * @param idCompra
+      * @return
+      * @throws Exception 
+      */
     public Compra buscarCompraporId(Integer idCompra) throws Exception {
         CompraDAO emp = new CompraDAO();
         List<Compra> Compra = emp.readCompra();
@@ -47,6 +58,12 @@ public class AdministrarCompra {
         return aux;
     }
     
+    /**
+     * Metodo para buscar compra por codigo
+     * @param codigo
+     * @return
+     * @throws Exception 
+     */
     public Compra buscarCompraporCodigo(Integer codigo) throws Exception {
         CompraDAO emp = new CompraDAO();
         List<Compra> Compra = emp.readCompra();
@@ -59,6 +76,12 @@ public class AdministrarCompra {
         return aux;
     }
     
+    /**
+     * Metodo para buscar codigo repetido
+     * @param codigo
+     * @return
+     * @throws Exception 
+     */
     public boolean CodigoRepetido(Integer codigo) throws Exception {
         CompraDAO emp = new CompraDAO();
         List<Compra> Compra = emp.readCompra();
@@ -75,15 +98,16 @@ public class AdministrarCompra {
     
     
 
-    /**
-     * Metodo para editar  compra
-     * @param id
-     * @param cantidad
-     * @param precioCompra
-     * @param idCalzado
-     * @param idCompra
-     * @throws Exception 
-     */
+   /**
+    * Metodo para editar compra
+    * @param idCompra
+    * @param codigo
+    * @param fechaCompra
+    * @param precioTotal
+    * @param estado
+    * @param comprador
+    * @throws Exception 
+    */
     public void editarCompra(Integer idCompra,  int codigo, Date fechaCompra, double precioTotal, String estado,Comprador comprador) throws Exception {
         Compra em = new Compra();
         em.setIdCompra(idCompra);
@@ -108,7 +132,7 @@ public class AdministrarCompra {
 
     /**
      * Metodo para listar compras
-     * @return List
+     * @return 
      */
     public List<Compra> listaCompras() {
         CompraDAO emp = new CompraDAO();

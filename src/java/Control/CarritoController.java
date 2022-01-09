@@ -30,13 +30,7 @@ import javax.servlet.http.HttpSession;
  */
 public class CarritoController extends HttpServlet {
 
-    /**
-     *
-     * @param request
-     * @param response
-     * @throws ServletException
-     * @throws IOException
-     */
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String action = request.getParameter("a");
@@ -92,10 +86,7 @@ public class CarritoController extends HttpServlet {
 
         }
     }
-
-    /**
-     *
-     */
+        
     private Cookie ck;
     private int cant = 0;
     private double totalPagar = 0.0;
@@ -128,7 +119,7 @@ public class CarritoController extends HttpServlet {
     }
 
     /**
-     *
+     * Metodo para redireccionar a jsp main comprador
      * @param request
      * @param response
      * @throws ServletException
@@ -154,7 +145,7 @@ public class CarritoController extends HttpServlet {
     }
 
     /**
-     *
+     * Metodo para eliminar item de carrito
      * @param request
      * @param response
      * @throws ServletException
@@ -170,7 +161,7 @@ public class CarritoController extends HttpServlet {
     }
 
     /**
-     *
+     * Metodo para redireccionar a pagina de inicio
      * @param request
      * @param response
      * @throws ServletException
@@ -180,6 +171,13 @@ public class CarritoController extends HttpServlet {
         response.sendRedirect("/SistemasVentasWeb/inicio");
     }
 
+    /**
+     * Metodo para redireccionar a servlet comprascontroller, agregar compra.
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException 
+     */
     private void CompraController(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         request.setAttribute("carrito", this.carrito);
@@ -188,6 +186,13 @@ public class CarritoController extends HttpServlet {
 
     }
 
+    /**
+     * Metodo para redireccionar a servlet comprascontroller, pagar.
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException 
+     */
     private void PagarController(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         request.setAttribute("comprador", this.comp);
@@ -196,7 +201,7 @@ public class CarritoController extends HttpServlet {
     }
 
     /**
-     *
+     *Metodo para agregar producto al carrito.
      * @param request
      * @param response
      * @throws ServletException
@@ -221,7 +226,7 @@ public class CarritoController extends HttpServlet {
     }
 
     /**
-     *
+     *Metodo para actualizar cantidad de productos en el carrito
      * @param request
      * @param response
      * @throws ServletException
@@ -259,7 +264,7 @@ public class CarritoController extends HttpServlet {
     }
 
     /**
-     *
+     *Metodo para redireccionar a jsp carrito, agrega producto a carrito y aumenta cantidad.
      * @param request
      * @param response
      * @throws ServletException
@@ -339,7 +344,7 @@ public class CarritoController extends HttpServlet {
     }
 
     /**
-     *
+     *Metodo para redireccionar a jsp ver mas
      * @param request
      * @param response
      * @throws ServletException
@@ -364,13 +369,7 @@ public class CarritoController extends HttpServlet {
 
     }
 
-    /**
-     *
-     * @param request
-     * @param response
-     * @throws ServletException
-     * @throws IOException
-     */
+    
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
