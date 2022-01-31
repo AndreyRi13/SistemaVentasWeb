@@ -139,6 +139,10 @@
                                         </h5>
                                         <div class="product_info">
                                             <h5>
+                                                <span>Stock: </span>${producto.stock}
+                                            </h5>
+                                           
+                                            <h5> 
                                                 <span>$</span>${producto.precio}
                                             </h5>
                                             <div class="star_container">

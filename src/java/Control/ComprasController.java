@@ -75,9 +75,10 @@ public class ComprasController extends HttpServlet {
 
     /**
      * Metodo para redireccionar a jsp pago
+     *
      * @param request
      * @param response
-     * @throws Exception 
+     * @throws Exception
      */
     private void pagar(HttpServletRequest request, HttpServletResponse response) throws Exception {
         compr = (Comprador) request.getAttribute("comprador");
@@ -89,9 +90,10 @@ public class ComprasController extends HttpServlet {
 
     /**
      * Metodo para agregar compra
+     *
      * @param request
      * @param response
-     * @throws Exception 
+     * @throws Exception
      */
     private void addCompra(HttpServletRequest request, HttpServletResponse response) throws Exception {
         AdministrarCompra admcom = new AdministrarCompra();
@@ -112,19 +114,61 @@ public class ComprasController extends HttpServlet {
         carrito = (Carrito) request.getAttribute("carrito");
 
         admcom.agregarCompra(codigo, fechaCompra, carrito.obtenerTotal(), estado, compr);
-        for (int i = 0; i < carrito.getProductos().size(); i++) {
+        AdministrarCalzado admi = new AdministrarCalzado();
 
+        int ide = 0;
+        int referencia = 0;
+        String nombres = "";
+        String descripcion = "";
+        String modelo = "";
+        String color = "";
+        String colorSuela = "";
+        int talla = 0;
+        Double precio = 0.0;
+        int stock = 0;
+        String estadocal = "";
+        String foto = "";
+        int cantStock = 0;
+        int cantCompra = 0;
+        for (int i = 0; i < carrito.getProductos().size(); i++) {
             admdetcom.agregarDetalleCompra(carrito.getProductos().get(i).getCantidad(), carrito.getProductos().get(i).getSubTotal(), carrito.getProductos().get(i).getCalzado(), admcom.buscarCompraporCodigo(codigo));
+            System.out.println("Antes calzados: " + carrito.getProductos().get(i).getCalzado().getStock());
+
+            ide = carrito.getProductos().get(i).getCalzado().getIdCalzado();
+            referencia = carrito.getProductos().get(i).getCalzado().getReferencia();
+            nombres = carrito.getProductos().get(i).getCalzado().getNombres();
+            descripcion = carrito.getProductos().get(i).getCalzado().getDescripcion();
+            modelo = carrito.getProductos().get(i).getCalzado().getModelo();
+            color = carrito.getProductos().get(i).getCalzado().getColor();
+            colorSuela = carrito.getProductos().get(i).getCalzado().getColorSuela();
+            talla = carrito.getProductos().get(i).getCalzado().getTalla();
+            precio = carrito.getProductos().get(i).getCalzado().getPrecio();
+            cantStock = carrito.getProductos().get(i).getCalzado().getStock();
+            cantCompra = carrito.getProductos().get(i).getCantidad();
+            stock = (cantStock - cantCompra);
+            System.out.println("Stock despues: " + stock);
+            estadocal = carrito.getProductos().get(i).getCalzado().getEstado();
+            foto = carrito.getProductos().get(i).getCalzado().getFoto();
+
+            try {
+           admi.editarCalzado(ide, referencia, nombres, descripcion, modelo, color, colorSuela, talla, precio, stock, estadocal, foto);       
+                } catch (Exception ex) {
+                Logger.getLogger(CalzadoController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            carrito.getProductos().get(i).getCalzado().setStock(stock);
+            System.out.println("Despues calzados: " + carrito.getProductos().get(i).getCalzado().getStock());
         }
+
     }
 
     /**
      * Metodo para actualizar stock de calzado vendido
+     *
      * @param request
      * @param response
      * @param idCal
      * @param cantidad
-     * @throws Exception 
+     * @throws Exception
      */
     private void CalzadoVendido(HttpServletRequest request, HttpServletResponse response, Calzado idCal, int cantidad) throws Exception {
         AdministrarCalzado adcal = new AdministrarCalzado();
@@ -138,11 +182,11 @@ public class ComprasController extends HttpServlet {
 
     }
 
-    
     /**
      * Metodo para redireccionar a jsp editar venta
+     *
      * @param request
-     * @param response 
+     * @param response
      */
     private void editVenta(HttpServletRequest request, HttpServletResponse response) {
         idVenta = Integer.parseInt(request.getParameter("id"));
@@ -160,9 +204,10 @@ public class ComprasController extends HttpServlet {
 
     /**
      * Metodo para editar ventas, solo edita el estado.
+     *
      * @param request
      * @param response
-     * @throws Exception 
+     * @throws Exception
      */
     private void editarVenta(HttpServletRequest request, HttpServletResponse response) throws Exception {
         AdministrarCompra admi = new AdministrarCompra();
@@ -181,13 +226,13 @@ public class ComprasController extends HttpServlet {
         }
     }
 
-    
     /**
      * Metodo para redireccionar listar ventas en el main
+     *
      * @param request
      * @param response
      * @throws ServletException
-     * @throws IOException 
+     * @throws IOException
      */
     private void listarVenta(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         AdministrarCompra admcom = new AdministrarCompra();
@@ -200,10 +245,11 @@ public class ComprasController extends HttpServlet {
 
     /**
      * Metodo para redireccionar al informe de ventas
+     *
      * @param request
      * @param response
      * @throws ServletException
-     * @throws IOException 
+     * @throws IOException
      */
     private void informeVenta(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         AdministrarCompra admcom = new AdministrarCompra();
@@ -221,7 +267,6 @@ public class ComprasController extends HttpServlet {
 
     }
 
-    
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

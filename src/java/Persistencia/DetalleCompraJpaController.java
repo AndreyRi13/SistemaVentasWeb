@@ -9,7 +9,6 @@ import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
-import DTO.Calzado;
 import DTO.Compra;
 import DTO.DetalleCompra;
 import Persistencia.exceptions.NonexistentEntityException;
@@ -37,21 +36,12 @@ public class DetalleCompraJpaController implements Serializable {
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            Calzado idCalzado = detalleCompra.getIdCalzado();
-            if (idCalzado != null) {
-                idCalzado = em.getReference(idCalzado.getClass(), idCalzado.getIdCalzado());
-                detalleCompra.setIdCalzado(idCalzado);
-            }
             Compra idCompra = detalleCompra.getIdCompra();
             if (idCompra != null) {
                 idCompra = em.getReference(idCompra.getClass(), idCompra.getIdCompra());
                 detalleCompra.setIdCompra(idCompra);
             }
             em.persist(detalleCompra);
-            if (idCalzado != null) {
-                idCalzado.getDetalleCompraCollection().add(detalleCompra);
-                idCalzado = em.merge(idCalzado);
-            }
             if (idCompra != null) {
                 idCompra.getDetalleCompraCollection().add(detalleCompra);
                 idCompra = em.merge(idCompra);
@@ -70,27 +60,13 @@ public class DetalleCompraJpaController implements Serializable {
             em = getEntityManager();
             em.getTransaction().begin();
             DetalleCompra persistentDetalleCompra = em.find(DetalleCompra.class, detalleCompra.getIdDetalle());
-            Calzado idCalzadoOld = persistentDetalleCompra.getIdCalzado();
-            Calzado idCalzadoNew = detalleCompra.getIdCalzado();
             Compra idCompraOld = persistentDetalleCompra.getIdCompra();
             Compra idCompraNew = detalleCompra.getIdCompra();
-            if (idCalzadoNew != null) {
-                idCalzadoNew = em.getReference(idCalzadoNew.getClass(), idCalzadoNew.getIdCalzado());
-                detalleCompra.setIdCalzado(idCalzadoNew);
-            }
             if (idCompraNew != null) {
                 idCompraNew = em.getReference(idCompraNew.getClass(), idCompraNew.getIdCompra());
                 detalleCompra.setIdCompra(idCompraNew);
             }
             detalleCompra = em.merge(detalleCompra);
-            if (idCalzadoOld != null && !idCalzadoOld.equals(idCalzadoNew)) {
-                idCalzadoOld.getDetalleCompraCollection().remove(detalleCompra);
-                idCalzadoOld = em.merge(idCalzadoOld);
-            }
-            if (idCalzadoNew != null && !idCalzadoNew.equals(idCalzadoOld)) {
-                idCalzadoNew.getDetalleCompraCollection().add(detalleCompra);
-                idCalzadoNew = em.merge(idCalzadoNew);
-            }
             if (idCompraOld != null && !idCompraOld.equals(idCompraNew)) {
                 idCompraOld.getDetalleCompraCollection().remove(detalleCompra);
                 idCompraOld = em.merge(idCompraOld);
@@ -127,11 +103,6 @@ public class DetalleCompraJpaController implements Serializable {
                 detalleCompra.getIdDetalle();
             } catch (EntityNotFoundException enfe) {
                 throw new NonexistentEntityException("The detalleCompra with id " + id + " no longer exists.", enfe);
-            }
-            Calzado idCalzado = detalleCompra.getIdCalzado();
-            if (idCalzado != null) {
-                idCalzado.getDetalleCompraCollection().remove(detalleCompra);
-                idCalzado = em.merge(idCalzado);
             }
             Compra idCompra = detalleCompra.getIdCompra();
             if (idCompra != null) {

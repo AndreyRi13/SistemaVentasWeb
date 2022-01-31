@@ -94,9 +94,7 @@ public class AdministrarCompra {
         return false;
     }
     
-    
-    
-    
+
 
    /**
     * Metodo para editar compra

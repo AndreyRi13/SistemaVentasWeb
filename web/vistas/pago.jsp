@@ -104,25 +104,25 @@
                                     Detalles de envío
                                 </h2>
                             </div>
-                            <div class="form-group">
-                                <input  id="fname" name="txtNombres" type="text" placeholder="Nombre completo" class="form-control" required>
+                          <div class="form-group">
+                                <input  id="fname" name="txtNombres" type="text" placeholder="Nombre completo" class="form-control" >
                             </div>
 
                             <div class="form-group">
-                                <input id="fname" name="txtUsername" type="text" placeholder="Pais" class="form-control" required>
+                                <input id="fname" name="txtUsername" type="text" placeholder="Pais" class="form-control" >
                             </div>
 
                             <div class="form-group">
-                                <input  id="fname" name="txtDireccion" type="text" placeholder="Ciudad" class="form-control" required>
+                                <input  id="fname" name="txtDireccion" type="text" placeholder="Ciudad" class="form-control" >
                             </div>
 
                             <div class="form-group">
-                                <input id="fname" name="txtCorreoElectronico" type="text" placeholder="Dirección" class="form-control" required>
+                                <input id="fname" name="txtCorreoElectronico" type="text" placeholder="Dirección" class="form-control" >
                             </div>
 
 
                             <div class="form-group">
-                                <input id="fname" name="txtCorreoElectronico" type="text" placeholder="Código postal" class="form-control" required>
+                                <input id="fname" name="txtCorreoElectronico" type="text" placeholder="Código postal" class="form-control" >
                             </div>
 
                         </div>
@@ -133,18 +133,18 @@
                                 <h2><i class="far fa-credit-card"></i> Información del pago</h2>
                             </div>
                             <div class="form-group">
-                                <input id="fname" name="txtNumeroCelular" type="text" placeholder="Credit Card No." class="form-control" required>
+                                <input id="fname" name="txtNumeroCelular" type="text" placeholder="Credit Card No." class="form-control" >
                             </div>
 
 
 
 
                             <div class="form-group">
-                                <input  id="fname" name="txtApellidos" type="text" placeholder="Exp" class="form-control" required>
+                                <input  id="fname" name="txtApellidos" type="text" placeholder="Exp" class="form-control" >
                             </div>
 
                             <div class="form-group">
-                                <input id="fname" name="txtPassword" type="text" placeholder="CCV" class="form-control" required>
+                                <input id="fname" name="txtPassword" type="text" placeholder="CCV" class="form-control" >
                             </div>
 
 

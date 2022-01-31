@@ -68,17 +68,10 @@ public class CalzadoDAO {
      * @return 
      */
     public boolean deleteCalzado(Integer idPro) {
-
-      
+     
         try {
-            try {
-                pro.destroy(idPro);
-                return true;
-            } catch (IllegalOrphanException ex) {
-                Logger.getLogger(CalzadoDAO.class.getName()).log(Level.SEVERE, null, ex);
-                return false;
-            }
-            
+            pro.destroy(idPro);
+            return true;   
         } catch (NonexistentEntityException ex) {
             Logger.getLogger(CalzadoDAO.class.getName()).log(Level.SEVERE, null, ex);
             return false;
