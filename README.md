@@ -72,10 +72,6 @@ Es necesario tener instalado un navegador web, recomendamos Descargar Google Chr
 
 ***
 
-***
-### Autor(es)
-Proyecto desarrollado por [Brayam Andrey Oliveros Rivera](<andreyrivera2018@gmail.com>).
-
    ***
 ### Referencias
 ###### Arquitectura Java Web Start para desplegar clientes de aplicaciones. (2021, 22 enero). ibm.https://www.ibm.com/docs/es/was/9.0.5?topic=start-java-web-architecture-deploying-application-clients
